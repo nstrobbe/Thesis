@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%
+% razor variables
+%%%%%%%%%%%%%%%%%%%
+
+% add full derivation
+% plots of signal and background
+
+Many extensions of the Standard Model (see chapter~\ref{chap:beyond_standard_model}) predict the 
+existence of new particles, which can be pair-produced in the proton-proton collisions at the LHC. 
+Some of those theories introduce an extra symmetry, such as the R-parity in supersymmetry. A
+consequence of this symmetry is that the lightest BSM particle must be stable, as it cannot decay
+to SM particles only. This lightest BSM particle, called LSP in supersymmetric theories, is weakly
+interacting, and escapes the detector unseen. 
+
+This general property leads us to a generic class of new physics signatures in which a heavy
+particle is pair-produced, and decays into visible, i.e. interacting with our detector, SM
+particles, and an invisible LSP. This signature is illustrated in figure~\ref{fig:razor_signature}.
+
+\begin{figure}[htpb]
+  \centering
+  %\includegraphics[width=0.5\textwidth]{} TODO add figure
+  \caption{Generic new physics signature. Two massive new particles are produced in $\Pp\Pp$
+collisions at the LHC, and consequently decay to a visible system and an invisible system. 
+\label{fig:razor_signature}}
+\end{figure}
+
+Several kinematical variables targetting this topology have been developed.
+% TODO add citations here
+Most of these variables rely on the presence of the invisible LSP's. This causes the visible system
+to deviate from a di-jet topology, resulting in possibly large missing transverse momentum, altered
+angular distributions, et cetera. All of this can be used to distinguish the sought-after signal
+from the known background processes. 
+Unfortunately, the ultimate goal of reconstructing the masses of the new particles cannot be
+attained. Because of the escaping LSP's, there is simply not enough information available to fully
+constrain the problem. What we can do, however, is approximate the mass scale of the new physics
+particles. Often times this results in variables that exhibit a kinematic edge. 
+The \textit{razor variables} \cite{rogan,Rogan:1557072} are no exception in this regard. One
+advantage the razor variables have over many other variables, is that they also reconstruct the
+mass scale as a peak, in addition to a kinematic edge. 
+In what follows I will derive the two razor variables, denoted \mr and \rsq, which use longitudinal
+and transverse event information, respectively, to estimate a characteristic mass scale associated
+with the new particles. At the end of this section I will briefly show how the razor variables are
+used in the razor boost analysis. 
+
+% explain reference frames
+
+\subsection{Kinematical configuration and notation \label{sec:razor_notation}}
+
+Let's again consider figure~\ref{fig:razor_signature}. For simplicity, we will assume that the
+produced particles $S_1$ and $S_2$ undergo a two-body decay. Each $S_i$ decays to a visible,
+standard model particle $Q_i$, and a particle $\chi_i$ that escapes the detector. 
+We assume a symmetric decay chain, with the following relations for the masses of the different
+particles,
+\begin{alignat}{3}
+  M_{S_1} &= M_{S_2} &&= M_S \label{eq:equal_S_masses}\\
+  M_{\chi_1} &= M_{\chi_2} &&= M_{\chi} \\
+  M_{Q_1} &= M_{Q_2} &&= 0
+\end{alignat}
+
+There are four relevant reference frames for our goal of determining a characteristic mass scale
+of the new physics process under consideration. The following paragraphs will go through each of
+these and define the notations that will be used, as well as deriving relations between several
+variables. 
+
+\paragraph{$S_1$ rest frame} 
+From basic two-body decay kinematics it follows that the $Q_1$ and $\chi_1$ particles are produced
+back to back, with equal magnitude of momentum $|\vec{P}^\Delta_1|$, in the rest frame of the $S_1$
+particle. This is illustrated in figure~\ref{fig:razor_S1_rest_frame}. 
+
+% TODO actually put the full derivation, starting from the lorentz vectors
+Working through the kinematics, we find that
+\begin{equation}
+  |\vec{P}^\Delta_1| = \frac{M_S^2 - M_\chi^2}{2M_S} \equiv \frac{M_\Delta}{2} ,
+\end{equation}
+where we have defined the characteristic scale $M_\Delta$. This scale is exactly the scale we are
+interested in. The goal of the razor variables is to express $M_\Delta$ using lab frame quantities
+only. To succeed in this effort, we will have to make several, physics-motivated, approximations.
+These will remove the unknown degrees of freedom, and are further explained in
+sections~\ref{sec:razor_mr} and \ref{sec:razor_r2}. 
+
+\begin{figure}[htpb]
+  \centering
+  %\includegraphics[width=0.6\textwidth]{×} % TODO make the figure
+  \caption{Configuration of the $S_1$ rest frame. The decay products $Q_1$ and $\chi_1$ are
+produced back to back with momenta $\vec{P}^\Delta_1$ and $-\vec{P}^\Delta_1$, respectively. 
+\label{fig:razor_S1_rest_frame}}
+\end{figure}
+
+\paragraph{$S_2$ rest frame}
+The discussion of the $S_2$ rest frame is fully analogous to that of the $S_1$ rest frame. We
+again find that
+\begin{equation}
+  |\vec{P}^\Delta_2| = \frac{M_S^2 - M_\chi^2}{2M_S} \equiv \frac{M_\Delta}{2} ,
+\end{equation}
+and thus
+\begin{equation}
+  |\vec{P}^\Delta_1| = |\vec{P}^\Delta_2| = \frac{M_\Delta}{2} .
+\end{equation}
+
+
+\paragraph{Center-of-mass frame}
+In the center-of-mass (CM) frame of the considered $\Pp\Pp$ collision events the particles $S_1$
+and $S_2$ are produced with equal and opposite velocities $\betaCM$, as
+illustrated in figure~\ref{fig:razor_CM_frame}. This is a consequence of
+Eq.~\ref{eq:equal_S_masses}. 
+
+\begin{figure}[htpb]
+  \centering
+  %\includegraphics[width=0.6\textwidth]{×} % TODO make the figure
+  \caption{Configuration of the center-of-mass frame. The particles $S_1$ and $S_2$ are
+produced back to back with velocities $\betaCM$ and $-\betaCM$, respectively. 
+\label{fig:razor_CM_frame}}
+\end{figure}
+
+\paragraph{Lab frame}
+
+
+\subsection{Derivation of \mr \label{sec:razor_mr}}
+
+\subsection{Derivation of \rsq \label{sec:razor_r2}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+% The razor variables \mr and \rsq \cite{rogan,Rogan:1557072} are useful for
+% describing a signal due to pair production of heavy particles, each of which
+% decays to a massless visible particle and a massive invisible particle. The signal will appear
+% as a peak on a smooth exponentially falling SM background.  
+% For this reason, the razor variables are robust discriminators for SUSY signals in which 
+% supersymmetric particles are pair-produced and subsequently decay to SM particles and the LSP.  
+% For the simple case in which the final state
+% comprises two visible particles, e.g. jets, the razor variables are defined using the momenta 
+% $\vec{p}_{{\rm j}_1}$ and $\vec{p}_{{\rm j}_2}$ of the two jets as
+% \begin{eqnarray}
+%  \label{eq:MRstar}
+%  \mathrm{M_R} & \equiv &
+%  \sqrt{
+%    (|\vec{p}_{{\rm j}_1}|+|\vec{p}_{{\rm j}_2}|)^2 -
+%    (p^{{\rm j}_1}_z+p^{{\rm j}_2}_z)^2}
+%  \; ,\\
+% %\end{eqnarray}
+% %\begin{eqnarray}
+%  \mathrm{M_T^{R}} & \equiv & \sqrt{ \frac{\ETm(p_T^{j1}+p_T^{j2}) -
+%       \VEtmiss {\mathbf \cdot}
+%       (\vec{p}_T^{\,j1}+\vec{p}_T^{\,j2})}{2}} \; ,
+% \end{eqnarray}
+% 
+% where \VEtmiss is the missing transverse momentum vector in the event and \ETm is its magnitude.
+% Given $\mathrm{M_R}$ and the transverse quantity $\mathrm{M^R_T}$, the razor dimensionless ratio is defined as
+% \begin{eqnarray}
+% \mathrm{R} \equiv \frac{\mathrm{M_T^R}}{\mathrm{M_R}}
+% \; .
+% \end{eqnarray}
+% When the decay chains are complicated and therefore give rise to multiple particles in the final state,
+% the razor variables can still be calculated by first reducing the final state to a two-``megajet'' structure.
+% The megajet algorithm aims to cluster SM particles coming from the same heavy supersymmetric particle.  The
+% razor variables \mr and \rsq are computed using the 4-momenta of the two megajets, where the megajet 4-momentum is the sum of the 4-momenta of the particles comprising  the megajet.  Studies show that of all possible clusterings the one that minimizes the sum of the invariant masses of the two megajets is the most efficient in assigning 
+% correctly the particles to their heavy supersymmetric particle ancestor~\cite{razorPRL}. 
+
