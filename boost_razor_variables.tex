@@ -53,8 +53,8 @@ We assume a symmetric decay chain, with the following relations for the masses o
 particles,
 \begin{alignat}{3}
   M_{S_1} &= M_{S_2} &&= M_S \label{eq:equal_S_masses}\\
-  M_{\chi_1} &= M_{\chi_2} &&= M_{\chi} \\
-  M_{Q_1} &= M_{Q_2} &&= 0
+  M_{\chi_1} &= M_{\chi_2} &&= M_{\chi} \label{eq:equal_chi_masses}\\
+  M_{Q_1} &= M_{Q_2} &&= 0 \label{eq:no_Q_masses}
 \end{alignat}
 
 There are four relevant reference frames for our goal of determining a characteristic mass scale
@@ -64,37 +64,90 @@ variables.
 
 \paragraph{$S_1$ rest frame} 
 From basic two-body decay kinematics it follows that the $Q_1$ and $\chi_1$ particles are produced
-back to back, with equal magnitude of momentum $|\vec{P}^\Delta_1|$, in the rest frame of the $S_1$
-particle. This is illustrated in figure~\ref{fig:razor_S1_rest_frame}. 
-
-% TODO actually put the full derivation, starting from the lorentz vectors
-Working through the kinematics, we find that
-\begin{equation}
-  |\vec{P}^\Delta_1| = \frac{M_S^2 - M_\chi^2}{2M_S} \equiv \frac{M_\Delta}{2} ,
-\end{equation}
-where we have defined the characteristic scale $M_\Delta$. This scale is exactly the scale we are
-interested in. The goal of the razor variables is to express $M_\Delta$ using lab frame quantities
-only. To succeed in this effort, we will have to make several, physics-motivated, approximations.
-These will remove the unknown degrees of freedom, and are further explained in
-sections~\ref{sec:razor_mr} and \ref{sec:razor_r2}. 
+back to back, with equal magnitude of momentum, in the rest frame of the $S_1$ particle. This is
+illustrated in figure~\ref{fig:razor_S1_rest_frame}. 
 
 \begin{figure}[htpb]
   \centering
   %\includegraphics[width=0.6\textwidth]{×} % TODO make the figure
   \caption{Configuration of the $S_1$ rest frame. The decay products $Q_1$ and $\chi_1$ are
-produced back to back with momenta $\vec{P}^\Delta_1$ and $-\vec{P}^\Delta_1$, respectively. 
+produced back to back with momenta $\vec{p}^S_1$ and $-\vec{p}^S_1$, respectively. 
 \label{fig:razor_S1_rest_frame}}
 \end{figure}
+
+We can compute the magnitude of this momentum in terms of the new particle masses. To do this we
+start from the four-vectors of the $Q_1$ and $\chi_1$ particles in the $S_1$ rest frame, 
+\begin{alignat}{6}
+  P[Q_1]    &\equiv q_1^S   &&= \{ E^S_{Q_1}, \vec{q}^S_1\} , \\
+  P[\chi_1] &\equiv \nu_1^S &&= \{ E^S_{\chi_1}, \vec{\nu}^S_1\} .
+\end{alignat}
+Conservation of energy in the $S_1$ rest frame leads to 
+\begin{equation}
+  E^S_{Q_1} + E^S_{\chi_1} = M_S . \label{eq:razor_conservation_energy}
+\end{equation}
+This can also be expressed as
+\begin{equation}
+  \sqrt{M_{Q_1}^2 + (\vec{q}^S_1)^2 } + \sqrt{M_{\chi_1}^2 + (\vec{\nu}^S_1)^2} = M_S .
+\end{equation}
+Using Eq.~\ref{eq:equal_chi_masses} and Eq.~\ref{eq:no_Q_masses} (massless $Q_1$), and the equal
+momenta $|\vec{q}^S_1| = |\vec{\nu}^S_1| = |\vec{p}^S_1|$, the above can be simplified as
+\begin{align}
+  |\vec{p}^S_1|   &= M_S - \sqrt{M_{\chi}^2 + (\vec{p}^S_1)^2} \\
+  (\vec{p}^S_1)^2 &= M_S^2 - 2 M_S \sqrt{M_{\chi}^2 + (\vec{p}^S_1)^2} + M_{\chi}^2 +
+(\vec{p}^S_1)^2 \\
+  2 M_S \sqrt{M_{\chi}^2 + (\vec{p}^S_1)^2} &= M_S^2 + M_{\chi}^2 \\
+  4 M_S^2 (\vec{p}^S_1)^2 &= (M_S^2)^2 + 2 M_S^2 M_{\chi}^2 + (M_{\chi}^2)^2 - 4 M_S^2
+M_{\chi}^2 \\
+  (\vec{p}^S_1)^2 &= \frac{(M_S^2 -M_{\chi}^2 )^2}{4 M_S^2} .
+\end{align}
+
+We thus find for the magnitude of the momentum of $Q_1$ and $\chi_1$ in the $S_1$ rest frame
+\begin{equation}
+  |\vec{p}^S_1| = \frac{M_S^2 -M_{\chi}^2}{2 M_S} \equiv \frac{M_\Delta}{2} ,
+\label{eq:razor_p_S1_rest_frame}
+\end{equation}
+where we have defined the characteristic scale $M_\Delta$. This scale is exactly the scale we are
+interested in. The goal of the \textbf{razor variables} is to \textbf{express $M_\Delta$ using lab
+frame quantities only}. To succeed in this effort, we will have to make several, physics-motivated,
+approximations. These will remove the unknown degrees of freedom, and are further explained in
+sections~\ref{sec:razor_mr} and \ref{sec:razor_r2}. 
+
+The energy of the $Q_1$ and $\chi_1$ particles can also be computed easily. 
+From the masslessness of $Q_1$, we immediately find using Eq.~\ref{eq:razor_p_S1_rest_frame}
+\begin{equation}
+  E^S_{Q_1} = |\vec{p}^S_1| = \frac{M_\Delta}{2}. \label{eq:razor_E_Q1}
+\end{equation}
+To compute $E^S_{\chi_1}$, we substitute Eq.~\ref{eq:razor_E_Q1} in 
+Eq.~\ref{eq:razor_conservation_energy}, and find 
+\begin{align}
+  E^S_{\chi_1} &= M_S - |\vec{p}^S_1|\\
+	       &= M_S - \frac{M_S^2 -M_{\chi}^2}{2 M_S} \\
+	       &= \frac{2M_S^2 - M_S^2 + M_{\chi}^2}{2 M_S} \\
+	       &= \frac{M_S^2 + M_{\chi}^2}{2 M_S} \\
+	       &= \frac{M_S^2 - M_{\chi}^2}{2 M_S} \frac{M_S^2 + M_{\chi}^2}{M_S^2 - M_{\chi}^2} .
+%               &= \frac{M_\Delta}{2} R_{S\chi}
+\end{align}
+
+We can summarize the four-momenta of $Q_1$ and $\chi_1$ in the $S_1$ rest frame as
+\begin{align}
+  q_1^S   &= \frac{M_\Delta}{2} \{ 1, \vec{u}_1\} , \\  
+  \nu_1^S &= \frac{M_\Delta}{2} \{ R_{S\chi}, -\vec{u}_1\} ,
+\end{align}
+with $$R_{S\chi} = \frac{M_S^2 + M_{\chi}^2}{M_S^2 - M_{\chi}^2},$$ and $\vec{u}_1$ the unit
+vector along the $Q_1$ momentum direction.
+
+
 
 \paragraph{$S_2$ rest frame}
 The discussion of the $S_2$ rest frame is fully analogous to that of the $S_1$ rest frame. We
 again find that
-\begin{equation}
-  |\vec{P}^\Delta_2| = \frac{M_S^2 - M_\chi^2}{2M_S} \equiv \frac{M_\Delta}{2} ,
-\end{equation}
+\begin{align}
+  q_2^S   &= \frac{M_\Delta}{2} \{ 1, \vec{u}_2\} , \\  
+  \nu_2^S &= \frac{M_\Delta}{2} \{ R_{S\chi}, -\vec{u}_2\} ,
+\end{align}
 and thus
 \begin{equation}
-  |\vec{P}^\Delta_1| = |\vec{P}^\Delta_2| = \frac{M_\Delta}{2} .
+  |\vec{p}^S_1| = |\vec{p}^S_2| = \frac{M_\Delta}{2} .
 \end{equation}
 
 
@@ -111,6 +164,24 @@ Eq.~\ref{eq:equal_S_masses}.
 produced back to back with velocities $\betaCM$ and $-\betaCM$, respectively. 
 \label{fig:razor_CM_frame}}
 \end{figure}
+
+The four-vectors of particles $S_1$ and $S_2$ in the center-of-mass frame are given by
+\begin{alignat}{6}
+  P[S_1] &\equiv s^{\textrm{CM}}_1  &&= \{ E^{\textrm{CM}}_{S_1} , \vec{s}^{\textrm{CM}}_{S_1}\} 
+&&= M_S \, \gamma^{\textrm{CM}} \, \{ 1 , \betaCM\} , \\ 
+  P[S_2] &\equiv s^{\textrm{CM}}_2 &&= \{ E^{\textrm{CM}}_{S_2} , \vec{s}\,^{\textrm{CM}}_{S_2}\}
+&&= M_S \, \gamma^{\textrm{CM}} \, \{ 1 , -\betaCM\}, \\ 
+\end{alignat}
+and satisfy the following
+\begin{equation}
+  (s^{\textrm{CM}}_1 + s^{\textrm{CM}}_1)^2 = \hat{s} = 4 (\gamma^{\textrm{CM}} M_S)^2,
+\end{equation}
+with $\sqrt{\hat{s}}$ the center-of-mass energy of the collision. 
+To go from the rest frame of $S_1$ ($S_2$) to the CM frame, we need to boost the four-momenta
+$q_1^S$ and $\nu_1^S$ ($q_2^S$ and $\nu_2^S$) to the frame travelling at velocity $\betaCM$
+($-\betaCM$) with respect to the $S_1$ rest frame. 
+
+
 
 \paragraph{Lab frame}
 
