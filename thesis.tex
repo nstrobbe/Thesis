@@ -1,9 +1,16 @@
 \documentclass[a4paper,11pt]{book}
 
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 \usepackage{xspace}
+\usepackage{graphicx}
 
 \usepackage[bindingoffset=1cm,margin=2.5cm]{geometry}
+
+\usepackage{cite}
+
+\usepackage[linktoc=all,
+            colorlinks=true,
+            linkcolor=black,citecolor=black,filecolor=black,urlcolor=black]{hyperref}
 
 % Title Page
 \title{\Huge My thesis}
@@ -15,13 +22,19 @@
 \newcommand{\W}{\ensuremath{W}}
 \newcommand{\Pp}{\ensuremath{{p}}}
 
+% units
+\newcommand{\GeV}{\ensuremath{\,\text{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\TeV}{\ensuremath{\,\text{Te\hspace{-.08em}V}}\xspace}
+
 % variables
 \newcommand{\mr}{\ensuremath{\mathrm{M_R}}\xspace}
+\newcommand{\mtr}{\ensuremath{\mathrm{M_T^R}}\xspace}
 \newcommand{\rsq}{\ensuremath{\mathrm{R^2}}\xspace}
 \newcommand{\betaCM}{\ensuremath{\vec{\beta}^{\textrm{CM}}}}
 
 \newcommand{\ETm}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
 \newcommand{\VEtmiss}{\ensuremath{{\vec E}_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
 
 \begin{document}
 \maketitle
@@ -50,7 +63,10 @@
 \input{razorboost.tex}
 
 % references
-\bibliographystyle{plain}
+\bibliographystyle{utphys}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{thesis}
 
 \listoffigures
