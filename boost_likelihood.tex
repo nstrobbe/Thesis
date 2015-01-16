@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%
+% Likelihood stuff
+%%%%%%%%%%%%%%%%%%%%%
+
+The statistical analysis of the observations,  $\{ N^S_i \}$, in the signal region is based on a
+likelihood function, $L(\sigma)$, given by
+\begin{align}
+  L(\sigma) & \equiv  \int   \left[ \prod_{i=1}^M p(N^S_i | \sigma, {\cal L}, \theta_i)  \right] 
+\pi(\theta) \, \pi({\cal L}) \, d\theta \, d{\cal L},
+\label{eq:marginal}
+\end{align}
+where $\sigma$ is the total signal cross section, $M = 25$ is the number of bins, $N^S_i$ the
+observed count in bin $i$, and the bin-by-bin parameters  $\epsilon$,  $b^S_{QCD}, b^S_{TTJ},
+b^S_{\W\ell\nu}$, and $b^S_{oth}$ are  denoted collectively by $\theta$. 
+The function $\pi({\cal L})$ is the integrated luminosity prior and $\pi(\theta)$ is an evidence
+based prior constructed from observations in the control regions and the four global scale factors
+$\kappa^{A/B}_{process}$ determined by simulated data. 
+The parameter $\epsilon$ represents the $M$ signal efficiencies (including acceptance) for a given
+signal model. Figure~\ref{fig:boost_flowchart} shows which control regions provide constraints on
+the background parameters, $b^S_{process}$.
+The likelihood per bin is taken to be
+\begin{equation}
+ p(N^S | \sigma, {\cal L}, \theta) = \textrm{Poisson}(N^S,  \epsilon \sigma {\cal L} + b^S_{QCD} +
+b^S_{TTJ} + b^S_{\W\ell\nu} +  b^{S}_{oth}) .
+\end{equation}
+
+The integral in Eq.~(\ref{eq:marginal}) is approximated by Monte Carlo integration by sampling
+ the priors $\pi({\cal L})$, and  $\pi(\theta)$. 
+The priors for the expected integrated luminosity, ${\cal L}$, signal efficiencies, $\epsilon$, and 
+simulated background counts, $b^{region}_{process, MC}$, are modelled with gamma densities,
+\begin{align}
+\textrm{gamma}(x, \gamma, \beta) &= \beta^{-1}(x/\beta)^{\gamma-1} \exp(-x / \beta) /
+\Gamma(\gamma),
+\label{eq:gamma}
+\end{align}
+in which the mode is set to $c$ and the variance to $\delta c^2$, 
+where $c \pm \delta c$ denotes either the measured integrated luminosity, or for a given bin of
+a given region and process, the simulated signal efficiency, or the simulated background count. This
+yields the gamma density parameters,
+\begin{align}
+   \gamma &= [(k + 2) + \sqrt{(k+2)^2 - 4}]/2,\\
+   \beta &= [\sqrt{c^2 + 4\delta c^2} - c]/2,
+\end{align}
+where $k = (c / \delta c)^2$.
+For empty bins, we set $\gamma = 1$ and the bin value is constrained to zero by setting the $\beta$
+parameter to $10^{-4}$.
+ 
+For the signal efficiencies and backgrounds, the prior is modelled hierarchically,
+\begin{align}
+  \pi(\theta) = \int \pi(\theta | c ) \, \pi(c | \phi ) \pi(\phi) \, dc d\phi,
+  \label{eq:prior}
+\end{align}
+where $c$ is a simulated count or efficiency in an $(\mr,  \rsq)$ bin and $\phi$ represents
+parameters that characterize the independent sources of systematic uncertainty, described in
+Section~\ref{sec:boost_systematics}. 
+The integral in Eq.~(\ref{eq:prior}) is evaluated as follows: $\phi$ values are sampled from
+$\pi(\phi)$, then $c$ values from $\pi(c | \phi)$, then $\theta$ values from $\pi(\theta | c)$. 
+The sampling from $\pi(\phi)$ and $\pi(\theta|c)$ is straightforward because the functional forms
+are known. However, the sampling of $c$ requires running the analysis multiple times.
+The independent sources of systematic uncertainty are sampled simultaneously, which produces an
+ensemble of sets of $(\mr, \rsq)$ histograms for the simulated backgrounds and efficiencies, for all
+signals under consideration, that automatically incorporate all statistical dependencies
+without the need to model them explicitly.  The ensemble of histograms is the output of the
+procedure described in Section~\ref{sec:boost_systematics}. Thereafter, the sampling proceeds as
+follows:
+\begin{enumerate}
+\item sample the integrated luminosity parameter;
+\item sample the efficiency parameters, $\epsilon$, for every signal model;
+\item sample the parameters $b^{region}_{process, MC}$ of the simulated background densities and sum
+their values over the $M$ bins;
+\item compute the $\kappa$ parameters from the appropriate background sums (for example,
+$\kappa^{Q/S}_{QCD} =  \sum_i  b^Q_{QCD, MC, i} / \sum b^S_{QCD, MC, i}$);
+\item scale each $\kappa$ value by a random Gaussian variate of unit mean and standard deviation
+of 0.33 to account for additional uncertainty in $\kappa$ due to deficiencies in the simulated
+ data, and 
+\item sample the background parameters $b^S_{QCD}$, $b^S_{TTJ}$, and $b^S_{\W\ell\nu}$, from the 
+Poisson models  of the control regions; for example, for region $Q$, we map  $\textrm{Poisson}(N^Q
+, \kappa^{Q / S} b^S_{QCD} + b^Q_{oth})$ to a posterior density in $b^S_{QCD}$ using a flat prior
+and sample $b^S_{QCD}$ from that density.
+\end{enumerate}
+
+In the absence of  a signal, we determine limits on the total signal cross section using the CLs
+criterion~\cite{LHCCLs} and the test statistic $t_\sigma = 2 \ln [ L(\hat{\sigma}) /  L(\sigma)]$
+when $0 \leq\hat{\sigma} \leq \sigma$, and $t_\sigma = 0$ when $\hat{\sigma} > \sigma$. 
+Large values of $t_\sigma$ indicate incompatibility between the best fit hypothesis $\sigma^\prime 
+= \hat{\sigma}$ and the entertained hypothesis $\sigma^\prime  = \sigma$. 
+We calculate  the p-values $p_0 = \textrm{Prob}(t_\sigma > t_{\sigma, obs} | \sigma^\prime = 0)$ 
+and $p_\sigma = \textrm{Prob}(t_\sigma > t_{\sigma, obs} | \sigma^\prime=\sigma)$, needed to
+calculate $\textrm{CLs}(\sigma) = p_\sigma / p_0$,  by simulation. 
+The quantity $t_{\sigma, obs}$ denotes the observed values of the test statistic, one for each
+hypothesis $\sigma^\prime=\sigma$.

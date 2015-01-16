@@ -24,6 +24,53 @@
 
 % Add subsection on each object with all the object definitions we use
 
+We select events with at least one interaction vertex, associated with at least 4 charged-particle
+tracks, that lies within 24~cm of the origin of the CMS coordinate system along the beam direction
+and 2~cm from the origin in the plane transverse to the beam. Owing to the high luminosity of the
+LHC, hard scattering events are typically accompanied by many additional events arising from the
+multiple proton-proton interactions that occur when the proton bunches cross.  The overlapping of
+events is referred to as pileup.  The primary vertex is identified as the vertex with the highest
+value of the $\sum \pt^2$ of the associated tracks.  Detector- and beam-related cleaning algorithms
+are used to remove events with detector noise that mimic events with high energy and large imbalance
+in transverse momentum.  
+
 \subsection{Particle Flow technique}
 
+CMS reconstructs events using the particle flow (PF) method~\cite{PF}, which reconstructs particles
+(PF candidates) by combining information from the inner tracker, the calorimeters, and the muon
+system.  Each PF candidate is a ssigned to one of five object categories: muons, electrons, photons,
+charged hadrons, and neutral hadrons.  Contamination from pileup events is reduced by discarding
+charged PF candidates that are incompatible with having originated from the primary
+vertex~\cite{CMS-PAS-JME-14-001}.   The average pileup energy due to neutral hadrons is computed
+event-by-event and subtracted from the energy when computing lepton isolation and jet energy.  The
+energy subtracted is  the average pileup energy per unit area (in $\Delta\eta \times \Delta\phi$)
+times the jet area~\cite{Fastjet1, Fastjet2}.
+
 \subsection{Object identification}
+
+Jets are clustered with \textsc{FastJet 3.0.1}~\cite{Cacciari:2011ma} using the anti-$k_\textrm{T}$
+algorithm~\cite{antikt} with size parameter $\Delta R=0.5$ (AK5).  Jet corrections are applied as a
+function of jet $\pt$ and $\eta$ to account for the residual effects of non-uniform detector
+response.  
+The  jet energies are corrected so that, on average, they match those of simulated particle-level
+jets. After correction, jets are required to have $\pt > 30$~\GeV and $|\eta| < 2.4$.  We use the
+combined secondary vertex algorithm~\cite{btag7TeV,btag8TeV} to identify jets arising from $\cPqb$
+quarks. The medium tagging condition, which yields a $\cPqb$  jet misidentification rate of
+$\sim$1\% and a typical efficiency of $\sim$70\%, is used to select $\cPqb$ jets. The loose tagging
+condition, with a misidentification rate of $\sim$10\% and efficiency of $\sim$85\%, is used to veto
+$\cPqb$ jets.  
+
+Missing transverse energy, which is used in the calculation of the razor variable $\mr$, is 
+defined to be the negative sum of the transverse momenta of all the particle flow objects in an
+event.  Loosely identified and isolated electrons with $\pt > 5$~\GeV and $|\eta| < 2.5$ and muons
+with $\pt > 5$\GeV and $|\eta| < 2.4$ are used both to suppress backgrounds in our signal region and
+in the definition of the control regions.  A tight definition of isolated leptons (electrons with
+$\pt > 10$~\GeV and $|\eta| < 2.5$ and muons with $\pt > 10$~\GeV and $|\eta| < 2.4$) defines a
+control region enriched in $\cPZ \rightarrow \ell \ell $ events, from which we estimate the
+systematic uncertainty in the predicted number of $\cPZ \rightarrow \nu \nu$ events in the signal
+region. Any electron candidates with $1.44 < |\eta| < 1.57$ are rejected since the transition region
+between barrel and endcap calorimeters is less well-instrumented.
+In order to suppress the decays of taus and other leptons that fail the loose selection, events that
+have isolated tracks with $\pt > 10$\GeV and track-primary vertex distance along the beam direction
+$dz < 0.05$ are rejected.
+

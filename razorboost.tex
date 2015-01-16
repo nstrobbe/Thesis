@@ -12,15 +12,11 @@ This chapter concludes, in section~\ref{sec:boost_interpretation}, with the inte
 
 \section{Motivation \label{sec:boost_motivation}}
 
-% put text from note and expand. 
-% use xkcd style plots
-% look at emails from Harrison and Maurizio
+\input{boost_motivation.tex}
 
 \section{General strategy \label{sec:boost_strategy}}
 
-% control regions, transfer factors
-% binning in razor variables
-% statistical treatment and systematic uncertainties
+\input{boost_strategy.tex}
 
 \section{Razor variables \label{sec:boost_razor}}
 
@@ -28,14 +24,20 @@ This chapter concludes, in section~\ref{sec:boost_interpretation}, with the inte
 
 \section[Boosted W boson tagging]{Boosted $\W$ boson tagging \label{sec:boost_wtag}}
 
+\input{boost_wtag.tex}
+
 % explain n-subjettiness and jet pruning
 % quote some plots and numbers from the JME PAS. 
 
 \section{Signal region selection \label{sec:boost_signal_selection}}
 
+\input{boost_signal_selection.tex}
+
 \section{Control region selection \label{sec:boost_control_selection}}
 
 \section{Statistical modelling \label{sec:boost_likelihood}}
+
+\input{boost_likelihood.tex}
 
 % appendix on likelihoods and CLs?
 
@@ -46,6 +48,106 @@ This chapter concludes, in section~\ref{sec:boost_interpretation}, with the inte
 
 \section{Results \label{sec:boost_results}}
 
+We present the results of the background prediction for each bin in the $(\mr,\rsq)$ plane in
+Fig.~\ref{fig:results_prediction} and Table~\ref{tab:results_prediction}. The results are presented
+as the mean and standard deviation as determined from the sampled prior $\pi(\theta)$
+described in Section~\ref{sec:boost_systematics}.  
+The observations are found to be in good agreement with the standard model prediction. Consequently,
+no evidence of a signal is observed. 
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin0}
+\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin1}
+
+\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin2}
+\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin3}
+
+\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin4}
+\caption{Results of the background prediction and comparison with data. Results are shown in bins of
+$\mr$ for each $\rsq$ strip. 
+The hatched band represents the total uncertainty on the background prediction. 
+Overlaid are two signal distributions corresponding to the T1ttcc model point with
+$m_{\tilde{g}} \,{=}\, 1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\,
+300\GeV$, and the T1t1t model point with $m_{\tilde{g}} \,{=}\, 800\GeV$, $m_{\tilde{t}}
+\,{=}\, 275\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 100\GeV$. 
+\label{fig:results_prediction}}
+\end{figure}
+
+\input{tables/bg_prediction.tex}
+
 \section{Interpretation in terms of simplified model spectra \label{sec:boost_interpretation}}
 
 % ref{sec:sms}
+
+
+We interpret our results in terms of the SMS processes {\it T1ttcc} and {\it T1t1t} shown in
+Fig.~\ref{fig:T1ttcc_T1t1t_diagrams}. These models have three free mass parameters: the gluino, 
+top squark and LSP mass. We will vary the gluino mass between 600 and 1300\GeV, and the LSP 
+mass between 1 and 700\GeV. The mass difference between top squark and LSP, $\Delta m$, is kept
+fixed at 10, 25 or 80\GeV for the T1ttcc model, and at 175\GeV for the T1t1t model. 
+
+To get a sense of the expected signal sensitivity, we show the signal efficiencies for the T1ttcc
+and T1t1t simplified models in Fig.~\ref{fig:eff_T1ttcc_T1t1t}. 
+Efficiencies of up to 6\% in the most highly boosted regimes  are reached. 
+For the T1ttcc model a drop in efficiency is observed for the strip with lowest neutralino
+mass ($m_{\chi_1^0} = 1\GeV$), which can be explained by Lorentz boosts. For LSP masses higher than
+the mass of the charm quark, the LSP will assume most of the momentum.  For the strip with the
+lowest LSP mass, however, the LSP and the charm quark have about equal mass, so that after the boost
+they will share the momentum about equally.  This results in a softer \ETm spectrum and therefore a
+lower $\rsq$ value, which reduces the efficiency substantially.
+
+% TODO Add full explanation from the note on the drop in efficiency 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/efficiency_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
+~
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/efficiency_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} 
+
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/efficiency_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} 
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/efficiency_T1t1t_g1Mbg1W0Ll_mdPhig0p5} 
+\caption{Signal region efficiency for the T1ttcc and T1t1t simplified models. Three mass splittings
+between top squark and LSP are considered for the T1ttcc model: 10, 25 and 80 \GeV, shown on the top
+left, top right, and bottom left, respectively. The T1t1t model is shown on the bottom right plot. 
+ \label{fig:eff_T1ttcc_T1t1t}}
+\end{figure}
+
+Figure~\ref{fig:boost_limits} shows the observed and expected limit using the CLs method for the
+T1ttcc model with $\Delta m=10,25,80$\GeV and for the T1t1t model. This analysis has
+made significant inroads into the parameter space of the T1ttcc model. 
+Gluinos with mass up to about 1\TeV have been excluded for neutralinos with mass less than about
+500\GeV, when the top squark decays to a charm and a neutralino and $\Delta m < 80\GeV$. This also
+means that top squarks with masses up to about 500\GeV have been excluded for small mass
+differences with the LSP, given the existence of a gluino with mass less than about 1\TeV. 
+Similarly, for the T1t1t model, top squarks with a mass up to about 450\GeV have been excluded
+for the scenarios with $\Delta m = 175\GeV$ and gluino mass less than 900\GeV.
+Coming back to our cartoon from the introduction in Section~\ref{sec:boost_motivation}, we have now
+filled in several of the gaps. This is illustrated in Fig.~\ref{fig:boost_story_final}. 
+
+
+% TODO Explain CLs method somewhere
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1ttcc_DM10_XSEC}
+\includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1ttcc_DM25_XSEC}
+
+\includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1ttcc_DM80_XSEC}
+\includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1t1t_XSEC}
+\caption{Observed and expected limit using CLs for the T1ttcc $\Delta m=10,25,80$~\GeV and T1t1t
+models (top left, top right, bottom left and bottom right, respectively). 
+\label{fig:boost_limits}}
+\end{figure}
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/razor_interpretation/story_boost}
+  \caption{
+  \label{fig:boost_story_final}}
+\end{figure}
