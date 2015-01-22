@@ -90,14 +90,6 @@ with size parameter $R=0.7$. Simulations show that the corrections are valid for
 have an additional uncertainty no greater than 2\%.  
 % TODO find reference for this (some CMS study..)
 
-%We require the CA8 jet mass to lie within the $\W$ boson mass range $70 < m_{jet} < 100$~\GeV
-%and call such jets ``mass-tagged" ($Y$).  
-
-%Subjets are obtained by
-% undoing or reversing the last step of the clustering algorithm.  
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Jet pruning}
@@ -254,26 +246,20 @@ Unpruned & $\tau_2 / \tau_1 < 0.5$ & $\tau_2 / \tau_1 \geq 0.5$ & -\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Data/MC scale factors for these definitions are also needed. They are not provided centrally, so we
-%derived them ourselves. For more details we refer to section~\ref{sec:wtag_scale_factor}. In that
-%section we also show how we derive a FullSim/FastSim scale factor and a scale factor for the W-tag
-%fake rate. 
-
-
 \subsection{\texorpdfstring{$\W$}{W} tagging scale factors \label{sec:wtag_scale_factor}}
 
 It has been observed by previous CMS analyses that the $\W$ tagging efficiency is not the same in
 data and in simulation. An example of this is shown on Fig.~\ref{fig:boost_wtag_data_sim}. 
-To account for these discrepancies, we need to derive data/MC scale factors corresponding to each
-of the $\W$ tagging, $\W$ mass-tagging and $\W$ anti-tagging definitions listed in
-Table~\ref{tab:Wtag_definition}. These scale factors are not process-independent. They will be
-different for processes that include hadronically decaying $\W$ bosons, such as $t\bar{t}$ or the
-signal, compared to processes which do not have $\W$ bosons in their final state, such as QCD
-multijet. For processes that do not have real hadronically decaying $\W$ bosons, any tagged jet is
-necessarily a misidentified, or \textit{fake}, $\W$ boson tag. For those processes we will speak of
-the $\W$ boson tagging fake rate scale factors, where the fake rate is defined as the probability to
-tag, with one of the used W tagging definitions, a jet not coming from a hadronically decaying $\W$
-boson. 
+To account for these discrepancies, we need to derive data/MC scale factors and associated
+uncertainties corresponding to each of the $\W$ tagging, $\W$ mass-tagging and $\W$ anti-tagging
+definitions listed in Table~\ref{tab:Wtag_definition}. These scale factors are not
+process-independent. They will be different for processes that include hadronically decaying $\W$
+bosons, such as $t\bar{t}$ or the signal, compared to processes which do not have $\W$ bosons in
+their final state, such as QCD multijet. For processes that do not have real hadronically decaying
+$\W$ bosons, any tagged jet is necessarily a misidentified, or \textit{fake}, $\W$ boson tag. For
+those processes we will speak of the $\W$ boson tagging fake rate scale factors, where the fake rate
+is defined as the probability to tag, with one of the used W tagging definitions, a jet not coming
+from a hadronically decaying $\W$ boson. 
 One last consideration concerns the signal simulation. As the signal is simulated with FastSim, we
 need an additional scale factor between FastSim and FullSim. 
 In the following subsections every scale factor will be listed in more detail, including how it was
@@ -283,7 +269,7 @@ derived and how it will be used in the analysis.
   \centering
   \includegraphics[width=0.48\textwidth]{figures/razor_wtag/substructure_pas_mass_2}
   \includegraphics[width=0.48\textwidth]{figures/razor_wtag/substructure_pas_tau21_aftermass_2}
-  \caption{
+  \caption{ % TODO fill out caption
   \label{fig:boost_wtag_data_sim}}  
 \end{figure}
 
@@ -348,19 +334,18 @@ SF_{\textrm{Full/Fast}}(\pt) =
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson tag fake rate scale factor \label{sec:wtag_fake_sf}}
 
-%To derive the scale factors for the $\W$ boson mass tag fake rate, the $\W$ boson anti-tag fake
-%rate, and the $\W$ boson tag fake rate, we use a multijet-enriched control region, defined with the
-%following selection:
 The $\W$ boson tag fake rate scale factor is meant to correct processes that do not have
-hadronically decaying $\W$ bosons in their final state. To derive the scale factor we will thus need
-to obtain a sample of events containing misidentified $\W$ boson jets. 
-We will use a multijet-enriched control region, defined with the following selection:
+hadronically decaying $\W$ bosons in their final state. As the fake rate depends on the composition
+of the sample, this scale factor has to be derived for each analysis separately. 
+We will thus need to obtain a sample of events containing misidentified $\W$ boson jets to derive a
+dedicated scale factor for the razor boost analysis. A multijet-enriched control region is defined,
+using the following selection:
 \begin{itemize}
-\item no leptons
-\item no $\cPqb$ tagged jets
-\item at least 3 AK5 jets
-\item at least one AK5 jet with $\pt>200$\GeV
-\item $\Delta\phi_{min} < 0.3$
+\item no loose leptons, 
+\item no $\cPqb$ tagged (CSVL) jets,
+\item at least 3 AK5 jets,
+\item at least one AK5 jet with $\pt>200$\GeV,
+\item $\Delta\phi_{min} < 0.3$.
 %TODO define deltaphimin somewhere
 \end{itemize}
 This selection is similar to the baseline selection employed in the rest of the analysis. The
@@ -368,104 +353,103 @@ kinematic regime, and the composition of the sample will thus also be similar.
 
 To obtain the fake rates $\epsilon$ for $\W$ boson tagging we use the leading CA8 jet in each
 event, and check whether it is tagged by the $\W$ boson tagger. After obtaining the
-fake rates in both data and simulation, we compute the scale factor as,
+fake rates in both data and simulation, we compute the scale factor as their ratio,
 \begin{equation}
-SF_\textrm{Wtag,fake}(\pt) =
+SF_\textrm{Wtag}^\textrm{fake}(\pt) =
 \frac{\epsilon^{\textrm{data}}(\pt)}{\epsilon^{\textrm{simulation}}(\pt)}.
-\end{equation}  
-
+\end{equation} 
 In the calculation of the uncertainties on this scale factor we include the statistical uncertainty,
 as well as the trigger efficiency and jet energy scale uncertainties. 
 
-This SF is applied in the $S$ and $T$ region,
-to all simulated samples without real hadronically decaying W bosons (e.g. multijet,
-$W\rightarrow\ell\nu$+jets, ...).
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_Data}
+%\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_MC}
+
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/SF_Wfake_Thesis}
+\caption{[top] Misidentification probability according to $\W$ tagging for a CA8 jet versus
+jet \pt obtained from a multijet-enriched control region as described in the text. On the left
+we show the fake rate in data, while on the right we show the fake rate in simulation. The shown
+uncertainties are statistical only.
+[bottom] Scale factor for $\W$ tag fake rate versus CA8 jet \pt obtained from a
+multijet-enriched control region as described in the text. The uncertainty band includes
+statistical and systematic uncertainties.
+\label{fig:boost_wfake}}
+\end{figure}
+
+The $\W$ boson tag fake rate scale factor is applied in the $S$ and $T$ region, as is the case for
+the $\W$ boson tag efficiency scale factor. It is applied to all simulated samples without real
+hadronically decaying $\W$ bosons, such as multijet production, $W\rightarrow\ell\nu$+jets,
+$DY\rightarrow\ell\ell$+jets, et cetera. 
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson mass-tag fake rate scale factor
 \label{sec:wmasstag_fake_sf}}
-This SF corresponds to the $\W$ tag
-definition as used in the $W$ region, i.e. mass-tagging, and is thus only applied to the simulated
-samples in the $W$ region. 
-The $W$ region is dominated by leptonically decaying $\W$ bosons. The mass-tagged jet, therefore,
-originates from a q/g jet, which is the reason for deriving this SF in a multijet-enriched
-region. 
+
+This scale factor corresponds to the $\W$ mass-tagging definition, which will be used in the $W$
+control region. As we will see further, the $W$ region is dominated by leptonically decaying $\W$
+bosons. The mass-tagged jet, therefore, originates from a quark or gluon jet, and is a
+misidentified $\W$ boson jet. For this reason we will derive the scale factor for the $\W$ boson
+mass-tag fake rate from the same multijet-enriched region as was used to derive the scale factor for
+the $\W$ boson tag fake rate. The same method as before is applied, the only difference being
+the use of the $\W$ mass-tag definition instead of the $\W$ tag definition. 
+
+The resulting scale factor, $SF_\textrm{Wmasstag}^\textrm{fake}$, is again a function of the CA8
+jet \pt, and will be applied to all simulated samples in the $W$ region.
+Figure~\ref{fig:boost_wmasstag} shows the $\W$ boson mass-tag fake rate in data and
+simulation, and the corresponding scale factor versus CA8 jet \pt.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_Data}
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_MC}
+
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/SF_Wmass_Thesis}
+\caption{[top] Misidentification probability according to $\W$ mass-tagging for a CA8 jet versus
+jet \pt obtained from a multijet-enriched control region as described in the text. On the left
+we show the fake rate in data, while on the right we show the fake rate in simulation. The shown
+uncertainties are statistical only.
+[bottom] Scale factor for $\W$ mass-tag fake rate versus CA8 jet \pt obtained from a
+multijet-enriched control region as described in the text. The uncertainty band includes
+statistical and systematic uncertainties.
+\label{fig:boost_wmasstag}}
+\end{figure}
+
 \subsubsection{\texorpdfstring{$\W$}{W} boson anti-tag fake rate scale factor
 \label{sec:wantitag_fake_sf}}
 
-This SF corresponds to the $\W$ tag
-definition as used in the $Q$ region, i.e. anti-tagging. It is applied to the simulated samples in
-the $Q$ region.
+This scale factor corresponds to the $\W$ anti-tagging definition, which will be used in the $Q$
+control region. This region is dominated by QCD multijet production. Consequently, the $\W$
+anti-tagged jet originates from a quark/gluon jet and is a misidentified $\W$. We again use the
+same procedure and the multijet-enriched region as defined in Section~\ref{sec:wtag_fake_sf}. 
+
+The $\W$ boson anti-tag fake rate scale factor, $SF_\textrm{Wantitag}^\textrm{fake}$, will be
+applied to all simulated samples in the $Q$ region. 
+Figure~\ref{fig:boost_wantitag} shows the $\W$ boson anti-tag fake rate in data and
+simulation, and the corresponding scale factor versus CA8 jet \pt.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_antitagged_all_Data}
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_antitagged_all_MC}
+
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/SF_Wantitagged_Thesis}
+\caption{[top] Misidentification probability according to $\W$ anti-tagging for a CA8 jet versus jet
+\pt obtained from a multijet-enriched control region as described in the text. On the left we show
+the fake rate in data, while on the right we show the fake rate in simulation. The shown
+uncertainties are statistical only.
+[bottom] Scale factor for $\W$ anti-tag fake rate versus CA8 jet \pt obtained from a
+multijet-enriched control region as described in the text. The uncertainty band includes
+statistical and systematic uncertainties.
+\label{fig:boost_wantitag}}
+\end{figure}
+
 
 % TODO explain the wiggle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% 
-% \subsection[W tag scale factors]{$\PW$ tag scale factors \label{sec:Wtag_SF}}
-% 
-% It has been observed by several analyses that the $\PW$ tagging efficiency is not the same in data
-% and simulation. 
-% In order to account for this, a scale factor with corresponding uncertainty is applied to the
-% simulated events. 
-% As we use the official $\PW$ tagger, we can immediately use the already approved scale factor of
-% $0.86 \pm 0.07$~\cite{EXO-12-024}. 
-% 
-% Details on the derivation of data/simulation scale factors for the $\PW$ mass-tag and $\PW$ anti-tag
-% fake rate, as well as on the fake rate and FullSim/FastSim SF associated with the full $\PW$ tagger,
-% are giving in the next subsections. 
 
-% \subsubsection{Scale factors for only mass-tagged and anti-tagged $\PW$s}
-% 
-% We use mass-tagged $\PW$s ($Y$s) and anti-tagged $\PW$s while defining our $W$ and $Q$ control
-% regions.  
-% These regions are dominated by processes that do not have real hadronically decaying $\PW$ bosons.
-% All CA8 jets that pass the $Y$ or $aW$ selection imposed in these regions, are thus in fact
-% $\cPq/\cPg$-jets that are misidentified, or \textit{fake}. Therefore, we will use a multijet
-% enriched control region to derive scale factors and uncertainties corresponding to the $Y$ and $aW$
-% tagger definitions.
-% 
-% The control region is defined with the following selection:
-% \begin{itemize}
-% \item 0 loose leptons
-% \item 0 CSVL btagged jets
-% \item $\geq 3$ AK5 jets
-% \item $p_T($jet1$)>200$GeV
-% \item no $M_R$, $R^2$ cuts
-% \item $\Delta\phi_{min} < 0.3$
-% \end{itemize}
-% This selection is purpusefully as close as possible to the selection we make in our analysis.
-% We obtain the mass-tagged $\PW$ and anti-tagged $\PW$ fake rate using the leading CA8 jet in each
-% event.  
-% After obtaining the probability of $\PW$ mass-tagging or anti-tagging the $\cPq/\cPg$ jets in this
-% control region for both data and MC, we obtain the scale factor from the ratio of data to MC fake
-% rates.  Figure~\ref{fig:YaWeff} shows the $\PW$ mass- and anti-tagging fake rate in data and
-% simulation. Figure~\ref{fig:YaWSF} shows the scale factors versus CA8 jet \pt for mass-tagged and
-% anti-tagged $\PW$s.
-% 
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/Wtag_eff_ratio_pt_Wmass_all_Data}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/Wtag_eff_ratio_pt_Wmass_all_MC}
-% 
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/Wtag_eff_ratio_pt_antitagged_all_Data}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/Wtag_eff_ratio_pt_antitagged_all_MC}
-% \caption{Misidentification probability for only mass-tagged $\PW$s (top) and anti-tagged $\PW$s
-% (bottom) versus CA8 jet \pt obtained from a QCD control region as described in the text. On the left
-% we show the fake rate in data, while on the right we show the fake rate in simulation. Uncertainties
-% are statistical only.
-% \label{fig:YaWeff}}
-% \end{figure}
-% 
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/Wtag_SF_SF_Wmass_pt}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/Wtag_SF_SF_antitagged_pt}
-% \caption{Scale factors for the fake rate for mass-tagged $\PW$s (left) and anti-tagged $\PW$s
-% (right) versus CA8 jet \pt obtained from a QCD control region as described in the text.
-% Uncertainties are statistical only.
-% \label{fig:YaWSF}}
-% \end{figure}
 % 
 % As we can see from these figures, there is a drop in the scale factor around a \pt of 300\GeV. 
 % This is a result of a residual mismodeling of the trigger efficiency, as is explained in more detail
