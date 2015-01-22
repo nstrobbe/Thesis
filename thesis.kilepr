@@ -218,12 +218,12 @@ order=-1
 
 [item:boost_razor_variables.tex]
 archive=true
-column=17
+column=84
 encoding=UTF-8
 highlight=LaTeX
-line=18
+line=28
 mode=LaTeX
-open=true
+open=false
 order=4
 
 [item:boost_signal_selection.tex]
@@ -238,12 +238,12 @@ order=-1
 
 [item:boost_strategy.tex]
 archive=true
-column=21
+column=25
 encoding=UTF-8
 highlight=LaTeX
-line=28
+line=17
 mode=LaTeX
-open=true
+open=false
 order=3
 
 [item:boost_wtag.tex]
@@ -251,10 +251,10 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=250
 mode=LaTeX
-open=false
-order=-1
+open=true
+order=3
 
 [item:cms.tex]
 archive=true
@@ -268,13 +268,13 @@ order=-1
 
 [item:event_generation.tex]
 archive=true
-column=0
+column=43
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=76
 mode=LaTeX
-open=false
-order=-1
+open=true
+order=4
 
 [item:lhc.tex]
 archive=true
@@ -288,10 +288,10 @@ order=-1
 
 [item:razorboost.tex]
 archive=true
-column=33
+column=15
 encoding=UTF-8
 highlight=LaTeX
-line=12
+line=62
 mode=LaTeX
 open=true
 order=2
@@ -318,10 +318,10 @@ order=-1
 
 [item:thesis.bib]
 archive=true
-column=0
+column=1
 encoding=UTF-8
 highlight=BibTeX
-line=326
+line=624
 mode=BibTeX
 open=true
 order=1
@@ -338,10 +338,10 @@ order=-1
 
 [item:thesis.tex]
 archive=true
-column=11
+column=20
 encoding=UTF-8
 highlight=LaTeX
-line=22
+line=7
 mode=LaTeX
 open=true
 order=0
@@ -371,8 +371,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_razor_variables.tex]
-CursorColumn=17
-CursorLine=18
+CursorColumn=84
+CursorLine=28
 JumpList=
 ViMarks=
 
@@ -383,14 +383,14 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_strategy.tex]
-CursorColumn=21
-CursorLine=28
+CursorColumn=25
+CursorLine=17
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_wtag.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=250
 JumpList=
 ViMarks=
 
@@ -401,8 +401,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:event_generation.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=43
+CursorLine=76
 JumpList=
 ViMarks=
 
@@ -413,8 +413,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:razorboost.tex]
-CursorColumn=33
-CursorLine=12
+CursorColumn=15
+CursorLine=62
 JumpList=
 ViMarks=
 
@@ -431,13 +431,13 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.bib]
-CursorColumn=0
-CursorLine=326
+CursorColumn=1
+CursorLine=624
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.tex]
-CursorColumn=11
-CursorLine=22
+CursorColumn=20
+CursorLine=7
 JumpList=
 ViMarks=
