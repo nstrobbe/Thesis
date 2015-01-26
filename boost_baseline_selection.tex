@@ -1,0 +1,211 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Baseline selection
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 
+% We conduct a search for deviations from the SM in the high $M_R$-high $R^2$ region 
+% using hadronic events with at least one boosted $\PW$ boson and one $b$ jet.  Standard model
+% backgrounds in this signal region are estimated using observations in control regions and scale
+% factors, calculated from simulated data, that relate the number of events in one region to that in
+% another. 
+% Three control regions, $Q$, $W$, and $T$, select high-purity samples of multijet, $\PW(\rightarrow
+% \ell\nu)+$jets and $t\bar{t}$ processes, respectively.  An overview of these regions and how they
+% are related, including for the control regions which background parameters each region constrains is
+% shown in Fig.~\ref{fig:BoostWorkflow}. Details of the background estimation method are given in
+% Section~\ref{sec:likelihood}. 
+% 
+% \begin{figure}[htpb]
+% \centering
+% \includegraphics[width=\textwidth]{figures/BoostFlowChart_noZ}
+% \caption{Definition of, and relationship between, 
+% the signal ($S$) and control ($Q,T,W$) regions and their relationship
+% to the bin-by-bin  background parameters $b^{region}_{process}$ for a given region and background
+% process, as well as the
+% four global scale factors $\kappa^{A/B}_{process} = \sum_i b^A_{process, MC, i} / \sum_i
+% b^B_{process, MC, i}$, where the sum is over all bins of the simulated data. 
+% The total expected background, per bin, is the sum of the terms shown for each region. Furthermore,
+% associated with each bin
+% of each region is an observed count, $N^{region}$, simulated count, $N^{region}_{process, MC}$, and 
+% a count $N^{region}_{oth, MC}$ equal to the sum of the smaller backgrounds, with associated
+% parameter $b^{region}_{oth}$.
+% \label{fig:BoostWorkflow}}
+% \end{figure}
+
+The baseline selection for the Razor Boost analysis is driven by the two components of its name, in
+addition to requiring the event to be of good quality.
+As we use the razor variables, we need to be able to compute them. This means that there should be
+at least two jets in the final state. The megajets from which the razor variables are computed, are
+constructed from the AK5 jets.  
+After sensitivity studies, it was decided to raise the requirement on the jet multiplicity from two
+to three, reducing the background, while maintaining very good signal efficiency. The signal
+processes that are the main focus of this analysis usually have even more reconstructed jets. In
+order to remain as inclusive as possible, we did not, however, raise this threshold further.
+%Figure~\ref{fig:njets_sig_BG} shows the distribution of the number of jets in the signal region. 
+The minimal requirements on the razor variables themselves are $\mr > 800\GeV$ and $\rsq > 0.08$.
+This selection is complementary to that of previous razor analyses. By requiring a larger
+minimal \mr, consistent with the boosted scenario, we can explore the low \rsq region, which is
+important for signals with more compressed mass spectra.
+Access to the boosted phase space is also provided by making the requirement that at least one AK5
+jet satisfies $\pt > 200\GeV$. 
+
+In summary, events are required to satisfy the following baseline selection:
+\begin{enumerate}
+ \item Satisfy all cleanup filters, as listed in Section~\ref{event_cleaning}
+ \item Have at least one good primary vertex
+ \item Have at least three selected AK5 jets of which at least one has  $\pt > 200$\GeV, thereby
+ defining the boosted phase space
+ \item $\mr > 800\GeV$ and $\rsq > 0.08$ (where the megajets are constructed from the selected AK5
+jets)
+\end{enumerate}
+In addition to these requirements, we also impose the trigger conditions. 
+For data events, we require that one of the triggers listed in table~\ref{tab:boost_triggers} was
+fired. 
+For simulated events, we apply an event-by-event trigger efficiency, as explained in
+Section~\ref{sec:boost_data_trigger}. 
+
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.55\textwidth]{figures/njets_sig_BG}
+ \caption{Distribution of the number of jets for total background and an example signal point
+(T1ttcc, mgluino=1000GeV, mstop=325GeV, mLSP=300GeV), in the signal region. All cuts except for the
+cut on the jet multiplicity were applied. The samples have been normalized to unit area.
+ \label{fig:njets_sig_BG}}
+\end{figure}
+
+% The signal and control regions are defined by different requirements on the 
+% multiplicity of leptons, and $\cPqb$-tagged and $\PW$-tagged jets.  Since
+% missing transverse energy,  \ETm, in multijet events is largely due to jet mismeasurements, rather
+% than
+% the escape of weakly interacting particles,  the \ETm vector  will often be aligned with one of the
+% jets.  
+% Therefore, a good discriminant between multijet events and events with
+% real \ETm  is $\Delta\phi_{min}$, the minimum of the angles between \VEtmiss and the transverse
+% momentum of the leading three jets,
+% \begin{equation}
+%  \Delta\phi_{min} = \min{\Delta\phi(\VEtmiss, \pt_i)},
+% \end{equation}
+% where $i$ runs over the three AK5 jets. 
+% In the $T$ and $W$ control regions, the transverse mass, $m_T$, computed from the lepton 
+% transverse momentum and \VEtmiss, 
+% \begin{equation}
+%  m_T = \sqrt{2\pt^\ell\ETm ( 1 - \cos\Delta\phi )},
+% \end{equation}
+% with $\Delta\phi$ the difference in azimuthal angle between lepton and \VEtmiss, is also used to
+% suppress multijet and possible signal contamination.  The distribution of $m_T$ exhibits a kinematic
+% edge at the mass of the $\PW$ boson for $t\bar{t}$ and $\PW+$jets processes, an edge not present for
+% signal events due to
+% the extra contribution to the \ETm from the invisible neutralinos.  For the $T$ and $W$ regions, we
+% require $m_T < 100$\GeV in order to reduce signal contamination, and for the $W$ region, we
+% additionally require $m_T > 30$\GeV in order to reduce contamination from multijet events.   
+% 
+% The full details of the event selection are given in Table~\ref{tab:selection}.  
+% Note that, to mimic the $W+$jets contamination in the $S$ region, events in the $W$ region have a
+% lepton coming from the $\PW$ boson, and a mass-tagged boosted $\PW$ jet, which is a misidentified
+% q/g initiated jet.
+% Figure~\ref{fig:DataMC} shows the simulated distributions in the signal region for the
+% $\mathrm{M_R}$ and $\mathrm{R^2}$ variables. 
+% The $m_T$ distribution in the $T$ and $W$ regions prior to the $m_T$ and $\Delta\phi_{min}$
+% selection is shown in Fig.~\ref{fig:mT}, while Fig.~\ref{fig:deltaphi} shows the $\Delta\phi_{min}$
+% distribution in the $Q$ region. 
+% Overall, there is a reasonable agreement between data and MC yields.  The mild discrepancies can be
+% accommodated by the systematic uncertainties on the MC, and they will not affect our analysis.
+% 
+% \begin{table}[thbp]
+% \centering
+% \caption{Summary of selection for signal and control regions. \label{tab:selection}}
+% \vspace{1ex}
+% \begin{tabular}{lccccc}
+% \hline \hline
+% Selection & $S$ region & $S'$ region & $Q$ region & $T$ region & $W$ region \\ 
+% \hline \hline
+% number of $\cPqb$ jets        & ${\geq}\, 1$   & ${\geq}\, 1$   & 0        & ${\geq}\, 1$      & 0
+% \\
+% number of mass-tagged $\PW$'s & ${\geq}\, 1$   & ${\geq}\, 1$   & ${\geq}\, 1$ & ${\geq}\, 1$      &
+% ${\geq}\, 1$ \\
+% number of tagged $\PW$'s      & ${\geq}\, 1$   & ${\geq}\, 1$   & -        & ${\geq}\, 1$      & -
+% \\
+% number of anti-tagged $\PW$'s & -          & -          & ${\geq}\, 1$ & -             & - \\
+% number of loose leptons       & 0          & 0          & 0        & 1             & 1 \\
+% number isolated tracks        & 0          & 0          & 0        & -             & - \\
+% $m_T$                         & -          & -          & -        & ${<}\,100$ \GeV   &
+% 30--100\GeV\\
+% $\Delta\phi_{min}$            & ${>}\, 0.5$    & ${<}\, 0.5$    & ${<}\, 0.3$  & ${>}\, 0.5$       &
+% ${>}\, 0.5$\\
+% \hline
+% \end{tabular}
+% \end{table}
+% 
+% 
+% \begin{figure}[htbp]
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W0Ll_mdPhig0p5_width_nodata}
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W0Ll_mdPhig0p5_width_nodata}
+% \caption{Simulated $\mathrm{M_R}$ (left) and $\mathrm{R^2}$ (right) distributions in the signal
+% region. An example signal point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}}
+% \,{=}\, 1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is
+% stacked on top of the background processes. The bin entries are normalized proportional to the bin
+% width.  
+% \label{fig:DataMC}}
+% \end{figure}
+% 
+% \begin{figure}[htbp]
+% \centering
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_mT_g1Mbg1W1Ll_rebin}
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_mT_0Lbg1Y1Ll_rebin}
+% \caption{Comparison between data and simulation for the $m_T$ distribution in the $T$ (left) and $W$
+% (right) region without applying any selection on $m_T$ and $\Delta\phi_{min}$. An example signal
+% point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
+% $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of the
+% background processes.
+% \label{fig:mT}}
+% \end{figure}
+% 
+% \begin{figure}[htbp]
+% \centering
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
+% \caption{Comparison between data and simulation for the $\Delta\phi_{min}$ distribution in the $Q$
+% region without applying a selection on $\Delta\phi_{min}$. 
+% \label{fig:deltaphi}}
+% \end{figure}
+% 
+% 
+% In Table~\ref{tab:cutflow}, we show the expected number of events obtained from simulation for the
+% different background processes and for an example signal point. The observed events in data for the
+% selection levels after the trigger requirement are also reported. 
+% The background composition in percent after the baseline, $S$, $T$, $W$ and $Q$ region selection is
+% reported in Table~\ref{tab:BG_comp_percent}.  
+% The signal region is $t\bar{t}$ dominated, with additional contributions from $\PW(\rightarrow
+% \ell\nu)+$jets and multijet processes. The control regions have a good purity for the background
+% process they target: 90\% for multijet, 85\% for $\PW(\rightarrow \ell\nu)+$jets and close to 80\%
+% for $t\bar{t}$ and single top processes combined. 
+
+
+
+
+
+% 
+% 
+% In the first section of table~\ref{tab:cutflow} we show the expected number of events for the
+% different background processes for several steps in the baseline cutflow. 
+% The background composition in percent after the full baseline selection is reported in
+% table~\ref{tab:BG_comp_percent}.  
+% In figure~\ref{fig:baseline_plots} we compare the data with the simulation for this region. The
+% simulation is scaled to their expected number of events according to the (NN)LO cross sections. 
+% Following corrections were applied to the simulation: pileup weights, trigger weights. Btag and Wtag
+% scale factors are applied whenever there is specific requirement or veto on the number of b-tagged
+% or W-tagged jets. In addition to these, the top \pt reweighting recipe was applied to the TTJets
+% simulated sample. ISR weights are always applied for the signal simulation. 
+% We see that there is good agreement for the highest $M_R$ and $R^2$ bins, i.e. when the contribution
+% of QCD MC is very small. 
+% For the first $M_R$ and $R^2$ bins, which are dominated by QCD, the MC underpredicts the data by
+% about 50\%. 
+% 
+% \input{cutflow2}
+% 
+% \begin{figure}[htbp]
+%  \centering
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_HLT_width}
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_HLT_width}
+%  \caption{Data/MC comparison plot of $M_R$ (left) and $R^2$ (right) in the preselection region.
+%  \label{fig:baseline_plots}}
+% \end{figure}

@@ -1,0 +1,359 @@
+%%%%%%%%%%%%%%%%%%%%%%%
+% trigger and datasets 
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Data and trigger \label{sec:boost_data_trigger}}
+
+The analysis presented in this thesis is based on 19.7\fbinv of 8\TeV proton-proton collision data
+collected by the CMS experiment in 2012.  Events are selected using two triggers from the CMS high
+level trigger system (see Section~\ref{sec:cms_hlt}), requiring either the highest jet \pt or the
+scalar sum of jet transverse momenta, $\HT$, to be above certain thresholds. 
+The jet \pt trigger, of which the different implementations are denoted by \texttt{PFJet*},
+had a threshold on the \pt of the highest \pt jet of 320\GeV for most of the runs, and a threshold
+of 400\GeV for the other runs. 
+The $\HT$-based trigger, denoted by \texttt{PFHT*}, had an $\HT$ threshold of 650\GeV. 
+The two trigger algorithms were based on a fast implementation of the particle flow 
+reconstruction method, which was described in Section~\ref{sec:event_reco_pf}.  
+The exact names of the used trigger by run are given in Table~\ref{tab:boost_triggers}. The primary
+datasets which include the data collected by these triggers are listed in
+Table~\ref{tab:boost_primary_datasets}. 
+
+\begin{table}[htdp]
+\caption{Summary of HLT triggers that are used in this analysis. Events in a given run range
+are selected if they pass at least one of the listed triggers. }	
+\begin{center}
+\begin{tabular}{l l l l}
+\toprule
+Period & Run range & PFJet HLT & PFHT HLT \\
+\midrule
+\multirow{3}{*}{Run2012A} & 190456 - 190738 & PFJet320\_v3 & PFHT650\_v5 \\
+& 190762 - 191426 & PFJet320\_v4 & PFHT650\_v6 \\
+& 191512 - 193686 & PFJet320\_v5 & PFHT650\_v7 \\
+\midrule
+\multirow{2}{*}{Run2012B} & 193746 - 196027 & PFJet320\_v5 & PFHT650\_v8 \\
+& 196039 - 197722 & PFJet320\_v5 & PFHT650\_v9 \\
+\midrule
+\multirow{3}{*}{Run2012C} & 197770 - 199631 & PFJet400\_v6 & PFNoPUHT650\_v1 \\
+& 199648 - 202585 & PFJet320\_v8 & PFNoPUHT650\_v3 \\
+& 202807 - 203734 & PFJet320\_v9 & PFNoPUHT650\_v4 \\
+\midrule
+Run2012D & 203754 - 208940 & PFJet320\_v9 & PFNoPUHT650\_v4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:boost_triggers}
+\end{table}
+
+\begin{table}[htdp]
+\caption{List of primary datasets and corresponding run ranges, for a total integrated luminosity
+of $19.712 \fbinv$.}
+\begin{center}
+\begin{tabular}{ l l }
+\toprule
+Primary dataset & Run range \\
+\midrule
+/Jet/Run2012A-22Jan2013-v1/ & 190456 - 193621 \\
+/HT/Run2012A-22Jan2013-v1/  & 190456 - 193621 \\
+/JetHT/Run2012B-22Jan2013-v1/ & 193833 - 196531 \\
+/JetHT/Run2012C-22Jan2013-v1/ & 198022 - 203742 \\
+/JetHT/Run2012D-22Jan2013-v1/ & 203777 - 208686  \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:boost_primary_datasets}
+\end{table}
+
+
+In order to select events with unbiased jet \pt and $\HT$ distributions,
+the trigger efficiency was measured from a sample of events collected with an orthogonal set of
+triggers requiring at least one electron or muon. The corresponding primary datasets are listed in
+Table~\ref{tab:boost_primary_datasets_trigeff}. 
+The trigger efficiency $\epsilon_\textrm{trig}$ is determined as a function of $\HT$ and first jet
+\pt, and takes as basis for the measurement the baseline selection described further in
+Section~\ref{sec:boost_baseline_selection},
+\begin{equation}
+  \epsilon_\textrm{trig} = \frac{\textrm{Events passing baseline and trigger selection}}
+{\textrm{Events passing baseline selection}}.
+\end{equation}
+It was checked that the trigger efficiency obtained from either the electron or muon sample gives 
+consistent results. Both samples were combined to derive the final trigger efficiency measurement in 
+order to increase the statistical precision.
+Figure~\ref{fig:boost_trigger_efficiency} shows, on the left-hand side, the trigger efficiency
+measured from data on the ($\HT$, first jet \pt) plane.
+We observe that the trigger is fully efficient for events with $\HT > 800\GeV$.  
+In order to account for the lower efficiency of the region with $\HT  < 800\GeV$, the measured
+trigger efficiency over the ($\HT$, first jet \pt) plane is applied as an event-by-event weight
+to the simulated samples. The right-hand side of Fig.~\ref{fig:boost_trigger_efficiency} shows the
+effect of this trigger efficiency across the (\mr,\rsq) plane for the total simulated background. 
+The plus and minus uncertainties on the trigger efficiency are computed as the maximum of the statistical 
+uncertainty, and the difference in trigger efficiency obtained using the baseline selection and no 
+selection at all. The uncertainties are shown in Fig.~\ref{fig:boost_trigger_efficiency_unc}, and are 
+generally below 5\%.   
+
+\begin{table}[htdp]
+\caption{List of primary datasets used to measure the trigger efficiency. }
+\begin{center}
+\begin{tabular}{ l l }
+\toprule
+Primary dataset & Run range \\
+\midrule
+/SingleElectron/Run2012A-22Jan2013-v1/ & 190456 - 193621 \\ 
+/SingleElectron/Run2012B-22Jan2013-v1/ & 193833 - 196531 \\
+/SingleElectron/Run2012C-22Jan2013-v1/ & 198022 - 203742 \\
+/SingleElectron/Run2012D-22Jan2013-v1/ & 203777 - 208686  \\
+\midrule
+/SingleMu/Run2012A-22Jan2013-v1/ & 190456 - 193621 \\ 
+/SingleMu/Run2012B-22Jan2013-v1/ & 193833 - 196531 \\
+/SingleMu/Run2012C-22Jan2013-v1/ & 198022 - 203742 \\
+/SingleMu/Run2012D-22Jan2013-v1/ & 203777 - 208686 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:boost_primary_datasets_trigeff}
+\end{table}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/razor_trigger/h_HT_j1pt_pre_eff_ph_l}
+
+\includegraphics[width=0.7\textwidth]{figures/razor_trigger/MR_R2_bg_trig_eff}
+\caption{[top] The trigger efficiency, obtained from data, as a function of $H_T$ and first jet
+$\pt$ after the preselection mentioned in Section~\ref{sec:boost_baseline_selection}.
+[bottom] The trigger efficiency as a function of $\mathrm{M_R}$ and $\mathrm{R^2}$ after the same
+preselection, obtained by applying the trigger efficiency as a function of $\HT$ and first jet $\pt$
+to the total simulated background. 
+\label{fig:boost_trigger_efficiency}}
+\end{figure}  
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_trigger/h_HT_j1pt_0_pre_errdiff_up_ph_l_log}
+\includegraphics[width=0.48\textwidth]{figures/razor_trigger/h_HT_j1pt_0_pre_errdiff_low_ph_l_log}
+\caption{The magnitude of the plus (left) and minus (right) uncertainties on the efficiency as 
+functions of $\HT$ and first jet $\pt$, obtained using the combination of the SingleEle and SingleMu 
+datasets. 
+\label{fig:boost_trigger_efficiency_unc}}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Simulated samples}
+
+The simulated samples are used to investigate the characteristics of the background and signal
+processes.  The complete list of simulated samples that are used in the analysis is shown in 
+Table~\ref{tab:boost_mc_bg} for the SM background samples, and in Table~\ref{tab:boost_mc_sms} for the 
+signal samples. 
+
+Multijet, $t\bar{t}$, $\W(\rightarrow \ell\nu)+$jets, $\cPZ/\gamma^*(\rightarrow
+\ell\bar{\ell})+$jets, and $\cPZ(\rightarrow \nu \bar{\nu})+$jets events are generated using
+\MADGRAPH 5.1.3.30~\cite{Alwall:2011uj}, as are the smaller backgrounds $\W(\rightarrow q \bar{q})bb$, 
+$\W\W\cPZ+$jets, $\W\W\gamma+$jets, $\cPZ\cPZ\cPZ$, $t\bar{t}\gamma+$jets, and $t\bar{t}\W\W+$jets.
+$\W\W$, $\W\cPZ$, $\cPZ\cPZ$,  $\cPZ/\gamma^*\rightarrow c\bar{c}$, and 
+$\cPZ/\gamma^*\rightarrow \cPqb\bar{\cPqb}$ events are generated using 
+{\PYTHIA}6.424~\cite{Sjostrand:2006za}.
+For all these samples CTEQ6L1~\cite{Pumplin:2002vw} is used as the set of parton distribution
+functions (PDFs). 
+Single top quark events are generated using \POWHEG 1.0~\cite{powheg,powheg2} with CT10
+PDFs~\cite{Lai:2010vv}, and $\W\W\W$, $\W\cPZ\cPZ$, $t\bar{t}\W$ and $t\bar{t}\cPZ$ are generated using
+\AMCATNLO~\cite{Frixione:2002ik} with CTEQ6M PDFs~\cite{Pumplin:2002vw}. 
+The simplified model signals are produced using \MADGRAPH 5.1.5.4 using CTEQ6L1 PDFs.  
+
+The parton level events are showered and hadronized using {\PYTHIA}6.426 with tune
+Z2*~\cite{Chatrchyan:2013gfi}, except for the samples generated with \AMCATNLO which use 
+\HERWIG~\cite{Corcella:2000bw,Corcella:2002jc} for the parton shower and hadronization.  
+For the background events, the response of the CMS detector is
+simulated with a full simulation based on \GEANTfour~\cite{G4}.  A parameterized fast detector
+simulation is used to simulate the detector response to the signal events~\cite{fastsim}.  
+
+% TODO mention MLM matching here?
+
+\begin{sidewaystable}
+\fontsize{8 pt}{1 em}
+\selectfont
+\caption{Simulated samples for the various background processes. The dataset names have been stripped 
+from /AODSIM.}
+\begin{center}
+\begin{tabular}{l l l l}
+\toprule
+Process & Dataset name & $\sigma$ (pb) & Level \\
+\midrule
+\multirow{2}{*}{$t\bar{t}$} &
+/TTJets\_MassiveBinDECAY\_TuneZ2star\_8TeV-madgraph-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 245.8 & NNLO \\
+& /TTJets\_MassiveBinDECAY\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V7C\_FSIM-v2 & & \\
+\midrule
+QCD multijet, $100 < \HT< 250\GeV$ & 
+/QCD\_HT-100To250\_TuneZ2star\_8TeV-madgraph-pythia/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1
+& 10.367$\times 10^{7}$ & LO \\
+QCD multijet, $250 < \HT< 500\GeV$ &  
+/QCD\_HT-250To500\_TuneZ2star\_8TeV-madgraph-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1
+& 276000 & LO \\
+QCD multijet, $500 < \HT< 1000\GeV$ & 
+/QCD\_HT-500To1000\_TuneZ2star\_8TeV-madgraph-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 8426 & LO \\
+QCD multijet, $\HT > 1000\GeV$ & 
+/QCD\_HT-1000ToInf\_TuneZ2star\_8TeV-madgraph-pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 204 & LO \\
+\midrule
+$\W\W$ & /WW\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 &
+54.838 & LO \\
+$\W\cPZ$ & /WZ\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 32.3161 & LO \\
+$\cPZ\cPZ$ & /ZZ\_TuneZ2star\_8TeV\_pythia6\_tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1
+& 8.258 & LO \\
+\midrule
+$\W(\rightarrow\ell\nu)$+jets, $250 < \HT< 300\GeV$ & 
+/WJetsToLNu\_HT-250To300\_8TeV-madgraph\_v2/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 48.01
+& LO \\
+$\W(\rightarrow\ell\nu)$+jets, $300 < \HT< 400\GeV$ &
+/WJetsToLNu\_HT-300To400\_8TeV-madgraph\_v2/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 38.3 &
+LO \\
+$\W(\rightarrow\ell\nu)$+jets, $\HT > 400\GeV$ &
+/WJetsToLNu\_HT-400Toinf\_8TeV-madgraph\_v2/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 25.22
+& LO \\
+\midrule
+$t$, $t\W$-channel &
+/T\_tW-channel-DR\_TuneZ2star\_8TeV-powheg-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 &
+11.1 & NNLO \\
+$\bar{t}$, $t\W$-channel &
+/Tbar\_tW-channel-DR\_TuneZ2star\_8TeV-powheg-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1
+& 11.1 & NNLO \\
+$t$, $s$-channel &
+/T\_s-channel\_TuneZ2star\_8TeV-powheg-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 3.79
+& NNLO \\
+$\bar{t}$, $s$-channel &
+/Tbar\_s-channel\_TuneZ2star\_8TeV-powheg-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 &
+1.76 & NNLO \\
+$t$, $t$-channel &
+/T\_t-channel\_TuneZ2star\_8TeV-powheg-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 56.4
+& NNLO \\
+$\bar{t}$, $t$-channel &
+/Tbar\_t-channel\_TuneZ2star\_8TeV-powheg-tauola/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 &
+30.7 & NNLO \\
+\midrule
+$\cPZ (\rightarrow \nu \bar{\nu})$+jets, $50 < \HT < 100\GeV$ & 
+/ZJetsToNuNu\_50\_HT\_100\_TuneZ2Star\_8TeV\_madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 381.2 & LO \\
+$\cPZ (\rightarrow \nu \bar{\nu})$+jets, $100 < \HT < 200\GeV$ &
+/ZJetsToNuNu\_100\_HT\_200\_TuneZ2Star\_8TeV\_madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 160.3 & LO \\
+$\cPZ (\rightarrow \nu \bar{\nu})$+jets, $200 < \HT < 400\GeV$ &
+/ZJetsToNuNu\_200\_HT\_400\_TuneZ2Star\_8TeV\_madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 41.49 & LO \\
+$\cPZ (\rightarrow \nu \bar{\nu})$+jets, $\HT > 400\GeV$ &
+/ZJetsToNuNu\_400\_HT\_inf\_TuneZ2Star\_8TeV\_madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 
+& 5.274 & LO \\
+\midrule
+$\cPZ/\gamma^* (\rightarrow \ell \bar{\ell})$+jets, $200 < \HT < 400\GeV$ &
+/DYJetsToLL\_HT-200To400\_TuneZ2Star\_8TeV-madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1
+& 19.73 & LO \\
+$\cPZ/\gamma^* (\rightarrow \ell \bar{\ell})$+jets, $\HT > 400\GeV$ &
+/DYJetsToLL\_HT-400ToInf\_TuneZ2Star\_8TeV-madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1
+& 2.826 & LO \\
+\midrule
+$\W(\rightarrow q\bar{q})+bb$ & 
+/Wbb\_FullyHadronic\_8TeV\_madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1 & 121 & LO \\
+$\cPZ/\gamma^*\rightarrow c\bar{c}$ & 
+/DYToCC\_M\_50\_TuneZ2star\_8TeV\_pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 3060.099 & LO \\
+$\cPZ/\gamma^* \rightarrow \cPqb\bar{\cPqb}$ & 
+/DYToBB\_M\_50\_TuneZ2star\_8TeV\_pythia6/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 3840.386 & LO \\
+\midrule
+$\W\W\W$ & /WWW\_8TeV-aMCatNLO-herwig/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1 & 0.08058 & NLO \\
+$\W\W\cPZ$ & /WWZNoGstarJets\_8TeV-madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 0.05795 & NLO \\
+$\W\cPZ\cPZ$ & /WZZ\_8TeV-aMCatNLO-herwig/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1 & 0.01968 & NLO \\
+$\cPZ\cPZ\cPZ$ & /ZZZNoGstarJets\_8TeV-madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 0.005527 & NLO \\
+$\W\W\gamma$ & /WWGJets\_8TeV-madgraph\_v2/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 0.528 & LO \\
+\midrule
+$t\bar{t}\cPZ$ & /ttbarZ\_8TeV-Madspin\_aMCatNLO-herwig/Summer12\_DR53X-PU\_S10\_START53\_V19-v1 
+& 0.2057 & NLO \\
+$t\bar{t}\W$ & /TTbarW\_8TeV-aMCatNLO-herwig/Summer12\_DR53X-PU\_S10\_START53\_V7C-v1 & 0.232 & NLO \\
+$t\bar{t}\gamma$+jets & /TTGJets\_8TeV-madgraph/Summer12\_DR53X-PU\_S10\_START53\_V19-v1 & 1.44 & LO \\
+$t\bar{t}\W\W$+jets & /TTWWJets\_8TeV-madgraph/Summer12\_DR53X-PU\_S10\_START53\_V7A-v1 & 0.002037 & LO \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:boost_mc_bg}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+\fontsize{8 pt}{1 em}
+\selectfont
+\caption{MC samples for the signal events}
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+Topology & Dataset name \\
+\midrule
+\multirow{10}{4cm}{T2tt \begin{align*}
+pp \rightarrow\, &\stopone \stopone^*, \\[-3pt]
+               &\stopone \rightarrow t \lsp \\[-3pt]
+               \end{align*}} &
+/SMS-T2tt\_mStop-150to350\_mLSP-0to250\_8TeV-Pythia6Z/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-T2tt\_mStop-375to475\_mLSP-0to375\_8TeV-Pythia6Z/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-T2tt\_mStop-500to650\_mLSP-0to225\_8TeV-Pythia6Z/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-T2tt\_mStop-500to650\_mLSP-250to550\_8TeV-Pythia6Z/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-T2tt\_mStop-675to800\_mLSP-0to275\_8TeV-Pythia6Z/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-T2tt\_mStop-675to800\_mLSP-300to700\_8TeV-Pythia6Z/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-8TeV-Pythia6Z\_T2tt\_mStop-150to475\_mLSP-1/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-8TeV-Pythia6Z\_T2tt\_mStop-500to800\_mLSP-1/Summer12-START52\_V9\_FSIM-v1 \\
+& /SMS-T2tt\_mStop-825to900\_mLSP-1\_and\_mLSP-25to800\_8TeV-Pythia6Zstar/Summer12-START52\_V9\_FSIM-v3 \\
+& /SMS-T2tt\_mStop-925to1000\_mLSP-1\_and\_mLSP-25to900\_8TeV-Pythia6Zstar/Summer12-START52\_V9\_FSIM-v3 \\
+\midrule
+\multirow{6}{4cm}{T1ttcc, fixed gluino mass 
+\begin{alignat*}{3}
+pp \rightarrow\, &\tilde{g} \tilde{g}, \\[-3pt]
+               &\tilde{g} \rightarrow t &&\stopone, \\[-3pt]
+               & &&\stopone \rightarrow c \lsp
+\end{alignat*}}
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-310-325-350-375\_mLSP-300/Summer12-S
+TART52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-410-425-450-475\_mLSP-400/Summer12-S
+TART52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-510-525-550-575\_mLSP-500/Summer12-S
+TART52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-610-625-650-675\_mLSP-600/Summer12-S
+TART52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-710-725-750-775\_mLSP-700/Summer12-S
+TART52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-810-825-850-875\_mLSP-800/Summer12-S
+TART52\_V9\_FSIM-v1 \\
+\midrule
+\multirow{6}{4cm}{T1ttcc, fixed $m_{\stopone} - m_{\lsp}$
+\begin{alignat*}{3}
+pp \rightarrow\, &\tilde{g} \tilde{g}, \\[-3pt]
+                   &\tilde{g} \rightarrow t &&\stopone, \\[-3pt]
+                   &                        &&\stopone \rightarrow c \lsp
+\end{alignat*}}
+&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-10\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
+3\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-25\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
+3\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-80\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
+3\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-10\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
+53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-25\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
+53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-80\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
+53\_V19\_FSIM\_PU\_S12-v1 \\
+\midrule
+\multirow{4}{4cm}{T1t1t
+\vspace{-1.5ex}
+\begin{alignat*}{3}
+pp \rightarrow\, &\tilde{g} \tilde{g}, \\[-3pt]
+                   &\tilde{g} \rightarrow t &&\stopone, \\[-3pt]
+                   &                        &&\stopone \rightarrow t \lsp
+\end{alignat*}}
+&/SMS-T1t1t\_2J\_mGo-800to1300\_mLSP-1to500\_DM-175\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
+53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1t1t\_2J\_mGo-600to750\_mLSP-1to500\_DM-175\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
+3\_V19\_FSIM\_PU\_S12-v1 \\
+& \\
+& \\
+%& \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:boost_mc_sms}
+\end{sidewaystable}

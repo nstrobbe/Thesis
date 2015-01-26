@@ -172,9 +172,9 @@ The resulting axes can be further optimized to minimize the N-subjettiness value
 the CMS recommendation, we use a “one-pass” optimization of the exclusive $k_T$
 axes~\cite{nsubjettiness_fastjet}.
 
-The variables $\tau_N$ quantify the consistency of the jet having N subjets. They have a small
-value (close to 0) if the original jet is consistent with having N or fewer subjets, because almost
-every jet constituent will be close in $\Delta R$ to its own true subjet. 
+The variables $\tau_N$ quantify the consistency of the jet having N or fewer subjets. They have a
+small value (close to 0) if the original jet is consistent with having N or fewer subjets, because
+almost every jet constituent will be close in $\Delta R$ to its own true subjet. 
 As we are interested in discriminating boosted $\W$ bosons, with two subjets, from quark/gluon
 jets, which have a single subjet, we will use the variables $\tau_2$ and $\tau_1$, as obtained
 from the unpruned CA8 jets. To ensure that the N-subjettiness ratio as computed from the unpruned
@@ -261,7 +261,8 @@ those processes we will speak of the $\W$ boson tagging fake rate scale factors,
 is defined as the probability to tag, with one of the used W tagging definitions, a jet not coming
 from a hadronically decaying $\W$ boson. 
 One last consideration concerns the signal simulation. As the signal is simulated with FastSim, we
-need an additional scale factor between FastSim and FullSim. 
+need an additional scale factor to correct for differences in the modelling of the $\W$ tagger
+between FastSim and FullSim. 
 In the following subsections every scale factor will be listed in more detail, including how it was
 derived and how it will be used in the analysis. 
 
@@ -269,9 +270,14 @@ derived and how it will be used in the analysis.
   \centering
   \includegraphics[width=0.48\textwidth]{figures/razor_wtag/substructure_pas_mass_2}
   \includegraphics[width=0.48\textwidth]{figures/razor_wtag/substructure_pas_tau21_aftermass_2}
-  \caption{ % TODO fill out caption
+  \caption{Pruned jet mass (left) and N-subjettiness ratio $\tau_2/\tau_1$ (right) distributions 
+  in data and simulation for dijet events. MG denotes the \MADGRAPH generator, and the option used
+  for the razor boost analysis. Below each figure the relative deviations are plotted between data
+  and simulation~\cite{Khachatryan:2014vla}. 
   \label{fig:boost_wtag_data_sim}}  
 \end{figure}
+
+%% ---------------------------------------------------------------------------------------------
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson tag efficiency scale factor \label{sec:wtag_eff_sf}}
 
@@ -295,6 +301,8 @@ The $\W$ boson tag efficiency scale factor $SF_{\textrm{Wtag}}$ is given by
 SF_{\textrm{Wtag}} = 0.86 \pm 0.07 .
 \end{equation}
 
+%% ---------------------------------------------------------------------------------------------
+
 \subsubsection{\texorpdfstring{$\W$}{W} boson tag efficiency FullSim/FastSim scale factor
 \label{sec:wtag_eff_fastfull_sf}}
 
@@ -302,13 +310,68 @@ SF_{\textrm{Wtag}} = 0.86 \pm 0.07 .
 
 For our signal samples, which are produced with FastSim, we have derived an additional $\W$ tag
 efficiency FullSim/FastSim scale factor, $SF_{\textrm{Full/Fast}}$, which is a function of the \pt
-of the CA8 jet. This scale factor corrects for modelling differences in FastSim and FullSim. The
-product of $SF_{\textrm{Wtag}}$ and $SF_{\textrm{Full/Fast}}$ will be applied to the signal
-simulation. 
+of the CA8 jet. This scale factor corrects for the different modelling of jets, jet
+substructure, et cetera, in FastSim with respect to FullSim. The product of $SF_{\textrm{Wtag}}$ and
+$SF_{\textrm{Full/Fast}}$ will be applied to the signal simulation. 
 
 To compute the $\W$ boson tag efficiency FullSim/FastSim scale factor we use a sample of $t\bar{t}$
-events simulated with FullSim and FastSim. 
-We start by determining the $\W$ boson tagging efficiency for both samples using this procedure: 
+events simulated with both FullSim and FastSim. 
+A FastSim versus FullSim comparison of the distributions of the pruned jet mass, the N-subjettiness
+variables $\tau_1$, $\tau_2$ and their ratio $\tau_2/\tau_1$, both before and after requiring the
+jets to satisfy the pruned jet mass window, is shown in
+Figs.~\ref{fig:FastFull_jmass}-\ref{fig:FastFull_tau21}. It is clear that the agreement is not
+perfect. The $\tau_2/\tau_1$ distribution for Fastsim is shifted with respect to FullSim. This
+disagreement will then of course be translated into the efficiencies, and thus the need for a scale
+factor arises. 
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_jmass}
+\caption{Pruned jet mass distribution for FastSim and FullSim $t\bar{t}$. 
+\label{fig:FastFull_jmass}}
+\end{figure}
+
+\begin{figure}[htpb]
+\includegraphics[width=0.49\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_tau1}
+\includegraphics[width=0.49\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_tau1_masscut}
+\caption{Distribution of $\tau_1$ before (left) and after (right) requiring the pruned CA8 jet to
+lie within the $\W$ mass window, $70 < m_{\textrm{jet}} < 100$\GeV, for FastSim and
+FullSim $t\bar{t}$.
+\label{fig:FastFull_tau1}}
+\end{figure}
+
+\begin{figure}[htpb]
+\includegraphics[width=0.49\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_tau2}
+\includegraphics[width=0.49\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_tau2_masscut}
+\caption{Distribution of $\tau_2$ before (left) and after (right) requiring the pruned CA8 jet to
+lie within the $\W$ mass window, $70 < m_{\textrm{jet}} < 100$\GeV, for FastSim and FullSim
+$t\bar{t}$.
+\label{fig:FastFull_tau2}}
+\end{figure}
+
+\begin{figure}[htpb]
+\includegraphics[width=0.49\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_tau21}
+\includegraphics[width=0.49\textwidth]{figures/razor_wtag/FastFull_comparison_TTJets_tau21_masscut}
+\caption{Distribution of $\tau_2/\tau_1$ before (left) and after (right) requiring the pruned CA8
+jet to lie within the $\W$ mass window, $70 < m_{\textrm{jet}} < 100$\GeV, for FastSim and FullSim
+$t\bar{t}$.
+\label{fig:FastFull_tau21}}
+\end{figure}
+
+These figures also illustrate some of the features of the N-subjettiness variables.
+Consider first the $\tau_1$ distribution in Fig.~\ref{fig:FastFull_tau1}. Without a jet mass
+requirement, the distibution is quite broad and bimodal. Once the jet mass is required to
+be consistent with the $\W$ mass, the lower part of the distribution disappears. This illustrates
+that quark/gluon jets are expected to have only a single subjet, resulting in a small $\tau_1$
+value. For jets that result from the decay of a $\W$ boson, $\tau_1$ takes on a larger value. 
+This effect is not seen for the $\tau_2$ distributions (Fig.~\ref{fig:FastFull_tau2}), which is
+expected because $\tau_2$ quantifies the compatibility with having two or fewer subjets. 
+The ratio $\tau_2/\tau_1$, shown on Fig.~\ref{fig:FastFull_tau21}, also displays the
+expected behavior: the part of the distribution at high values is removed when requiring the jet
+mass to be within the $\W$ mass window, and thus when selecting more two-prong decays. 
+
+The procedure to determine the $\W$ boson tagging efficiency for both Fastsim and FullSim is the
+following:
 \begin{enumerate}
 \item Filter the events at the generator level, requiring the presence of exactly one hadronically
 decaying $\W$ boson. 
@@ -324,13 +387,58 @@ at two selection levels:
  \end{itemize}
 \item By dividing those \pt distributions we obtain the $\W$ boson tagging efficiency. 
 \end{enumerate}
-To determine the FullSim/FastSim scale factor for the $\W$ boson tagging efficiency, we divide the
+To derive the FullSim/FastSim scale factor for the $\W$ boson tagging efficiency, we divide the
 efficiencies $\epsilon$ obtained in FullSim and FastSim:
 \begin{equation}
 SF_{\textrm{Full/Fast}}(\pt) =
 \frac{\epsilon_{\textrm{FullSim}}(\pt)}{\epsilon_{\textrm{FastSim}}(\pt)}.
 \end{equation}
+A graphical representation of the $\W$ boson tag efficiency in FastSim and FullSim is shown on
+Fig.~\ref{fig:boost_Wfullfast} for a fine and more coarse binning in CA8 jet \pt. The resulting
+scale factor is shown for the final, coarse binning that will be used to rescale the signal
+simulation. 
+Table~\ref{tab:SF_FullFast} summarizes the $\W$ boson tag FullSim/FastSim scale factor with its
+statistical uncertainty.
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Eff_ratio_tagged_all_FullSim_Thesis}
+\includegraphics[width=0.48\textwidth]
+{figures/razor_wtag/Eff_ratio_tagged_all_varbin_FullSim_Thesis}
+
+\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Eff_ratio_tagged_all_FastSim_Thesis}
+\includegraphics[width=0.48\textwidth]
+{figures/razor_wtag/Eff_ratio_tagged_all_varbin_FastSim_Thesis}
+
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/SF_FullFast_Thesis}
+\caption{[top] $\W$ boson tag efficiency versus CA8 jet \pt, with two different binnings, obtained
+from FullSim $t\bar{t}$ events as described in the text. The shown uncertainties are statistical
+only. 
+[middle] $\W$ boson tag efficiency versus CA8 jet \pt, with two different binnings, obtained from
+FastSim $t\bar{t}$ events as described in the text. The shown uncertainties are statistical only. 
+[bottom] $\W$ boson tag FullSim/FastSim efficiency scale factor versus CA8 jet \pt. The shown
+uncertainties are statistical only.
+\label{fig:boost_Wfullfast}}
+\end{figure}
+
+\begin{table}[htpb]
+\centering
+\caption{Summary of FullSim/FastSim scale factor for the $\W$ tag efficiency}
+\vspace{1ex}
+\begin{tabular}{c c}
+\toprule
+CA8 jet $\pt$ (\GeV) & $SF_{\textrm{Full/Fast}}$\\
+\midrule
+$[200 - 250[$ &  $0.952 \pm 0.010$ \\
+$[250 - 350[$ &  $0.912 \pm 0.012$ \\
+$[350 - ...]$ &  $0.891 \pm 0.026$ \\
+\bottomrule
+\end{tabular}
+\label{tab:SF_FullFast}
+\end{table}
+
+
+%% ---------------------------------------------------------------------------------------------
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson tag fake rate scale factor \label{sec:wtag_fake_sf}}
 
@@ -349,7 +457,9 @@ using the following selection:
 %TODO define deltaphimin somewhere
 \end{itemize}
 This selection is similar to the baseline selection employed in the rest of the analysis. The
-kinematic regime, and the composition of the sample will thus also be similar. 
+kinematic regime, and the composition of the sample will thus also be similar. The main difference
+is that we have not applied any selection on \mr or \rsq, in order to retain a higher statistical
+power. 
 
 To obtain the fake rates $\epsilon$ for $\W$ boson tagging we use the leading CA8 jet in each
 event, and check whether it is tagged by the $\W$ boson tagger. After obtaining the
@@ -359,18 +469,26 @@ SF_\textrm{Wtag}^\textrm{fake}(\pt) =
 \frac{\epsilon^{\textrm{data}}(\pt)}{\epsilon^{\textrm{simulation}}(\pt)}.
 \end{equation} 
 In the calculation of the uncertainties on this scale factor we include the statistical uncertainty,
-as well as the trigger efficiency and jet energy scale uncertainties. 
+as well as the trigger efficiency and jet energy scale uncertainties for both AK5 and CA8 jets. 
+All three uncertainties are varied up (down) at the same time to get the overall up (down)
+systematic  uncertainty.
+The fake rate in data and simulation, as well as the resulting $\W$ boson tag fake rate scale factor
+are shown in Fig.~\ref{fig:boost_wfake}. As we can see from the figure, there is a drop in the scale
+factor just above a \pt of 300\GeV. This is a result of a residual mismodeling of the trigger
+efficiency. 
 
 \begin{figure}[htbp]
 \centering
-%\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_Data}
-%\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_MC}
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/Eff_Data_ratio_pt_tagged_all_Data_Thesis}
 
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/SF_Wfake_Thesis}
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/Eff_MC_ratio_pt_tagged_all_MC_Thesis}
+
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/SF_Wfake_Thesis}
 \caption{[top] Misidentification probability according to $\W$ tagging for a CA8 jet versus
-jet \pt obtained from a multijet-enriched control region as described in the text. On the left
-we show the fake rate in data, while on the right we show the fake rate in simulation. The shown
-uncertainties are statistical only.
+jet \pt obtained from a multijet-enriched control region in data as described in the text. The shown
+uncertainties are statistical only. 
+[middle] $\W$ boson tag fake rate obtained from simulation. The uncertainty band includes
+statistical and systematic uncertainties.
 [bottom] Scale factor for $\W$ tag fake rate versus CA8 jet \pt obtained from a
 multijet-enriched control region as described in the text. The uncertainty band includes
 statistical and systematic uncertainties.
@@ -381,6 +499,8 @@ The $\W$ boson tag fake rate scale factor is applied in the $S$ and $T$ region, 
 the $\W$ boson tag efficiency scale factor. It is applied to all simulated samples without real
 hadronically decaying $\W$ bosons, such as multijet production, $W\rightarrow\ell\nu$+jets,
 $DY\rightarrow\ell\ell$+jets, et cetera. 
+
+%% ---------------------------------------------------------------------------------------------
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson mass-tag fake rate scale factor
 \label{sec:wmasstag_fake_sf}}
@@ -396,23 +516,54 @@ the use of the $\W$ mass-tag definition instead of the $\W$ tag definition.
 The resulting scale factor, $SF_\textrm{Wmasstag}^\textrm{fake}$, is again a function of the CA8
 jet \pt, and will be applied to all simulated samples in the $W$ region.
 Figure~\ref{fig:boost_wmasstag} shows the $\W$ boson mass-tag fake rate in data and
-simulation, and the corresponding scale factor versus CA8 jet \pt.
+simulation, and the corresponding scale factor versus CA8 jet \pt. The scale factor is also
+listed in Table~\ref{tab:SF_Wmass}. 
+The drop in the scale factor just above a \pt of 300\GeV is also visible here. 
+
+\begin{table}[htbp]
+\centering
+\caption{$\W$ boson mass-tag fake rate scale factor, binned in $\pt$. The breakdown in statistical
+and systematic uncertainties is shown.  \label{tab:SF_Wmass}}
+\vspace{1ex}
+\begin{tabular}{c c}
+\toprule
+CA8 jet \pt (\GeV) & $SF_{\W\textrm{masstag}}^\textrm{fake}$ \\
+\midrule
+$[200 - 220[$ & $1.144 \pm 0.050 \,\textrm{(stat)} \pm 0.012 \,\textrm{(sys)}$ \\
+$[220 - 240[$ & $1.118 \pm 0.028 \,\textrm{(stat)} \pm 0.024 \,\textrm{(sys)}$ \\
+$[240 - 260[$ & $1.193 \pm 0.024 \,\textrm{(stat)} \pm 0.008 \,\textrm{(sys)}$ \\
+$[260 - 280[$ & $1.250 \pm 0.018 \,\textrm{(stat)} \pm 0.015 \,\textrm{(sys)}$ \\
+$[280 - 300[$ & $1.273 \pm 0.017 \,\textrm{(stat)} \pm 0.021 \,\textrm{(sys)}$ \\
+$[300 - 320[$ & $1.126 \pm 0.013 \,\textrm{(stat)} \pm 0.010 \,\textrm{(sys)}$ \\
+$[320 - 340[$ & $1.199 \pm 0.012 \,\textrm{(stat)} \pm 0.017 \,\textrm{(sys)}$ \\
+$[340 - 360[$ & $1.298 \pm 0.013 \,\textrm{(stat)} \pm 0.007 \,\textrm{(sys)}$ \\
+$[360 - 380[$ & $1.327 \pm 0.016 \,\textrm{(stat)} \pm 0.008 \,\textrm{(sys)}$ \\
+$[380 - 400[$ & $1.339 \pm 0.025 \,\textrm{(stat)} \pm 0.007 \,\textrm{(sys)}$ \\
+$[400 - 500[$ & $1.339 \pm 0.012 \,\textrm{(stat)} \pm 0.005 \,\textrm{(sys)}$ \\
+$[500 - ...]$ & $1.370 \pm 0.011 \,\textrm{(stat)} \pm 0.001 \,\textrm{(sys)}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_Data}
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_Wmass_all_MC}
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/Eff_Data_ratio_pt_Wmass_all_Data_Thesis}
 
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/SF_Wmass_Thesis}
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/Eff_MC_ratio_pt_Wmass_all_MC_Thesis}
+
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/SF_Wmass_Thesis}
 \caption{[top] Misidentification probability according to $\W$ mass-tagging for a CA8 jet versus
-jet \pt obtained from a multijet-enriched control region as described in the text. On the left
-we show the fake rate in data, while on the right we show the fake rate in simulation. The shown
+jet \pt obtained from a multijet-enriched control region in data as described in the text. The shown
 uncertainties are statistical only.
+[middle] $\W$ boson mass-tag fake rate according to simulation. The uncertainty band includes
+statistical and systematic uncertainties.
 [bottom] Scale factor for $\W$ mass-tag fake rate versus CA8 jet \pt obtained from a
 multijet-enriched control region as described in the text. The uncertainty band includes
 statistical and systematic uncertainties.
 \label{fig:boost_wmasstag}}
 \end{figure}
+
+%% ---------------------------------------------------------------------------------------------
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson anti-tag fake rate scale factor
 \label{sec:wantitag_fake_sf}}
@@ -425,18 +576,50 @@ same procedure and the multijet-enriched region as defined in Section~\ref{sec:w
 The $\W$ boson anti-tag fake rate scale factor, $SF_\textrm{Wantitag}^\textrm{fake}$, will be
 applied to all simulated samples in the $Q$ region. 
 Figure~\ref{fig:boost_wantitag} shows the $\W$ boson anti-tag fake rate in data and
-simulation, and the corresponding scale factor versus CA8 jet \pt.
+simulation, and the corresponding scale factor versus CA8 jet \pt. As before, we observe a drop in
+the scale factor just above a \pt of 300\GeV. The scale factor, and breakdown of statistical and
+systematic uncertainties, is also listed in Table~\ref{tab:SF_Wantitagging}.
+
+
+\begin{table}[htbp]
+\centering
+\caption{$\W$ boson anti-tag fake rate scale factor, binned in $\pt$. The uncertainties are broken
+down in their statistical and systematic component. \label{tab:SF_Wantitagging}}
+\vspace{1ex}
+\begin{tabular}{c c}
+\toprule
+CA8 jet \pt $(\GeV)$ & $SF_{\W \textrm{antitag}}^\textrm{fake}$ \\
+\midrule
+$[200 - 220[$ & $1.217 \pm 0.072 \,\textrm{(stat)} \pm 0.032 \,\textrm{(sys)}$ \\
+$[220 - 240[$ & $1.186 \pm 0.037 \,\textrm{(stat)} \pm 0.046 \,\textrm{(sys)}$ \\
+$[240 - 260[$ & $1.216 \pm 0.033 \,\textrm{(stat)} \pm 0.011 \,\textrm{(sys)}$ \\
+$[260 - 280[$ & $1.319 \pm 0.024 \,\textrm{(stat)} \pm 0.019 \,\textrm{(sys)}$ \\
+$[280 - 300[$ & $1.479 \pm 0.022 \,\textrm{(stat)} \pm 0.037 \,\textrm{(sys)}$ \\
+$[300 - 320[$ & $1.203 \pm 0.017 \,\textrm{(stat)} \pm 0.015 \,\textrm{(sys)}$ \\
+$[320 - 340[$ & $1.244 \pm 0.016 \,\textrm{(stat)} \pm 0.026 \,\textrm{(sys)}$ \\
+$[340 - 360[$ & $1.409 \pm 0.019 \,\textrm{(stat)} \pm 0.015 \,\textrm{(sys)}$ \\
+$[360 - 380[$ & $1.448 \pm 0.022 \,\textrm{(stat)} \pm 0.020 \,\textrm{(sys)}$ \\
+$[380 - 400[$ & $1.472 \pm 0.033 \,\textrm{(stat)} \pm 0.014 \,\textrm{(sys)}$ \\
+$[400 - 500[$ & $1.487 \pm 0.017 \,\textrm{(stat)} \pm 0.012 \,\textrm{(sys)}$ \\
+$[500 - ...]$ & $1.505 \pm 0.014 \,\textrm{(stat)} \pm 0.004 \,\textrm{(sys)}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_antitagged_all_Data}
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/Wtag_eff_ratio_pt_antitagged_all_MC}
+\includegraphics[width=0.6\textwidth]
+{figures/razor_wtag/Eff_Data_ratio_pt_antitagged_all_Data_Thesis}
 
-\includegraphics[width=0.48\textwidth]{figures/razor_wtag/SF_Wantitagged_Thesis}
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/Eff_MC_ratio_pt_antitagged_all_MC_Thesis}
+
+\includegraphics[width=0.6\textwidth]{figures/razor_wtag/SF_Wantitagged_Thesis}
 \caption{[top] Misidentification probability according to $\W$ anti-tagging for a CA8 jet versus jet
-\pt obtained from a multijet-enriched control region as described in the text. On the left we show
-the fake rate in data, while on the right we show the fake rate in simulation. The shown
+\pt obtained from a multijet-enriched control region in data as described in the text. The shown
 uncertainties are statistical only.
+[middle] $\W$ boson anti-tag fake rate according to simulation. The uncertainty band includes
+statistical and systematic uncertainties. 
 [bottom] Scale factor for $\W$ anti-tag fake rate versus CA8 jet \pt obtained from a
 multijet-enriched control region as described in the text. The uncertainty band includes
 statistical and systematic uncertainties.
@@ -456,325 +639,40 @@ statistical and systematic uncertainties.
 % in appendix~\ref{app:wiggle}. 
 % Given that we understand the origin of this wiggle, we decide to keep the binning quite fine in that
 % region, so that we can correct for the effect. 
+
 % The scale factors with the final binning are shown in figure~\ref{fig:YaWSF_syst}, and are also
 % listed in tables~\ref{tab:SF_Wmass} and \ref{tab:SF_Wantitagging} with the breakdown of the
-% statistical and systematic uncertainties. The included systematic uncertainties are the jet energy
-% scale uncertainties for both AK5 and CA8 jets, and the trigger efficiency uncertainties. All three
-% uncertainties are varied up (down) at the same time to get the overall up (down) systematic
-% uncertainty.
+% statistical and systematic uncertainties. 
 % A summary of the two scale factors, mass-tagged and anti-tagged, with their total uncertainty is
 % shown in table~\ref{tab:SF_Wantitagging_summary}.  
+%
 % 
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/SF_Wmass}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_anti/SF_antitagging}
-% \caption{Scale factors for the fake rate of mass-tagged $\PW$s (left) and anti-tagged $\PW$s (right)
-% versus CA8 jet \pt obtained from a QCD control region as described in the text. The error bars
-% depict the statistical uncertainties, while the error band shows the total uncertainty. 
-% \label{fig:YaWSF_syst}}
-% \end{figure}
-% 
-% \begin{table}[htbp]
-% \centering
-% \caption{Scale factors for fake rate of having a q/g initiated CA8 jet with mass within the W mass
-% window \label{tab:SF_Wmass}}
-% \vspace{1ex}
-% \begin{tabular}{|c|c|c|c|c|}
-% \hline
-% CA8 jet \pt & $SF_{Wmasstag}$ & stat uncertainty & syst uncertainty & total uncertainty \\
-% \hline
-% $[200 - 220]$ & 1.144 & 0.050 & 0.012  & 0.052\\
-% $[220 - 240]$ & 1.118 & 0.028 & 0.024  & 0.037\\
-% $[240 - 260]$ & 1.193 & 0.024 & 0.008  & 0.025\\
-% $[260 - 280]$ & 1.250 & 0.018 & 0.015  & 0.023\\
-% $[280 - 300]$ & 1.273 & 0.017 & 0.021  & 0.027\\
-% $[300 - 320]$ & 1.126 & 0.013 & 0.010  & 0.017\\
-% $[320 - 340]$ & 1.199 & 0.012 & 0.017  & 0.021\\
-% $[340 - 360]$ & 1.298 & 0.013 & 0.007  & 0.015\\
-% $[360 - 380]$ & 1.327 & 0.016 & 0.008  & 0.017\\
-% $[380 - 400]$ & 1.339 & 0.025 & 0.007  & 0.026\\
-% $[400 - 500]$ & 1.339 & 0.012 & 0.005  & 0.013\\
-% $[500 - ]$    & 1.370 & 0.011 & 0.001  & 0.011\\
-% \hline
-% \end{tabular}
-% \end{table}
-% 
-% \begin{table}[htbp]
-% \centering
-% \caption{Scale factors for $\PW$ anti-tag fake rate \label{tab:SF_Wantitagging}}
-% \vspace{1ex}
-% \begin{tabular}{|c|c|c|c|c|}
-% \hline
-% CA8 jet \pt & $SF_{Wantitag}$ & stat uncertainty & syst uncertainty & total uncertainty \\
-% \hline
-% $[200 - 220]$ & 1.217 & 0.072 & 0.032  & 0.078\\
-% $[220 - 240]$ & 1.186 & 0.037 & 0.046  & 0.059\\
-% $[240 - 260]$ & 1.216 & 0.033 & 0.011  & 0.034\\
-% $[260 - 280]$ & 1.319 & 0.024 & 0.019  & 0.031\\
-% $[280 - 300]$ & 1.479 & 0.022 & 0.037  & 0.043\\
-% $[300 - 320]$ & 1.203 & 0.017 & 0.015  & 0.023\\
-% $[320 - 340]$ & 1.244 & 0.016 & 0.026  & 0.030\\
-% $[340 - 360]$ & 1.409 & 0.019 & 0.015  & 0.024\\
-% $[360 - 380]$ & 1.448 & 0.022 & 0.020  & 0.030\\
-% $[380 - 400]$ & 1.472 & 0.033 & 0.014  & 0.035\\
-% $[400 - 500]$ & 1.487 & 0.017 & 0.012  & 0.021\\
-% $[500 - ]$    & 1.505 & 0.014 & 0.004  & 0.015\\
-% \hline
-% \end{tabular}
-% \end{table}
-% 
-% \begin{table}[htbp]
-% \centering
-% \caption{Summary of scale factors for efficiency to have a CA8 jet with mass within the W-window;
-% and for W anti-tag fake rate \label{tab:SF_Wantitagging_summary}}
-% \vspace{1ex}
-% \begin{tabular}{|c|c|c|}
-% \hline
-% CA8 jet \pt & $SF_{Wmasstag}$ & $SF_{Wantitag}$ \\
-% \hline
-% $[200 - 220]$ & $1.14 \pm 0.06$ & $1.22 \pm 0.08$ \\
-% $[220 - 240]$ & $1.12 \pm 0.04$ & $1.19 \pm 0.06$ \\
-% $[240 - 260]$ & $1.19 \pm 0.03$ & $1.22 \pm 0.04$ \\
-% $[260 - 280]$ & $1.25 \pm 0.03$ & $1.32 \pm 0.04$ \\
-% $[280 - 300]$ & $1.27 \pm 0.03$ & $1.38 \pm 0.05$ \\
-% $[300 - 320]$ & $1.13 \pm 0.02$ & $1.20 \pm 0.03$ \\
-% $[320 - 340]$ & $1.20 \pm 0.03$ & $1.24 \pm 0.03$ \\
-% $[340 - 360]$ & $1.30 \pm 0.02$ & $1.41 \pm 0.03$ \\
-% $[360 - 380]$ & $1.33 \pm 0.02$ & $1.45 \pm 0.03$ \\
-% $[380 - 400]$ & $1.34 \pm 0.03$ & $1.47 \pm 0.04$ \\
-% $[400 - 500]$ & $1.34 \pm 0.02$ & $1.49 \pm 0.03$ \\
-% $[500 - ]$    & $1.37 \pm 0.02$ & $1.51 \pm 0.02$ \\
-% \hline
-% \end{tabular}
-% \end{table}
-% 
-% 
-% \subsubsection{Scale factor for $\PW$ boson tag fake rate}
-% 
-% As explained before, we are using the $\PW$-tagger as used in EXO-12-024, which comes with a
-% data/simulation scale factor. 
-% This scale factor should only be applied to processes which have an actual $\PW$, such as signal
-% samples and $t\bar{t}+$jets. 
-% CA8 jets that pass the $\PW$-tag requirements in QCD multijet or leptonically decaying $\PW$+jets
-% events are `fake' or misidentified $\PW$'s. 
-% For these we cannot apply the $\PW$-tag efficiency scale factor, but should apply a scale factor for
-% the $\PW$ tag fake rate. 
-% In JME-13-006, a measurement of the $\PW$ fake rate is done, and a Data/MC comparison is shown. 
-% As the fake rate depends on the composition of the selected event sample, it is recommended,
-% however, to derive the scale factor analysis by analysis, rather than having one single scale
-% factor. 
-% This is what we have done as well. 
-% 
-% We used the same control region as in the previous section, which is close to our signal region. The
-% $M_R$ and $R^2$ cuts are again not applied in order to increase the statistical power of the control
-% sample. 
-% The procedure is also the same as explained in the previous section. We determine the probability to
-% tag the highest \pt CA8 jet as a $\PW$ (using the standard $\PW$-tagger as defined in
-% table~\ref{tab:Wtag_EXO}), in both data and simulation, and derive the scale factor from the ratio
-% of both. 
-% 
-% In figure~\ref{fig:W_fake_eff} we show the probability to tag a CA8 jet as a $\PW$, i.e. the fake
-% rate, in the multijet control region, for both data and simulation. 
-% The resulting scale factor is shown in figure~\ref{fig:W_fake_SF} and table~\ref{tab:W_fake_SF}. The
-% considered uncertainties are the statistical precision, and the jet energy scale and trigger
-% efficiency uncertainties. 
-% 
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wfake/Wtag_eff_ratio_pt_tagged_all_Data}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wfake/Wtag_eff_ratio_pt_tagged_all_MC}
-% \caption{Efficiency for tagged $W$s versus CA8 jet \pt in Data (left) and MC (right) for the
-% multijet control region listed in the text.
-% \label{fig:W_fake_eff}}
-% \end{figure}
-% 
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wfake/SF_Wfake}
-% \caption{Scale factor for $\PW$ fake rate, derived by comparing the efficiency to tag a CA8 jet
-% versus \pt for both data and simulation in a QCD control region as described in the text. The error
-% bars depict the statistical uncertainties, while the error band shows the total uncertainty. 
-% \label{fig:W_fake_SF}}
-% \end{figure}
-% 
-% \begin{table}[htbp]
-% \centering
-% \caption{Summary of scale factors for $\PW$-tag efficiency fake rate. Uncertainties include the
-% statistical and systematic uncertainty. \label{tab:W_fake_SF}}
-% \vspace{1ex}
-% \begin{tabular}{|c|c|}
-% \hline
-% CA8 jet \pt & $SF_{\textrm{Wfake}}$ \\
-% \hline
-% $[200 - 220]$ & $1.04 \pm 0.07$ \\
-% $[220 - 240]$ & $1.01 \pm 0.04$ \\
-% $[240 - 260]$ & $1.16 \pm 0.04$ \\
-% $[260 - 280]$ & $1.16 \pm 0.03$ \\
-% $[280 - 300]$ & $1.15 \pm 0.03$ \\
-% $[300 - 320]$ & $1.03 \pm 0.02$ \\
-% $[320 - 340]$ & $1.14 \pm 0.02$ \\
-% $[340 - 360]$ & $1.17 \pm 0.02$ \\
-% $[360 - 380]$ & $1.18 \pm 0.03$ \\
-% $[380 - 400]$ & $1.18 \pm 0.03$ \\
-% $[400 - 500]$ & $1.15 \pm 0.02$ \\
-% $[500 - ]$    & $1.18 \pm 0.02$ \\
-% \hline
-% \end{tabular}
-% \end{table}
-% 
-% 
-% \subsubsection{FullSim/FastSim scale factor for $\PW$-tagging efficiency}
-% 
-% The Data/MC scale factor to correct for the difference in $\PW$ tagging efficiency is derived using
-% FullSim, and is thus only valid for FullSim samples. 
-% As our signal scans are made with FastSim, we need to derive an additional FullSim/FastSim scale
-% factor to account for the different modeling of jets, jet substructure, et cetera. 
-% To study the differences and derive the scale factor, we use a $t\bar{t}$ sample, which has been
-% processed with both FullSim and FastSim.
-% A comparison of the pruned jet mass, and N-subjettiness variables $\tau_1$, $\tau_2$ and
-% $\tau_2/\tau_1$ (both before and after cutting on the pruned jet mass), are shown in
-% figures~\ref{fig:FastFull_jmass}-\ref{fig:FastFull_tau21}. 
-% 
-% \begin{figure}
-% \centering
-% \includegraphics[width=0.7\textwidth]{figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_jmass}
-% \caption{Pruned jet mass distribution for FastSim and FullSim $t\bar{t}$. 
-% \label{fig:FastFull_jmass}}
-% \end{figure}
-% 
-% \begin{figure}[p]
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_tau1}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_tau1_masscut}
-% \caption{Distribution of $\tau_1$ before (left) and after (right) requiring $70 <
-% m_{\textrm{jet}}^{\textrm{pruned}} < 100$\GeV, for FastSim and FullSim $t\bar{t}$.
-% \label{fig:FastFull_tau1}}
-% \end{figure}
-% 
-% \begin{figure}[p]
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_tau2}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_tau2_masscut}
-% \caption{Distribution of $\tau_2$ before (left) and after (right) requiring $70 <
-% m_{\textrm{jet}}^{\textrm{pruned}} < 100$\GeV, for FastSim and FullSim $t\bar{t}$.
-% \label{fig:FastFull_tau2}}
-% \end{figure}
-% 
-% \begin{figure}[p]
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_tau21}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/FastFull_comparison_TTJets_tau21_masscut}
-% \caption{Distribution of $\frac{\tau_2}{\tau_1}$ before (left) and after (right) requiring $70 <
-% m_{\textrm{jet}}^{\textrm{pruned}} < 100$\GeV, for FastSim and FullSim $t\bar{t}$.
-% \label{fig:FastFull_tau21}}
-% \end{figure}
-% 
-% We start by determining the $\PW$ tag efficiency for both samples using this procedure: 
-% \begin{enumerate}
-% \item Filter the events at generator level, requiring exactly one hadronically decaying $\PW$ to be
-% present. 
-% \item For this $\PW$, find the closest CA8 jet, and require that it is within $\Delta R = 0.8$ from
-% the $\PW$. If no such jet exists, do not select the event. 
-% \item Require that there is no $\cPqb$ quark from the top decay within the cone of the selected CA8
-% jet. (We only want to select boosted $\PW$'s, not boosted tops.)
-% \item For the events that pass the above, plot the \pt distribution of the CA8 jet at three
-% selection levels:
-%  \begin{itemize}
-%    \item no additional selection
-%    \item $70 < \textrm{jet mass} < 100$ \GeV
-%    \item $70 < \textrm{jet mass} < 100$ \GeV and $\tau_{21} < 0.5$
-%  \end{itemize}
-% \item By dividing those $p_T$ distributions, we can obtain three efficiencies: 
-%  \begin{itemize}
-%    \item Efficiency for a matched CA8 jet to have a mass within the W mass window
-%    \item Efficiency for a matched CA8 jet to be fully tagged, given that it has a mass within the W
-% mass window 
-%    \item Efficiency for a matched CA8 jet to be fully tagged
-%  \end{itemize}
-% \end{enumerate}
-% 
-% These efficiencies are shown, using two different binnings, in Figure~\ref{fig:eff_Full} for FullSim
-% and in Figure~\ref{fig:eff_Fast} for FastSim. 
-% \begin{figure}[p]
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Full_ratio_Wmass_all}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Full_ratio_Wmass_all_varbin
-% }
-% 
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Full_ratio_tagged_Wmass}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/Wtag_eff_Full_ratio_tagged_Wmass_varbin}
-% 
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Full_ratio_tagged_all}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/Wtag_eff_Full_ratio_tagged_all_varbin}
-% 
-% \caption{Various W-tagging efficiency plots for TTJets FullSim simulation. Left and right are the
-% same plot, just with different binning; 
-%          [Top] Efficiency for a matched jet to have a mass within the W window; 
-%          [Middle] Efficiency for a matched jet to be fully tagged given that it has a mass within
-% the W window;
-%          [Bottom] Efficiency for a matched jet to be fully tagged. 
-% \label{fig:eff_Full}}
-% \end{figure}
-% 
-% \begin{figure}[p]
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Fast_ratio_Wmass_all}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Fast_ratio_Wmass_all_varbin
-% }
-% 
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Fast_ratio_tagged_Wmass}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/Wtag_eff_Fast_ratio_tagged_Wmass_varbin}
-% 
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_eff_Fast_ratio_tagged_all}
-% \includegraphics[width=0.49\textwidth]{
-% figures/SF_Wtag_FullFast/Wtag_eff_Fast_ratio_tagged_all_varbin}
-% 
-% \caption{Various W-tagging efficiency plots for the TTJets fast simulation. Left and right are the
-% same plot, just with different binning; 
-%          [Top] Efficiency for a matched jet to have a mass within the W window; 
-%          [Middle] Efficiency for a matched jet to be fully tagged given that it has a mass within
-% the W window;
-%          [Bottom] Efficiency for a matched jet to be fully tagged
-% \label{fig:eff_Fast}}
-% \end{figure}
-% 
-% To determine the FullSim/FastSim scalefactor, we use the binning as shown in the right-hand plots of
-% figures~\ref{fig:eff_Full} and \ref{fig:eff_Fast}. 
-% The scale factor is given by: 
-% \begin{equation}
-% SF(\pt) = \frac{\epsilon_{FullSim}(\pt)}{\epsilon_{FastSim}(\pt)}
-% \end{equation}
-% The scale factor as a function of the $p_T$ of the W-candidate is shown in
-% figure~\ref{fig:SF_FullFast} and listed bin by bin in table~\ref{tab:SF_FullFast}. 
-% 
-% \begin{figure}[p]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_SF_FastFullSF_Wmass}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_SF_FastFullSF_Wmass_varbin}
-% 
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_SF_FastFullSF_tagged}
-% \includegraphics[width=0.49\textwidth]{figures/SF_Wtag_FullFast/Wtag_SF_FastFullSF_tagged_varbin}
-% 
-% \caption{[Top] FullSim/FastSim scalefactor for the efficiency for a matched CA8 jet to have a mass
-% within the W window; 
-%          [Bottom] FullSim/FastSim scalefactor for W-tagging efficiency}
-% \label{fig:SF_FullFast}
-% \end{figure}
-% 
-% \begin{table}[htpb]
-% \centering
-% \caption{Summary of FullSim/FastSim scale factor for W-tagging efficiency}
-% \vspace{1ex}
-% \begin{tabular}{| c | c | c |}
-% \hline
-% $p_T$ range & Scale factor & Statistical uncertainty \\
-% \hline
-% 200-250 &  0.952  &  0.010 \\
-% 250-350 &  0.912  &  0.012 \\
-% 350-Inf &  0.891  &  0.026 \\
-% \hline
-% \end{tabular}
-% \label{tab:SF_FullFast}
-% \end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of scale factors and their total uncertainty. \label{tab:SF_summary}}
+\vspace{1ex}
+\begin{tabular}{c c c c}
+\toprule
+CA8 jet \pt (\GeV) & $SF_{\W\textrm{tag}}^\textrm{fake}$ & $SF_{\W \textrm{masstag}}^\textrm{fake}$
+& $SF_{\W\textrm{antitag}}^\textrm{fake}$ \\
+\midrule
+$[200 - 220[$ & $1.04 \pm 0.07$ & $1.14 \pm 0.06$ & $1.22 \pm 0.08$ \\
+$[220 - 240[$ & $1.01 \pm 0.04$ & $1.12 \pm 0.04$ & $1.19 \pm 0.06$ \\
+$[240 - 260[$ & $1.16 \pm 0.04$ & $1.19 \pm 0.03$ & $1.22 \pm 0.04$ \\
+$[260 - 280[$ & $1.16 \pm 0.03$ & $1.25 \pm 0.03$ & $1.32 \pm 0.04$ \\
+$[280 - 300[$ & $1.15 \pm 0.03$ & $1.27 \pm 0.03$ & $1.38 \pm 0.05$ \\
+$[300 - 320[$ & $1.03 \pm 0.02$ & $1.13 \pm 0.02$ & $1.20 \pm 0.03$ \\
+$[320 - 340[$ & $1.14 \pm 0.02$ & $1.20 \pm 0.03$ & $1.24 \pm 0.03$ \\
+$[340 - 360[$ & $1.17 \pm 0.02$ & $1.30 \pm 0.02$ & $1.41 \pm 0.03$ \\
+$[360 - 380[$ & $1.18 \pm 0.03$ & $1.33 \pm 0.02$ & $1.45 \pm 0.03$ \\
+$[380 - 400[$ & $1.18 \pm 0.03$ & $1.34 \pm 0.03$ & $1.47 \pm 0.04$ \\
+$[400 - 500[$ & $1.15 \pm 0.02$ & $1.34 \pm 0.02$ & $1.49 \pm 0.03$ \\
+$[500 - ...]$ & $1.18 \pm 0.02$ & $1.37 \pm 0.02$ & $1.51 \pm 0.02$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+

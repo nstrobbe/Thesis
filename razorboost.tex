@@ -5,8 +5,9 @@ I will first cover the motivation and general strategy of the analysis in
 sections~\ref{sec:boost_motivation} and \ref{sec:boost_strategy}. Then the \textit{razor variables},
 which are our most important discriminating variables, will be derived in 
 section~\ref{sec:boost_razor}. Section~\ref{sec:boost_wtag} details the technique used to tag highly
-boosted $\W$ bosons. The signal and control region selections are listed in
-sections~\ref{sec:boost_signal_selection} and \ref{sec:boost_control_selection}. 
+boosted $\W$ bosons. 
+The datasets and triggers are listed in Section~\ref{sec:trigger_datasets}, followed by the event
+selection in Section~\ref{sec:boost_event_selection}. 
 The full statistical treatment, with its likelihood based approach, is explained in 
 section~\ref{sec:boost_likelihood}. In section~\ref{sec:boost_systematics} the different sources of
 systematic uncertainties are discussed, followed by the results of the full background estimation in
@@ -17,28 +18,61 @@ with the interpretation of the results in terms of several simplified model spec
 
 \input{boost_motivation.tex}
 
+
 \section{General strategy \label{sec:boost_strategy}}
 
 \input{boost_strategy.tex}
+
 
 \section{Razor variables \label{sec:boost_razor}}
 
 \input{boost_razor_variables.tex}
 
+
 \section[Boosted W boson tagging]{Boosted $\W$ boson tagging \label{sec:boost_wtag}}
 
 \input{boost_wtag.tex}
 
-% explain n-subjettiness and jet pruning
-% quote some plots and numbers from the JME PAS. 
 
-\section{Signal region selection \label{sec:boost_signal_selection}}
+\section{Trigger and datasets \label{sec:trigger_datasets}}
+
+\input{boost_trigger_datasets.tex}
+
+
+\section{Event selection \label{sec:boost_event_selection}}
+
+In this section I will discuss the event selection. I will start by detailing the baseline
+selection that is applied, and then move on to the signal region selection and the definition of the
+different control regions. 
+An overview of those different regions, how they are related and how they are used in the
+background estimation was already shown in Fig.~\ref{fig:boost_flowchart}. 
+
+Let us remind ourselves of the basic idea of the background estimation method. Control regions in
+data (labelled $Q$, $T$ and $W$) and transfer factors $\kappa$, determined in simulation,
+between these control regions and the signal region, $S$, are used to estimate the backgrounds in
+the signal region via a likelihood method. 
+The viability of the defined control regions to model the data in our signal region is tested by
+two closure tests, which are presented at the end of this section.
+For all details on the full background estimation itself, I refer to
+section~\ref{sec:boost_likelihood}. 
+
+
+\subsection{Baseline selection \label{sec:boost_baseline_selection}}
+
+\input{boost_baseline_selection.tex}
+
+\subsection{Signal region selection \label{sec:boost_signal_selection}}
 
 \input{boost_signal_selection.tex}
 
-\section{Control region selection \label{sec:boost_control_selection}}
+\subsection{Control region selection \label{sec:boost_control_selection}}
 
 \input{boost_control_selection.tex}
+
+\subsection{Closure tests \label{sec:boost_closure_tests}}
+
+\input{boost_closure_tests}
+
 
 \section{Statistical modelling \label{sec:boost_likelihood}}
 
@@ -46,10 +80,14 @@ with the interpretation of the results in terms of several simplified model spec
 
 % appendix on likelihoods and CLs?
 
+
 \section{Systematic uncertainties \label{sec:boost_systematics}}
 
 % add details on different sources
 % add info on various extra studies
+
+\input{boost_systematics.tex}
+
 
 \section{Results \label{sec:boost_results}}
 
@@ -59,6 +97,10 @@ as the mean and standard deviation as determined from the sampled prior $\pi(\th
 described in Section~\ref{sec:boost_systematics}.  
 The observations are found to be in good agreement with the standard model prediction. Consequently,
 no evidence of a signal is observed. 
+% TODO
+% For small counts the mean gives a substantially larger value than the mode, which is why there are
+% many bins in the high $M_R$, high $R^2$ region for which the prediction is around 1, and there is no
+% data observed. 
 
 \begin{figure}[htpb]
 \centering
@@ -81,9 +123,10 @@ $m_{\tilde{g}} \,{=}\, 1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\c
 
 \input{tables/bg_prediction.tex}
 
+
 \section{Interpretation in terms of simplified model spectra \label{sec:boost_interpretation}}
 
-% ref{sec:sms}
+% TODO ref{sec:sms}
 
 
 We interpret our results in terms of the SMS processes {\it T1ttcc} and {\it T1t1t} shown in
@@ -103,6 +146,118 @@ they will share the momentum about equally.  This results in a softer \ETm spect
 lower $\rsq$ value, which reduces the efficiency substantially.
 
 % TODO Add full explanation from the note on the drop in efficiency 
+
+% \section[Efficiency drop for T1ttcc model points mLSP of 1 GeV]{Efficiency drop for T1ttcc model
+% points with $m_{LSP} = 1 \GeV$ \label{app:eff_drop}}
+% 
+% Looking at the signal efficiencies for the T1ttcc model, we observe that there is a big drop for
+% points with $m_{\tilde{\chi}_1^0} = 1\GeV$ compared to the neighbouring points with
+% $m_{\tilde{\chi}_1^0} = 50\GeV$. 
+% We tracked down at which level of the selection this difference occurs, and found that it happens
+% when we apply the $M_R$ and $R^2$ selection. This is illustrated in figure~\ref{fig:T1ttcc_eff_SIG}.
+% We further found that this is mainly because of the difference in the \ETm distribution, which
+% arises because of a difference in the \pt distribution of the LSP, see figure~\ref{fig:MET_LSPpt}.
+% It is also interesting to look at the 2D plot of LSP \pt vs charm \pt for two adjacent points. As is
+% shown in figure~\ref{fig:LSPpt_vs_charmpt}, both the LSP and the charm can receive any share of the
+% momentum in the case where they have about equal mass ($\approx 1\GeV$). In the case where the LSP
+% is heavier however, the LSP almost always ends up with more momentum than the charm. 
+% We can explain this by performing a simple calculation involving Lorentz boosts.
+% 
+% The mass points considered here all have a big mass difference between the gluino and the stop. 
+% Because of this, the stop is produced with a lot of momentum, \ie it is boosted. 
+% Its velocity is given by
+%   \begin{equation}
+%     \beta = \frac{v}{c} = \frac{1}{\sqrt{1+\frac{m_{\tilde{t}_1}^2}{p_{\tilde{t}_1}^2}}}
+%   \end{equation}
+% with $p_{\tilde{t}_1}$ the magnitude of the stop three-momentum in the lab frame. 
+% Using this as boost-factor, we can compute the momentum of the stop decay products in the lab
+% frame. 
+% In the rest frame of the stop, the LSP and charm have momentum
+%   \begin{equation}
+%     p' = |\vec{p'}| = \frac{\sqrt{\left(m_{\tilde{t}_1}^2 -
+% (m_{\tilde{\chi}_1^0}+m_c)^2\right)\cdot\left(m_{\tilde{t}_1}^2 -
+% (m_{\tilde{\chi}_1^0}-m_c)^2\right)}}{2m_{\tilde{t}_1}}
+%   \end{equation}
+% and energy
+%   \begin{equation}
+%     E'_{\tilde{\chi}_1^0} = \frac{m_{\tilde{t}_1}^2 - m_c^2 +
+% m_{\tilde{\chi}_1^0}^2}{2m_{\tilde{t}_1}}
+%   \end{equation}
+%   \begin{equation}
+%     E'_{c} = \frac{m^2 - m_{\tilde{\chi}_1^0}^2 + m_{c}^2}{2m_{\tilde{t}_1}}
+%   \end{equation}
+% The formula for a Lorentz boost in one direction (in units $c=1$) is given by 
+%   \begin{equation}
+%     p = \gamma (p' + vE') = \frac{p' + vE'}{\sqrt{1-\beta^2}}
+%   \end{equation}
+% where primed quantities are given in the rest frame of the stop, and unprimed quantities in the lab
+% frame. 
+% In the labframe, we see the stop rest frame moving with speed $v$.
+% 
+% Using the formulas listed above, we can compute the energy and momentum of the charm and LSP in the
+% rest frame, for a few selected mass points. The results, assuming a stop momentum of $500\GeV$ in
+% the lab frame, are given in table~\ref{tab:boost_ex}. For the case where $m_c \approx
+% m_{\tilde{\chi}_1^0}=1\GeV$, the charm and LSP have the same momentum in the lab frame, whereas for
+% the case $m_c << m_{\tilde{\chi}_1^0}$, the LSP has a significantly larger
+% momentum compared to the charm. 
+% This is consistent with what we observed in the plots earlier. 
+% 
+% \begin{figure}[htpb]
+% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-25_jet1ptg200}
+% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-25_SIG}
+% \caption{Efficiency for T1ttcc SMS ($\Delta m = 25\GeV$) before (left) and after (right) applying
+% the $M_R$ and $R^2$ cuts.
+% \label{fig:T1ttcc_eff_SIG}}
+% \end{figure} 
+% 
+% \begin{figure}[htpb]
+% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/met_comparison_1vs50}
+% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/LSP_pt_comparison_1vs50}
+% \caption{Distribution of the \ETm (left) and generator level LSP \pt (right) for two adjacent mass
+% points of the T1ttcc SMS ($\Delta m = 25\GeV$). Red: mass point with $m_{\tilde{g}}=1250\GeV,
+% m_{\tilde{t}_1}=26\GeV, m_{\tilde{\chi}_1^0}=1\GeV$; Blue: mass point with $m_{\tilde{g}}=1250\GeV,
+% m_{\tilde{t}_1}=75\GeV, m_{\tilde{\chi}_1^0}=50\GeV$ 
+% \label{fig:MET_LSPpt}}
+% \end{figure} 
+% 
+% \begin{figure}[htpb]
+% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/LSP_vs_charm_pt_T1ttcc_1250_26_1}
+% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/LSP_vs_charm_pt_T1ttcc_1250_75_50}
+% \caption{2D distribution of generator level charm \pt versus generator level LSP \pt for two
+% adjacent mass points of the T1ttcc SMS ($\Delta m = 25\GeV$). Left: mass point with
+% $m_{\tilde{g}}=1250\GeV, m_{\tilde{t}_1}=26\GeV, m_{\tilde{\chi}_1^0}=1\GeV$; Right: mass point with
+% $m_{\tilde{g}}=1250\GeV, m_{\tilde{t}_1}=75\GeV, m_{\tilde{\chi}_1^0}=50\GeV$ 
+% \label{fig:LSPpt_vs_charmpt}}
+% \end{figure} 
+% 
+% \begin{table}
+% \centering
+% \caption{All units are in \GeV. \label{tab:boost_ex}}
+% \begin{tabular}{|c|c|c|c|}
+% \hline
+% & Case $m_{\tilde{\chi}_1^0} = 1$ GeV & Case $m_{\tilde{\chi}_1^0} = 50$ GeV & Case
+% $m_{\tilde{\chi}_1^0} = 200$ GeV\\ \hline
+% $m_{\tilde{t}_1}$ & 26  & 75  & 225 \\
+% $\beta$ & 0.9979 &  0.9829 & 0.8716 \\ \hline
+% $p'$ & 12.96 & 20.82 & 23.59 \\
+% $E'_c$ & 13 & 20.84 & 23.61 \\
+% $E'_{\tilde{\chi}_1^0}$ & 13 & 54.16 & 201.39 \\ \hline
+% \multicolumn{4}{|c|}{Decay along boost direction} \\\hline
+% $p_c$ & 399.8 & 224.1 & 109.9 \\
+% $p_{\tilde{\chi}_1^0}$ & 399.8 & 401.8 & 505.0 \\ \hline
+% \multicolumn{4}{|c|}{Decay perpendicular to boost direction} \\ \hline
+% $p_c$ &  200 &  111.1 & 52.5  \\
+% $p_{\tilde{\chi}_1^0}$ & 200  & 288.9 & 447.5  \\ \hline
+% \multicolumn{4}{|c|}{Decay opposite boost direction} \\ \hline
+% $p_c$ &  0.17 & -1.8 & -5 \\
+% $p_{\tilde{\chi}_1^0}$ &  0.17 &  175.9 & 390 \\
+% \hline
+% \end{tabular}
+% \end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{figure}[htbp]
  \centering
