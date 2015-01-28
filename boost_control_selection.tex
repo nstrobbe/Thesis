@@ -245,6 +245,16 @@ and tighten the $\Delta\phi_{min}$ requirement from the signal region. We requir
 < 0.3$, which results in a very good purity of better than 90\% according to simulation. 
 The full breakdown of the backgrounds according to simulation can again be found in
 Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}.
+Figure~\ref{fig:boost_Q_region_MR_Rsq} shows a comparison between data and simulation for the $\mr$
+and $\rsq$ distributions. 
+In figure~\ref{fig:boost_Q_region_shape}, we show a comparison between the shapes of the $\mr$ and
+$\rsq$ distributions for the QCD multijet simulation in the signal region versus the $Q$ region. As
+the statistical precision is quite limited for the multijet simulation in the signal region,
+we also show in figure~\ref{fig:boost_Q_region_shape_no_mindeltaphi} the comparison for the $Q$ and
+$S$ regions without selecting a particular $\Delta\phi_{min}$ region. The shape difference in this
+region is smaller than when the $\Delta\phi_{min}$ cut is applied. We will assign a 40\% systematic
+uncertainty on the multijet transfer factors in the background prediction to account for the
+possible shape difference induced by the $\Delta\phi_{min}$ cut. 
 
 % In reality this percentage will be even higher, as simulation is seen to underpredict the data in
 % this control region. This is a known feature of the QCD multijet simulation, and its normalisation
@@ -270,13 +280,15 @@ region before any selection on $\Delta\phi_{min}$.
 % uncertainty on the QCD related quantities in the background prediction to account for the possible
 % shape difference induced by the $\Delta\phi_{min}$ cut. 
 % 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_0Lbg1uW0Ll_mdPhi0p3_width}
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_0Lbg1uW0Ll_mdPhi0p3_width}
-% \caption{Data/MC comparison plot of $M_R$ (left) and $R^2$ (right) in the QCD control region.
-% \label{fig:DataMC_QRegion_MR_R2_mdphi0p3}}
-% \end{figure}
-% 
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_MR_0Lbg1uW0Ll_mdPhi0p3_width}
+%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_R2_0Lbg1uW0Ll_mdPhi0p3_width}
+\caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
+distributions in the $Q$ region.
+\label{fig:boost_Q_region_MR_Rsq}}
+\end{figure}
+
 % 
 % \begin{figure}[p]
 % \centering
@@ -293,23 +305,26 @@ region before any selection on $\Delta\phi_{min}$.
 % [bottom] \pt of the second (left) and third (right) highest \pt jet. 
 % \label{fig:DataMC_QRegion_mdphi0p3}}
 % \end{figure}
-% 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/MR_comparison_QCD_QvsS_mdphi}
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/R2_comparison_QCD_QvsS_mdphi}
-% \caption{Shape of $M_R$ (left) and $R^2$ (right) for QCD simulation in the Q region vs the S
-% region. 
-% \label{fig:Shape_QCD_QvsS}}
-% \end{figure}
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/MR_comparison_QCD_QvsS_no_mdphi}
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/R2_comparison_QCD_QvsS_no_mdphi}
-% \caption{Shape of $M_R$ (left) and $R^2$ (right) for QCD simulation in the Q region vs the S
-%region
-% with the requirement on  $\Delta\phi_{min}$ removed in both regions. 
-% \label{fig:Shape_QCD_QvsS_nomdphi}}
-% \end{figure}
-% 
+
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/Shapes/MR_comparison_QCD_QvsS_mdphi}
+%\includegraphics[width=0.48\textwidth]{figures/Shapes/R2_comparison_QCD_QvsS_mdphi}
+\caption{Shape of the $\mr$ (left) and $\rsq$ (right) distribution for the QCD multijet simulation
+in the $Q$ region versus the $S$ region. 
+\label{fig:boost_Q_region_shape}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/Shapes/MR_comparison_QCD_QvsS_no_mdphi}
+%\includegraphics[width=0.48\textwidth]{figures/Shapes/R2_comparison_QCD_QvsS_no_mdphi}
+\caption{Shape of the $\mr$ (left) and $\rsq$ (right) distribution for the QCD multijet simulation
+in the $Q$ region versus the $S$ region with the requirement on  $\Delta\phi_{min}$ removed in both
+regions. 
+\label{fig:Shape_QCD_QvsS_nomdphi}}
+\end{figure}
+
 
 
 \begin{table}[thbp]
