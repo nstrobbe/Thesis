@@ -2,36 +2,90 @@
 % Signal selection   %
 %%%%%%%%%%%%%%%%%%%%%%
 
+The signal region selection aims for a good discrimation between possible signals and the SM
+backgrounds. As mentioned before, the signals we target with this search have $\cPqb$ tagged jets
+and boosted $\W$ bosons in the final state. Therefore, we require, on top of the baseline
+selection, the presence of at least one CSV medium $\cPqb$ tagged jet, and at least one $\W$ boson
+tagged jet. AK5 jets are used for $\cPqb$ tagging, whereas for $\W$ tagging we use the CA8 jets, as
+explained in Section~\ref{sec:boost_wtag}. 
+Additionally, we only consider fully-hadronic events and thus select only those events with no
+loose electrons or muons, and no isolated tracks. 
+These selection criteria already reduce the background substantially, but it is not yet sufficient
+to get a good signal separation. We need an additional handle on the QCD multijet production,
+which is the dominant background at this stage. 
 
-\input{tables/cutflow2.tex}
+Missing transverse energy, \ETm, in multijet events is largely due to jet mismeasurements,
+rather than the escape of weakly interacting particles, such as neutrinos or the neutralinos in
+signal events. The \ETm vector will, therefore, often be aligned with one of the jets. 
+Based on this we can expect that $\Delta\phi_{min}$, the minimum of the angles between \VEtmiss and
+the transverse momentum of the leading three jets, will be a good discriminant between multijet
+events and events with real \ETm.
+\begin{equation}
+ \Delta\phi_{min} = \min_{i=1,2,3}{\Delta\phi(\VEtmiss, \ptvec^{\,i})},
+\end{equation}
+where $i$ runs over the three AK5 jets. We require $\Delta\phi_{min} > 0.5$ to suppress multijet
+events. 
 
+A summary of the signal selection is presented in Table~\ref{tab:boost_selection_summary}.
+Figure~\ref{fig:boost_signal_dataMC} shows the simulated distributions in the signal region for the
+$\mr$ and $\rsq$ variables. The number of events in simulation and data, and the background
+composition in percent, are reported in Table~\ref{tab:cutflow} and
+Table~\ref{tab:BG_comp_percent}, respectively. 
+The signal region is $t\bar{t}$ dominated, with additional contributions from $\W(\rightarrow
+\ell\nu)+$jets and multijet processes.
 
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W0Ll_mdPhig0p5_width_nodata}
 
+%\includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W0Ll_mdPhig0p5_width_nodata}
+\caption{Simulated $\mr$ (left) and $\rsq$ (right) distributions in the signal region. An example
+signal point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}}
+\,{=}\, 1\TeV$, $m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is
+stacked on top of the background processes. The bin entries are normalized proportional to the bin
+width.  
+\label{fig:boost_signal_dataMC}}
+\end{figure}
+
+% \begin{figure}[htbp]
+% \centering
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_mT_g1Mbg1W1Ll_rebin}
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_mT_0Lbg1Y1Ll_rebin}
+% \caption{Comparison between data and simulation for the $m_T$ distribution in the $T$ (left) and
+% $W$
+% (right) region without applying any selection on $m_T$ and $\Delta\phi_{min}$. An example signal
+% point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
+% $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
+% the
+% background processes.
+% \label{fig:mT}}
+% \end{figure}
 % 
-% Events populating the signal region (also denoted by \textsl{g1Mbg1W0Ll}) 
-% are required to satisfy the baseline event selection with in addition the following:
-% \begin{itemize}
-%  \item no loose leptons (e or $\mu$),
-%  \item no isolated tracks
-%  \item at least one CSV medium b-tagged jet,
-%  \item at least one tagged $W$.
-% \end{itemize}
+% \begin{figure}[htbp]
+% \centering
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
+% \caption{Comparison between data and simulation for the $\Delta\phi_{min}$ distribution in the $Q$
+% region without applying a selection on $\Delta\phi_{min}$. 
+% \label{fig:deltaphi}}
+% \end{figure}
 % 
-% In table~\ref{tab:cutflow} the background composition as determined from simulation is shown. 
-% As can be seen from the line starting with $n_W \geq 1$, the main background at this stage is QCD
-% multijet, followed by $t\bar{t}+$jets events. 
-% In order to lower the QCD contribution, we apply on top of the selection mentioned above a cut on
-% the angle between the \ETm and the jets in the event. 
-% Missing energy in QCD events mostly comes from jet mismeasurements, so the missing energy will often
-% be aligned with one of the jets. 
-% For signal events, or more general, events with real missing energy coming from invisible particles,
-% this will not be the case. 
-% A good discriminating variable is thus the minimum angle between the missing energy \ETm and the
-% first three jets in the event: 
-% \begin{equation}
-%  \Delta\phi_{min} = \min{\Delta\phi(\ETm,jet_i)},
-% \end{equation}
-% where $i$ runs over the first three jets in the event.
+% 
+% In Table~\ref{tab:cutflow}, we show the expected number of events obtained from simulation for the
+% different background processes and for an example signal point. The observed events in data for
+% the
+% selection levels after the trigger requirement are also reported. 
+% The background composition in percent after the baseline, $S$, $T$, $W$ and $Q$ region selection
+% is
+% reported in Table~\ref{tab:BG_comp_percent}.  
+% The signal region is $t\bar{t}$ dominated, with additional contributions from $\PW(\rightarrow
+% \ell\nu)+$jets and multijet processes. The control regions have a good purity for the background
+% process they target: 90\% for multijet, 85\% for $\PW(\rightarrow \ell\nu)+$jets and close to 80\%
+% for $t\bar{t}$ and single top processes combined. 
+
+
+
+
+
 % 
 % We also investigated the use of an extension of this variable, called $\Delta\hat{\phi}_{min}$ and
 % first used by the RA2b group \cite{RA2b_mdphihat}.
@@ -42,17 +96,7 @@
 % When testing these variables in the signal region, we found that a cut of $\Delta\phi_{min} > 0.5$
 % performed the best in suppressing QCD background. For simplicity we decided to use this variable for
 % defining the QCD control region as well. 
-% The full set of cuts defining the final signal region (denoted by \textsl{g1Mbg1W0Ll\_mdPhig0p5} or
-% simply $S$) is thus:
-% \begin{itemize}
-%  \item no loose leptons (e or $\mu$),
-%  \item no isolated tracks
-%  \item at least one CSV medium b-tagged jet,
-%  \item at least one tagged $W$,
-%  \item $\Delta\phi_{min} > 0.5$.
-% \end{itemize}
-% For the breakdown of the backgrounds in this region, we refer to tables~\ref{tab:cutflow} and
-% \ref{tab:BG_comp_percent} (entries for $S$). 
+%
 % The full $\Delta\phi_{min}$ distribution in the signal region is shown in
 % figure~\ref{fig:DataMC_SignalRegion_mdphi}.
 % In figures~\ref{fig:DataMC_SignalRegion_MR_R2_mdphig0p5} and \ref{fig:DataMC_SignalRegion_mdphig0p5}

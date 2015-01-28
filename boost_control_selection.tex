@@ -2,58 +2,93 @@
 % Explanation of control regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{\texorpdfstring{$T$}{T} region \label{sec:boost_T_region}}
+The control regions are defined such that they are enriched in of the three main backgrounds in the
+signal region, $t\bar{t}$, QCD multijet, and $\W(\rightarrow \ell \nu)+$jets. The control region
+selections will be as close as possible to the signal selection, while maximizing the purity in a
+given background process and minimizing possible signal contamination. 
+To construct the control regions, different requirements on the 
+multiplicity of leptons, $\cPqb$ tagged, and $\W$ tagged jets are placed. 
+In the following subsections each control region will be discussed in detail. 
 
-The $W$ tagger defined above will be used to select events in the signal region and in the TTJets
-control region (see section~\ref{sec:Sregion} and \ref{sec:Tregion}). In both of those regions, we
-expect to have real hadronically decaying $\W$ bosons, mainly coming from the $t\bar{t}+$jets
-background. 
+\subsubsection{\texorpdfstring{$T$}{T} region \label{sec:boost_T_region}}
+
+The dominant background in the signal region is $t\bar{t}$ production. We define the $T$ region as a
+dedicated control region enriched in this process. 
+Similarly to the signal, $t\bar{t}$ events are expected to have $\cPqb$ jets in the final state, as
+well as real hadronically decaying $\W$ bosons. We will thus not change those aspects of the signal
+selection when defining the $T$ region. 
+
+The main change we do make, is requiring the presence of exactly one loose electron or muon, while
+removing the requirement that there be an isolated track. This selection is already sufficient to
+obtain a region with a good purity of $t\bar{t}$ events. There is, however, a possibility of
+substantial signal contamination. To address this issue, we place an upper boundary on the value of
+the transverse mass, $\mT$, computed from the lepton transverse momentum and \VEtmiss, 
+\begin{equation}
+ \mT = \sqrt{2\pt^\ell\ETm ( 1 - \cos\Delta\phi )},
+\end{equation}
+with $\Delta\phi$ the difference in azimuthal angle between lepton and \VEtmiss. 
+The distribution of $\mT$ exhibits a kinematic edge at the mass of the $\W$ boson for the $t\bar{t}$
+process, an edge not present for signal events due to the extra contribution to the \ETm from the
+invisible neutralinos.  We require $\mT < 100$\GeV in order to reduce signal contamination and
+retain most of the $t\bar{t}$ contribution. The $\mT$ distribution at this selection level is shown
+in Fig.~\ref{fig:boost_T_region_mT}. 
+
+The final ingredient for the full $T$ region selection, is the $\Delta\phi_{min} > 0.5$
+requirement. This is used to obtain a selection, and thus kinematic properties, as close as
+possible to the signal region. A summary of the $T$ region selection is presented in
+Table~\ref{tab:boost_selection_summary}. 
+
+Table~\ref{tab:cutflow} shows a breakdown of the contributions of the various background components,
+as determined directly from simulation, as wel as the observed data counts, and expected counts for
+an example signal point. From Table~\ref{tab:BG_comp_percent} we see that the obtained purity in the
+$T$ region is more than 80\% for $t\bar{t}$ and single top processes combined. This is also
+illustrated in the $\mr$ and $\rsq$ distributions, as shown on Fig.~\ref{fig:boost_T_region_MR_Rsq}.
+There is good agreement between data and simulation in the $T$ region. 
+We also compare the shape of the $\mr$ and $\rsq$ distributions in the $T$ region versus the $S$
+region. We observe from Fig.~\ref{fig:boost_T_region_shape} that the shapes are very similar. This
+is important as we will use global transfer factors $\kappa$ to translate between the $T$ and $S$
+regions. 
 
 
-% The dominant background in the signal region is $t\bar{t}+$jets production. 
-% We define the TTjets control region (denoted by \textsl{g1Mbg1W1LlmT100\_mdPhig0p5}, or simply $T$)
-% with the following criteria on top of the baseline selection:
-% \begin{itemize}
-%  \item at least one CSV medium b-tagged jet,
-%  \item at least one tagged W,
-%  \item exactly one loose lepton (e or $\mu$)
-%  \item transverse mass between the \ETm and the lepton, $m_T < 100\GeV$
-%  \item $\Delta\phi_{min} > 0.5$
-% \end{itemize}
-% The main difference between this region and the signal region is the required presence of exactly
-% one lepton. Here we also require $m_T < 100\GeV$ to reduce possible signal contamination. As can be
-% seen from figure~\ref{fig:DataMC_T_mT}, $t\bar{t}+$jets production has a kinematic edge at the mass
-% of the $W$ boson. This edge is not present for signal events where there is an additional
-% contribution to the \ETm from the invisible neutralinos. 
-% Indeed, looking at the same figure, we can see that the example signal point (grey histogram)
-% extends out to high $m_T$ values. 
-% All other cuts applied on top of the baseline selection are the same as for the signal region.
-% 
-% \begin{figure}[htbp]
-% \centering
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_mT_g1Mbg1W1Ll_rebin}
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_g1Mbg1W1LlmT100_rebin}
-% \caption{[left] Data/MC comparison plot of $m_T$ in the T region without the cut on $m_T$ and on
-% $\Delta\phi_{min}$.
-%    [right] Data/MC comparison plot of $\Delta\phi_{min}$ in the T region without the cut on
-% $\Delta\phi_{min}$.
-% \label{fig:DataMC_T_mT}}
-% \end{figure}
-% 
-% The background composition as determined by simulation, is shown in tables~\ref{tab:cutflow} and
-% \ref{tab:BG_comp_percent}. This region is about 80\% pure in $t\bar{t}+$jets and single top. 
-% Comparisons between data and simulation for $M_R$ and $R^2$ in this region are shown in
-% figure~\ref{fig:DataMC_TRegion_MR_R2_mdphig0p5}, and for various other basic quantities in
+% Overall, there is a reasonable agreement between data and MC yields.  The mild discrepancies can
+% be
+% accommodated by the systematic uncertainties on the MC, and they will not affect our analysis.
+% The control regions have a good purity for the background
+% process they target: 90\% for multijet, 85\% for $\PW(\rightarrow \ell\nu)+$jets and close to 80\%
+% for $t\bar{t}$ and single top processes combined. 
+
+
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.7\textwidth]{figures/DataMC/DataMC_mT_g1Mbg1W1Ll_rebin}
+\caption{Comparison between data and simulation of the $\mT$ distribution in the $T$ region without
+any selection on $\mT$ or $\Delta\phi_{min}$. The kinematic edge at the $\W$ boson mass is clearly
+visible for the SM backgrounds, whereas the example signal point extends out to high $\mT$.
+\label{fig:boost_T_region_mT}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_g1Mbg1W1LlmT100_rebin}
+\caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $T$
+region without any selection on $\Delta\phi_{min}$.
+\label{fig:boost_T_region_mindeltaphi}}
+\end{figure}
+
+
+% Comparisons between data and simulation  for various other basic quantities in
 % figure~\ref{fig:DataMC_TRegion_mdphig0p5}. In figure~\ref{fig:Shape_TTJ_TvsS}, we show a comparison
 % between the $M_R$ and $R^2$ shapes for TTjets simulation in the signal region versus the TTjets
 % control region. The observed shapes are very similar. 
 % 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
-% \caption{Data/MC comparison plot of $M_R$ (left) and $R^2$ (right) in the TTjets control region.
-% \label{fig:DataMC_TRegion_MR_R2_mdphig0p5}}
-% \end{figure}
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
+%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
+\caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
+distribution in the $T$ control region.
+\label{fig:boost_T_region_MR_Rsq}}
+\end{figure}
 % 
 % 
 % \begin{figure}[p]
@@ -73,64 +108,156 @@ background.
 % \label{fig:DataMC_TRegion_mdphig0p5}}
 % \end{figure}
 % 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/MR_comparison_TTJ_TvsS_mdphi}
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/R2_comparison_TTJ_TvsS_mdphi}
-% \caption{Shape of $M_R$ (left) and $R^2$ (right) for $t\bar{t}+$jets simulation in the T region vs
-% the S region. 
-% \label{fig:Shape_TTJ_TvsS}}
-% \end{figure}
+
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/Shapes/MR_comparison_TTJ_TvsS_mdphi}
+%\includegraphics[width=0.48\textwidth]{figures/Shapes/R2_comparison_TTJ_TvsS_mdphi}
+\caption{Comparison of the shape of the $\mr$ (left) and $\rsq$ (right) distribution for the
+$t\bar{t}$ simulation in the $T$ region versus the $S$ region. The histograms are normalized to
+unit area. 
+\label{fig:boost_T_region_shape}}
+\end{figure}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{\texorpdfstring{$Q$}{Q} region}
 
-Another background in the signal region, is QCD multijet production, for which we have defined a
-dedicated control region (section~\ref{sec:Qregion}). Multijet events do not have real $\W$ bosons;
-any CA8 jet that passes the W tagger, is thus by definition a misidentified or \textit{fake} $\W$. 
-For the QCD control region we define ``anti-tagged $W$'s'' ($aW$), in which we invert the
-n-subjettiness cut but leave the other cuts the same. 
-As we do not expect QCD events to have the two-prong jet-substructure of actual boosted $W$'s, this
-will enhance the statistical power of the control region. 
+\subsubsection{\texorpdfstring{$W$}{W} region}
 
-% One of the main backgrounds in the signal region is QCD multijet production. In order to estimate
-% this background, a dedicated control region (denoted by \textsl{0Lbg1uW0Ll\_mdPhi0p3}, or simply
-% $Q$) is defined as follows: 
-% \begin{itemize}
-%  \item pass the baseline selection
-%  \item have at least one anti-tagged $W$,
-%  \item have no CSV loose b-tagged jets,
-%  \item have no loose leptons,
-%  \item have no isolated tracks.
-%  \item $\Delta\phi_{min} < 0.3$
-% \end{itemize}
-% The differences with the signal region are the veto on b-jets, the requirement of an ``anti''-tagged
-% W, and the change in the $\Delta\phi_{min}$ cut. Instead of only inverting the cut as applied in the
-% signal region, we make it tighter to increase the purity of the selection. 
+The second largest background in the signal region comes from $\W(\rightarrow l\nu)$+jets
+production, where the lepton from the $\W$ boson decay is lost.
+Because the $\W$ boson decays leptonically, any events passing the signal selection necessarily
+contain a q/g initiated CA8 jet that is misidentified as a boosted $\W$ boson. 
+We do not expect hadronically decaying $\W$ bosons to contribute to the background in the signal
+region, as those events would have very small missing energy, in addition to not having real
+$\cPqb$ jets. Even though we do not explicitely require a minimal \ETm, our $\rsq$ cut is highly
+correlated with \ETm, and induces a minimal cut of around 100\GeV, as can be seen in
+figure~\ref{fig:DataMC_SignalRegion_mdphig0p5}.  
+This expectation was verified by checking the contribution of $\W(\rightarrow
+q\bar{q}')+b\bar{b}$ using simulation, where it was found that no events pass our signal
+selection. 
+
+In order to accurately model the $\W(\rightarrow l\nu)$+jets background, we define a dedicated
+control region, the $W$ region, as similar to the signal region as possible. As for the $T$ region,
+we require the presence of a loose electron or muon. Additionally we also veto any event that
+contains a CSV loose $\cPqb$ tagged jet.  
+Since for the $\W(\rightarrow l\nu)$+jets process, there is no real hadronically decaying $\W$
+boson, we opt not to use the full $\W$ tagger. 
+In order to increase the number of events available in the control region, we require instead the
+presence of at least one $\W$ boson mass-tagged jet. This ensures that we are in a kinematically
+similar phase space, because we keep the jet mass requirement, but prevents the penalty from
+requiring a two-prong decay for a process for which these decays do not occur. 
+
+We also require $\mT < 100$\GeV in order to reduce possible signal contamination. Unlike for the $T$
+region, we additionally require $\mT > 30$\GeV in order to reduce remaining contamination from
+multijet events. Those events generally have low $\ETm$, which translates in low $\mT$. 
+Multijet contamination in the $T$ region is negligible because of the
+requirement that there be at least one jet tagged a coming from a $\cPqb$ quark. 
+Finally, we also require $\Delta\phi_{min} > 0.5$, as was the case for the signal region. 
+
+Figure~\ref{fig:boost_W_region_mT} shows the $m_T$ distribution in the $W$ region before making any
+selection $\mT$ or on $\Delta\phi_{min}$. The $\Delta\phi_{min}$ distribution in the $W$ region
+without applying a selection on $\Delta\phi_{min}$ is given in
+Fig.~\ref{fig:boost_W_region_mindeltaphi}. The full breakdown of the backgrounds in this region is
+listed in Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}. The $W$ region is about 85\% pure
+in the $\W(\rightarrow l\nu)+$jets process. 
+A comparison between data and simulation for the $\mr$ and $\rsq$ distributions is shown in
+Fig.~\ref{fig:boost_W_region_MR_Rsq}. A reasonable agreement is observed. The offset in the
+normalization will be absorbed automatically during the background estimation procedure. 
+
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.6\textwidth]{figures/DataMC/DataMC_mT_0Lbg1Y1Ll_rebin}
+\caption{Comparison between data and simulation of the $\mT$ distribution in the $W$ region without
+any selection on $\mT$ or on $\Delta\phi_{min}$.
+\label{fig:boost_W_region_mT}}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.6\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1Y1LlmT_rebin}
+\caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $W$
+region without any selection on $\Delta\phi_{min}$.
+\label{fig:boost_W_region_mindeltaphi}}
+\end{figure}
+
+% In figure~\ref{fig:Shape_WJ_WvsS}, we show a comparison
+% between the $M_R$ and $R^2$ shapes for Wjets simulation in the signal region versus the Wjets
+% control region. The observed shapes are very similar. 
 % 
-% As was already mentioned in section~\ref{sec:Sregion}, we studied the $\Delta\phi_{min}$ and
-% $\Delta\hat{\phi}_{min}$ variables as a means to further purify the QCD control region, beyond what
-% was achieved by just requiring zero bjets and an anti-tagged W. 
-% Our first studies showed a slightly better performance for the $\Delta\hat{\phi}_{min}$ variable,
-% although with evolving selections (such as reducing the jet $|\eta|$ requirement from 3 to 2.4) the
-% difference between both has basically disappeared. We show a comparison between data and simulation
-% for both variables before cutting on them in figure~\ref{fig:DataMC_QRegion_mdphi}. 
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_MR_0Lbg1Y1LlmT_mdPhig0p5_width}
+%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_R2_0Lbg1Y1LlmT_mdPhig0p5_width}
+\caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
+distributions in the $W$ region.
+\label{fig:DataMC_WRegion_MR_R2_mdphig0p5}}
+\end{figure}
 % 
-% The purity achieved with the current selection as listed above, is 90\% according to the simulation.
+% 
+% \begin{figure}[p]
+% \centering
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_njets_0Lbg1Y1LlmT_mdPhig0p5}
+% 
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_met_0Lbg1Y1LlmT_mdPhig0p5}
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_jet1pt_0Lbg1Y1LlmT_mdPhig0p5}
+% 
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_jet2pt_0Lbg1Y1LlmT_mdPhig0p5}
+%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_jet3pt_0Lbg1Y1LlmT_mdPhig0p5}
+% \caption{Data/MC comparison plot of various event quantities in the W region: 
+% [top] jet multiplicity;
+% [middle] missing transverse energy (left) and \pt of the highest \pt jet (right);
+% [bottom] \pt of the second (left) and third (right) highest \pt jet. 
+% \label{fig:DataMC_WRegion_mdphig0p5}}
+% \end{figure}
+% 
+% \begin{figure}[htbp]
+% \includegraphics[width=0.49\textwidth]{figures/Shapes/MR_comparison_WJ_WvsS_mdphi}
+% \includegraphics[width=0.49\textwidth]{figures/Shapes/R2_comparison_WJ_WvsS_mdphi}
+% \caption{Shape of $M_R$ (left) and $R^2$ (right) for $W+$jets simulation in the W region vs the S
+% region. 
+% \label{fig:Shape_WJ_WvsS}}
+% \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{\texorpdfstring{$Q$}{Q} region}
+
+The final background for which we define a control region, is QCD multijet production.
+To define a region $Q$ enriched in multijet production, we start from the baseline selection, and
+add the requirement that there be no loose lepton or isolated track present, as is the case for the
+signal region selection. We also veto any event that contains a CSV loose $\cPqb$ tagged jet. 
+
+Multijet events do not produce $\W$ bosons; any CA8 jet that passes the $\W$ boson tagger,
+is thus by definition a misidentified $\W$ boson jet. To reach a similar kinematic phase space as
+the signal region, we require that there be at least one $\W$ boson anti-tagged jet. The $\W$ boson
+anti-tagging still requires that the jet mass is consistent with the $\W$ boson mass, but inverts
+the N-subjettiness requirement. As we do not expect QCD multijet events to have the two-prong
+jet-substructure of actual boosted $\W$ bosons, this will enhance the statistical power and purity
+of the $Q$ region. 
+
+As explained before, QCD multijet events are expected to have small values for the
+$\Delta\phi_{min}$ variable. This can be seen from Fig.~\ref{fig:boost_Q_region_mindeltaphi}. 
+For the $Q$ region definition we will thus reverse
+and tighten the $\Delta\phi_{min}$ requirement from the signal region. We require $\Delta\phi_{min}
+< 0.3$, which results in a very good purity of better than 90\% according to simulation. 
+The full breakdown of the backgrounds according to simulation can again be found in
+Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}.
+
 % In reality this percentage will be even higher, as simulation is seen to underpredict the data in
 % this control region. This is a known feature of the QCD multijet simulation, and its normalisation
 % to LO cross sections. 
-% The full breakdown of the backgrounds according to simulation can be found in
-% tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}.
-% 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhiHat_0Lbg1uW0Ll}
-% \caption{Data/MC comparison plot of $\Delta\phi_{min}$ (left) and $\Delta\hat{\phi}_{min}$ (right)
-% in the QCD control region before cutting on either variable.
-% \label{fig:DataMC_QRegion_mdphi}}
-% \end{figure}
+
+
+\begin{figure}[htbp]
+\centering
+%\includegraphics[width=0.6\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
+\caption{Comparison between data and simluation of the $\Delta\phi_{min}$ distribution in the $Q$
+region before any selection on $\Delta\phi_{min}$.
+\label{fig:boost_Q_region_mindeltaphi}}
+\end{figure}
 % 
 % Comparisons between data and simulation in the $Q$ region for $M_R$ and $R^2$ are shown in
 % figure~\ref{fig:DataMC_QRegion_MR_R2_mdphi0p3}, and for various other basic quantities in
@@ -177,99 +304,40 @@ will enhance the statistical power of the control region.
 % \begin{figure}[htbp]
 % \includegraphics[width=0.49\textwidth]{figures/Shapes/MR_comparison_QCD_QvsS_no_mdphi}
 % \includegraphics[width=0.49\textwidth]{figures/Shapes/R2_comparison_QCD_QvsS_no_mdphi}
-% \caption{Shape of $M_R$ (left) and $R^2$ (right) for QCD simulation in the Q region vs the S region
+% \caption{Shape of $M_R$ (left) and $R^2$ (right) for QCD simulation in the Q region vs the S
+%region
 % with the requirement on  $\Delta\phi_{min}$ removed in both regions. 
 % \label{fig:Shape_QCD_QvsS_nomdphi}}
 % \end{figure}
 % 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{table}[thbp]
+\centering
+\caption{Summary of selection for signal and control regions.
+These requirements are in addition to the baseline selection. \label{tab:boost_selection_summary}}
+\vspace{1ex}
+\begin{tabular}{lccccc}
+\toprule
+Selection & $S$ region & $S'$ region & $Q$ region & $T$ region & $W$ region \\ 
+\midrule
+nr of $\cPqb$ jets        & ${\geq}\, 1$   & ${\geq}\, 1$   & 0        & ${\geq}\, 1$      & 0
+\\
+nr of mass-tagged $\W$'s & ${\geq}\, 1$   & ${\geq}\, 1$   & ${\geq}\, 1$ & ${\geq}\, 1$     
+&
+${\geq}\, 1$ \\
+nr of tagged $\W$'s      & ${\geq}\, 1$   & ${\geq}\, 1$   & -        & ${\geq}\, 1$      & -
+\\
+nr of anti-tagged $\W$'s & -          & -          & ${\geq}\, 1$ & -             & - \\
+nr of loose leptons       & 0          & 0          & 0        & 1             & 1 \\
+nr of isolated tracks        & 0          & 0          & 0        & -             & - \\
+$m_T$                         & -          & -          & -        & ${<}\,100$\GeV   &
+30--100\GeV\\
+$\Delta\phi_{min}$            & ${>}\, 0.5$    & ${<}\, 0.5$    & ${<}\, 0.3$  & ${>}\, 0.5$      
+&
+${>}\, 0.5$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\subsection{\texorpdfstring{$W$}{W} region}
-
-Our final background in the signal region for which we have a dedicated control region, is
-$\W(\rightarrow l\nu)$+jets. 
-As the $\W$ boson decays leptonically, any events passing the signal selection must contain a CA8
-jet that is misidentified as a boosted $\W$. 
-We do not expect hadronically decaying $\W$ bosons to be a large background, as those events would
-usually not come with $\cPqb$-jets, and would have very small missing energy. Even though we do not
-explicitely require a minimal \ETm, our $R^2$ cut is highly correlated with \ETm, and induces
-a minimal cut of around 100\GeV, as can be seen in figure~\ref{fig:DataMC_SignalRegion_mdphig0p5}.  
-We have verified this assumption by checking the contribution of $\W(\rightarrow
-q\bar{q}')+b\bar{b}$ using simulation, and found that no events pass our signal selection. 
-For the $W$+jets control region, which is defined by requiring the presence of a lepton, we only
-keep the mass window requirement to select CA8 jets that fake a boosted $\W$ boson. We will denote
-these mass-tagged $\W$'s as $Y$. We do not use any cut on the n-subjettiness variables to increase
-the number of events available in the control region. 
-
-% 
-% $W+$jets production is a relatively small contribution in the signal region, but we can still define
-% a pure control region for it. 
-% The $W+$jets control region (denoted by \textsl{0Lbg1Y1LlmT\_mdPhig0p5}, or simply $W$) is defined
-% with the following criteria on top of the baseline selection:
-% \begin{itemize}
-%  \item no CSV loose b-tagged jets,
-%  \item at least one ``Y'', \ie a CA8 jet with mass within the $W$ mass window, but without
-% n-subjettiness cuts applied,
-%  \item exactly one loose lepton (e or $\mu$)
-%  \item transverse mass between the \ETm and the lepton, $30 < m_T < 100\GeV$
-%  \item $\Delta\phi_{min} > 0.5$
-% \end{itemize}
-% The main difference between this region and the signal region is the required presence of exactly
-% one lepton and the veto on b-jets. As for the T region, we require $m_T < 100\GeV$ to reduce
-% possible signal contamination. We also require $m_T > 30\GeV$ to suppress contamination from
-% multijet production. In figure~\ref{fig:DataMC_W_mT} we show the $m_T$ distribution in this region
-% before applying the cut on $m_T$ or on $\Delta\phi_{min}$.
-% 
-% \begin{figure}[htbp]
-% \centering
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_mT_0Lbg1Y1Ll_rebin}
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1Y1LlmT_rebin}
-% \caption{[left] Data/MC comparison plot of $m_T$ in the W region without the cut on $m_T$ and on
-% $\Delta\phi_{min}$.
-%   [right] Data/MC comparison plot of $\Delta\phi_{min}$ in the W region without the cut on
-% $\Delta\phi_{min}$.
-% \label{fig:DataMC_W_mT}}
-% \end{figure}
-% 
-% The background composition as determined by simulation is shown in tables~\ref{tab:cutflow} and
-% \ref{tab:BG_comp_percent}. 
-% Comparisons between data and simulation for $M_R$ and $R^2$ in this region are shown in
-% figure~\ref{fig:DataMC_WRegion_MR_R2_mdphig0p5}, and for various other basic quantities in
-% figure~\ref{fig:DataMC_WRegion_mdphig0p5}. In figure~\ref{fig:Shape_WJ_WvsS}, we show a comparison
-% between the $M_R$ and $R^2$ shapes for Wjets simulation in the signal region versus the Wjets
-% control region. The observed shapes are very similar. 
-% 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_0Lbg1Y1LlmT_mdPhig0p5_width}
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_0Lbg1Y1LlmT_mdPhig0p5_width}
-% \caption{Data/MC comparison plot of $M_R$ (left) and $R^2$ (right) in the W region.
-% \label{fig:DataMC_WRegion_MR_R2_mdphig0p5}}
-% \end{figure}
-% 
-% 
-% \begin{figure}[p]
-% \centering
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_njets_0Lbg1Y1LlmT_mdPhig0p5}
-% 
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_met_0Lbg1Y1LlmT_mdPhig0p5}
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_jet1pt_0Lbg1Y1LlmT_mdPhig0p5}
-% 
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_jet2pt_0Lbg1Y1LlmT_mdPhig0p5}
-%  \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_jet3pt_0Lbg1Y1LlmT_mdPhig0p5}
-% \caption{Data/MC comparison plot of various event quantities in the W region: 
-% [top] jet multiplicity;
-% [middle] missing transverse energy (left) and \pt of the highest \pt jet (right);
-% [bottom] \pt of the second (left) and third (right) highest \pt jet. 
-% \label{fig:DataMC_WRegion_mdphig0p5}}
-% \end{figure}
-% 
-% \begin{figure}[htbp]
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/MR_comparison_WJ_WvsS_mdphi}
-% \includegraphics[width=0.49\textwidth]{figures/Shapes/R2_comparison_WJ_WvsS_mdphi}
-% \caption{Shape of $M_R$ (left) and $R^2$ (right) for $W+$jets simulation in the W region vs the S
-% region. 
-% \label{fig:Shape_WJ_WvsS}}
-% \end{figure}
-
+\input{tables/cutflow2.tex}
