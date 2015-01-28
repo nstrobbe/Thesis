@@ -33,10 +33,32 @@ invisible neutralinos.  We require $\mT < 100$\GeV in order to reduce signal con
 retain most of the $t\bar{t}$ contribution. The $\mT$ distribution at this selection level is shown
 in Fig.~\ref{fig:boost_T_region_mT}. 
 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/razor_selection/DataMC_mT_g1Mbg1W1Ll_rebin}
+\caption{Comparison between data and simulation of the $\mT$ distribution in the $T$ region without
+any selection on $\mT$ or $\Delta\phi_{min}$. The kinematic edge at the $\W$ boson mass is clearly
+visible for the SM backgrounds, whereas the example signal point extends out to high $\mT$.
+\label{fig:boost_T_region_mT}}
+\end{figure}
+
 The final ingredient for the full $T$ region selection, is the $\Delta\phi_{min} > 0.5$
 requirement. This is used to obtain a selection, and thus kinematic properties, as close as
-possible to the signal region. A summary of the $T$ region selection is presented in
-Table~\ref{tab:boost_selection_summary}. 
+possible to the signal region. The $\Delta\phi_{min}$ distribution is shown in
+Fig.~\ref{fig:boost_T_region_mindeltaphi}. A summary of the full $T$ region selection is presented
+in Table~\ref{tab:boost_selection_summary}. 
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]
+{figures/razor_selection/plots/DataMC_minDeltaPhi_g1Mbg1W1LlmT100_rebin}
+\caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $T$
+region without any selection on $\Delta\phi_{min}$.
+\label{fig:boost_T_region_mindeltaphi}}
+\end{figure}
+
 
 Table~\ref{tab:cutflow} shows a breakdown of the contributions of the various background components,
 as determined directly from simulation, as wel as the observed data counts, and expected counts for
@@ -58,23 +80,6 @@ regions.
 % for $t\bar{t}$ and single top processes combined. 
 
 
-\begin{figure}[htbp]
-\centering
-% \includegraphics[width=0.7\textwidth]{figures/DataMC/DataMC_mT_g1Mbg1W1Ll_rebin}
-\caption{Comparison between data and simulation of the $\mT$ distribution in the $T$ region without
-any selection on $\mT$ or $\Delta\phi_{min}$. The kinematic edge at the $\W$ boson mass is clearly
-visible for the SM backgrounds, whereas the example signal point extends out to high $\mT$.
-\label{fig:boost_T_region_mT}}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_minDeltaPhi_g1Mbg1W1LlmT100_rebin}
-\caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $T$
-region without any selection on $\Delta\phi_{min}$.
-\label{fig:boost_T_region_mindeltaphi}}
-\end{figure}
-
 
 % Comparisons between data and simulation  for various other basic quantities in
 % figure~\ref{fig:DataMC_TRegion_mdphig0p5}. In figure~\ref{fig:Shape_TTJ_TvsS}, we show a comparison
@@ -83,8 +88,11 @@ region without any selection on $\Delta\phi_{min}$.
 % 
 \begin{figure}[htbp]
 \centering
-%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
-%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
 \caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
 distribution in the $T$ control region.
 \label{fig:boost_T_region_MR_Rsq}}
@@ -169,7 +177,7 @@ normalization will be absorbed automatically during the background estimation pr
 
 \begin{figure}[htbp]
 \centering
-% \includegraphics[width=0.6\textwidth]{figures/DataMC/DataMC_mT_0Lbg1Y1Ll_rebin}
+\includegraphics[width=0.6\textwidth]{figures/razor_selection/plots/DataMC_mT_0Lbg1Y1Ll_rebin}
 \caption{Comparison between data and simulation of the $\mT$ distribution in the $W$ region without
 any selection on $\mT$ or on $\Delta\phi_{min}$.
 \label{fig:boost_W_region_mT}}
@@ -177,7 +185,8 @@ any selection on $\mT$ or on $\Delta\phi_{min}$.
 
 \begin{figure}[htbp]
 \centering
-% \includegraphics[width=0.6\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1Y1LlmT_rebin}
+\includegraphics[width=0.6\textwidth]
+{figures/razor_selection/plots/DataMC_minDeltaPhi_0Lbg1Y1LlmT_rebin}
 \caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $W$
 region without any selection on $\Delta\phi_{min}$.
 \label{fig:boost_W_region_mindeltaphi}}
@@ -189,11 +198,14 @@ region without any selection on $\Delta\phi_{min}$.
 % 
 \begin{figure}[htbp]
 \centering
-%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_MR_0Lbg1Y1LlmT_mdPhig0p5_width}
-%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_R2_0Lbg1Y1LlmT_mdPhig0p5_width}
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_MR_0Lbg1Y1LlmT_mdPhig0p5_width}
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_R2_0Lbg1Y1LlmT_mdPhig0p5_width}
 \caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
 distributions in the $W$ region.
-\label{fig:DataMC_WRegion_MR_R2_mdphig0p5}}
+\label{fig:boost_W_region_MR_Rsq}}
 \end{figure}
 % 
 % 
@@ -247,14 +259,7 @@ The full breakdown of the backgrounds according to simulation can again be found
 Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}.
 Figure~\ref{fig:boost_Q_region_MR_Rsq} shows a comparison between data and simulation for the $\mr$
 and $\rsq$ distributions. 
-In figure~\ref{fig:boost_Q_region_shape}, we show a comparison between the shapes of the $\mr$ and
-$\rsq$ distributions for the QCD multijet simulation in the signal region versus the $Q$ region. As
-the statistical precision is quite limited for the multijet simulation in the signal region,
-we also show in figure~\ref{fig:boost_Q_region_shape_no_mindeltaphi} the comparison for the $Q$ and
-$S$ regions without selecting a particular $\Delta\phi_{min}$ region. The shape difference in this
-region is smaller than when the $\Delta\phi_{min}$ cut is applied. We will assign a 40\% systematic
-uncertainty on the multijet transfer factors in the background prediction to account for the
-possible shape difference induced by the $\Delta\phi_{min}$ cut. 
+
 
 % In reality this percentage will be even higher, as simulation is seen to underpredict the data in
 % this control region. This is a known feature of the QCD multijet simulation, and its normalisation
@@ -263,7 +268,7 @@ possible shape difference induced by the $\Delta\phi_{min}$ cut.
 
 \begin{figure}[htbp]
 \centering
-%\includegraphics[width=0.6\textwidth]{figures/DataMC/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
+\includegraphics[width=0.6\textwidth]{figures/razor_selection/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
 \caption{Comparison between data and simluation of the $\Delta\phi_{min}$ distribution in the $Q$
 region before any selection on $\Delta\phi_{min}$.
 \label{fig:boost_Q_region_mindeltaphi}}
@@ -282,8 +287,11 @@ region before any selection on $\Delta\phi_{min}$.
 % 
 \begin{figure}[htbp]
 \centering
-%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_MR_0Lbg1uW0Ll_mdPhi0p3_width}
-%\includegraphics[width=0.48\textwidth]{figures/DataMC/DataMC_R2_0Lbg1uW0Ll_mdPhi0p3_width}
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_MR_0Lbg1uW0Ll_mdPhi0p3_width}
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_R2_0Lbg1uW0Ll_mdPhi0p3_width}
 \caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
 distributions in the $Q$ region.
 \label{fig:boost_Q_region_MR_Rsq}}
@@ -305,6 +313,16 @@ distributions in the $Q$ region.
 % [bottom] \pt of the second (left) and third (right) highest \pt jet. 
 % \label{fig:DataMC_QRegion_mdphi0p3}}
 % \end{figure}
+
+
+In figure~\ref{fig:boost_Q_region_shape}, we show a comparison between the shapes of the $\mr$ and
+$\rsq$ distributions for the QCD multijet simulation in the signal region versus the $Q$ region. As
+the statistical precision is quite limited for the multijet simulation in the signal region,
+we also show in figure~\ref{fig:boost_Q_region_shape_no_mindeltaphi} the comparison for the $Q$ and
+$S$ regions without selecting a particular $\Delta\phi_{min}$ region. The shape difference in this
+region is smaller than when the $\Delta\phi_{min}$ cut is applied. We will assign a 40\% systematic
+uncertainty on the multijet transfer factors in the background prediction to account for the
+possible shape difference induced by the $\Delta\phi_{min}$ cut. 
 
 \begin{figure}[htbp]
 \centering
