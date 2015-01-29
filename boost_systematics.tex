@@ -3,153 +3,185 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  
-% \section{Systematic uncertainties \label{sec:systematics}}
-% The input to the statistical analysis is an ensemble of histograms in the $(\mathrm{M_R},
-% \mathrm{R^2})$ plane that  incorporate systematic uncertainties in the simulated signal and
-% background samples.   The independent systematic effects, described below, are sampled
-% simultaneously. For each sampled systematic effect, the same
-% zero mean, unit variance, Gaussian variate is used in the calculation 
-% of the random shift of the systematic effect
-%  for all the signal and background models.
-% Likewise the same randomly sampled parton distribution functions (PDF) are used for all signal and
-% background models. In this way, the statistical dependencies among all bins of the signal and
-% background models are correctly, and automatically, modelled. The sampling of the systematic effects
-% is repeated several hundred times.  
-%  
-% In all cases, except for the PDFs, the systematic uncertainties are in the scale factors (SF) 
-% applied to the simulated samples to correct them for modelling deficiencies. We consider the
-% systematic uncertainties of the following quantities:
-% 
-% \begin{itemize}
-% 
-% \item {\bf Jet energy scale:}   The uncertainties are dependent on jet \pt and $\eta$.  
-% 
-% \item {\bf Parton distribution functions:} We use 100 randomly sampled sets of PDFs from {\tt
-% NNPDF23\_lo\_as\_0130\_qed}~\cite{nnpdf},  {\tt MSTW2008lo68cl}~\cite{Martin:2009iq}, and {\tt
-% CT10}~\cite{Lai:2010vv}.  The samples for the latter two are generated using the program
-% {\tt hessian2replicas}, recently
-% released with {\tt LHAPDF6}~\cite{LHAPDF6}. Given a sampled set $i$, for PDF set $K$ and the
-% PDF set $O$ with which the events were simulated, events are reweighted using the scale factors,
-% ${\rm SF}_{K, i} = w_{K, i} / w_{O}$,
-% where the weights $w$ are products of the event-by-event PDFs for the colliding partons.
-% 
-% \item {\bf Trigger efficiency: }  We take the uncertainty in each bin, as a function of $H_T$ and
-% leading jet $\pt$, to be the maximum of the statistical uncertainty in the efficiency after
-% preselection and the difference between the efficiencies before and after preselection. 
-% 
-% \item {\bf $\cPqb$ tagging scale factors:} The $\cPqb$ tagging performance differs between data and
-% simulation, and differs between the CMS full simulation (FullSim) and the parametric simulation
-% (FastSim).  The simulated events are therefore corrected by applying  jet flavour, \pt, and $\eta$
-% dependent data / FullSim and FullSim / FastSim $\cPqb$ tag scale factors.
-% 
-% \item {\bf $\PW$ tagging scale factors:} The $\PW$ boson tag efficiency, and the misidentification
-% (or \textit{fake}) rate for $\PW$ boson tag, $\PW$ boson mass-tag, and $\PW$ boson anti-tag differ
-% between data and simulation, as well as between FullSim and FastSim.  Data / FullSim and FullSim /
-% FastSim scale factors,  whose uncertainties are functions of jet $\pt$, are applied to the simulated
-% samples.  Some of these scale factors are derived specifically for this study  and are described
-% further in Section~\ref{sec:Wtag_SF}.
-% 
-% \item {\bf Lepton ID:} For electrons, we use \pt and $\eta$-dependent scale factors. The 
-% uncertainties
-% are also \pt and $\eta$-dependent.  The corresponding uncertainties for muons are negligible.  
-% 
-% \item {\bf Initial State Radiation:} Deficiencies in the modelling of initial-state-radiation (ISR) 
-% are corrected by reweighting~\cite{ISRerr} the signal samples using an event weight 
-% that depends on the \pt of the recoiling system.  The associated systematic uncertainty is equal to
-% the difference $1 - w_{ISR}$, where $w_{ISR}$ is the ISR event weight.  
-% 
-% \item {\bf Top quark transverse momentum:} Differential top-quark-pair cross section analyses have
-% shown that the shape of the \pt spectrum of  top quarks in data is softer than
-% predicted~\cite{toppt}. To account for this, we reweight events  based on the \pt of the generator
-% level $t$ and $\bar{t}$ quarks in the $t\bar{t}$ simulation.  
-% The uncertainty associated with this reweighting is taken to be equal to the full size of the
-% reweighting.
-% 
-% \item {\bf Pileup: } Simulated events are reweighted so that their pileup (\ie  vertex multiplicity)
-% distributions  and the observed pileup distribution,  match. The minbias cross section is varied by
-% $\pm 5\%$, thereby changing the shape of pileup distribution and therefore the weights.  The
-% difference in weights is taken as a measure of the uncertainty in the pileup distribution.  
-% 
-% \item {\bf QCD spectrum:} The cross checks described in Section~\ref{sec:selection} showed that
-% there is a 40\% uncertainty in the QCD multijet scale factor $\kappa$ between the signal and QCD
-% regions.  This uncertainty is accounted for by including an additional 33\% uncertainty to the
-% $\kappa$
-% parameters, as described in Section~\ref{sec:likelihood}.
-% 
-% \item {\bf $\cPZ (\rightarrow \nu \nu)+$jets prediction:} About 8\% of the background in the signal
-% region is composed of $Z(\rightarrow\nu\nu)$+jets events. Since we require the presence of at least
-% one $\cPqb$ tagged jet, and given the known deficiency in modelling $\cPZ$ production in association
-% with heavy flavour, we include an extra systematic uncertainty in the $\cPZ(\rightarrow\nu\nu)$+jets
-% contribution.  This uncertainty is estimated using a data control region enriched in
-% $\cPZ(\rightarrow \ell \bar{\ell})+$jets, required to have exactly two tight leptons, same flavour
-% and opposite sign ($e$ or $\mu$), $60 < m_{ll} < 120\GeV$, at least one $\cPqb$ tagged jet, and at
-% least one $\PW$ mass-tagged jet.  We estimate the uncertainty by first computing bin-by-bin data/MC
-% ratios in this control region.  Then, we take the uncertainty in the ratio in each bin as the
-% standard deviation of a Gaussian, normalized to  the number of events in that bin.  Finally, the
-% Gaussians from all bins are superposed, and the 
-% uncertainty is taken to be the magnitude of the 68\% band around a ratio of unity.
-% 
-% \end{itemize}
-% 
-% As noted above, all systematic effects are varied simultaneously. However, in order to see the
-% effect of each systematic uncertainty individually, each systematic effect $i$ is varied by $\pm
-% \delta_i$.  The effect on the background and signal samples in the signal region is shown in
-% Table~\ref{tab:bgsigsys}.  The signal values are obtained from averaging over all mass points in the
-% {\it T1ttcc} ($\Delta m = 25\GeV$) plane.  The PDF systematic uncertainties are obtained by running
-% over 100 different PDF set members, fitting a Gaussian to the efficiency distribution and taking the
-% width of the Gaussian.  The last line in the table corresponds to the full sampling of the
-% systematic uncertainties. To obtain this value we again fit a Gaussian to the efficiency
-% distribution obtained from the full systematic sampling including 500 variations.  We note  that,
-% although the effects of some of these systematic uncertainties on the backgrounds are large, these
-% do not influence our results greatly because only the 
-% ratios of simulated background counts enter the statistical analysis, not the distributions
-% themselves.  Therefore, most of the systematic effects cancel.  The dominant systematic uncertainty
-% arises from the parton distribution functions. The statistical precision of the control regions is
-% the leading uncertainty for the search bins at large $\mathrm{M_R}$ or $\mathrm{R^2}$.
-% 
-% \input{single_sys_summary.tex} 
+The input to the statistical analysis is an ensemble of histograms in the $(\mr,\rsq)$ plane that 
+incorporates systematic uncertainties in the simulated signal and background samples.  
+The independent systematic effects, described below, are sampled simultaneously. 
+This is one of the characteristics that sets this analysis apart. 
+For each sampled systematic effect, the same zero mean, unit variance, Gaussian variate is used in
+the calculation of the random shift of the systematic effect for all the signal and background
+models. Likewise, the same randomly sampled parton distribution functions (PDFs) are used for all
+signal and background models. 
+In this way, the statistical dependencies among all bins of the signal and background models are
+correctly, and automatically, modelled. The sampling of the systematic effects
+is repeated several hundred times.  
+In all cases, except for the PDFs, the systematic uncertainties are in the scale factors (SF) 
+applied to the simulated samples to correct them for modelling deficiencies. 
+In the next subsections I will discuss each source of systematic uncertainty in more detail. 
 
 
+\subsection{Jet energy scale corrections}  
+
+% TODO: might need to be moved partially to the reconstruction section
+
+Jet energy corrections (JEC) are a set of tools that map the measured jet energy deposition in the
+detector to the particle or parton level, as desired. 
+Within CMS the JEC are applied in different sequential levels, correcting for different effects.
+Each level of correction is a scaling of the four-momentum of a jet by a scale factor -- the
+correction -- that depends on the jet \pt, $\eta$ and flavour.  
+
+Uncertainties on JEC originate from various uncorrelated sources.   
+Given $M$ such sources, the correction on the \pt of a jet becomes 
+\begin{equation}
+s(\pt, \eta, \alpha_i) = \sum_{i=1}^M \alpha_i S_i (\pt, \eta)
+\end{equation}
+where $S_i (\pt, \eta)$ is a \pt and $\eta$-dependent JEC uncertainty for a source $i$ and
+$\alpha_i$s are weights randomly sampled from Gaussian distributions with zero mean and unit
+width. 
+Here, the $\alpha_i$ are different for each source, but are universal for each jet and each event.
+
+In a much simpler approach JEC corrections can be computed as
+\begin{equation}
+s(\pt, \eta, \alpha) = \alpha S (\pt, \eta) = \alpha \sqrt {\sum_i^M s_i^2 (\pt, \eta) }
+\end{equation}
+using a total uncertainty $S (\pt, \eta)$ and a random number from a single Gaussian.  
+The jet $p_T$ is corrected as:
+\begin{equation}
+\pt^{\rm corr} = \left(1 + s(\pt, \eta, \alpha)\right) \pt^{\rm orig}.
+\end{equation}
+This calculation is repeated $N$ times, each time, using a different number sampled from the
+Gaussian.  
+The overall effect of JEC uncertainty on the yield is obtained from the distribution of resulting
+$N$ yields.  
+The JEC uncertainties are also propagated to \ETm .
 
 
+\subsection{Parton distribution functions} 
+
+We use 100 randomly sampled sets of PDFs from {\tt NNPDF23\_lo\_as\_0130\_qed}~\cite{nnpdf}, {\tt
+CT10}~\cite{Lai:2010vv}, and {\tt MSTW2008lo68cl}~\cite{Martin:2009iq}.  The samples for the latter
+two are generated using the program {\tt hessian2replicas}, recently released with {\tt
+LHAPDF6}~\cite{LHAPDF6}. Given a sampled set $i$, for PDF set $K$ and the PDF set $O$ with which the
+events were simulated, events are reweighted using the scale factors, ${\rm SF}_{K, i} = w_{K, i} /
+w_{O}$,
+where the weights $w$ are products of the event-by-event PDFs for the colliding partons.
+
+\subsection{Trigger efficiency}  
+
+We take the uncertainty in each bin, as a function of $H_T$
+and leading jet $\pt$, to be the maximum of the statistical uncertainty in the efficiency after
+preselection and the difference between the efficiencies before and after preselection. 
 % 
-% 
+% The trigger efficiency as determined in section~\ref{sec:trigger} comes with an associated
+% uncertainty coming from the statistical precision of the data samples used to perform the
+% measurement.   Magnitudes of the plus and minus uncertainties were shown in
+% figure~\ref{fig:trigger_efficiency} as functions of $H_T$ and leading jet \pt.  We compute an event
+% weight based on the efficiency and uncertainty as follows:
+% \begin{eqnarray}
+% w_{\rm trig} & = & \epsilon_{\rm trig}(H_T, j_1p_T) + \sigma_{\rm trig} \delta\epsilon^+_{\rm
+% trig}(H_T, j_1p_T), \,\,\, {\rm if} \,\, \sigma_{\rm trig} > 0 \\ 
+% w_{\rm trig} & = & \epsilon_{\rm trig}(H_T, j_1p_T) + \sigma_{\rm trig} \delta\epsilon^-_{\rm
+% trig}(H_T, j_1p_T), \,\,\, {\rm if} \,\, \sigma_{\rm trig} < 0 
+% \end{eqnarray}
+% where $\sigma_{\rm trig}$ is a random Gaussian number.	
+
+
+\subsection{\texorpdfstring{$\cPqb$}{b} tagging} 
+The $\cPqb$ tagging performance differs
+between data and
+simulation, and differs between the CMS full simulation (FullSim) and the parametric simulation
+(FastSim).  The simulated events are therefore corrected by applying  jet flavour, \pt, and $\eta$
+dependent data / FullSim and FullSim / FastSim $\cPqb$ tag scale factors.
+
+\subsection{\texorpdfstring{$\W$}{W} tagging} 
+The $\W$ boson tag efficiency, and the
+misidentification
+(or \textit{fake}) rate for $\W$ boson tag, $\W$ boson mass-tag, and $\W$ boson anti-tag differ
+between data and simulation, as well as between FullSim and FastSim.  Data / FullSim and FullSim /
+FastSim scale factors,  whose uncertainties are functions of jet $\pt$, are applied to the simulated
+samples.  Some of these scale factors are derived specifically for this study  and are described
+further in Section~\ref{sec:Wtag_SF}.
+
+\subsection{Lepton identification} 
+
+For electrons, we use \pt and $\eta$-dependent scale factors.
+The 
+uncertainties
+are also \pt and $\eta$-dependent.  The corresponding uncertainties for muons are negligible.  
+
+\subsection{Initial State Radiation} 
+Deficiencies in the modelling of
+initial-state-radiation (ISR) 
+are corrected by reweighting~\cite{ISRerr} the signal samples using an event weight 
+that depends on the \pt of the recoiling system.  The associated systematic uncertainty is equal to
+the difference $1 - w_{ISR}$, where $w_{ISR}$ is the ISR event weight.  
+
+\subsection{Top quark transverse momentum} 
+Differential top-quark-pair cross section
+analyses have
+shown that the shape of the \pt spectrum of  top quarks in data is softer than
+predicted~\cite{toppt}. To account for this, we reweight events  based on the \pt of the generator
+level $t$ and $\bar{t}$ quarks in the $t\bar{t}$ simulation.  
+The uncertainty associated with this reweighting is taken to be equal to the full size of the
+reweighting.
+
+\subsection{Pileup} 
+Simulated events are reweighted so that their pileup (i.e.  vertex
+multiplicity)
+distributions  and the observed pileup distribution,  match. The minbias cross section is varied by
+$\pm 5\%$, thereby changing the shape of pileup distribution and therefore the weights.  The
+difference in weights is taken as a measure of the uncertainty in the pileup distribution.  
+
+\subsection{QCD spectrum} 
+The cross checks described in Section~\ref{sec:selection}
+showed that
+there is a 40\% uncertainty in the QCD multijet scale factor $\kappa$ between the signal and QCD
+regions.  This uncertainty is accounted for by including an additional 33\% uncertainty to the
+$\kappa$
+parameters, as described in Section~\ref{sec:likelihood}.
+
+\subsection{$\cPZ (\rightarrow \nu \nu)+$jets prediction} 
+About 8\% of the background in
+the signal
+region is composed of $Z(\rightarrow\nu\nu)$+jets events. Since we require the presence of at least
+one $\cPqb$ tagged jet, and given the known deficiency in modelling $\cPZ$ production in association
+with heavy flavour, we include an extra systematic uncertainty in the $\cPZ(\rightarrow\nu\nu)$+jets
+contribution.  This uncertainty is estimated using a data control region enriched in
+$\cPZ(\rightarrow \ell \bar{\ell})+$jets, required to have exactly two tight leptons, same flavour
+and opposite sign ($e$ or $\mu$), $60 < m_{ll} < 120\GeV$, at least one $\cPqb$ tagged jet, and at
+least one $\W$ mass-tagged jet.  We estimate the uncertainty by first computing bin-by-bin data/MC
+ratios in this control region.  Then, we take the uncertainty in the ratio in each bin as the
+standard deviation of a Gaussian, normalized to  the number of events in that bin.  Finally, the
+Gaussians from all bins are superposed, and the 
+uncertainty is taken to be the magnitude of the 68\% band around a ratio of unity.
+
+\subsection{Summary of separate systematic effects}
+
+As noted before, all systematic effects are varied simultaneously. However, in order to see the
+effect of each systematic uncertainty individually, each systematic effect $i$ is varied by one
+standard deviation up and down.  
+The effect on the background and signal samples in the signal region is shown in
+Table~\ref{tab:bgsigsys}.  
+The signal values are obtained from averaging over all mass points in the {\it T1ttcc} ($\Delta m =
+25\GeV$) plane.  The PDF systematic uncertainties are obtained by running
+over 100 different PDF set members, fitting a Gaussian to the efficiency distribution and taking the
+width of the Gaussian.  
+The last line in the table corresponds to the full sampling of the systematic uncertainties. To
+obtain this value we again fit a Gaussian to the efficiency distribution obtained from the full
+systematic sampling including 500 variations.  We note  that, although the effects of some of these
+systematic uncertainties on the backgrounds are large, these do not influence our results greatly
+because only the  ratios of simulated background counts enter the statistical analysis, not the
+distributions themselves.  Therefore, most of the systematic effects cancel.  The dominant
+systematic uncertainty arises from the parton distribution functions. The statistical precision of
+the control regions is the leading uncertainty for the search bins at large $\mr$ or $\rsq$.
+
+\input{tables/single_sys_summary.tex} 
+
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% In this section the considered systematic uncertainties will be discussed. 
 % 
 % \subsection{Jet energy corrections (JEC) \label{sec:JEC}}
 % 
-% Jet energy corrections are a set of tools that allow the proper mapping of the measured jet energy
-% deposition to the analysis-desired level (particle or parton).  
-% CMS factorizes the effects of different corrections, and defines JEC in levels applied sequentially.
-%  
-% Each level of correction is a scaling of the 4-jet momentum by a scale factor (correction) which
-% depends on various jet related quantities such as \pt, $\eta$ and flavor.  
-% 
-% Uncertainties on JEC come from various uncorrelated sources.   
-% Given there are $M$ such sources, the correction on a jet's \pt becomes 
-% \begin{equation}
-% s(\pt, \eta, \alpha_i) = \sum_{i=1}^M \alpha_i S_i (\pt, \eta)
-% \end{equation}
-% where $S_i (\pt, \eta)$ is a \pt and $\eta$-dependent JEC uncertainty for a source $i$ and
-% $\alpha_i$s are weights randomly sampled from Gaussian distributions with mean 0 and width 1.  
-% Here, $\alpha_i$ are different for each source, but are universal for each jet and each event.  
-% In a much simpler approach JEC corrections can be computed as
-% \begin{equation}
-% s(\pt, \eta, \alpha) = \alpha S (\pt, \eta) = \alpha \sqrt {\sum_i^M s_i^2 (\pt, \eta) }
-% \end{equation}
-% using a total uncertainty $S (\pt, \eta)$ and a random number from a single Gaussian.  
-% The jet $p_T$s are corrected as:
-% \begin{equation}
-% \pt^{data} = (1 + s(\pt, \eta, \alpha)) \pt^{MC}.
-% \end{equation}
-% This calculation is repeated $N$ times, each time, using a different number sampled from the
-% Gaussian.  
-% The overall effect of JEC uncertainty on the yield is obtained from the distribution of resulting
-% $N$ yields.  
-% The JEC uncertainties are also propagated to \ETm .
-% % (technical method: use TLorentzVectors: \ETm - sumuncorrected + sumcorrected).
+
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
@@ -248,18 +280,7 @@
 % 
 % \subsection{Trigger efficiency \label{sec:trigger_uncertainties}}
 % 
-% The trigger efficiency as determined in section~\ref{sec:trigger} comes with an associated
-% uncertainty coming from the statistical precision of the data samples used to perform the
-% measurement.   Magnitudes of the plus and minus uncertainties were shown in
-% figure~\ref{fig:trigger_efficiency} as functions of $H_T$ and leading jet \pt.  We compute an event
-% weight based on the efficiency and uncertainty as follows:
-% \begin{eqnarray}
-% w_{\rm trig} & = & \epsilon_{\rm trig}(H_T, j_1p_T) + \sigma_{\rm trig} \delta\epsilon^+_{\rm
-% trig}(H_T, j_1p_T), \,\,\, {\rm if} \,\, \sigma_{\rm trig} > 0 \\ 
-% w_{\rm trig} & = & \epsilon_{\rm trig}(H_T, j_1p_T) + \sigma_{\rm trig} \delta\epsilon^-_{\rm
-% trig}(H_T, j_1p_T), \,\,\, {\rm if} \,\, \sigma_{\rm trig} < 0 
-% \end{eqnarray}
-% where $\sigma_{\rm trig}$ is a random Gaussian number.	
+
 % 
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -73,27 +73,14 @@ as determined directly from simulation, as wel as the observed data counts, and 
 an example signal point. From Table~\ref{tab:BG_comp_percent} we see that the obtained purity in the
 $T$ region is more than 80\% for $t\bar{t}$ and single top processes combined. This is also
 illustrated in the $\mr$ and $\rsq$ distributions, as shown on Fig.~\ref{fig:boost_T_region_MR_Rsq}.
-There is good agreement between data and simulation in the $T$ region. 
+There is good agreement between data and simulation in the $T$ region. Any discrepancies can
+be accommodated by the systematic uncertainties on the MC, and will not affect the analysis.
 We also compare the shape of the $\mr$ and $\rsq$ distributions in the $T$ region versus the $S$
 region. We observe from Fig.~\ref{fig:boost_T_region_shape} that the shapes are very similar. This
 is important as we will use global transfer factors $\kappa$ to translate between the $T$ and $S$
 regions. 
 
 
-% Overall, there is a reasonable agreement between data and MC yields.  The mild discrepancies can
-% be
-% accommodated by the systematic uncertainties on the MC, and they will not affect our analysis.
-% The control regions have a good purity for the background
-% process they target: 90\% for multijet, 85\% for $\PW(\rightarrow \ell\nu)+$jets and close to 80\%
-% for $t\bar{t}$ and single top processes combined. 
-
-
-
-% Comparisons between data and simulation  for various other basic quantities in
-% figure~\ref{fig:DataMC_TRegion_mdphig0p5}. In figure~\ref{fig:Shape_TTJ_TvsS}, we show a comparison
-% between the $M_R$ and $R^2$ shapes for TTjets simulation in the signal region versus the TTjets
-% control region. The observed shapes are very similar. 
-% 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.48\textwidth]
@@ -109,7 +96,9 @@ the
 background processes.
 \label{fig:boost_T_region_MR_Rsq}}
 \end{figure}
-% 
+
+% Comparisons between data and simulation  for various other basic quantities in
+% figure~\ref{fig:DataMC_TRegion_mdphig0p5}. 
 % 
 % \begin{figure}[p]
 % \centering
@@ -285,13 +274,11 @@ and tighten the $\Delta\phi_{min}$ requirement from the signal region. We requir
 The full breakdown of the backgrounds according to simulation can again be found in
 Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}.
 Figure~\ref{fig:boost_Q_region_MR_Rsq} shows a comparison between data and simulation for the $\mr$
-and $\rsq$ distributions. 
-
-
-% In reality this percentage will be even higher, as simulation is seen to underpredict the data in
-% this control region. This is a known feature of the QCD multijet simulation, and its normalisation
-% to LO cross sections. 
-
+and $\rsq$ distributions. It is not surprizing to observe that the agreement between data and
+simulation is not very good. This is a known feature of the QCD multijet simulation, and its
+normalisation to LO cross sections. Since we only use ratios of simulated counts in the background
+estimation method, and the proportion of multijet events in the signal region is small, the
+observed mismodelling will not affect our analysis greatly. 
 
 \begin{figure}[htbp]
 \centering
@@ -304,10 +291,6 @@ the
 background processes.
 \label{fig:boost_Q_region_mindeltaphi}}
 \end{figure}
-% 
-% Comparisons between data and simulation in the $Q$ region for $M_R$ and $R^2$ are shown in
-% figure~\ref{fig:DataMC_QRegion_MR_R2_mdphi0p3}, and for various other basic quantities in
-% figure~\ref{fig:DataMC_QRegion_mdphi0p3}. 
 
 \begin{figure}[htbp]
 \centering
@@ -376,6 +359,7 @@ regions.
 \label{fig:Shape_QCD_QvsS_nomdphi}}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{table}[thbp]
@@ -383,18 +367,18 @@ regions.
 \caption{Summary of selection for signal and control regions.
 These requirements are in addition to the baseline selection. \label{tab:boost_selection_summary}}
 \vspace{1ex}
-\begin{tabular}{lccccc}
+\begin{tabular}{l cc cc c c}
 \toprule
-Selection & $S$ region & $S'$ region & $Q$ region & $T$ region & $W$ region \\ 
+Selection & $S$ & $S'$  & $Q$ & $Q'$ & $T$ & $W$ \\ 
 \midrule
-nr of $\cPqb$ jets & ${\geq}\, 1$ & ${\geq}\, 1$ & 0  & ${\geq}\, 1$  & 0 \\
-nr of mass-tagged $\W$'s & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ \\
-nr of tagged $\W$'s      & ${\geq}\, 1$   & ${\geq}\, 1$   & -        & ${\geq}\, 1$ & - \\
-nr of anti-tagged $\W$'s & -          & -          & ${\geq}\, 1$ & -             & - \\
-nr of loose leptons      & 0          & 0          & 0        & 1             & 1 \\
-nr of isolated tracks    & 0          & 0          & 0        & -             & - \\
-$m_T$                    & -          & -          & -        & ${<}\,100$\GeV   & 30--100\GeV\\
-$\Delta\phi_{min}$       & ${>}\, 0.5$ & ${<}\, 0.5$ & ${<}\, 0.3$  & ${>}\, 0.5$ & ${>}\, 0.5$\\
+nr of $\cPqb$ jets & ${\geq}\, 1$ & ${\geq}\, 1$ & 0 & 0 & ${\geq}\, 1$  & 0 \\
+nr of mass-tagged $\W$'s & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ \\
+nr of tagged $\W$'s      & ${\geq}\, 1$   & ${\geq}\, 1$   & -   & -     & ${\geq}\, 1$ & - \\
+nr of anti-tagged $\W$'s & -          & -          & ${\geq}\, 1$ & ${\geq}\, 1$  & -   & - \\
+nr of loose leptons      & 0          & 0          & 0   & 0     & 1             & 1 \\
+nr of isolated tracks    & 0          & 0          & 0   & 0     & -             & - \\
+$m_T$                    & -          & -          & -   & -     & ${<}\,100$\GeV   & 30--100\GeV\\
+$\Delta\phi_{min}$       & ${>}\, 0.5$ & ${<}\, 0.5$ & ${<}\, 0.3$  & ${>}\, 0.5$  & ${>}\, 0.5$ & ${>}\, 0.5$\\
 \bottomrule
 \end{tabular}
 \end{table}
