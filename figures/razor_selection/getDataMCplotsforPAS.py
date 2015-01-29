@@ -171,10 +171,12 @@ if __name__ == '__main__':
     vartitles = ["#Delta#phi_{min}"]
     cuts = ["0Lbg1uW0Ll_rebin",
             "g1Mbg1W1LlmT100_rebin",
-            "0Lbg1Y1LlmT_rebin"]
+            "0Lbg1Y1LlmT_rebin",
+            "g1Mbg1W0Ll_rebin"]
     plotinfos = ["Q region, no selection on #Delta#phi_{min}", 
                  "T region, no selection on #Delta#phi_{min}",
-                 "W region, no selection on #Delta#phi_{min}"]
+                 "W region, no selection on #Delta#phi_{min}",
+                 "Signal region, no selection on #Delta#phi_{min}"]
     #legd = plotTools.ConstructLDict(0.65,0.92,0.5,0.8,ncolumns=2)
 
     for cut in cuts:

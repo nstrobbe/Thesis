@@ -677,6 +677,8 @@ def Plot1DWithRatioPAS(hdictlist,outputdir="plots",outfile=0,legdict=0,cname="ca
         if logscale:
             h.SetMinimum(0.05)
             #h.SetMinimum(0.00005)
+        else:
+            h.SetMinimum(-0.03)
 
         drawoption = hdict["drawoption"]
         if first > 0:
