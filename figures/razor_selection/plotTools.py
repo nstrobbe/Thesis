@@ -893,6 +893,145 @@ def Plot1D(hdictlist,outputdir="plots",outfile=0,legdict=0,cname="canvas"
         canvas.Write()
     canvas.Close()
 
+# ---------------------------------------------- #
+# -- Plot routine for 1D comparison plots     -- #
+# ---------------------------------------------- # 
+def Plot1DPAS(hdictlist,outputdir="plots",outfile=0,legdict=0,cname="canvas"
+              ,logscale=False,scale="No",scalefactor=1,cdim=[800,600],ymax=0,
+              extras=[]):
+    tdrstyle.setTDRStyle()
+    
+    # First do some checks on the input
+    if outfile == 0:
+        print "You did not pass me a root file to store the plots. I will only produce pdf files."
+    if not os.path.isdir(outputdir):
+        print "Output directory doesn't exist yet"
+        print "Will create directory %s" % (outputdir)
+        os.makedirs(outputdir)
+
+    # placeholder for draw objects
+    rootEvil = []
+
+    # Make the canvas, which will have two pads
+    canvas = rt.TCanvas(cname,"",cdim[0],cdim[1])
+    canvas.SetBottomMargin(0.15)
+    canvas.SetTopMargin(0.1)
+    canvas.SetLeftMargin(0.14)
+    canvas.SetRightMargin(0.05)
+    if logscale:
+        canvas.SetLogy(1)
+    canvas.Draw()
+    canvas.cd()
+
+    # Make the legend
+    legend = rt.TLegend(0.5,0.5,0.87,0.87,"")
+    if legdict != 0:
+        legend = rt.TLegend(legdict["xmin"],legdict["ymin"],legdict["xmax"],legdict["ymax"],legdict["title"])
+        legend.SetNColumns(legdict["ncolumns"])
+    legend.SetFillStyle(0)
+    legend.SetBorderSize(0)
+    #legend.SetTextAlign(11)
+    # Get histograms from a list of dictionaries, and plot them 
+    print "Getting all histograms"
+
+    first = 0 # to keep track whether this is the first histogram we're plotting
+    maxi = 0
+    for hdict in hdictlist:
+        h = hdict["histogram"] # Get the histogram
+        h.Sumw2() # need to put this otherwise errors in ratio plot are wrong
+        if scale == "Yes":
+            sf = h.Integral(0,h.GetNbinsX()+1)
+            h.Scale(scalefactor/sf)
+        if scale == "Width":
+            h.Scale(scalefactor,"width")
+        if scale == "Yes":
+            h.GetYaxis().SetTitle("A.U.")
+        else:
+            h.GetYaxis().SetTitle("Events / bin")
+        if h.GetMaximum() > maxi:
+            maxi = h.GetMaximum()
+
+    for hdict in hdictlist:
+        h = hdict["histogram"] # Get the histogram again
+        if ymax == 0:
+            if logscale:
+                h.SetMaximum(maxi*5)
+            else:
+                h.SetMaximum(maxi*1.2)
+        else: 
+            h.SetMaximum(ymax)
+        h.GetYaxis().SetTitleSize(0.06)
+        h.GetYaxis().SetTitleOffset(1.1)
+        h.GetYaxis().SetLabelSize(0.05)
+        h.GetXaxis().SetTitleSize(0.06)
+        h.GetXaxis().SetTitleOffset(1.1)
+        h.GetXaxis().SetLabelSize(0.05)
+
+        h.SetLineColor(hdict["color"])
+        h.SetLineWidth(hdict["linewidth"])
+        if hdict["fillstyle"] != 0:
+            h.SetFillStyle(hdict["fillstyle"])
+            h.SetFillColor(hdict["color"])
+        if "P" in hdict["drawoption"]:
+            h.SetMarkerColor(hdict["color"])
+            h.SetMarkerSize(hdict["markersize"])
+            h.SetMarkerStyle(hdict["markerstyle"])
+        h.SetTitle(hdict["title"])
+        if hdict["ytitle"] != "":
+            h.GetYaxis().SetTitle(hdict["ytitle"])
+        if hdict["xtitle"] != "":
+            h.GetXaxis().SetTitle(hdict["xtitle"])
+            
+        if hdict["appear in legend"]:
+            legoption = "l"
+            if "E" in hdict["drawoption"]:
+                legoption = "eplf"
+            if "E1X0" in hdict["drawoption"]:
+                legoption = "ep"
+            if hdict["fillstyle"] != 0:
+                legoption = "f"
+            legend.AddEntry(h,hdict["name"],legoption)
+            
+        if logscale:
+            h.SetMinimum(0.05)
+            #h.SetMinimum(0.00005)
+
+        drawoption = hdict["drawoption"]
+        if first > 0:
+            drawoption = drawoption + " same"
+        rootEvil.append(h.DrawClone(drawoption))
+        if "E2" in drawoption:
+            if first > 0:
+                rootEvil.append(h.DrawClone(drawoption.replace("E2","E0")))
+            else:
+                rootEvil.append(h.DrawClone(drawoption.replace("E2","E0")+" same"))
+        first = first+1
+        
+    print "Drew all histograms"
+    legend.Draw("same")
+
+    # Draw the extras
+    for elem in extras:
+        elem.Draw()
+    
+    canvas.cd()
+    CMS_lumi.lumi_8TeV = "19.7 fb^{-1}"
+    CMS_lumi.writeExtraText = 0
+    CMS_lumi.extraText = "Preliminary"
+
+    iPos = 0#11
+    if( iPos==0 ): CMS_lumi.relPosX = 0.12
+    iPeriod = 2
+    CMS_lumi.CMS_lumi(canvas, iPeriod, iPos)
+
+
+    canvas.SaveAs(outputdir+"/"+cname+".pdf")
+    canvas.SaveAs(outputdir+"/"+cname+".C")
+    if outfile != 0:
+        outfile.cd()
+        canvas.Write()
+    canvas.Close()
+
 # ----------------------------------------------- #
 # -- Plot routine for Data/MC comparison plots -- #
 # ----------------------------------------------- # 
@@ -1140,8 +1279,9 @@ def PlotDataMC(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
 # -- Plot routine for Data/MC comparison plots with PAS style -- #
 # -------------------------------------------------------------- # 
 def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
-               , outputdir="plots", outfile=0, cname="canvas", plotinfo="Selection X"
-               , ratiotitle="ratio", logscale=False, scale="No", scalefactor=1, intlumi=19.7, style="CMS"):
+                  , outputdir="plots", outfile=0, cname="canvas", plotinfo="Selection X"
+                  , ratiotitle="ratio", logscale=False, scale="No", scalefactor=1, intlumi=19.7, style="CMS"
+                  , ymax=-1):
 
     # CMS style plots
     if style == "CMS":
@@ -1281,7 +1421,10 @@ def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
         hdata.GetMaximum()
     if htotal.GetMaximum() > maxi:
         maxi = htotal.GetMaximum()
+    if ymax != -1:
+        maxi = ymax
 
+    print ymax, maxi
     # Make the canvas, which will have two pads if we have data, and only one if there is no data
     canvas = rt.TCanvas(cname,"",50,50,800,600)
     canvas.cd()

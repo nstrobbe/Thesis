@@ -2,8 +2,8 @@
 % Explanation of control regions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The control regions are defined such that they are enriched in of the three main backgrounds in the
-signal region, $t\bar{t}$, QCD multijet, and $\W(\rightarrow \ell \nu)+$jets. The control region
+The control regions are defined such that they are enriched in one of the three main backgrounds in
+the signal region, $t\bar{t}$, QCD multijet, and $\W(\rightarrow \ell \nu)+$jets. The control region
 selections will be as close as possible to the signal selection, while maximizing the purity in a
 given background process and minimizing possible signal contamination. 
 To construct the control regions, different requirements on the 
@@ -19,7 +19,7 @@ well as real hadronically decaying $\W$ bosons. We will thus not change those as
 selection when defining the $T$ region. 
 
 The main change we do make, is requiring the presence of exactly one loose electron or muon, while
-removing the requirement that there be an isolated track. This selection is already sufficient to
+removing the requirement that there be no isolated track. This selection is already sufficient to
 obtain a region with a good purity of $t\bar{t}$ events. There is, however, a possibility of
 substantial signal contamination. To address this issue, we place an upper boundary on the value of
 the transverse mass, $\mT$, computed from the lepton transverse momentum and \VEtmiss, 
@@ -39,8 +39,8 @@ in Fig.~\ref{fig:boost_T_region_mT}.
 \includegraphics[width=0.7\textwidth]{figures/razor_selection/DataMC_mT_g1Mbg1W1Ll_rebin}
 \caption{Comparison between data and simulation of the $\mT$ distribution in the $T$ region without
 any selection on $\mT$ or $\Delta\phi_{min}$. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
+point, corresponding to the T1ttcc mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
+$m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is stacked on top of
 the
 background processes. The kinematic edge at the $\W$ boson mass is clearly
 visible for the SM backgrounds, whereas the example signal point extends out to high $\mT$.
@@ -60,8 +60,8 @@ in Table~\ref{tab:boost_selection_summary}.
 {figures/razor_selection/plots/DataMC_minDeltaPhi_g1Mbg1W1LlmT100_rebin}
 \caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $T$
 region without any selection on $\Delta\phi_{min}$. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
+point, corresponding to the T1ttcc mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
+$m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is stacked on top of
 the
 background processes.
 \label{fig:boost_T_region_mindeltaphi}}
@@ -89,11 +89,7 @@ regions.
 \includegraphics[width=0.48\textwidth]
 {figures/razor_selection/plots/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
 \caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
-distribution in the $T$ control region. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+distribution in the $T$ control region. 
 \label{fig:boost_T_region_MR_Rsq}}
 \end{figure}
 
@@ -144,9 +140,9 @@ We do not expect hadronically decaying $\W$ bosons to contribute to the backgrou
 region, as those events would have very small missing energy, in addition to not having real
 $\cPqb$ jets. Even though we do not explicitely require a minimal \ETm, our $\rsq$ cut is highly
 correlated with \ETm, and induces a minimal cut of around 100\GeV, as can be seen in
-figure~\ref{fig:DataMC_SignalRegion_mdphig0p5}.  
-This expectation was verified by checking the contribution of $\W(\rightarrow
-q\bar{q}')+b\bar{b}$ using simulation, where it was found that no events pass our signal
+figure~\ref{fig:boost_signal_Wpt_met}. 
+This expectation was verified by checking the contribution of $\W({\rightarrow}\,
+q\bar{q}')b\bar{b}$ using simulation, where it was found that no events pass our signal
 selection. 
 
 In order to accurately model the $\W(\rightarrow l\nu)$+jets background, we define a dedicated
@@ -166,6 +162,7 @@ multijet events. Those events generally have low $\ETm$, which translates in low
 Multijet contamination in the $T$ region is negligible because of the
 requirement that there be at least one jet tagged a coming from a $\cPqb$ quark. 
 Finally, we also require $\Delta\phi_{min} > 0.5$, as was the case for the signal region. 
+A summary of the $W$ region selection is presented in Table~\ref{tab:boost_selection_summary}.
 
 Figure~\ref{fig:boost_W_region_mT} shows the $m_T$ distribution in the $W$ region before making any
 selection $\mT$ or on $\Delta\phi_{min}$. The $\Delta\phi_{min}$ distribution in the $W$ region
@@ -179,10 +176,9 @@ in the $\W(\rightarrow l\nu)+$jets process.
 \includegraphics[width=0.7\textwidth]{figures/razor_selection/plots/DataMC_mT_0Lbg1Y1Ll_rebin}
 \caption{Comparison between data and simulation of the $\mT$ distribution in the $W$ region without
 any selection on $\mT$ or on $\Delta\phi_{min}$. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+point, corresponding to the T1ttcc mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
+$m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is stacked on top of
+the background processes.
 \label{fig:boost_W_region_mT}}
 \end{figure}
 
@@ -191,11 +187,7 @@ background processes.
 \includegraphics[width=0.7\textwidth]
 {figures/razor_selection/plots/DataMC_minDeltaPhi_0Lbg1Y1LlmT_rebin}
 \caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $W$
-region without any selection on $\Delta\phi_{min}$. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+region without any selection on $\Delta\phi_{min}$. 
 \label{fig:boost_W_region_mindeltaphi}}
 \end{figure}
 
@@ -214,11 +206,7 @@ observe that there is good agreement, within statistical uncertainties.
 \includegraphics[width=0.48\textwidth]
 {figures/razor_selection/plots/DataMC_R2_0Lbg1Y1LlmT_mdPhig0p5_width}
 \caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
-distributions in the $W$ region. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+distributions in the $W$ region. 
 \label{fig:boost_W_region_MR_Rsq}}
 \end{figure}
 
@@ -256,7 +244,7 @@ background processes.
 The final background for which we define a control region, is QCD multijet production.
 To define a region $Q$ enriched in multijet production, we start from the baseline selection, and
 add the requirement that there be no loose lepton or isolated track present, as is the case for the
-signal region selection. We also veto any event that contains a CSV loose $\cPqb$ tagged jet. 
+signal region selection. We also veto events containing a CSV loose $\cPqb$ tagged jet. 
 
 Multijet events do not produce $\W$ bosons; any CA8 jet that passes the $\W$ boson tagger,
 is thus by definition a misidentified $\W$ boson jet. To reach a similar kinematic phase space as
@@ -284,11 +272,7 @@ observed mismodelling will not affect our analysis greatly.
 \centering
 \includegraphics[width=0.7\textwidth]{figures/razor_selection/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
 \caption{Comparison between data and simluation of the $\Delta\phi_{min}$ distribution in the $Q$
-region before any selection on $\Delta\phi_{min}$. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+region before any selection on $\Delta\phi_{min}$. 
 \label{fig:boost_Q_region_mindeltaphi}}
 \end{figure}
 
@@ -300,11 +284,7 @@ background processes.
 \includegraphics[width=0.48\textwidth]
 {figures/razor_selection/plots/DataMC_R2_0Lbg1uW0Ll_mdPhi0p3_width}
 \caption{Comparison between data and simulation of the $\mr$ (left) and $\rsq$ (right)
-distributions in the $Q$ region. An example signal
-point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
-$m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+distributions in the $Q$ region. 
 \label{fig:boost_Q_region_MR_Rsq}}
 \end{figure}
 
@@ -356,7 +336,7 @@ in the $Q$ region versus the $S$ region.
 \caption{Shape of the $\mr$ (left) and $\rsq$ (right) distribution for the QCD multijet simulation
 in the $Q$ region versus the $S$ region with the requirement on  $\Delta\phi_{min}$ removed in both
 regions. 
-\label{fig:Shape_QCD_QvsS_nomdphi}}
+\label{fig:boost_Q_region_shape_no_mindeltaphi}}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -138,19 +138,21 @@ datasets.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Simulated samples}
+\subsection{Simulated samples \label{sec:boost_mc_samples}}
 
 The simulated samples are used to investigate the characteristics of the background and signal
 processes.  The complete list of simulated samples that are used in the analysis is shown in 
 Table~\ref{tab:boost_mc_bg} for the SM background samples, and in Table~\ref{tab:boost_mc_sms} for the 
 signal samples. 
 
-Multijet, $t\bar{t}$, $\W(\rightarrow \ell\nu)+$jets, $\cPZ/\gamma^*(\rightarrow
-\ell\bar{\ell})+$jets, and $\cPZ(\rightarrow \nu \bar{\nu})+$jets events are generated using
-\MADGRAPH 5.1.3.30~\cite{Alwall:2011uj}, as are the smaller backgrounds $\W(\rightarrow q \bar{q})bb$, 
-$\W\W\cPZ+$jets, $\W\W\gamma+$jets, $\cPZ\cPZ\cPZ$, $t\bar{t}\gamma+$jets, and $t\bar{t}\W\W+$jets.
-$\W\W$, $\W\cPZ$, $\cPZ\cPZ$,  $\cPZ/\gamma^*\rightarrow c\bar{c}$, and 
-$\cPZ/\gamma^*\rightarrow \cPqb\bar{\cPqb}$ events are generated using 
+Multijet, $t\bar{t}$, $\W({\rightarrow}\,\ell\nu)+$jets, $\cPZ/\gamma^*({\rightarrow}\,
+\ell\bar{\ell})+$jets, and $\cPZ({\rightarrow}\, \nu \bar{\nu})+$jets events are generated using
+\MADGRAPH 5.1.3.30~\cite{Alwall:2011uj}, as are the smaller backgrounds $\W({\rightarrow}\, q
+\bar{q})bb$, 
+$\W\W\cPZ+$jets, $\W\W\gamma+$jets, $\cPZ\cPZ\cPZ+$jets, $t\bar{t}\gamma+$jets, and
+$t\bar{t}\W\W+$jets.
+$\W\W$, $\W\cPZ$, $\cPZ\cPZ$,  $\cPZ/\gamma^*({\rightarrow} c\bar{c})$, and 
+$\cPZ/\gamma^*({\rightarrow} \cPqb\bar{\cPqb})$ events are generated using 
 {\PYTHIA}6.424~\cite{Sjostrand:2006za}.
 For all these samples CTEQ6L1~\cite{Pumplin:2002vw} is used as the set of parton distribution
 functions (PDFs). 
@@ -164,7 +166,8 @@ Z2*~\cite{Chatrchyan:2013gfi}, except for the samples generated with \AMCATNLO w
 \HERWIG~\cite{Corcella:2000bw,Corcella:2002jc} for the parton shower and hadronization.  
 For the background events, the response of the CMS detector is
 simulated with a full simulation based on \GEANTfour~\cite{G4}.  A parameterized fast detector
-simulation is used to simulate the detector response to the signal events~\cite{fastsim}.  
+simulation, i.e. FastSim, is used to simulate the detector response to the signal
+events~\cite{fastsim}. 
 
 % TODO mention MLM matching here?
 
@@ -306,18 +309,12 @@ pp \rightarrow\, &\tilde{g} \tilde{g}, \\[-3pt]
                &\tilde{g} \rightarrow t &&\stopone, \\[-3pt]
                & &&\stopone \rightarrow c \lsp
 \end{alignat*}}
-&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-310-325-350-375\_mLSP-300/Summer12-S
-TART52\_V9\_FSIM-v1 \\
-&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-410-425-450-475\_mLSP-400/Summer12-S
-TART52\_V9\_FSIM-v1 \\
-&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-510-525-550-575\_mLSP-500/Summer12-S
-TART52\_V9\_FSIM-v1 \\
-&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-610-625-650-675\_mLSP-600/Summer12-S
-TART52\_V9\_FSIM-v1 \\
-&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-710-725-750-775\_mLSP-700/Summer12-S
-TART52\_V9\_FSIM-v1 \\
-&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-810-825-850-875\_mLSP-800/Summer12-S
-TART52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-310-325-350-375\_mLSP-300/Summer12-START52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-410-425-450-475\_mLSP-400/Summer12-START52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-510-525-550-575\_mLSP-500/Summer12-START52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-610-625-650-675\_mLSP-600/Summer12-START52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-710-725-750-775\_mLSP-700/Summer12-START52\_V9\_FSIM-v1 \\
+&/SMS-MadGraph\_Pythia6Zstar\_8TeV\_T1ttcc\_2J\_mGo-1000\_mStop-810-825-850-875\_mLSP-800/Summer12-START52\_V9\_FSIM-v1 \\
 \midrule
 \multirow{6}{4cm}{T1ttcc, fixed $m_{\stopone} - m_{\lsp}$
 \begin{alignat*}{3}
@@ -325,18 +322,12 @@ pp \rightarrow\, &\tilde{g} \tilde{g}, \\[-3pt]
                    &\tilde{g} \rightarrow t &&\stopone, \\[-3pt]
                    &                        &&\stopone \rightarrow c \lsp
 \end{alignat*}}
-&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-10\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
-3\_V19\_FSIM\_PU\_S12-v1 \\
-&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-25\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
-3\_V19\_FSIM\_PU\_S12-v1 \\
-&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-80\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
-3\_V19\_FSIM\_PU\_S12-v1 \\
-&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-10\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
-53\_V19\_FSIM\_PU\_S12-v1 \\
-&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-25\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
-53\_V19\_FSIM\_PU\_S12-v1 \\
-&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-80\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
-53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-10\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-25\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-600to750\_mLSP-1to500\_DM-80\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-10\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-25\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1ttcc\_2J\_mGo-800to1300\_mLSP-1to500\_DM-80\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
 \midrule
 \multirow{4}{4cm}{T1t1t
 \vspace{-1.5ex}
@@ -345,10 +336,8 @@ pp \rightarrow\, &\tilde{g} \tilde{g}, \\[-3pt]
                    &\tilde{g} \rightarrow t &&\stopone, \\[-3pt]
                    &                        &&\stopone \rightarrow t \lsp
 \end{alignat*}}
-&/SMS-T1t1t\_2J\_mGo-800to1300\_mLSP-1to500\_DM-175\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START
-53\_V19\_FSIM\_PU\_S12-v1 \\
-&/SMS-T1t1t\_2J\_mGo-600to750\_mLSP-1to500\_DM-175\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START5
-3\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1t1t\_2J\_mGo-800to1300\_mLSP-1to500\_DM-175\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
+&/SMS-T1t1t\_2J\_mGo-600to750\_mLSP-1to500\_DM-175\_TuneZ2star\_8TeV-madgraph-tauola/Summer12-START53\_V19\_FSIM\_PU\_S12-v1 \\
 & \\
 & \\
 %& \\

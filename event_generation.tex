@@ -1,5 +1,7 @@
 \chapter{Event generation, simulation and reconstruction \label{chap:event_generation}}
 
+\textcolor{red}{Outline to be finalized}
+
 \section{What is an ``event''? \label{sec:event}}
 
 % add picture of CMS event display
@@ -8,6 +10,13 @@
 \section{Event generation \label{sec:event_generation}}
 
 % add info on Madgraph, pythia, jet matching etc
+
+\subsection{Matrix element generators}
+
+\subsection{Parton shower and hadronization}
+
+\subsection{Jet matching}
+
 
 \section{Event simulation \label{sec:event_simulation}}
 
@@ -24,195 +33,173 @@
 
 % Add subsection on each object with all the object definitions we use
 
-We select events with at least one interaction vertex, associated with at least 4 charged-particle
-tracks, that lies within 24~cm of the origin of the CMS coordinate system along the beam direction
-and 2~cm from the origin in the plane transverse to the beam. Owing to the high luminosity of the
-LHC, hard scattering events are typically accompanied by many additional events arising from the
-multiple proton-proton interactions that occur when the proton bunches cross.  The overlapping of
-events is referred to as pileup.  The primary vertex is identified as the vertex with the highest
-value of the $\sum \pt^2$ of the associated tracks.  Detector- and beam-related cleaning algorithms
-are used to remove events with detector noise that mimic events with high energy and large imbalance
-in transverse momentum.  
+% We select events with at least one interaction vertex, associated with at least 4 charged-particle
+% tracks, that lies within 24~cm of the origin of the CMS coordinate system along the beam direction
+% and 2~cm from the origin in the plane transverse to the beam. Owing to the high luminosity of the
+% LHC, hard scattering events are typically accompanied by many additional events arising from the
+% multiple proton-proton interactions that occur when the proton bunches cross.  The overlapping of
+% events is referred to as pileup.  The primary vertex is identified as the vertex with the highest
+% value of the $\sum \pt^2$ of the associated tracks.  Detector- and beam-related cleaning algorithms
+% are used to remove events with detector noise that mimic events with high energy and large imbalance
+% in transverse momentum.  
 
 
- \subsection{Event Cleaning \label{sec:event_cleaning}}
-% 
-% We follow the recommended procedure set out by the JetMET POG, and apply a series of event filters.
-% These are:
-% 
-% \begin{itemize}
-% \item The {\tt EcalDeadCellTriggerPrimitiveFilter}, which removes events where dead cells in the
-% ECAL produce anomalous activity.
-% \item The {\tt hcalLaserEventFilter}, which removes events where the HCAL laser produces anomalous
-% activity.
-% \item The {\tt hcalLaserEventFilter2012}, 
-% \item The {\tt trackingFailureFilter}, which removes events where the tracking algorithm does not
-% perform properly.
-% \item The {\tt CSCTightHaloFilter}, which removes events contaminated by beam halo.
-% \item The {\tt HBHENoiseFilter}, which removes events featuring large hadronic calorimeter noise.
-% \item The {\tt eeBadScFilter}, which removes events featuring high amplitude anomalous pulses due to
-% bad ECAL super-crystals.
-% \item The {\tt trkPOGFilters}, which remove events due to track reconstruction anomalies, such as
-% events with partly aborted track reconstruction and events affected by the Strip Tracker coherent
-% noise.
-% \item The {\tt primaryVertexFilter}, which removes events that do not have a good primary vertex.
-% \item The {\tt noscrapingFilter}, which removes events with a large multiplicity of low quality
-% tracks.
-% \end{itemize}
-% 
-% More details on these filters can be found in Ref.~\cite{metfilters}. For MC samples that are passed
-% through the fast CMS detector simulation, the {\tt CSCTightHaloFilter} and {\tt HBHENoiseFilter}
-% filters are not applied, as their input collections are not produced in {\sc FastSim} productions.
-% 
-% In addition to the filters listed above, we also use a cleaning cut to remove events with spurious
-% HCAL noise. This is explained in more detail in section~\ref{sec:noise}. 
-
+ 
 
 \subsection{Particle Flow technique \label{sec:event_reco_pf}}
 
-CMS reconstructs events using the particle flow (PF) method~\cite{PF}, which reconstructs particles
-(PF candidates) by combining information from the inner tracker, the calorimeters, and the muon
-system.  Each PF candidate is a ssigned to one of five object categories: muons, electrons, photons,
-charged hadrons, and neutral hadrons.  Contamination from pileup events is reduced by discarding
-charged PF candidates that are incompatible with having originated from the primary
-vertex~\cite{CMS-PAS-JME-14-001}.   The average pileup energy due to neutral hadrons is computed
-event-by-event and subtracted from the energy when computing lepton isolation and jet energy.  The
-energy subtracted is  the average pileup energy per unit area (in $\Delta\eta \times \Delta\phi$)
-times the jet area~\cite{Fastjet1, Fastjet2}.
+% CMS reconstructs events using the particle flow (PF) method~\cite{PF}, which reconstructs particles
+% (PF candidates) by combining information from the inner tracker, the calorimeters, and the muon
+% system.  Each PF candidate is a ssigned to one of five object categories: muons, electrons, photons,
+% charged hadrons, and neutral hadrons.  Contamination from pileup events is reduced by discarding
+% charged PF candidates that are incompatible with having originated from the primary
+% vertex~\cite{CMS-PAS-JME-14-001}.   The average pileup energy due to neutral hadrons is computed
+% event-by-event and subtracted from the energy when computing lepton isolation and jet energy.  The
+% energy subtracted is  the average pileup energy per unit area (in $\Delta\eta \times \Delta\phi$)
+% times the jet area~\cite{Fastjet1, Fastjet2}.
 
 \subsection{Object identification}
 
-Jets are clustered with \textsc{FastJet 3.0.1}~\cite{Cacciari:2011ma} using the anti-$k_\textrm{T}$
-algorithm~\cite{antikt} with size parameter $\Delta R=0.5$ (AK5).  Jet corrections are applied as a
-function of jet $\pt$ and $\eta$ to account for the residual effects of non-uniform detector
-response.  
-The  jet energies are corrected so that, on average, they match those of simulated particle-level
-jets. After correction, jets are required to have $\pt > 30$~\GeV and $|\eta| < 2.4$.  We use the
-combined secondary vertex algorithm~\cite{btag7TeV,btag8TeV} to identify jets arising from $\cPqb$
-quarks. The medium tagging condition, which yields a $\cPqb$  jet misidentification rate of
-$\sim$1\% and a typical efficiency of $\sim$70\%, is used to select $\cPqb$ jets. The loose tagging
-condition, with a misidentification rate of $\sim$10\% and efficiency of $\sim$85\%, is used to veto
-$\cPqb$ jets.  
+The event selection is an integral part of any physics analysis. It determines which events are
+used, and thus what processes contribute to the data sample. This in turn drives how the
+backgrounds are estimated, what the sensitivity will be, et cetera. 
+An event selection is most easily described in terms of particles, e.g. two electrons, no muons, at
+least four jets, as this is the closest to how we think about a given process.  
+The particle flow technique is very compatible with this approach, given that it already
+reconstructs particles out of the detector hits. 
+However, a more thorough selection of the PF objects is needed in order to ensure that their
+behaviour is understood, and to ensure that the selected events are not dominated by
+misidentified particles, or detector artefacts. 
+The physics object groups (POG's) within the CMS Collaboration are in charge of providing general
+recommendations on how to define each object. 
+In the following paragraphs all the standard objects that will be used in the razor boost analysis
+will be discussed.
 
-Missing transverse energy, which is used in the calculation of the razor variable $\mr$, is 
-defined to be the negative sum of the transverse momenta of all the particle flow objects in an
-event.  Loosely identified and isolated electrons with $\pt > 5$~\GeV and $|\eta| < 2.5$ and muons
-with $\pt > 5$\GeV and $|\eta| < 2.4$ are used both to suppress backgrounds in our signal region and
-in the definition of the control regions.  A tight definition of isolated leptons (electrons with
-$\pt > 10$~\GeV and $|\eta| < 2.5$ and muons with $\pt > 10$~\GeV and $|\eta| < 2.4$) defines a
-control region enriched in $\cPZ \rightarrow \ell \ell $ events, from which we estimate the
-systematic uncertainty in the predicted number of $\cPZ \rightarrow \nu \nu$ events in the signal
-region. Any electron candidates with $1.44 < |\eta| < 1.57$ are rejected since the transition region
-between barrel and endcap calorimeters is less well-instrumented.
-In order to suppress the decays of taus and other leptons that fail the loose selection, events that
-have isolated tracks with $\pt > 10$\GeV and track-primary vertex distance along the beam direction
-$dz < 0.05$ are rejected.
-
-\subsubsection{Jets \label{sec:object_jets}}
-
+% 
+% Missing transverse energy, which is used in the calculation of the razor variable $\mr$, is 
+% defined to be the negative sum of the transverse momenta of all the particle flow objects in an
+% event.  Loosely identified and isolated electrons with $\pt > 5$~\GeV and $|\eta| < 2.5$ and muons
+% with $\pt > 5$\GeV and $|\eta| < 2.4$ are used both to suppress backgrounds in our signal region and
+% in the definition of the control regions.  A tight definition of isolated leptons (electrons with
+% $\pt > 10$~\GeV and $|\eta| < 2.5$ and muons with $\pt > 10$~\GeV and $|\eta| < 2.4$) defines a
+% control region enriched in $\cPZ \rightarrow \ell \ell $ events, from which we estimate the
+% systematic uncertainty in the predicted number of $\cPZ \rightarrow \nu \nu$ events in the signal
+% region. Any electron candidates with $1.44 < |\eta| < 1.57$ are rejected since the transition region
+% between barrel and endcap calorimeters is less well-instrumented.
+% In order to suppress the decays of taus and other leptons that fail the loose selection, events that
+% have isolated tracks with $\pt > 10$\GeV and track-primary vertex distance along the beam direction
+% $dz < 0.05$ are rejected.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \subsection{Vertex Selection \label{sec:vertex}}
-% 
-% We require at least one {\it good} vertex to be reconstructed in each event, according to the
-% definitions given in Table~\ref{tab:vertex}.
-% 
-% \begin{table}[htdp]
-% \caption{Vertex selection \label{tab:vertex}}
-% \begin{center}
-% \begin{tabular}{|ll|}
-% \hline
-% \multicolumn{2}{|l|}{CMSSW collection label: goodOfflinePrimaryVertices} \\
-% \multicolumn{2}{|l|}{CMSSW type: reco::Vertex} \\
-% \hline
-% Variable/Method & Value \\
-% \hline
-% isFake() & $= 0$ \\
-% ndof() & $> 4$ \\
-% z() & $< 24$ \\
-% position.Rho() & $< 2$ \\
-% \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
-% 
-% The highest sum-$p_T$ vertex is chosen as the reference primary vertex in the event. This vertex is
-% taken as a reference to reconstruct the event, e.g. to perform the track subtraction for pileup
-% removal, for which we use the {\tt PFNoPileUp} algorithm.
+\subsubsection{Vertex Selection \label{sec:object_vertex}}
+
+We require at least one {\it good} vertex to be reconstructed in each event, according to the
+definitions given in Table~\ref{tab:object_vertex}.
+The vertex with the highest value of $\sum \pt$ of associated tracks is chosen as the primary vertex
+in the event. This vertex is taken as a reference to reconstruct the event, e.g. to perform the
+track subtraction for pileup removal, for which we use the {\tt PFNoPileUp} algorithm.
+
+\begin{table}[htdp]
+\caption{Vertex selection criteria. \label{tab:object_vertex}}
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+\texttt{isFake()} & $= 0$ \\
+\texttt{ndof()} & $> 4$ \\
+\texttt{z()} & $< 24$ \\
+\texttt{position.Rho()} & $< 2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
 
 
-% \subsection{Jet Reconstruction \label{sec:jets}}
-% 
-% We consider the list of reconstructed particle-flow jets, clustered with the {\it anti-$k_t$}
-% algorithm and cone-size parameter $\Delta R=0.5$.  The jets are corrected for pile-up effects in a
-% two step process.  First charged hadron particle-flow candidates that have been associated with a
-% pile-up vertex are removed from the list of particles to be clustered using the {\tt PFNoPileUp}
-% algorithm.  The jets are then clustered and corrected for the L2 and L3 corrections, taking into
-% account the charged-hadron removal. The remaining PU energy is subtracted by applying the
-% event-by-event quantity $\pi \rho (\Delta R)^2$, where $\Delta R$
-% is the jet size and $\rho$ is the average density from PU events, as computed by {\tt FastJet} using
-% only neutral hadron particle-flow
-% candidates.  This procedure is the one recommended by the JetMET POG and is implemented using
-% standard CMSSW tools. Our jet selection is defined in Table~\ref{tab:jets}.  
-% 
-% The AK5 jets defined above are used for most of the analysis (including the construction of the
-% megajets for the calculation of the razor variables), except when reconstructing hadronic
-% $W$-candidates and applying jet substructure cuts. 
-% To do this, jets are clustered using the Cambridge-Aachen algorithm, with distance parameter
-% $R=0.8$. More details on this can be found in section~\ref{sec:Wtagging}.
-% 
-% \begin{table}[htdp]
-% \caption{Jet selection \label{tab:jets}}
-% \begin{center}
-% \begin{tabular}{|ll|}
-% \hline
-% \multicolumn{2}{|l|}{CMSSW collection label: } \\
-% \multicolumn{2}{|l|}{CMSSW type: pat::Jet} \\
-% \hline
-% Variable/Method & Value \\
-% \hline
-% pt() & $> 30$ \\
-% eta() & $< 2.4$ \\
-% neutralHadronEnergyFraction() & $< 0.99$ \\
-% neutralEmEnergyFraction() & $< 0.99$ \\
-% nConstituents() & $> 1$ \\
-% chargedHadronEnergyFraction() & $> 0$ \\
-% chargedMultiplicity() & $> 0$ \\
-% chargedEmEnergyFraction() & $< 0.99$ \\
-% \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
+\subsubsection{Jet selection \label{sec:object_jets}}
+
+Jets are clustered from the set of PF candidates with \textsc{FastJet 3.0.1}~\cite{Cacciari:2011ma}
+using the anti-$k_\textrm{T}$ algorithm~\cite{antikt} with size parameter $\Delta R=0.5$ (AK5).  
+Jet corrections are applied as a function of jet $\pt$ and $\eta$ to account for the residual
+effects of non-uniform detector response.  
+The jet energies are corrected so that, on average, they match those of simulated particle-level
+jets. 
+
+% TODO Add information on jet corrections and pileup subtraction
 
 
+% The jets are corrected for pile-up effects in a two step process.  
+% First charged hadron particle-flow candidates that have been associated with a pile-up vertex are
+% removed from the list of particles to be clustered using the {\tt PFNoPileUp} algorithm.  
+% The jets are then clustered and corrected for the L2 and L3 corrections, taking into
+% account the charged-hadron removal. 
+% The remaining PU energy is subtracted by applying the event-by-event quantity $\pi \rho (\Delta
+% R)^2$, where $\Delta R$ is the jet size and $\rho$ is the average density from PU events, as
+% computed by {\tt FastJet} using only neutral hadron particle-flow candidates.  
 
-% \subsection{B-Tagging \label{sec:btag}}
-% 
-% As the signal in this analysis is enriched in $b$-quarks, we use the combined secondary vertex (CSV)
-% algorithm to identify jets that are consistent with coming from $b$ decays. We use the recommended
-% loose and medium working points from the BTag POG, shown on Table~\ref{tab:btag} with no further
-% cuts on the jets \cite{BTagWP}. The loose working point is used as a veto to identify $t\bar{t}$
-% (and signal) depleted control regions, while the medium working point is used to define signal
-% enriched regions in which to perform the analysis.
-% 
-% \begin{table}[htdp]
-% \caption{b tagging definition \label{tab:btag}}
-% \begin{center}
-% \begin{tabular}{|lll|}
-% \hline
-% \multicolumn{3}{|l|}{CMSSW collection label: } \\
-% \multicolumn{3}{|l|}{CMSSW type: pat::Jet} \\
-% \hline
-% Working point & Variable/Method & Value \\
-% \hline
-% CSV Medium & combinedSecondaryVertexBJetTags() & $> 0.679$ \\
-% CSV Loose & combinedSecondaryVertexBJetTags() & $> 0.244$ \\
-% \hline
-% \end{tabular}
-% \end{center}
-% \end{table}
+After all corrections are applied, jets are required to have $\pt > 30$~\GeV and $|\eta| < 2.4$.  
+We also apply the standard loose identification criterion, defined by the requirements listed in
+Table~\ref{tab:object_jets}. 
+
+\begin{table}[htdp]
+\caption{Jet selection \label{tab:object_jets}}
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+\pt & $> 30$ \\
+$|\eta|$ & $< 2.4$ \\
+\midrule
+\texttt{neutralHadronEnergyFraction()} & $< 0.99$ \\
+\texttt{neutralEmEnergyFraction()} & $< 0.99$ \\
+\texttt{nConstituents()} & $> 1$ \\
+\texttt{chargedHadronEnergyFraction()} & $> 0$ \\
+\texttt{chargedMultiplicity()} & $> 0$ \\
+\texttt{chargedEmEnergyFraction()} & $< 0.99$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+The AK5 jets defined here will be used for most of the razor boost analysis, except to reconstruct
+boosted hadronic $\W$-candidates. For this more details can be found in
+Section~\ref{sec:boost_wtag}.
+
+\subsubsection{B-Tagging \label{sec:object_btag}}
+
+Jets originating from the hadronization of $\cPqb$ quarks can be distinguished from other jets,
+initiated by gluons or light flavor quarks, due to the long lifetime of the $\cPqb$ quark. 
+The non-prompt decay of the $B$ hadrons results in a secondary vertex, displaced with respect to
+the primary vertex of the hard interaction. 
+
+% TODO add more info on b-tagging algorithm
+
+The ability to distinguish $\cPqb$ jets is especially important for new physics searches. Many new
+physics models are associated with production of third generation quarks, whereas this is more rare
+in the standard model. For many searches $\cPqb$ jet tagging is an essential tool in suppressing
+the background from multijet or vector boson production. 
+
+In the razor boost analysis $\cPqb$ tagging will also be employed. We will use the combined
+secondary vertex (CSV) algorithm at two working points~\cite{btag7TeV,btag8TeV,BTagWP}, which are
+shown on Table~\ref{tab:object_btag}. 
+The Loose working point (CSVL), corresponding to a misidentification rate of $\sim$10\% and
+efficiency of $\sim$85\%, will be used to veto $\cPqb$ jets, whereas the Medium working point
+(CSVM), corresponding to a misidentification rate of $\sim$1\% and a typical efficiency of
+$\sim$70\% , is used to select $\cPqb$ jets. 
+
+\begin{table}[htdp]
+\caption{Working points for the combined secondary vertex $\cPqb$ jet tagger.
+\label{tab:object_btag}}
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+Working point & Discriminator value \\
+\midrule
+Medium & $> 0.679$ \\
+Loose & $> 0.244$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
 % 
 % As will be explained in section~\ref{sec:selection}, we define our signal and control regions based
 % on the number of b-tagged jets. 
@@ -224,111 +211,177 @@ $dz < 0.05$ are rejected.
 % For more detailed information on the scale factors and their associated uncertainties, we refer to
 % section~\ref{sec:btag_uncertainties}. 
 
+% TODO Decide where to put the scale factor information
 
-% \subsection{Muon Selection \label{sec:muon}}
-% 
-% We identify muons at two different working points; a tight selection and a loose selection. 
+\subsubsection{Muons \label{sec:object_muon}}
+
+Muons are identified using two different working points, a loose selection and a tight selection,
+both of which will be detailed below. 
+
+
 % Currently we mainly use the loose definition in the analysis, both for vetoing, and for selecting
-% single muon events for the control regions enriched in TTJets and WJets. The tight selection is only
-% used to define a control region enriched in $Z\rightarrow ll$ events, from which we derive a
-% systematic uncertainty on the predicted number of $Z\rightarrow\nu\nu$ events in our signal region.
-% 
-% \subsubsection{Tight selection \label{sec:tightmuon}}
-% 
-% The tight selection follows the tight-muon recommendation from the Muon POG \cite{MuonID}. A summary
-% of the selection can be found in table~\ref{tab:tightmuon}. 
-% We also require the muon to be isolated. This isolation is calculated
-% using the particle-flow candidates after charged-hadron candidates
-% associated from pile-up vertexes have been removed in a cone of size 0.4. The removed
-% charged hadrons are used to estimate the remaining contribution to the
-% isolation coming from neutral hadrons from pile-up. The isolation
-% definition used is:
-% \begin{equation}
-% I_\mu(p_t^\mu) = \left[ I_{Charged} + I_{Neutral} + I_{\gamma} - (\Delta\beta\cdot
-% I_{Charged}^{PU})\right] /p_T^\mu, ~~
-% \label{eqn:iso}
-% \end{equation}
-% where $\Delta\beta$ is 0.5 and $I_\mu$ is required to be less than 0.15.
-% 
-% 
-% \begin{table}[htdp]
-% \caption{Tight muon definition}
-% \begin{center}
-% \begin{tabular}{|ll|}
-% \hline
-% \multicolumn{2}{|l|}{CMSSW collection label: } \\
-% \multicolumn{2}{|l|}{CMSSW type: pat::Muon} \\
-% \hline
-% Variable/Method & Value \\
-% \hline
-% pt() & $> 10$ \\
-% fabs(eta()) & $< 2.4$ \\
-% isPFMuon() & $= 1$ \\
-% isGlobalMuon() & $= 1$ \\
-% globalTrack().normalizedChi2() & $< 10$ \\
-% globalTrack().hitPattern().numberOfValidMuonHits() & $> 0$ \\
-% track().hitPattern().trackerLayersWithMeasurement() & $> 5$ \\
-% innerTrack().hitPattern().numberOfValidPixelHits() & $> 0$ \\
-% numberOfMatchedStations() & $> 1$ \\
-% fabs(innerTrack().dxy(vertex.position())) & $< 0.2$ \\
-% fabs(muonBestTrack().dz(vertex.position())) & $< 0.5$ \\
-% \hline
-% relIso $=$ (pfIsolationR04().sumChargedHadronPt() $+$ & \\
-% \hspace{1.3cm} max(0., pfIsolationR04().sumNeutralHadronPt() $+$ & \\
-% \hspace{1.3cm} pfIsolationR04().sumPhotonPt() $-$ & \\
-% \hspace{1.3cm} 0.5pfIsolationR04().sumPUPt()))/pt() & $< 0.15$ \\ 
-% \hline
-% \end{tabular}
-% \end{center}
-% \label{tab:tightmuon}
-% \end{table}
-% 
-% \subsubsection{Loose selection \label{sec:loosemuon}}
-% 
-% We take the loose muon selection from stop working group recommendations \cite{StopWG}. The exact
-% details and performance of this selection is documented in Ref.~\cite{Ra2Top}. The main difference
-% between this selection and the muon POG selections is that a {\em directional} isolation is used
-% that has been optimised for events with much hadronic activity. This is defined as below, and is
-% particularly useful for rejecting events with leptons coming from $b$-quark decays.
-% \[
-% \overrightarrow{\mathrm{ISO}}_{R}\equiv\sum_{\Delta R_{i}<R}\delta_{i}^{2}\pt{}_{i}
-% \]
-% where the sum is over all other particles $i$ within $\Delta R<R$ of the lepton direction, and
-% $\delta_{i}$ is the angle between particle $i$ and the $\pt$-weighted centroid position
-% ($\delta_{c}$) of all such particles in $\eta-\phi$ space. That is, if $\Delta\phi_i$ and
-% $\Delta\eta_i$ are respectively the difference in $\phi$ and $\eta$ angles between particle $i$ and
-% the lepton, then:
-% \begin{eqnarray*}
-% \vec{e}_{i} & \equiv & \frac{1}{\sqrt{\Delta\phi_{i}^{2}+\Delta\eta_{i}^{2}}}\left(\begin{array}{c}
-% \Delta\phi_{i};\\
-% \Delta\eta_{i}
-% \end{array}\right);\\
-% \vec{\delta}_{c} & = & \sum_{\Delta R_{i}<R}\pt{}_{i}\vec{e}_{i};\\
-% \delta_{i} & = &
-% \angle(\vec{\delta}_{c},\vec{e}_{i})=\arccos(\vec{\delta}_{c}\cdot\vec{e}_{i}/|\vec{\delta}_{c}|).
-% \end{eqnarray*}
-% $\vec{e}_{i}$ is the unit vector specifying particle $i$'s relative location in $\eta-\phi$ space.
-% 
-% Loose Muons are reconstructed using either the global or tracker-only algorithms. 
-% Global-reconstructed muons are required to pass the {\tt GlobalMuonPromptTight} quality criteria,
-% plus to have at least two muon chambers containing segments uniquely matched to its inner track. 
-% Tracker-only muons are required to pass the {\tt TMLastStationTight} criteria, which requires the
-% muon to have  compatible hits in the last muon chamber. All selected muons are then required to pass
-% cuts in the following variables:
-% \begin{itemize}
-% \item $p_T > 5$GeV;
-% \item $|\eta| < 2.4$; 
-% \item At most 1 lost [expected] inner tracker hits for $\pt < 20\GeV$ muons.
-% \item At most 4 lost [expected] inner tracker hits for $\pt \geq 20\GeV$ muons.
-% \item $\pt$- and $\eta$-dependent maximum $d_{xy}$, the impact parameter of the inner track w.r.t.
-% the primary vertex.
-% \item $\pt$- and $\eta$-dependent maximum $d_{z}$, the absolute difference between the muon and
-% primary vertex $z$-positions.
-% \item $\pt$- and $\eta$-dependent maximum directional isolation sum with $R = 0.2$.
-% \end{itemize}
-% The details of the $\pt$- and $\eta$ dependent cuts can be found in Ref.~\cite{Ra2Top}.
+% single muon events for the control regions enriched in TTJets and WJets. The tight selection is
+% only used to define a control region enriched in $Z\rightarrow ll$ events, from which we derive a
+% systematic uncertainty on the predicted number of $Z\rightarrow\nu\nu$ events in our signal
+% region.
 
-% \subsection{Electron selection \label{sec:electron}}
+The \textbf{loose muon selection} that will be employed was developed especially for events with a
+large amount of hadronic activity, where the standard identification criteria were observed to lose
+efficiency, resulting in less background suppression when vetoing the presence of muons. 
+The details and performance of this optimized selection is documented in
+Ref.~\cite{CMS-AN2011-498}. 
+The main feature is the use of a so-called \textit{directional} isolation.
+The isolation of a particle is a measure of how far it is from other activity in the detector. The
+leptons we are interested in, those originating in the hard interaction, are usually separated from
+other activity, e.g. jets. This is not the case for misidentified muons or for muons from the decay
+of heavy-flavour jets. Directional isolation is designed to have a better rejection of leptons from
+these heavy-flavour jet decays, and is defined as
+\begin{equation}
+\overrightarrow{\mathrm{ISO}}(R) \equiv \sum_{\Delta R_{i} < R} \delta_{i}^{2}\pt{}_{i} ,
+\end{equation}
+where the sum is over all other particles $i$ within $\Delta R_{i}<R$ of the muon direction,
+and $\delta_{i}$ is the angle between particle $i$ and the $\pt$-weighted centroid position
+($\delta_{c}$) of all such particles in $(\eta,\phi)$ space. That is, if $\Delta\phi_i$ and
+$\Delta\eta_i$ are respectively the difference in $\phi$ and $\eta$ angles between particle $i$ and
+the muon, then:
+\begin{eqnarray*}
+\vec{e}_{i} & \equiv & \frac{1}{\sqrt{\Delta\phi_{i}^{2}+\Delta\eta_{i}^{2}}}\left(\begin{array}{c}
+\Delta\phi_{i},\\
+\Delta\eta_{i}
+\end{array}\right),\\
+\vec{\delta}_{c} & = & \sum_{\Delta R_{i}<R}\pt{}_{i}\vec{e}_{i},\\
+\delta_{i} & = &
+\angle(\vec{\delta}_{c},\vec{e}_{i})=\arccos(\vec{\delta}_{c}\cdot\vec{e}_{i}/|\vec{\delta}_{c}|),
+\end{eqnarray*}
+where $\vec{e}_{i}$ is the unit vector specifying particle $i$'s relative location in $(\eta,\phi)$
+space with respect to the considered muon, as illustrated in Fig.~\ref{fig:object_directional_iso}.
+Because of the weighting by $\delta_{i}^{2}$, the value for the directional isolation tends to be
+larger for muons that are near the jet core, e.g. in case of leptonic $\cPqb$ decays, compared to
+the more convential isolation definition which does not use this weighting. 
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/eventreco_objects/directional_iso_cartoon}
+  \caption{Illustration of ingredients used in the computation of directional isolation for a prompt
+muon, denoted by a star, near some particles from a jet, denoted by points, in the $(\eta,\phi)$
+plane. For prompt leptons $\delta_i$ tends to be small, especially for the high-\pt particles near
+the core of the jet. Figure taken from Ref.~\cite{CMS-AN2011-498}.
+  \label{fig:object_directional_iso}}
+\end{figure}
+
+Apart from the isolation, the identication criteria themselves are also altered from the standard
+Loose Muon ID from the POG in order to further optimize the muon identification in environments
+with large hadronic activity. 
+Loose muons are reconstructed using either the global muon algorithm or the tracker-only
+algorithm. 
+Global muons are required to pass the {\tt GlobalMuonPromptTight} quality criteria,
+and to have at least two muon chambers containing segments uniquely matched to its inner track. 
+Tracker-only muons are required to pass the {\tt TMLastStationTight} criteria, which require the
+muon to have compatible hits in the last muon chamber. 
+All selected muons are then required to pass the selection listed in
+Table~\ref{tab:object_loosemuon}. 
+Some aspects of the selection depend on the muon $\pt$ and $\eta$; these are summarized in
+Table~\ref{tab:object_loosemuon_cuts}.
+
+\begin{table}[htbp]
+\caption{Loose muon definition. }
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+\pt & $> 5\GeV$ \\
+$|\eta|$ & $< 2.4$ \\
+\midrule
+\texttt{innerTrack().hitPattern().numberOfLostHits()} & $\leq 1$ if $\pt < 20\GeV$ \\
+                                                      & $\leq 4$ if $\pt \geq 20\GeV$ \\
+$|\texttt{innerTrack().dxy(vertex.position())}|$ & $\pt$- and $\eta$-dependent\\
+$|\texttt{muonBestTrack().dz(vertex.position())}|$ & $\pt$- and $\eta$-dependent\\
+\midrule
+$\overrightarrow{\mathrm{ISO}}(R=0.2)$ & $\pt$- and $\eta$-dependent \\
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:object_loosemuon}
+\end{table}
+
+\begin{table}[htbp]
+\caption{Details of the $\pt$ dependent thresholds employed in the loose muon selection.}
+\begin{center}
+  \begin{tabular}{l cccccc }
+      \toprule
+      Muon $\pt$  & $d_{xy}$ & $d_{xy}$ & $d_z$ & $d_z$ & $\overrightarrow{\mathrm{ISO}}(0.2)$ &
+$\overrightarrow{\mathrm{ISO}}(0.2)$ \\
+      (\GeV) & barrel & endcap & barrel & endcap & barrel & endcap \\
+      \midrule
+      0 - 5          & 0.052 & 0.037 & 0.054 & 0.076 & 1.5  & 2    \\
+      5 - 10         & 0.041 & 0.018 & 0.042 & 0.082 & 3    & 2.5  \\
+      10 - 25        & 0.029 & 0.013 & 0.028 & 0.098 & 7    & 7.5  \\
+      15 - 20        & 0.014 & 0.015 & 0.034 & 0.1   & 10.5 & 9    \\
+      20 - 40        & 0.021 & 0.021 & 1     & 0.1   & 15.5 & 13.5 \\
+      40 - 80        & 0.04  & 0.2   & 1     & 1     & 32.5 & 19   \\
+      80 - 140       & 0.1   & 0.2   & 1     & 1     & 54.5 & 37   \\
+      140 - 200      & 0.1   & 0.2   & 1     & 1     & 87   & 65.5 \\
+      \bottomrule
+    \end{tabular}
+\end{center}
+\label{tab:object_loosemuon_cuts}
+\end{table}
+
+ 
+The \textbf{tight muon selection} follows the recommendation from the Muon POG~\cite{MuonID}.
+In addition to the identification criteria, we also require the tight muon to be isolated. 
+Here we do not use directional isolation, but rather the more standard particle-based relative
+isolation. 
+This isolation, denoted $I_\mu$, is calculated using the PF candidates in a cone of size $\Delta R =
+0.4$ around the muon. Charged-hadron candidates associated with pileup vertexes are not taken into
+account in the calculation of the isolation. However, they are used to estimate the remaining
+contribution to the isolation coming from neutral hadrons associated with pileup. This contribution
+is then subtracted. 
+The isolation definition is given by:
+\begin{equation}
+I_\mu = \frac{I_{Charged} + I_{Neutral} + I_{\gamma} - \Delta\beta\cdot I_{Charged}^{PU}}
+             {\pt^\mu} , 
+\label{eqn:iso}
+\end{equation}
+where $I_{Charged}$, $I_{Neutral}$, and $I_{\gamma}$ are computed as the sum of the \pt of the
+charged hadrons, neutral hadrons and photons, respectively, in a cone of size $\Delta R = 0.4$
+around the muon. The parameter $\Delta\beta$ is set to 0.5, and $I_{Charged}^{PU}$ is the estimated
+contribution from pileup computed as the sum of the \pt of the charged hadrons associated with
+pileup vertices.
+The tight muon isolation requirement is $I_\mu < 0.15$.
+A summary of the tight muon selection can be found in Table~\ref{tab:object_tightmuon}. 
+
+\begin{table}[htdp]
+\caption{Tight muon definition. }
+\begin{center}
+\begin{tabular}{l l}
+\toprule
+\pt & $> 10\GeV$ \\
+$|\eta|$ & $< 2.4$ \\
+\midrule
+\texttt{isPFMuon()} & $= 1$ \\
+\texttt{isGlobalMuon()} & $= 1$ \\
+\texttt{globalTrack().normalizedChi2()} & $< 10$ \\
+\texttt{globalTrack().hitPattern().numberOfValidMuonHits()} & $> 0$ \\
+\texttt{track().hitPattern().trackerLayersWithMeasurement()} & $> 5$ \\
+\texttt{innerTrack().hitPattern().numberOfValidPixelHits()} & $> 0$ \\
+\texttt{numberOfMatchedStations()} & $> 1$ \\
+$|\texttt{innerTrack().dxy(vertex.position())}|$ & $< 0.2$ \\
+$|\texttt{muonBestTrack().dz(vertex.position())}|$ & $< 0.5$ \\
+\midrule
+$I_\mu =$ [\texttt{pfIsolationR04().sumChargedHadronPt()}& \\
+\hspace{0.9cm} $+$ max(0., \texttt{pfIsolationR04().sumNeutralHadronPt()}  & \\
+\hspace{2.7cm} $+$ \texttt{pfIsolationR04().sumPhotonPt()}  & \\
+\hspace{2.7cm} $-$ 0.5 $\cdot$ \texttt{pfIsolationR04().sumPUPt()}) & \\
+\hspace{0.9cm} ] / \pt & $< 0.15$ \\ 
+\bottomrule
+\end{tabular}
+\end{center}
+\label{tab:object_tightmuon}
+\end{table}
+
+ 
+
+\subsubsection{Electrons \label{sec:object_electron}}
 % 
 % We identify electrons at two different working points; a tight selection and a loose selection. 
 % Currently we mainly use the loose definition in the analysis, both for vetoing, and for selecting
@@ -404,8 +457,30 @@ $dz < 0.05$ are rejected.
 % Details of the $\pt$- and $\eta$-dependent cuts can be found in Ref.~\cite{Ra2Top}, and a
 % description of the directional isolation can be found in Sec.~\ref{sec:loosemuon}.
 % 
+
+\begin{table}[htb]
+  \caption{Details of the $\pt$ dependent thresholds employed in the Loose Electron selection.}
+  \begin{center}
+  \begin{tabular}{ l ccccc }
+      \hline
+      Electron $\pt$ & $d_z$ & $d_z$ & charged iso & charged iso & iso \\
+      (\GeV) & barrel & endcap & barrel & endcap & barrel \\
+      \hline
+      0 - 5          & 0.03 & 0.09 & 0.5  & 0.5  & 2    \\
+      5 - 10         & 0.05 & 0.09 & 1.5  & 2.5  & 4.25 \\
+      10 - 25        & 0.05 & 0.09 & 4.5  & 6.5  & 8.75 \\
+      15 - 20        & 0.05 & 0.11 & 7.5  & 9    & 11   \\
+      20 - 40        & 0.2  & 1    & 10   & 10.5 & 20.8 \\
+      40 - 80        & 1    & 1    & 18.5 & 18.5 & 200  \\
+      80 - 140       & 1    & 1    & 44   & 66.5 & 200  \\
+      140 - 200      & 1    & 1    & 81.5 & 70   & 200  \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \label{tab:object_looseelectron_cuts}
+\end{table}
 % 
-% \subsection{Isolated tracks \label{sec:isolatedtrack}}
+\subsubsection{Isolated tracks \label{sec:object_isolatedtrack}}
 % 
 % In order to suppress the decays of both taus and other leptons that do not pass the loose selection,
 % we employ an isolated track veto at particle-flow candidate level, following
@@ -452,50 +527,21 @@ $dz < 0.05$ are rejected.
 % charge of the track is opposite to that of the tight lepton.
 
 
-% \subsection{Missing Energy}\label{sec:met}
-% 
-% We use the particle-flow candidates to calculate the transverse missing energy (MET) of the event.
-% As recommended by the JetMET POG, we apply appropriate jet-energy scale corrections (type-1 only).
-% No explicit selection is made on the missing-energy, however, it is correlated with the razor
-% variable $M_R^T$, introduced in section~\ref{sec:razor}.
-% 
-% \subsection{HCAL Noise}\label{sec:noise}
-% 
-% Starting with the 52X releases of CMSSW, the reconstruction of particle-flow jets and particle-flow
-% MET  
-% includes energy measured in the CMS Hadron Outer Calorimeter (HO), while the reconstruction of 
-% calorimetric jets and calorimetric MET does not. 
-% 
-% Events may receive a large, anomalous contribution to the PF MET from HO energy. 
-% In these events, the PF MET differs from the calo MET substantially, 
-% even in the absence of muons (which also contribute to the PF MET but not the calo MET).
-% Since no filter has yet been developed,
-% we implement a cleaning cut to remove these events. In the following PF MET 
-% always refers to type-1 corrected PF MET, while CALO MET refers to the global muon corrected calo
-% MET.
-% 
-% We cut events in which the PF MET vector $\MET^{,\textrm{PF}}$ is flipped with respect 
-% to the calo MET vector $\MET^{,\textrm{CALO}}$. 
-% To accomplish this we compute the absolute value of the difference in polar angle
-%  $|\Delta\phi_{\textrm{PF,CALO}}|$, taken to in the range $[0,2\pi)$, and defined as
-% \begin{equation}
-%  \phi^{\textrm{PF}} = \textrm{arctan}\left( \frac{\MET^{,\textrm{PF}}_y}{\MET^{,\textrm{PF}}_x}
-% \right) ,~~~~
-%  \phi^{\textrm{CALO}} = \textrm{arctan}\left(
-% \frac{\MET^{,\textrm{CALO}}_y}{\MET^{,\textrm{CALO}}_x} \right)
-% \end{equation}
-% \begin{equation}
-% |\Delta\phi_{\textrm{PF,CALO}}| = \min \left ( \phi^{\textrm{PF}} - \phi^{\textrm{CALO}},   2\pi -
-% \phi^{\textrm{PF}} + \phi^{\textrm{CALO}} \right)
-% \end{equation}
-% 
-% Then we cut events in which $|\Delta\phi_{\textrm{PF,CALO}}|$ falls in a 1 radian ($\sim57$ degree)
-% window centred around $\pi$. This cut is applied to all boxes to remove anomalous events with large
-% PF MET.
-% \begin{equation}
-% ||\Delta\phi_{\textrm{PF,CALO}}| -\pi | < 1
-% \label{eqn:dphicut}
-% \end{equation}
+\subsubsection{Missing transverse momentum \label{sec:object_met}}
+
+The missing transverse momentum, \ETm, associated with a given event is computed as the negative
+vector sum of the transverse momentum of all PF candidates $i$,
+\begin{equation}
+  \ETm = - \sum_i \pt^i .
+\end{equation}
+The corrections to the jet energy scale discussed above are propagated to the \ETm as well. 
+Within CMS this type of missing transverse momentum is know as type-1 corrected \ETm.
+
+No explicit selection will be placed on \ETm in the razor boost analysis selection, although it is
+used in the definition of the razor variable $\rsq$, to be introduced in
+Section~\ref{sec:boost_razor}.
+
+
 
 % \subsection{Pileup reweighting \label{sec:pileup}}
 % 
@@ -644,3 +690,76 @@ $dz < 0.05$ are rejected.
 % \hline
 % \end{tabular}
 % \end{table}
+
+\subsection{Event Cleaning \label{sec:event_cleaning}}
+% 
+% We follow the recommended procedure set out by the JetMET POG, and apply a series of event
+filters.
+% These are:
+% 
+% \begin{itemize}
+% \item The {\tt EcalDeadCellTriggerPrimitiveFilter}, which removes events where dead cells in the
+% ECAL produce anomalous activity.
+% \item The {\tt hcalLaserEventFilter}, which removes events where the HCAL laser produces anomalous
+% activity.
+% \item The {\tt hcalLaserEventFilter2012}, 
+% \item The {\tt trackingFailureFilter}, which removes events where the tracking algorithm does not
+% perform properly.
+% \item The {\tt CSCTightHaloFilter}, which removes events contaminated by beam halo.
+% \item The {\tt HBHENoiseFilter}, which removes events featuring large hadronic calorimeter noise.
+% \item The {\tt eeBadScFilter}, which removes events featuring high amplitude anomalous pulses due
+to
+% bad ECAL super-crystals.
+% \item The {\tt trkPOGFilters}, which remove events due to track reconstruction anomalies, such as
+% events with partly aborted track reconstruction and events affected by the Strip Tracker coherent
+% noise.
+% \item The {\tt primaryVertexFilter}, which removes events that do not have a good primary vertex.
+% \item The {\tt noscrapingFilter}, which removes events with a large multiplicity of low quality
+% tracks.
+% \end{itemize}
+% 
+% More details on these filters can be found in Ref.~\cite{metfilters}. For MC samples that are
+% passed
+% through the fast CMS detector simulation, the {\tt CSCTightHaloFilter} and {\tt HBHENoiseFilter}
+% filters are not applied, as their input collections are not produced in {\sc FastSim} productions.
+% 
+% In addition to the filters listed above, we also use a cleaning cut to remove events with spurious
+% HCAL noise. This is explained in more detail in section~\ref{sec:noise}. 
+
+\subsubsection{HCAL Noise}\label{sec:noise}
+
+% Starting with the 52X releases of CMSSW, the reconstruction of particle-flow jets and particle-flow
+% MET  
+% includes energy measured in the CMS Hadron Outer Calorimeter (HO), while the reconstruction of 
+% calorimetric jets and calorimetric MET does not. 
+% 
+% Events may receive a large, anomalous contribution to the PF MET from HO energy. 
+% In these events, the PF MET differs from the calo MET substantially, 
+% even in the absence of muons (which also contribute to the PF MET but not the calo MET).
+% Since no filter has yet been developed,
+% we implement a cleaning cut to remove these events. In the following PF MET 
+% always refers to type-1 corrected PF MET, while CALO MET refers to the global muon corrected calo
+% MET.
+% 
+% We cut events in which the PF MET vector $\MET^{,\textrm{PF}}$ is flipped with respect 
+% to the calo MET vector $\MET^{,\textrm{CALO}}$. 
+% To accomplish this we compute the absolute value of the difference in polar angle
+%  $|\Delta\phi_{\textrm{PF,CALO}}|$, taken to in the range $[0,2\pi)$, and defined as
+% \begin{equation}
+%  \phi^{\textrm{PF}} = \textrm{arctan}\left( \frac{\MET^{,\textrm{PF}}_y}{\MET^{,\textrm{PF}}_x}
+% \right) ,~~~~
+%  \phi^{\textrm{CALO}} = \textrm{arctan}\left(
+% \frac{\MET^{,\textrm{CALO}}_y}{\MET^{,\textrm{CALO}}_x} \right)
+% \end{equation}
+% \begin{equation}
+% |\Delta\phi_{\textrm{PF,CALO}}| = \min \left ( \phi^{\textrm{PF}} - \phi^{\textrm{CALO}},   2\pi -
+% \phi^{\textrm{PF}} + \phi^{\textrm{CALO}} \right)
+% \end{equation}
+% 
+% Then we cut events in which $|\Delta\phi_{\textrm{PF,CALO}}|$ falls in a 1 radian ($\sim57$ degree)
+% window centred around $\pi$. This cut is applied to all boxes to remove anomalous events with large
+% PF MET.
+% \begin{equation}
+% ||\Delta\phi_{\textrm{PF,CALO}}| -\pi | < 1
+% \label{eqn:dphicut}
+% \end{equation}

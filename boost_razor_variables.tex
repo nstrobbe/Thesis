@@ -12,8 +12,8 @@ consequence of this symmetry is that the lightest BSM particle must be stable, a
 to SM particles only. This lightest BSM particle, called LSP in supersymmetric theories, is weakly
 interacting, and escapes the detector unseen. 
 
-This general property leads us to a generic class of new physics signatures in which a heavy
-particle is pair-produced, and decays into visible, i.e. interacting with our detector, SM
+This general property leads to a generic class of new physics signatures in which a heavy
+particle is pair-produced, and decays into visible, i.e. interacting with detector material, SM
 particles, and an invisible LSP. This signature is illustrated in figure~\ref{fig:razor_signature}.
 
 \begin{figure}[htb]
@@ -74,15 +74,15 @@ illustrated in figure~\ref{fig:razor_S1_rest_frame}.
   \includegraphics[width=0.6\textwidth,clip=true,trim=0 4cm 0
 3cm]{figures/razor_variables/rest_frame}
   \caption{Configuration of the $S_1$ rest frame. The decay products $Q_1$ and $\chi_1$ are
-produced back to back with momenta $\vec{p}^S_1$ and $-\vec{p}^S_1$, respectively. 
+produced back to back with momenta $\vec{p}^{\,S}_1$ and $-\vec{p}^{\,S}_1$, respectively. 
 \label{fig:razor_S1_rest_frame}}
 \end{figure}
 
 We can compute the magnitude of this momentum in terms of the new particle masses. To do this we
-start from the four-vectors of the $Q_1$ and $\chi_1$ particles in the $S_1$ rest frame, 
+start from the four-vectors $P$ of the $Q_1$ and $\chi_1$ particles in the $S_1$ rest frame, 
 \begin{alignat}{6}
-  P[Q_1]    &\equiv q_1^S   &&= \{ E^S_{Q_1}, \vec{q}^S_1\} , \\
-  P[\chi_1] &\equiv \nu_1^S &&= \{ E^S_{\chi_1}, \vec{\nu}^S_1\} .
+  P[Q_1]    &\equiv q_1^S   &&= \{ E^S_{Q_1}, \vec{q}^{\,S}_1\} , \\
+  P[\chi_1] &\equiv \nu_1^S &&= \{ E^S_{\chi_1}, \vec{\nu}^{\,S}_1\} .
 \end{alignat}
 Conservation of energy in the $S_1$ rest frame leads to 
 \begin{equation}
@@ -90,40 +90,41 @@ Conservation of energy in the $S_1$ rest frame leads to
 \end{equation}
 This can also be expressed as
 \begin{equation}
-  \sqrt{M_{Q_1}^2 + (\vec{q}^S_1)^2 } + \sqrt{M_{\chi_1}^2 + (\vec{\nu}^S_1)^2} = M_S .
+  \sqrt{M_{Q_1}^2 + (\vec{q}^{\,S}_1)^2 } + \sqrt{M_{\chi_1}^2 + (\vec{\nu}^{\,S}_1)^2} = M_S .
 \end{equation}
-Using Eq.~\ref{eq:equal_chi_masses} and Eq.~\ref{eq:no_Q_masses} (massless $Q_1$), and the equal
-momenta $|\vec{q}^S_1| = |\vec{\nu}^S_1| = |\vec{p}^S_1|$, the above can be simplified as
+Using Eq.~\ref{eq:equal_chi_masses}, Eq.~\ref{eq:no_Q_masses} (massless $Q_1$), and the equal
+momenta $|\vec{q}^{\,S}_1| = |\vec{\nu}^{\,S}_1| = |\vec{p}^{\,S}_1|$, the above can be simplified
+as
 \begin{align}
-  |\vec{p}^S_1|   &= M_S - \sqrt{M_{\chi}^2 + (\vec{p}^S_1)^2} \\
-  (\vec{p}^S_1)^2 &= M_S^2 - 2 M_S \sqrt{M_{\chi}^2 + (\vec{p}^S_1)^2} + M_{\chi}^2 +
-(\vec{p}^S_1)^2 \\
-  2 M_S \sqrt{M_{\chi}^2 + (\vec{p}^S_1)^2} &= M_S^2 + M_{\chi}^2 \\
-  4 M_S^2 (\vec{p}^S_1)^2 &= (M_S^2)^2 + 2 M_S^2 M_{\chi}^2 + (M_{\chi}^2)^2 - 4 M_S^2
+  |\vec{p}^{\,S}_1|   &= M_S - \sqrt{M_{\chi}^2 + (\vec{p}^{\,S}_1)^2} \\
+  (\vec{p}^{\,S}_1)^2 &= M_S^2 - 2 M_S \sqrt{M_{\chi}^2 + (\vec{p}^{\,S}_1)^2} + M_{\chi}^2 +
+(\vec{p}^{\,S}_1)^2 \\
+  2 M_S \sqrt{M_{\chi}^2 + (\vec{p}^{\,S}_1)^2} &= M_S^2 + M_{\chi}^2 \\
+  4 M_S^2 (\vec{p}^{\,S}_1)^2 &= (M_S^2)^2 + 2 M_S^2 M_{\chi}^2 + (M_{\chi}^2)^2 - 4 M_S^2
 M_{\chi}^2 \\
-  (\vec{p}^S_1)^2 &= \frac{(M_S^2 -M_{\chi}^2 )^2}{4 M_S^2} .
+  (\vec{p}^{\,S}_1)^2 &= \frac{(M_S^2 -M_{\chi}^2 )^2}{4 M_S^2} .
 \end{align}
 
 We thus find for the magnitude of the momentum of $Q_1$ and $\chi_1$ in the $S_1$ rest frame
 \begin{equation}
-  |\vec{p}^S_1| = \frac{M_S^2 -M_{\chi}^2}{2 M_S} \equiv \frac{M_\Delta}{2} ,
+  |\vec{p}^{\,S}_1| = \frac{M_S^2 -M_{\chi}^2}{2 M_S} \equiv \frac{M_\Delta}{2} ,
 \label{eq:razor_p_S1_rest_frame}
 \end{equation}
 where we have defined the characteristic scale $M_\Delta$. This scale is exactly the scale we are
 interested in. The goal of the \textbf{razor variables} is to \textbf{express $M_\Delta$ using lab
-frame quantities only}. To succeed in this effort, we will have to make several, physics-motivated,
+frame quantities only}. To succeed in this effort, we need to make several, physics-motivated,
 approximations. These will remove the unknown degrees of freedom, and are further explained in
 sections~\ref{sec:razor_mr} and \ref{sec:razor_r2}. 
 
 The energy of the $Q_1$ and $\chi_1$ particles can also be computed easily. 
 From the masslessness of $Q_1$, we immediately find using Eq.~\ref{eq:razor_p_S1_rest_frame}
 \begin{equation}
-  E^S_{Q_1} = |\vec{p}^S_1| = \frac{M_\Delta}{2}. \label{eq:razor_E_Q1}
+  E^S_{Q_1} = |\vec{p}^{\,S}_1| = \frac{M_\Delta}{2}. \label{eq:razor_E_Q1}
 \end{equation}
 To compute $E^S_{\chi_1}$, we substitute Eq.~\ref{eq:razor_E_Q1} in 
 Eq.~\ref{eq:razor_conservation_energy}, and find 
 \begin{align}
-  E^S_{\chi_1} &= M_S - |\vec{p}^S_1|\\
+  E^S_{\chi_1} &= M_S - |\vec{p}^{\,S}_1|\\
 	       &= M_S - \frac{M_S^2 -M_{\chi}^2}{2 M_S} \\
 	       &= \frac{2M_S^2 - M_S^2 + M_{\chi}^2}{2 M_S} \\
 	       &= \frac{M_S^2 + M_{\chi}^2}{2 M_S} \\
@@ -150,12 +151,12 @@ again find that
 \end{align}
 and thus
 \begin{equation}
-  |\vec{p}^S_1| = |\vec{p}^S_2| = \frac{M_\Delta}{2} . \label{eq:razor_equal_momenta}
+  |\vec{p}^{\,S}_1| = |\vec{p}^{\,S}_2| = \frac{M_\Delta}{2} . \label{eq:razor_equal_momenta}
 \end{equation}
 
 
-\paragraph{Center-of-mass frame}
-In the center-of-mass (CM) frame of the considered $\Pp\Pp$ collision events the particles $S_1$
+\paragraph{Centre-of-mass frame}
+In the centre-of-mass (CM) frame of the considered $\Pp\Pp$ collision events the particles $S_1$
 and $S_2$, which have equal mass (Eq.~\ref{eq:equal_S_masses}), are produced with equal and opposite
 velocities $\betaCM$, as illustrated in figure~\ref{fig:razor_CM_frame}. The boost $\betaCM$ is an
 indication of how far above threshold the $S_i$ particles are produced, but unfortunately this is
@@ -173,25 +174,25 @@ produced back to back with velocities $\betaCM$ and $-\betaCM$, respectively.
 To go from the rest frame of $S_1$ ($S_2$) to the CM frame, we need to boost the four-momenta
 $q_1^S$ and $\nu_1^S$ ($q_2^S$ and $\nu_2^S$) to the frame travelling at velocity $\betaCM$
 ($-\betaCM$) with respect to the $S_1$ ($S_2$) rest frame. 
-The four-vectors of particles $S_1$ and $S_2$ in the center-of-mass frame are also obtained by
+The four-vectors of particles $S_1$ and $S_2$ in the centre-of-mass frame are also obtained by
 boosting according to $\betaCM$. They can be written as
 \begin{alignat}{6}
-  P[S_1] &\equiv s^{\textrm{CM}}_1  &&= \{ E^{\textrm{CM}}_{S_1} , \vec{s}^{\textrm{CM}}_{S_1}\} 
+  P[S_1] &\equiv s^{\textrm{CM}}_1  &&= \{ E^{\textrm{CM}}_{S_1} , \vec{s}^{\,\textrm{CM}}_{S_1}\} 
 &&= M_S \, \gamma^{\textrm{CM}} \, \{ 1 , \betaCM\} , \\ 
-  P[S_2] &\equiv s^{\textrm{CM}}_2 &&= \{ E^{\textrm{CM}}_{S_2} , \vec{s}\,^{\textrm{CM}}_{S_2}\}
+  P[S_2] &\equiv s^{\textrm{CM}}_2 &&= \{ E^{\textrm{CM}}_{S_2} , \vec{s}^{\,\textrm{CM}}_{S_2}\}
 &&= M_S \, \gamma^{\textrm{CM}} \, \{ 1 , -\betaCM\},  
 \end{alignat}
 and satisfy the following
 \begin{equation}
   (s^{\textrm{CM}}_1 + s^{\textrm{CM}}_1)^2 = \hat{s} = 4 (\gamma^{\textrm{CM}})^2 M_S^2,
 \end{equation}
-with $\sqrt{\hat{s}}$ the center-of-mass energy of the collision. 
+with $\sqrt{\hat{s}}$ the centre-of-mass energy of the collision. 
 
 
 \paragraph{Lab frame}
 The lab frame is the frame where we make our measurements, and is related to the CM frame by a
-boost $\vec{\beta}^{\textrm{lab}}$. We can decompose this boost into a transverse and longitudinal
-part as $\vec{\beta}^{\textrm{lab}} = (\vec{\beta}_T,\vec{\beta}_z)$. 
+boost $\vec{\beta}^{\,\textrm{lab}}$. We can decompose this boost into a transverse and longitudinal
+part as $\vec{\beta}^{\,\textrm{lab}} = (\vec{\beta}_T,\vec{\beta}_z)$. 
 The four-momenta of the $S_i$, $Q_i$ and $\chi_i$ particles are denoted by $s^{\textrm{lab}}_i$,
 $q^{\textrm{lab}}_i$, and $\nu^{\textrm{lab}}_i$ respectively. 
 
@@ -202,7 +203,7 @@ $q^{\textrm{lab}}_i$, and $\nu^{\textrm{lab}}_i$ respectively.
 As mentioned in the previous section, our goal is to express the characteristic scale $M_\Delta$
 using lab frame quantities only. Because the problem is kinematically underconstrained, we will
 need to make some approximations as we work our way from the lab frame to the $S_i$ rest frame,
-reversing the boosts $\vec{\beta}^{\textrm{lab}}$ and $\betaCM$ as we go along. 
+reversing the boosts $\vec{\beta}^{\,\textrm{lab}}$ and $\betaCM$ as we go along. 
 
 The models of new physics that we aim to target with the razor variables all predict that the new
 particles are heavy. This prediction is the basis of the two approximations we will be making. 
@@ -214,17 +215,19 @@ produced near the $\sqrt{\hat{s}} = 2 M_S$ threshold. This means that $\gamma^{\
 The CM frame is thus equal to both $S_i$ rest frames after this first approximation. 
   \item The transverse boost between lab frame and CM frame can be approximated by 
   \begin{equation}
-    |\vec{\beta}_T| \approx \frac{p_T^{ISR}}{\sqrt{\hat{s}}} \lesssim \frac{p_T^{ISR}}{2M_S},
+    |\vec{\beta}_T| \approx \frac{\pt^{\rm ISR}}{\sqrt{\hat{s}}} \lesssim \frac{\pt^{\rm
+ISR}}{2M_S},
   \end{equation}
-  where $p_T^{ISR}$ is the magnitude of the vectorial sum of the transverse momentum of the initial
-state radiation. For large values of $M_S$ we find $\vec{\beta}_T \ll 1$. We thus assume that
-$\vec{\beta}_T \rightarrow 0$, and thus $\vec{\beta}^{\textrm{lab}} \rightarrow \vec{\beta}_z$.
+  where $\pt^{\rm ISR}$ is the magnitude of the vectorial sum of the transverse momentum of the
+initial state radiation. For large values of $M_S$ we find $\vec{\beta}_T \ll 1$. We thus assume
+that $\vec{\beta}_T \rightarrow 0$, and thus $\vec{\beta}^{\,\textrm{lab}} \rightarrow
+\vec{\beta}_z$.
 \end{enumerate}
 The results of these two approximations is that we only need a longitudinal boost $\vec{\beta}_z$
 to take us from the lab frame to the approximate $S_i$ rest frames. 
 In this so-called \textit{rough-approximation frame}, or \textit{R-frame}, we have that
 \begin{alignat}{4}
-  |\vec{q}^R_1|         &= |\vec{q}^R_2| &&= \frac{M_\Delta}{2} , \\
+  |\vec{q}^{\,R}_1|         &= |\vec{q}^{\,R}_2| &&= \frac{M_\Delta}{2} , \\
   \textrm{or } E_{Q_1}^R &= E_{Q_2}^R     &&= \frac{M_\Delta}{2}.
 \label{eq:razor_equal_energy_R_frame}
 \end{alignat}
@@ -232,35 +235,35 @@ cf. Eq.~\ref{eq:razor_equal_momenta}. Using this constraint, we can compute the 
 that will take us from the lab frame to the R-frame. We start from the basic Lorentz
 transformations for energy and momentum, 
 \begin{align}
-  E_{Q_i}^R      &= \gamma^R \left( E_{Q_i}^{\textrm{lab}} - \beta^R \vec{q}_{iz}^{\textrm{lab}}
+  E_{Q_i}^R      &= \gamma^R \left( E_{Q_i}^{\textrm{lab}} - \beta^R \vec{q}_{iz}^{\,\textrm{lab}}
 \right) , \\
-  \vec{q}_{iz}^R &= \gamma^R \left( \vec{q}_{iz}^{\textrm{lab}} - \beta^R E_{Q_i}^{\textrm{lab}}
+  \vec{q}_{iz}^R &= \gamma^R \left( \vec{q}_{iz}^{\,\textrm{lab}} - \beta^R E_{Q_i}^{\textrm{lab}}
 \right) .
 \end{align}
 Using Eq.~\ref{eq:razor_equal_energy_R_frame} we find
 \begin{equation}
-  E_{Q_1}^{\textrm{lab}} - \beta^R \vec{q}_{1z}^{\textrm{lab}} = E_{Q_2}^{\textrm{lab}} - \beta^R
-\vec{q}_{2z}^{\textrm{lab}} ,
+  E_{Q_1}^{\textrm{lab}} - \beta^R \vec{q}_{1z}^{\,\textrm{lab}} = E_{Q_2}^{\textrm{lab}} - \beta^R
+\vec{q}_{2z}^{\,\textrm{lab}} ,
 \end{equation}
 and thus for the boost $\beta^R$
 \begin{equation}
-  \beta^R = \frac{E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\textrm{lab}} -
-\vec{q}_{2z}^{\textrm{lab}}} . \label{eq:razor_beta_R}
+  \beta^R = \frac{E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\,\textrm{lab}} -
+\vec{q}_{2z}^{\,\textrm{lab}}} . \label{eq:razor_beta_R}
 \end{equation}
 The Lorentz factor $\gamma^R$ can be expressed as
 \begin{align}
   \gamma^R &= \frac{1}{\sqrt{1 - (\beta^R)^2}} \\
 	   &= \frac{1}{\sqrt{1 - \left( \frac{E_{Q_1}^{\textrm{lab}} -
-E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\textrm{lab}} -
-\vec{q}_{2z}^{\textrm{lab}}} \right)^2}} \\
-           &= \frac{ \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}} }{\sqrt{ \left(
- \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}} \right)^2 - \left(
+E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\,\textrm{lab}} -
+\vec{q}_{2z}^{\,\textrm{lab}}} \right)^2}} \\
+           &= \frac{ \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}} }{\sqrt{ \left(
+ \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}} \right)^2 - \left(
  E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} \label{eq:razor_gamma_R}
 \end{align}
 
 We now define \mr as
 \begin{equation}
-  \mr \equiv 2 |\vec{q}^R| = M_\Delta .
+  \mr \equiv 2 |\vec{q}^{\,R}| = M_\Delta .
 \end{equation}
 It is interesting to note that \mr is invariant under longitudinal boosts. Using
 Eq.~\ref{eq:razor_beta_R} and Eq.~\ref{eq:razor_gamma_R}, we can express \mr using lab frame
@@ -269,30 +272,33 @@ quantities only.
 \begin{align}
   \mr &= E_{Q_1}^R + E_{Q_2}^R \\
       &= \gamma^R \left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}} - \beta^R (
-\vec{q}_{1z}^{\textrm{lab}} + \vec{q}_{2z}^{\textrm{lab}}) \right) \\
-      &= \frac{\left( \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}}\right) 
+\vec{q}_{1z}^{\,\textrm{lab}} + \vec{q}_{2z}^{\,\textrm{lab}}) \right) \\
+      &= \frac{\left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}\right) 
                \left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}} - \frac{E_{Q_1}^{\textrm{lab}}
-- E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}}}
-(\vec{q}_{1z}^{\textrm{lab}} + \vec{q}_{2z}^{\textrm{lab}}) \right)}
-              { \sqrt{ \left( \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}} \right)^2 
+- E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}}
+(\vec{q}_{1z}^{\,\textrm{lab}} + \vec{q}_{2z}^{\,\textrm{lab}}) \right)}
+              { \sqrt{ \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
+\right)^2 
                       -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} \\
-      &= \frac{\left( \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}} \right) 
+      &= \frac{\left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}} \right) 
                \left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}} \right) 
                - 
                \left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}} \right)
-               \left( \vec{q}_{1z}^{\textrm{lab}} + \vec{q}_{2z}^{\textrm{lab}} \right) }
-              { \sqrt{ \left( \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}} \right)^2 
+               \left( \vec{q}_{1z}^{\,\textrm{lab}} + \vec{q}_{2z}^{\,\textrm{lab}} \right) }
+              { \sqrt{ \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
+\right)^2 
                       -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} \\
-      &= \frac{2 \left( \vec{q}_{1z}^{\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
-                       - \vec{q}_{2z}^{\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right)}
-              { \sqrt{ \left( \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}} \right)^2 
+      &= \frac{2 \left( \vec{q}_{1z}^{\,\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
+                       - \vec{q}_{2z}^{\,\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right)}
+              { \sqrt{ \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
+\right)^2 
                       -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }}
 \end{align}
 Our final expression for \mr in lab frame quantities becomes
 \begin{equation}
-  \mr = 2 \sqrt { \frac{ \left( \vec{q}_{1z}^{\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
-                       - \vec{q}_{2z}^{\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right) ^2}
-                       { \left( \vec{q}_{1z}^{\textrm{lab}} - \vec{q}_{2z}^{\textrm{lab}}
+  \mr = 2 \sqrt { \frac{ \left( \vec{q}_{1z}^{\,\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
+                       - \vec{q}_{2z}^{\,\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right) ^2}
+                       { \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
 \right)^2 
                         -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} . 
 \end{equation}
@@ -333,12 +339,12 @@ $S_i$, we immediately see that $M_{2S} = M_S$. Expanding Eq.~\ref{eq:razor_M2S} 
 \nu_2^{\textrm{lab}} + (\nu_2^{\textrm{lab}})^2\right) } \\
          &= \sqrt{ q_1^{\textrm{lab}}\nu_1^{\textrm{lab}} + q_2^{\textrm{lab}}\nu_2^{\textrm{lab}}
 + M_\chi^2} \\
-         &= \sqrt{ E^{\textrm{lab}}_{Q_1} E^{\textrm{lab}}_{\nu_1} - \vec{q}^{\textrm{lab}}_{1T}
-\cdot \vec{\nu}^{\textrm{lab}}_{1T} - \vec{q}^{\textrm{lab}}_{1z} \cdot
-\vec{\nu}^{\textrm{lab}}_{1z}
-                  + E^{\textrm{lab}}_{Q_2} E^{\textrm{lab}}_{\nu_2} - \vec{q}^{\textrm{lab}}_{2T}
-\cdot \vec{\nu}^{\textrm{lab}}_{2T} - \vec{q}^{\textrm{lab}}_{2z} \cdot
-\vec{\nu}^{\textrm{lab}}_{2z} + M_\chi^2} .
+         &= \sqrt{ E^{\textrm{lab}}_{Q_1} E^{\textrm{lab}}_{\nu_1} - \vec{q}^{\,\textrm{lab}}_{1T}
+\cdot \vec{\nu}^{\,\textrm{lab}}_{1T} - \vec{q}^{\,\textrm{lab}}_{1z} \cdot
+\vec{\nu}^{\,\textrm{lab}}_{1z}
+                  + E^{\textrm{lab}}_{Q_2} E^{\textrm{lab}}_{\nu_2} - \vec{q}^{\,\textrm{lab}}_{2T}
+\cdot \vec{\nu}^{\,\textrm{lab}}_{2T} - \vec{q}^{\,\textrm{lab}}_{2z} \cdot
+\vec{\nu}^{\,\textrm{lab}}_{2z} + M_\chi^2} .
 \end{align}
 Unfortunately we do not a priori know the mass of the $\chi_i$ particles. We will choose $M_\chi =
 0$. As a result $M_{2S}$ will now give us a distribution, with endpoint at $M_S$. For the
@@ -351,10 +357,10 @@ unseen. When we make the balance of momentum for each event, we can thus infer t
 these particles. At a hadron collider we can only make this balance in the transverse plane. The
 transverse component of $M_{2S}$ is given by
 \begin{equation}
-  (M_{2S})_T = \sqrt{ |\vec{q}^{\textrm{lab}}_{1T}| |\vec{\nu}^{\textrm{lab}}_{1T}| -
-\vec{q}^{\textrm{lab}}_{1T} \cdot \vec{\nu}^{\textrm{lab}}_{1T} 
-                  + |\vec{q}^{\textrm{lab}}_{2T}| |\vec{\nu}^{\textrm{lab}}_{2T}| -
-\vec{q}^{\textrm{lab}}_{2T} \cdot \vec{\nu}^{\textrm{lab}}_{2T}} ,
+  (M_{2S})_T = \sqrt{ |\vec{q}^{\,\textrm{lab}}_{1T}| |\vec{\nu}^{\,\textrm{lab}}_{1T}| -
+\vec{q}^{\,\textrm{lab}}_{1T} \cdot \vec{\nu}^{\,\textrm{lab}}_{1T} 
+                  + |\vec{q}^{\,\textrm{lab}}_{2T}| |\vec{\nu}^{\,\textrm{lab}}_{2T}| -
+\vec{q}^{\,\textrm{lab}}_{2T} \cdot \vec{\nu}^{\,\textrm{lab}}_{2T}} ,
 \end{equation}
 where we have used the assumptions that both $Q_i$ and $\chi_i$ are massless. 
 In the considered signal topology we have two unseen particles, $\chi_1$ and $\chi_2$.
@@ -362,9 +368,9 @@ Experimentally we can only access the sum of their transverse momenta, which in 
 effects is given by the missing transverse momentum \VEtmiss. Making the assumption that the
 \VEtmiss is divided equally among both $\chi_i$ particles, we find
 \begin{equation}
-  \mtr = \sqrt{\frac{|\VEtmiss|}{2} \left(|\vec{q}^{\textrm{lab}}_{1T}| +
-|\vec{q}^{\textrm{lab}}_{2T}| \right) - \frac{\VEtmiss}{2} \cdot \left(\vec{q}^{\textrm{lab}}_{1T} +
-\vec{q}^{\textrm{lab}}_{2T} \right)} .
+  \mtr = \sqrt{\frac{|\VEtmiss|}{2} \left(|\vec{q}^{\,\textrm{lab}}_{1T}| +
+|\vec{q}^{\,\textrm{lab}}_{2T}| \right) - \frac{\VEtmiss}{2} \cdot
+\left(\vec{q}^{\,\textrm{lab}}_{1T} + \vec{q}^{\,\textrm{lab}}_{2T} \right)} .
 \end{equation}
 
 We now define the dimensionless variable $\mathrm{R}$ as
@@ -391,102 +397,107 @@ $\betaCM$.
 
 % TODO Add the full computation
 
-We again start by making a longitudinal boost $\beta^{L*}$ from the lab frame. Then we apply a
-transverse boost $\vec{\beta}_T^{\mathrm{R}*}$. This boost is applied in opposite directions to the
-decay products of $S_1$ and $S_2$. The two resulting frames are called $\mathrm{R}*$-frames, and
+We again start by making a longitudinal boost $\beta^{L^*}$ from the lab frame. Then we apply a
+transverse boost $\vec{\beta}_T^{\,\mathrm{R}^*}$. This boost is applied in opposite directions to
+the
+decay products of $S_1$ and $S_2$. The two resulting frames are called $\mathrm{R}^*$-frames, and
 have to satisfy the requirement that the magnitude of the momenta of $Q_1$ and $Q_2$ in their
-respective $\mathrm{R*}$-frame are equal. 
+respective $\mathrm{R^*}$-frame are equal. 
 
 This constraint can be rewritten as
 \begin{equation}
-  \gamma^{L*} (E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}) - \gamma^{L*} \beta^{L*}
-(q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}}) = \vec{\beta}_T^{R*} \cdot
-(\vec{q}_{1T}^{\textrm{lab}} + \vec{q}_{2T}^{\textrm{lab}}), 
+  \gamma^{L^*} (E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}) - \gamma^{L^*} \beta^{L^*}
+(q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}}) = \vec{\beta}_T^{R^*} \cdot
+(\vec{q}_{1T}^{\,\textrm{lab}} + \vec{q}_{2T}^{\,\textrm{lab}}), 
 \end{equation}
 where we have used the Lorentz transformations for energy corresponding to the two consecutive
 boosts,
 \begin{align}
-  E_{Q_i}^{L*} &= \gamma^{L*} (E_{Q_i}^{\textrm{lab}} - \beta^{L*} q_{iz}^{\textrm{lab}} ) , \\
-  E_{Q_1}^{R*} &= \gamma_T^{R*} (E_{Q_1}^{L*} - \vec{\beta}_T^{R*} \cdot
-\vec{q}_{1T}^{\textrm{lab}}) , \\
-  E_{Q_2}^{R*} &= \gamma_T^{R*} (E_{Q_2}^{L*} + \vec{\beta}_T^{R*} \cdot
-\vec{q}_{2T}^{\textrm{lab}}) .
+  E_{Q_i}^{L^*} &= \gamma^{L^*} (E_{Q_i}^{\textrm{lab}} - \beta^{L^*} q_{iz}^{\textrm{lab}} ) , \\
+  E_{Q_1}^{R^*} &= \gamma_T^{R^*} (E_{Q_1}^{L^*} - \vec{\beta}_T^{\,R^*} \cdot
+\vec{q}_{1T}^{\,\textrm{lab}}) , \\
+  E_{Q_2}^{R^*} &= \gamma_T^{R^*} (E_{Q_2}^{L^*} + \vec{\beta}_T^{\,R^*} \cdot
+\vec{q}_{2T}^{\,\textrm{lab}}) .
 \end{align}
-Introducing the unit vector $\hat{\beta}_T^{\mathrm{R}*}$ such that $\vec{\beta}_T^{\mathrm{R}*} =
-\beta_T^{\mathrm{R}*} \hat{\beta}_T^{\mathrm{R}*}$, we find for the magnitude of the transverse
+Introducing the unit vector $\hat{\beta}_T^{\mathrm{R}^*}$ such that $\vec{\beta}_T^{\mathrm{R}^*} =
+\beta_T^{\mathrm{R}^*} \hat{\beta}_T^{\mathrm{R}^*}$, we find for the magnitude of the transverse
 boost
 \begin{equation}
-  \beta_T^{\mathrm{R}*} = \frac{\gamma^{L*} (E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}) -
-\gamma^{L*} \beta^{L*} (q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}})}{\hat{\beta}_T^{R*} \cdot
-(\vec{q}_{1T}^{\textrm{lab}} + \vec{q}_{2T}^{\textrm{lab}})}
+  \beta_T^{\mathrm{R}^*} = \frac{\gamma^{L^*} (E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}) -
+\gamma^{L^*} \beta^{L^*} (q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}})}{\hat{\beta}_T^{R^*} \cdot
+(\vec{q}_{1T}^{\,\textrm{lab}} + \vec{q}_{2T}^{\,\textrm{lab}})}
 \end{equation}
 
-In analogy with our previous discussion we define the $\mathrm{R}*$-frame mass $\mathrm{M_{R*}}$ as
+In analogy with our previous discussion we define the $\mathrm{R}^*$-frame mass $\mathrm{M_{R^*}}$
+as
 \begin{align}
-  \mathrm{M_{R*}} &\equiv 2 |\vec{q}_1^{\mathrm{R}*}| = 2 |\vec{q}_2^{\mathrm{R}*}| \\
-                  &= \frac{2\gamma^{L*} \hat{\beta}_T^{\mathrm{R}*} \cdot \left[
-(E_{Q_1}^{\textrm{lab}}\vec{q}_{2T}^{\textrm{lab}} +
-E_{Q_2}^{\textrm{lab}}\vec{q}_{1T}^{\textrm{lab}}) - \beta^{L*}
-(q_{1z}^{\textrm{lab}}\vec{q}_{2T}^{\textrm{lab}} +
-q_{2z}^{\textrm{lab}}\vec{q}_{1T}^{\textrm{lab}}) \right]}
-                           {\sqrt{|\hat{\beta}_T^{R*} \cdot (\vec{q}_{1T}^{\textrm{lab}} +
-\vec{q}_{2T}^{\textrm{lab}})|^2 - (\gamma^{L*})^2 \left[ E_{Q_1}^{\textrm{lab}} -
-E_{Q_2}^{\textrm{lab}} - \beta^{L*} (q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}}) \right]^2}}
+  \mathrm{M_{R^*}} &\equiv 2 |\vec{q}_1^{\,\mathrm{R}^*}| = 2 |\vec{q}_2^{\,\mathrm{R}^*}| \\
+                  &= \frac{2\gamma^{L^*} \hat{\beta}_T^{\mathrm{R}^*} \cdot \left[
+(E_{Q_1}^{\textrm{lab}}\vec{q}_{2T}^{\,\textrm{lab}} +
+E_{Q_2}^{\textrm{lab}}\vec{q}_{1T}^{\,\textrm{lab}}) - \beta^{L^*}
+(q_{1z}^{\textrm{lab}}\vec{q}_{2T}^{\,\textrm{lab}} +
+q_{2z}^{\textrm{lab}}\vec{q}_{1T}^{\,\textrm{lab}}) \right]}
+                           {\sqrt{|\hat{\beta}_T^{R^*} \cdot (\vec{q}_{1T}^{\,\textrm{lab}} +
+\vec{q}_{2T}^{\,\textrm{lab}})|^2 - (\gamma^{L^*})^2 \left[ E_{Q_1}^{\textrm{lab}} -
+E_{Q_2}^{\textrm{lab}} - \beta^{L^*} (q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}}) \right]^2}}
 \end{align}
 
-To fully compute $\mathrm{M_{R*}}$ we need to pick a value for $\beta_T^{\mathrm{R}*}$ and
-$\beta^{L*}$. The configurations that led to unphysical \mr values have the property that the
+To fully compute $\mathrm{M_{R^*}}$ we need to pick a value for $\beta_T^{\mathrm{R}^*}$ and
+$\beta^{L^*}$. The configurations that led to unphysical \mr values have the property that the
 momenta of $Q_1$ and $Q_2$ point in the same direction in the transverse plane, with $\betaCM$
 pointing in the same or the opposite direction. Based on this observation, we choose a direction
-for $\hat{\beta}_T^{\mathrm{R}*}$ that maximizes $|\hat{\beta}_T^{R*} \cdot
-(\vec{q}_{1T}^{\textrm{lab}} + \vec{q}_{2T}^{\textrm{lab}})|$. The direction that maximizes this
-quantity is aligned with the direction of $\vec{q}_{1T}^{\textrm{lab}} +
-\vec{q}_{2T}^{\textrm{lab}}$. Realizing that a unit vector can be expressed as a vector indicating
-the direction divided by the norm of that vector, we find for $\hat{\beta}_T^{\mathrm{R}*}$ 
+for $\hat{\beta}_T^{\mathrm{R}^*}$ that maximizes $|\hat{\beta}_T^{R^*} \cdot
+(\vec{q}_{1T}^{\,\textrm{lab}} + \vec{q}_{2T}^{\,\textrm{lab}})|$. The direction that maximizes this
+quantity is aligned with the direction of $\vec{q}_{1T}^{\,\textrm{lab}} +
+\vec{q}_{2T}^{\,\textrm{lab}}$. Realizing that a unit vector can be expressed as a vector indicating
+the direction divided by the norm of that vector, we find for $\hat{\beta}_T^{\mathrm{R}^*}$ 
 \begin{equation}
-  \hat{\beta}_T^{\mathrm{R}*} = \frac{\vec{q}_{1T}^{\textrm{lab}} +
-\vec{q}_{2T}^{\textrm{lab}}}{|\vec{q}_{1T}^{\textrm{lab}} + \vec{q}_{2T}^{\textrm{lab}}|}
+  \hat{\beta}_T^{\mathrm{R}^*} = \frac{\vec{q}_{1T}^{\,\textrm{lab}} +
+\vec{q}_{2T}^{\,\textrm{lab}}}{|\vec{q}_{1T}^{\,\textrm{lab}} + \vec{q}_{2T}^{\textrm{lab}}|}
 \label{eq:razor_beta_T_Rstar}
 \end{equation}
-We still want $\mathrm{M_{R*}}$ to be invariant under longitudinal boosts. Therefore we choose
-$\beta^{L*}$ according to the condition $\frac{\partial \mathrm{M_{R*}}}{\partial \beta^{L*}} = 0$.
+We still want $\mathrm{M_{R^*}}$ to be invariant under longitudinal boosts. Therefore we choose
+$\beta^{L^*}$ according to the condition $\frac{\partial \mathrm{M_{R^*}}}{\partial \beta^{L^*}} =
+0$.
 We find
 \begin{equation}
-  \beta^{L*} = \frac{q_{1z}^{\textrm{lab}} + q_{2z}^{\textrm{lab}}}
+  \beta^{L^*} = \frac{q_{1z}^{\textrm{lab}} + q_{2z}^{\textrm{lab}}}
 {E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}}}
 \label{eq:razor_beta_Lstar}
 \end{equation}
 
 Substituting Eq.~\ref{eq:razor_beta_T_Rstar} and Eq.~\ref{eq:razor_beta_Lstar} in the expression for
-$\mathrm{M_{R*}}$ we find
+$\mathrm{M_{R^*}}$ we find
 \begin{equation}
-  \mathrm{M_{R*}} = \sqrt{\left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}}\right)^2 
+  \mathrm{M_{R^*}} = \sqrt{\left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}}\right)^2 
                         - \left( q_{1z}^{\textrm{lab}} + q_{2z}^{\textrm{lab}} \right)^2 
-                        - \frac{(|\vec{q}_{1T}^{\textrm{lab}}|^2 -
-|\vec{q}_{2T}^{\textrm{lab}}|^2 )^2}{|\vec{q}_{1T}^{\textrm{lab}} +
-\vec{q}_{2T}^{\textrm{lab}}|^2} } .
+                        - \frac{(|\vec{q}_{1T}^{\,\textrm{lab}}|^2 -
+|\vec{q}_{2T}^{\,\textrm{lab}}|^2 )^2}{|\vec{q}_{1T}^{\,\textrm{lab}} +
+\vec{q}_{2T}^{\,\textrm{lab}}|^2} } .
 \end{equation}
-We can also express $\gamma_T^{R*}$ in lab frame observables,
+We can also express $\gamma_T^{R^*}$ in lab frame observables,
 \begin{equation}
-  \gamma_T^{R*} = \sqrt{ \frac{\left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}}\right)^2 
+  \gamma_T^{R^*} = \sqrt{ \frac{\left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}}\right)^2 
                         - \left( q_{1z}^{\textrm{lab}} + q_{2z}^{\textrm{lab}} \right)^2 }
                               {\left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}}\right)^2 
                         - \left( q_{1z}^{\textrm{lab}} + q_{2z}^{\textrm{lab}} \right)^2 
                         - \frac{(|\vec{q}_{1T}^{\textrm{lab}}|^2 -
-|\vec{q}_{2T}^{\textrm{lab}}|^2 )^2}{|\vec{q}_{1T}^{\textrm{lab}} +
-\vec{q}_{2T}^{\textrm{lab}}|^2}}} . 
+|\vec{q}_{2T}^{\,\textrm{lab}}|^2 )^2}{|\vec{q}_{1T}^{\,\textrm{lab}} +
+\vec{q}_{2T}^{\,\textrm{lab}}|^2}}} . 
 \end{equation}
-The peak value of the $\mathrm{M_{R*}}$ distribution is at $M_\Delta$, whereas the peak value for
+The peak value of the $\mathrm{M_{R^*}}$ distribution is at $M_\Delta$, whereas the peak value for
 $\gamma_T^{R*}\mathrm{M_{R*}}$ is at $\gamma^{\textrm{CM}}M_\Delta$, as was the case for \mr
 earlier. This motivates us to redefine \mr as
 \begin{equation}
-  \mr = \gamma_T^{R*}\mathrm{M_{R*}} = \sqrt{\left( E_{Q_1}^{\textrm{lab}} +
+  \mr = \gamma_T^{R^*}\mathrm{M_{R^*}} = \sqrt{\left( E_{Q_1}^{\textrm{lab}} +
 E_{Q_2}^{\textrm{lab}}\right)^2 - \left( q_{1z}^{\textrm{lab}} +
 q_{2z}^{\textrm{lab}} \right)^2} ,
 \end{equation}
 which is still longitudinally invariant, but does not suffer from unphysical boosts.
 The definition of \mtr remains the same, and $\mathrm{R} = \frac{\mtr}{\mr}$ is now defined using
 the updated \mr definition.
+
+\textcolor{red}{If there is time, I will try to work through the full derivation.}
 
 \subsection{Generalization to longer decay chains \label{sec:razor_megajet_algorithm}}
 
@@ -509,27 +520,38 @@ decay products of each of the two initially produced particles.
 \subsection{The razor variables in the razor boost analysis}
 
 As the name already indicates, the razor boost analysis uses the razor variables as the main
-discriminating variables. They are well suited for the purpose of the analysis, as they are
+discriminating variables. They are well suited for the purpose of the analysis; they are
 designed to describe a signal due to pair production of heavy particles, each of which decays to a
 massless visible particle and a massive invisible particle, as is the case for the targeted models
 in the razor boost analysis. The signal will appear as a peak on an exponentially falling
 background. 
 
 For clarity we repeat the \mr and \rsq definitions here, replacing the relevant variables with their
-megajet counterparts (indices $j_i$), 
+megajet counterparts, with indices ${\rm j}_i$, 
 \begin{align}
-  \mr &= \sqrt{\left( E_{j_1} + E_{j_2}\right)^2 - \left( p_{z}^{j_1} + p_{z}^{j_2} \right)^2} ,\\
+  \mr &= \sqrt{\left( E_{{\rm j}_1} + E_{{\rm j}_2}\right)^2 - \left( p_{z}^{{\rm j}_1} +
+p_{z}^{{\rm j}_2} \right)^2} ,\\
   \rsq &= \frac{\mtr}{\mr} ,\\
-  \textrm{with } \mtr &= \sqrt{\frac{|\VEtmiss|}{2} \left(p^{j_1}_{T} + p^{j_2}_{T}
-\right) - \frac{\VEtmiss}{2} \cdot \left(\vec{p}^{j_1}_{T} + \vec{p}^{j_2}_{T} \right)} ,
+  \textrm{with } \mtr &= \sqrt{\frac{|\VEtmiss|}{2} \left(\pt^{{\rm j}_1} + \pt^{{\rm j}_2}
+\right) - \frac{\VEtmiss}{2} \cdot \left(\ptvec^{\,{\rm j}_1} + \ptvec^{\,{\rm j}_2}
+\right)} ,
 \end{align}
-where we have defined $p_T$ as the magnitude of the transverse momentum vector $\vec{p}_T$. 
+where we have defined $\pt$ as the magnitude of the transverse momentum vector $\ptvec$. 
 
 The two-dimensional (2D) distributions of \rsq versus \mr for both background and an example signal
-model are shown in Fig.~\ref{fig:razor_MR_Rsq_bg_signal}. It is clear that the background,
-dominated by QCD multijet production, is located in the low \mr and low \rsq regions, and falls of
-steeply when \mr or \rsq is increased. The signal, on the other hand, shows a peaking behaviour in
-\mr and is located substantially higher in the (\mr,\rsq) space. 
+model are shown in Fig.~\ref{fig:razor_MR_Rsq_bg_signal}. A very loose selection is applied,
+requiring the presence of a good primary vertex and at least three jets, one of which should have
+$\pt > 200$ \GeV. It is clear that the background, dominated by QCD multijet production, is located
+in the low \mr and low \rsq regions, and falls off steeply when \mr or \rsq is increased. The
+signal, on the other hand, shows a peaking behaviour in \mr and is located substantially higher in
+the (\mr,\rsq) space. 
+The $\mr$ distribution peaks at higher values for larger sparticle masses and higher mass
+differences between the gluino and the LSP. This is illustrated
+in Figs.~\ref{fig:razor_MR_R2_T1ttcc} and \ref{fig:razor_MR_R2_T1t1t}, which show the $\mr$ and
+$\rsq$ distributions for several signal points using the same loose selection as defined above.
+The width of the $\mr$ distribution also increases with the gluino mass. This is why we use an
+increasingly larger bin width for $\mr$ when defining our analysis regions. 
+
 
 \begin{figure}[htpb]
 \centering
@@ -540,46 +562,41 @@ steeply when \mr or \rsq is increased. The signal, on the other hand, shows a pe
 from MC, on the (\mr,\rsq) space. A very loose selection is used:  a good primary vertex and at
 least three jets, one of which should have $\pt > 200$ \GeV. 
 \label{fig:razor_MR_Rsq_bg_signal}}
-
 \end{figure}
 
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_MR_comparison} 
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_R2_comparison}
+\caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
+T1ttcc signal points. A very loose selection is used, including only the requirement of having a
+good primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
+\label{fig:razor_MR_R2_T1ttcc}}
+\end{figure}
 
-% TODO : incorporate this into the section, maybe make more/different plots
-% Figures~\ref{fig:MRR2_sig1} and \ref{fig:MRR2_sig2} show 1D $M_R$ and $R^2$ distributions for
-% several signal points using the same loose selection. 
-% From these figures we can clearly see that the $M_R$ distribution peaks at higher values for higher
-% masses and higher mass differences between the gluino and the LSP. The width of the $M_R$
-% distribution also increases as the gluino mass increases. This is why we use a increasingly larger
-% bin width for $M_R$ in the analysis (see figure~\ref{fig:MRR2baseline}). 
-% The baseline requirement implemented in this analysis is that events fall within the ranges 
-% \begin{itemize}
-% \item $M_R > 800$, 
-% \item $R^2 > 0.08$.
-% \end{itemize}
-% This provides a good balance between background suppression and signal acceptance. 
-% 
-% 
-% \begin{figure}[htpb]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/Signal_comparison_T1ttcc_MR__jet1ptg200} 
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/Signal_comparison_T1ttcc_R2__jet1ptg200}
-% \caption{1D distribution of $M_R$ (left) and $R^2$ (right) for several T1ttcc signal points. A very
-% loose selection is used, including only the requirement of having a good primary vertex and at least
-% three jets, one of which should have $\pt > 200$ \GeV. 
-% \label{fig:MRR2_sig1}}
-% \end{figure}
-% 
-% \begin{figure}[htpb]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/T1t1t/Signal_comparison_T1t1t_MR__jet1ptg200} 
-% \includegraphics[width=0.49\textwidth]{figures/T1t1t/Signal_comparison_T1t1t_R2__jet1ptg200}
-% \caption{1D distribution of $M_R$ (left) and $R^2$ (right) for several T1t1t signal points. A very
-% loose selection is used, including only the requirement of having a good primary vertex and at least
-% three jets, one of which should have $\pt > 200$ \GeV. 
-% \label{fig:MRR2_sig2}}
-% \end{figure}
-% 
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_MR_comparison} 
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_R2_comparison}
+\caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
+T1t1t signal points. A very loose selection is used, including only the requirement of having a good
+primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
+\label{fig:razor_MR_R2_T1t1t}}
+\end{figure}
 
-
-
-
+In order to retain sensitivity to low \ETm scenarios, we choose to reduce the minimal $\rsq$
+requirement compared to previous razor
+analyses~\cite{Chatrchyan:2011ek,razorPRL,Chatrchyan:2014goa}, while simultaneously raising
+the $\mr$ requirement to access the boosted phase space, and keep the background to a
+manageable level.
+As explained before, $\mr$ is a measure of mass difference, and since high boost requires high mass
+differences, we opt to work in the high $\mr$ region to obtain better expected signal
+significance. 
+The baseline requirement implemented in this analysis is that events fall within the ranges 
+\begin{itemize}
+\item $\mr > 800\GeV$, 
+\item $\rsq > 0.08$.
+\end{itemize}
+This provides a good balance between background suppression and signal acceptance. 

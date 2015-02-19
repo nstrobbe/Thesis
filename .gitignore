@@ -10,3 +10,4 @@ thesis.pdf
 *.tex.backup
 *.root
 *.pyc
+*.C

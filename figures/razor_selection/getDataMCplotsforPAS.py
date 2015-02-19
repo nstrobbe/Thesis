@@ -53,8 +53,9 @@ if __name__ == '__main__':
             "0Lbg1Y1LlmT_mdPhig0p5",
             "0Lbg1uW0Ll_mdPhi0p3",
             "HLT",
+            "g1Mbg1Y2l0ol"
             ]
-    plotinfos = ["Signal region","T region", "W region", "Q region","Baseline"]
+    plotinfos = ["Signal region","T region", "W region", "Q region","Baseline","Z-enriched region"]
     legd = plotTools.ConstructLDict(0.58,0.92,0.45,0.8,ncolumns=2)
 
     for cut in cuts:
@@ -202,6 +203,40 @@ if __name__ == '__main__':
             plotTools.PlotDataMCPAS(hlist,hdict_data,hsiglist,legdict=legd,outputdir=outputdir, outfile=outfile,
                                  cname="DataMC_%s_%s"%(var,cut), plotinfo=plotinfos[cuts.index(cut)],
                                  ratiotitle="Data/MC ", logscale=True, scale="No", style="CMS")
+
+            plotTools.PlotDataMCPAS(hlist,0,hsiglist,legdict=legd2,outputdir=outputdir, outfile=outfile,
+                                 cname="DataMC_%s_%s_nodata"%(var,cut), plotinfo=plotinfos[cuts.index(cut)],
+                                 logscale=True, scale="No", style="CMS")
+
+    ##############################################################################################################
+
+    # make met plot
+    vars = ["met","Wpt"]
+    vartitles = ["E_{T}^{miss} (GeV)","W tagged jet p_{T} (GeV)"]
+    cuts = ["g1Mbg1W0Ll_mdPhig0p5"]
+    plotinfos = ["Signal region"]
+    #legd = plotTools.ConstructLDict(0.65,0.92,0.5,0.8,ncolumns=2)
+
+    for cut in cuts:
+        for var in vars:
+            hname = "h_%s_%s" % (var,cut)
+            htitle = ""
+            hlist = []
+            for i in range(len(mc_datasets)):
+                if not flist[i]: continue
+                hdict = plotTools.ConstructHDict(flist[i].Get(hname),name=mc_titles[i],color=mc_colors[i],title=htitle,xtitle=vartitles[vars.index(var)])
+                hlist.append(hdict)
+        
+            hsiglist = []
+            for i in range(len(sig_datasets)):
+                if not fsiglist[i]: continue
+                hdict = plotTools.ConstructHDict(fsiglist[i].Get(hname),name=sig_titles[i],color=sig_colors[i],title=htitle,xtitle=vartitles[vars.index(var)])
+                hsiglist.append(hdict)
+
+            # now make the actual plot
+            plotTools.PlotDataMCPAS(hlist,0,hsiglist,legdict=legd2,outputdir=outputdir, outfile=outfile,
+                                 cname="DataMC_%s_%s_nodata"%(var,cut), plotinfo=plotinfos[cuts.index(cut)],
+                                 logscale=False, scale="No", style="CMS",ymax=35)
 
     ##############################################################################################################
 

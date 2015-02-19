@@ -48,14 +48,14 @@
 %% ---------------------------------------------------------------------------------------------
 
 % Particle flow
-@ARTICLE{PF,
-    COLLABORATION= "CMS",
-    TITLE        = "Commissioning of the Particle-Flow Reconstruction in Minimum-Bias and Jet Events
+@article{PF,
+    collaboration= "CMS",
+    title        = "Commissioning of the Particle-Flow Reconstruction in Minimum-Bias and Jet Events
 from pp Collisions at 7 TeV",
-    JOURNAL      = "CMS PAS",
-    VOLUME       =
+    journal      = "CMS PAS",
+    volume       =
 "\href{http://cms-physics.web.cern.ch/cms-physics/public/PFT-10-002-pas.pdf}{PFT-10-002}",
-    YEAR         = "2010"
+    year         = "2010"
 }
 
 % FastJet 
@@ -140,8 +140,44 @@ from pp Collisions at 7 TeV",
       year         = "2013",
       url          = "https://cds.cern.ch/record/1581306",
 }
+% btag CSV working points
+@misc{BTagWP,
+     howpublished = "\url{https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagPerformanceOP}",
+}
 
-%%% ============================================================================================
+
+% anti-kt
+@article{antikt,
+      author         = "Cacciari, Matteo and Salam, Gavin P. and Soyez, Gregory",
+      title          = "{The Anti-k(t) jet clustering algorithm}",
+      journal        = "JHEP",
+      volume         = "0804",
+      pages          = "063",
+      doi            = "10.1088/1126-6708/2008/04/063",
+      year           = "2008",
+      eprint         = "0802.1189",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "LPTHE-07-03",
+      SLACcitation   = "%%CITATION = ARXIV:0802.1189;%%",
+}
+% Tight muon ID
+@misc{MuonID,
+     howpublished = "\url{https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideMuonId}",
+}
+
+% Directional isolation
+@techreport{CMS-AN2011-498,
+      title         = "{Scalar Top Quark Search with Jets and Missing Transverse Momentum in pp
+                        Collisions at sqrt(s) = 7 TeV}",
+      institution   = "CERN",
+      collaboration = "CMS",
+      address       = "Geneva",
+      number        = "CMS AN2011/498",
+      year          = "2012",
+}
+
+%%% ============================+===============================================================
 %%% Chapter: Razor Boost 
 %%% ============================================================================================
 
@@ -456,6 +492,25 @@ from pp Collisions at 7 TeV",
       reportNumber   = "CMS-SUS-12-005, CERN-PH-EP-2014-057",
       SLACcitation   = "%%CITATION = ARXIV:1405.3961;%%",
 }
+% more previous razor papers
+@article{razorPRL,
+  title = "{Inclusive Search for Supersymmetry Using Razor Variables in $pp$ Collisions at
+$\sqrt{s}=7\,$ TeV}",
+  author = "Chatrchyan, S. and others",
+  collaboration = "CMS",
+  journal = "Phys. Rev. Lett.",
+  volume = "111",
+  issue = "8",
+  pages = "{081802}",
+  numpages = "17",
+  year = "2013",
+  month = "Aug",
+  eprint = "1212.6961",
+  archivePrefix  = "arXiv",
+  primaryClass   = "hep-ex",
+  doi = "10.1103/PhysRevLett.111.081802",
+  reportNumber   = "CMS-SUS-11-024, CERN-PH-EP-2012-332",
+}
 
 
 %% ---------------------------------------------------------------------------------------------
@@ -477,6 +532,16 @@ from pp Collisions at 7 TeV",
       primaryClass   = "hep-ph",
       reportNumber   = "CAVENDISH-HEP-97-06",
       SLACcitation   = "%%CITATION = HEP-PH/9707323;%%",
+}
+
+% jet energy corrections using AK7
+@techreport{CMS-PAS-JME-13-007,
+      title         = "{Boosted Top Jet Tagging at CMS}",
+      institution   = "CERN",
+      collaboration = "CMS",
+      address       = "Geneva",
+      number        = "CMS-PAS-JME-13-007",
+      year          = "2014",
 }
 
 % Jet Pruning
@@ -628,7 +693,7 @@ from pp Collisions at 7 TeV",
       title          = "{Search for massive resonances decaying into pairs of
                         boosted bosons in semi-leptonic final states at $\sqrt{s}
                         =$ 8 TeV}",
-      collaboration  = "CMS Collaboration",
+      collaboration  = "CMS",
       journal        = "JHEP",
       volume         = "1408",
       pages          = "174",
@@ -640,6 +705,65 @@ from pp Collisions at 7 TeV",
       reportNumber   = "CMS-EXO-13-009, CERN-PH-EP-2014-076",
       SLACcitation   = "%%CITATION = ARXIV:1405.3447;%%",
 }
+
+% other techniques
+@article{Krohn:2009th,
+      author         = "Krohn, David and Thaler, Jesse and Wang, Lian-Tao",
+      title          = "{Jet Trimming}",
+      journal        = "JHEP",
+      volume         = "1002",
+      pages          = "084",
+      doi            = "10.1007/JHEP02(2010)084",
+      year           = "2010",
+      eprint         = "0912.1342",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:0912.1342;%%",
+}
+@article{Gallicchio:2010sw,
+      author         = "Gallicchio, Jason and Schwartz, Matthew D.",
+      title          = "{Seeing in Color: Jet Superstructure}",
+      journal        = "Phys.Rev.Lett.",
+      volume         = "105",
+      pages          = "022001",
+      doi            = "10.1103/PhysRevLett.105.022001",
+      year           = "2010",
+      eprint         = "1001.5027",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1001.5027;%%",
+}
+@article{Butterworth:2008iy,
+      author         = "Butterworth, Jonathan M. and Davison, Adam R. and Rubin,
+                        Mathieu and Salam, Gavin P.",
+      title          = "{Jet substructure as a new Higgs search channel at the
+                        LHC}",
+      journal        = "Phys.Rev.Lett.",
+      volume         = "100",
+      pages          = "242001",
+      doi            = "10.1103/PhysRevLett.100.242001",
+      year           = "2008",
+      eprint         = "0802.2470",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:0802.2470;%%",
+}
+@article{Kaplan:2008ie,
+      author         = "Kaplan, David E. and Rehermann, Keith and Schwartz,
+                        Matthew D. and Tweedie, Brock",
+      title          = "{Top Tagging: A Method for Identifying Boosted
+                        Hadronically Decaying Top Quarks}",
+      journal        = "Phys.Rev.Lett.",
+      volume         = "101",
+      pages          = "142001",
+      doi            = "10.1103/PhysRevLett.101.142001",
+      year           = "2008",
+      eprint         = "0806.0848",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:0806.0848;%%",
+}
+
 
 %% ---------------------------------------------------------------------------------------------
 %% Section: Trigger and datasets
@@ -852,6 +976,27 @@ from pp Collisions at 7 TeV",
 %% Section: systematic uncertainties
 %% ---------------------------------------------------------------------------------------------
 
+% PDF4LHC
+@article{Alekhin:2011sk,
+      author         = "Alekhin, Sergey and Alioli, Simone and Ball, Richard D.
+                        and Bertone, Valerio and Blumlein, Johannes and others",
+      title          = "{The PDF4LHC Working Group Interim Report}",
+      year           = "2011",
+      eprint         = "1101.0536",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1101.0536;%%",
+}
+@article{Botje:2011sn,
+      author         = "Botje, Michiel and Butterworth, Jon and Cooper-Sarkar,
+                        Amanda and de Roeck, Albert and Feltesse, Joel and others",
+      title          = "{The PDF4LHC Working Group Interim Recommendations}",
+      year           = "2011",
+      eprint         = "1101.0538",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = ARXIV:1101.0538;%%",
+}
 % NNPDF
 @article{nnpdf,
       author         = "Ball, Richard D. and others",
@@ -897,6 +1042,15 @@ Colliders: Standard Model Working Group Report}",
       reportNumber   = "IPPP-08-95, DCPT-08-190, CAVENDISH-HEP-08-16",
       SLACcitation   = "%%CITATION = ARXIV:0901.0002;%%",
 }
+% btag scale factors
+@misc{BTagSF1,
+     howpublished = "\url{https://twiki.cern.ch/twiki/bin/viewauth/CMS/BTagSFMethods}",
+}
+% lepton scale factors
+@misc{ElectronSF,
+     howpublished = "\url{https://twiki.cern.ch/twiki/bin/view/Main     
+/EGammaScaleFactors2012#2012_8_TeV_Jan22_Re_recoed_data}",
+}
 % ISR prescription
 @article{ISRerr,
       author         = "Chatrchyan, Serguei and others",
@@ -916,6 +1070,9 @@ Colliders: Standard Model Working Group Report}",
       SLACcitation   = "%%CITATION = ARXIV:1308.1586;%%",
 }
 % top pt reweighting
+@misc{toppt_twiki,
+      howpublished = "\url{https://twiki.cern.ch/twiki/bin/viewauth/CMS/TopPtReweighting}",
+}
 @article{toppt,
       author         = "Chatrchyan, Serguei and others",
       title          = "{Measurement of differential top-quark pair production
@@ -931,4 +1088,15 @@ Colliders: Standard Model Working Group Report}",
       primaryClass   = "hep-ex",
       reportNumber   = "CMS-TOP-11-013, CERN-PH-EP-2012-322",
       SLACcitation   = "%%CITATION = ARXIV:1211.2220;%%",
+}
+% minbias for pileup reweighting
+@article{Field:2012jv,
+      author         = "Field, Rick",
+      title          = "{Min-Bias and the Underlying Event at the LHC}",
+      year           = "2012",
+      eprint         = "1202.0901",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "PIC2011",
+      SLACcitation   = "%%CITATION = ARXIV:1202.0901;%%",
 }

@@ -119,7 +119,7 @@ with plt.xkcd():
 
     fig.text(
         0.62,0.73,
-        'Razor Boost (mGLUINO < 900)',
+        'Razor Boost (mGLUINO < 850)',
         ha='right',fontsize=20,rotation=56,color='#F00000')
 
     plt.savefig("story_boost.pdf")

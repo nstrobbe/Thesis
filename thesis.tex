@@ -1,3 +1,4 @@
+\pdfoptionpdfminorversion=5
 \documentclass[a4paper,11pt]{book}
 
 \usepackage{amsmath, amssymb, amsthm}
@@ -17,7 +18,8 @@
             linkcolor=black,citecolor=black,filecolor=black,urlcolor=black]{hyperref}
 
 % Title Page
-\title{\Huge My thesis}
+\title{\Huge The Razor Boost analysis\\[1cm]
+Another step in the hunt for new physics at CMS \\[0.5cm] \textcolor{red}{(Preliminary title)}}
 \author{Nadja Strobbe}
 
 
@@ -48,7 +50,7 @@
 \newcommand{\mr}{\ensuremath{\mathrm{M_R}}\xspace}
 \newcommand{\mtr}{\ensuremath{\mathrm{M_T^R}}\xspace}
 \newcommand{\rsq}{\ensuremath{\mathrm{R^2}}\xspace}
-\newcommand{\betaCM}{\ensuremath{\vec{\beta}^{\textrm{CM}}}}
+\newcommand{\betaCM}{\ensuremath{\vec{\beta}^{\,\textrm{CM}}}}
 
 \newcommand{\ETm}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
 \newcommand{\VEtmiss}{\ensuremath{{\vec E}_{\mathrm{T}}^{\text{miss}}}\xspace}
@@ -87,6 +89,12 @@
 \input{event_generation.tex}
 
 \input{razorboost.tex}
+
+% appendices
+\appendix
+
+\input{app_CLs.tex}
+\input{app_signal_systematics.tex}
 
 % references
 \bibliographystyle{utphys}

@@ -94,7 +94,6 @@ section~\ref{sec:boost_likelihood}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Systematic uncertainties \label{sec:boost_systematics}}
 
-% add details on different sources
 % add info on various extra studies
 
 \input{boost_systematics.tex}
@@ -103,242 +102,109 @@ section~\ref{sec:boost_likelihood}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results \label{sec:boost_results}}
 
-We present the results of the background prediction for each bin in the $(\mr,\rsq)$ plane in
-Fig.~\ref{fig:results_prediction} and Table~\ref{tab:results_prediction}. The results are presented
-as the mean and standard deviation as determined from the sampled prior $\pi(\theta)$
-described in Section~\ref{sec:boost_systematics}.  
-The observations are found to be in good agreement with the standard model prediction. Consequently,
-no evidence of a signal is observed. 
-% TODO
-% For small counts the mean gives a substantially larger value than the mode, which is why there are
-% many bins in the high $M_R$, high $R^2$ region for which the prediction is around 1, and there is no
-% data observed. 
+We present the results of the background prediction for each of the 25 considered search bins in the
+$(\mr,\rsq)$ plane in Fig.~\ref{fig:results_prediction} and Table~\ref{tab:results_prediction}. The
+results are presented as the mean and standard deviation as determined from the sampled prior
+$\pi(\theta)$ described in Section~\ref{sec:boost_systematics}.  
+The observations are found to be in good agreement with the standard model prediction. 
+No evidence of a signal is found.
+We do note that for small counts the mean gives a substantially larger value for the background
+prediction than the mode. This is further illustrated in Fig.~\ref{fig:boost_results_mean_mode} for
+two of the predicted background counts. 
+The many bins in the high $\mr$, high $\rsq$ region for which the prediction is around one event,
+without any observed data are thus no cause for concern.
+The full distribution of the counts will be used for the interpretation of the results which
+ensures the proper treatment of the non-Gaussian shape.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin0}
-\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin1}
+\includegraphics[width=0.48\textwidth]{figures/razor_results/bg_prediction_plot_R2bin0}
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_results/bg_prediction_plot_R2bin1}
 
-\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin2}
-\includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin3}
+\includegraphics[width=0.48\textwidth]{figures/razor_results/bg_prediction_plot_R2bin2}
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_results/bg_prediction_plot_R2bin3}
 
 \includegraphics[width=0.49\textwidth]{figures/razor_results/bg_prediction_plot_R2bin4}
 \caption{Results of the background prediction and comparison with data. Results are shown in bins of
 $\mr$ for each $\rsq$ strip. 
 The hatched band represents the total uncertainty on the background prediction. 
 Overlaid are two signal distributions corresponding to the T1ttcc model point with
-$m_{\tilde{g}} \,{=}\, 1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\,
-300\GeV$, and the T1t1t model point with $m_{\tilde{g}} \,{=}\, 800\GeV$, $m_{\tilde{t}}
-\,{=}\, 275\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 100\GeV$. 
+$m_{\tilde{g}} \,{=}\, 1\TeV$, $m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\,
+300\GeV$, and the T1t1t model point with $m_{\tilde{g}} \,{=}\, 800\GeV$, $m_{\stopone}
+\,{=}\, 275\GeV$ and $m_{\lsp} \,{=}\, 100\GeV$. 
 \label{fig:results_prediction}}
 \end{figure}
 
 \input{tables/bg_prediction.tex}
 
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.48\textwidth]{figures/razor_results/mean_mode_b_S_TTJ_019}
+  ~
+  \includegraphics[width=0.48\textwidth]{figures/razor_results/mean_mode_b_S_TTJ_005}
+  \caption{[left] Distribution of the expected count for the $t\bar{t}$ and single top background
+for the search bin defined by $1600 < \mr < 2000\GeV$ and $0.5 < \rsq < 1$. It is clear that this
+distribution is highly non-Gaussian with the mode, shown as the dashed line, being much smaller than
+the mean, shown as the dotted line. [right] The equivalent for the search bin defined by $1000 < \mr
+< 1200\GeV$ and $0.08 < \rsq < 0.12$. Here the distribution has a much more Gaussian-like shape.
+  \label{fig:boost_results_mean_mode}}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interpretation in terms of simplified model spectra \label{sec:boost_interpretation}}
 
-% TODO ref{sec:sms}
-
-
-We interpret our results in terms of the SMS processes {\it T1ttcc} and {\it T1t1t} shown in
-Fig.~\ref{fig:T1ttcc_T1t1t_diagrams}. These models have three free mass parameters: the gluino, 
-top squark and LSP mass. We will vary the gluino mass between 600 and 1300\GeV, and the LSP 
-mass between 1 and 700\GeV. The mass difference between top squark and LSP, $\Delta m$, is kept
-fixed at 10, 25 or 80\GeV for the T1ttcc model, and at 175\GeV for the T1t1t model. 
+We interpret our results in terms of the simplified models T1ttcc and T1t1t, whose
+diagrams were shown in Fig.~\ref{fig:T1ttcc_T1t1t_diagrams}. The general characteristics of
+simplified models were discussed in Section~\ref{sec:susy_sms}. These particular models have three
+free mass parameters: the mass of the gluino, top squark and LSP. The gluino mass is varied between
+600 and 1300\GeV, and the LSP mass between 1 and 700\GeV. The mass difference between top squark and
+LSP, $\Delta m$, is kept fixed at 10, 25 or 80\GeV for the T1ttcc model, and at 175\GeV for the
+T1t1t model. 
 
 To get a sense of the expected signal sensitivity, we show the signal efficiencies for the T1ttcc
-and T1t1t simplified models in Fig.~\ref{fig:eff_T1ttcc_T1t1t}. 
-Efficiencies of up to 6\% in the most highly boosted regimes  are reached. 
-For the T1ttcc model a drop in efficiency is observed for the strip with lowest neutralino
-mass ($m_{\chi_1^0} = 1\GeV$), which can be explained by Lorentz boosts. For LSP masses higher than
-the mass of the charm quark, the LSP will assume most of the momentum.  For the strip with the
-lowest LSP mass, however, the LSP and the charm quark have about equal mass, so that after the boost
-they will share the momentum about equally.  This results in a softer \ETm spectrum and therefore a
-lower $\rsq$ value, which reduces the efficiency substantially.
+and T1t1t simplified models in Fig.~\ref{fig:eff_T1ttcc_T1t1t}, and the expected signal counts in
+Fig.~\ref{fig:events_T1ttcc_T1t1t}. 
+Efficiencies of up to 6\% in the most highly boosted regimes are reached. 
 
+For the T1ttcc model a sharp drop in efficiency is observed for the strip with the lowest considered
+neutralino mass, $m_{\lsp} = 1\GeV$, compared to neighbouring mass points with $m_{\lsp} = 50\GeV$.
+This can be explained by Lorentz boosts. The top squark decays into a charm quark and the LSP. The
+momentum of the decay products in the lab frame, $p$, is related to the momentum and energy in the
+top squark rest frame, $p'$ and $E'$, by $p = \gamma (p' + \beta E')$. Both decay products have the
+same momentum in the top squark rest frame, but their energies will depend on their masses. 
+For LSP masses higher than the mass of the charm quark, the LSP will have a higher energy
+in the top squark rest frame, and consequently will assume most of the momentum in the lab frame.
+For the strip with the lowest LSP mass on the other hand, the LSP and the charm quark have
+about equal mass. After boosting to the lab frame, they will thus share the momentum about equally.
+As the LSP has a lower momentum in this case, this results in a softer \ETm spectrum and therefore a
+lower $\rsq$ value, the final result being a substantially reduced efficiency. To illustrate
+this, we show the \ETm and \rsq distributions for two example signal points in
+Fig.~\ref{fig:boost_eff_drop_met_rsq}.
 
-% To get a sense of the signal sensitivity we can expect, we show the signal efficiencies, expected
-% number of events and significances $\frac{S}{\sqrt{B}}$ for the T1ttcc simplified model in
-% figure~\ref{fig:eff_T1ttcc}, for the T1t1t model in figure~\ref{fig:eff_T1t1t} and for the T2tt
-% model in figure~\ref{fig:eff_T2tt}. 
-% Efficiencies of up to 7\% in the most boosted regimes of these scans are reached. 
-% For the T1ttcc model a drop in efficiency is observed for the strip with lowest neutralino mass
-% ($m_{\chi_1^0} = 1\GeV$). 
-% For strips with higher LSP masses, the LSP will end up with higher momentum than the charm. For
-% the
-% lowest LSP mass however, the LSP and the charm have about equal mass, so after the boost they will
-% receive about equal amounts of momentum. This results in a lower \ETm spectrum, and in the end a
-% lower efficiency. 
-% This is explained in more detail in Appendix~\ref{app:eff_drop}. 
-% 
-% \begin{figure}[htbp]
-%  \centering
-% 
-% \includegraphics[width=0.3\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
-% ~
-%  \includegraphics[width=0.3\textwidth]{figures/T1ttcc/events_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5} ~
-% 
-% \includegraphics[width=0.3\textwidth]{figures/T1ttcc/significance_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5
-% }
-% 
-% 
-% \includegraphics[width=0.3\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5}
-% ~
-%  \includegraphics[width=0.3\textwidth]{figures/T1ttcc/events_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} ~
-% 
-% \includegraphics[width=0.3\textwidth]{figures/T1ttcc/significance_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5
-% }
-% 
-% 
-% \includegraphics[width=0.3\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5}
-% ~
-%  \includegraphics[width=0.3\textwidth]{figures/T1ttcc/events_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} ~
-% 
-% \includegraphics[width=0.3\textwidth]{figures/T1ttcc/significance_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5
-% }
-%  \caption{Signal region efficiency, number of events in $19.712\textrm{fb}^{-1}$ and significance
-% $\frac{S}{\sqrt{B}}$ for the T1ttcc simplified model. Three mass splittings between stop and LSP
-% are
-% considered: 10, 25 and 80 \GeV, shown in the top, middle and bottom row, respectively.
-%  \label{fig:eff_T1ttcc}}
-% \end{figure}
-% 
-% \begin{figure}[htbp]
-%  \centering
-%   \includegraphics[width=0.3\textwidth]{figures/T1t1t/efficiency_T1t1t_g1Mbg1W0Ll_mdPhig0p5} ~
-%  \includegraphics[width=0.3\textwidth]{figures/T1t1t/events_T1t1t_g1Mbg1W0Ll_mdPhig0p5} ~
-%  \includegraphics[width=0.3\textwidth]{figures/T1t1t/significance_T1t1t_g1Mbg1W0Ll_mdPhig0p5}
-%  \caption{Signal region efficiency, number of events in $19.712\textrm{fb}^{-1}$ and significance
-% $\frac{S}{\sqrt{B}}$ for the T1t1t simplified model.
-%  \label{fig:eff_T1t1t}}
-% \end{figure}
-% 
-% \begin{figure}[htbp]
-%  \centering
-%   \includegraphics[width=0.3\textwidth]{figures/T2tt/efficiency_T2tt_g1Mbg1W0Ll_mdPhig0p5} ~
-%  \includegraphics[width=0.3\textwidth]{figures/T2tt/events_T2tt_g1Mbg1W0Ll_mdPhig0p5} ~
-%  \includegraphics[width=0.3\textwidth]{figures/T2tt/significance_T2tt_g1Mbg1W0Ll_mdPhig0p5}
-%  \caption{Signal region efficiency, number of events in $19.712\textrm{fb}^{-1}$ and significance
-% $\frac{S}{\sqrt{B}}$ for the T2tt simplified model.
-%  \label{fig:eff_T2tt}}
-% \end{figure}
+\begin{figure}[htbp]
+ \centering
+\includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Eff_drop_met}
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Eff_drop_rsq}
+\caption{Comparison between a T1ttcc signal point with $m_{\lsp} = 1\GeV$ and with $m_{\lsp} =
+50\GeV$. [left] Distribution of \ETm with no selection applied.
+[right] Distribution of \rsq. The presence of at least two jets was required in order to calculate
+the \rsq variable. The arrow indicates the baseline selection requirement of $\rsq > 0.08$.
+ \label{fig:boost_eff_drop_met_rsq}}
+\end{figure}
 
-
-% TODO Add full explanation from the note on the drop in efficiency 
-
-% \section[Efficiency drop for T1ttcc model points mLSP of 1 GeV]{Efficiency drop for T1ttcc model
-% points with $m_{LSP} = 1 \GeV$ \label{app:eff_drop}}
-% 
-% Looking at the signal efficiencies for the T1ttcc model, we observe that there is a big drop for
-% points with $m_{\tilde{\chi}_1^0} = 1\GeV$ compared to the neighbouring points with
-% $m_{\tilde{\chi}_1^0} = 50\GeV$. 
-% We tracked down at which level of the selection this difference occurs, and found that it happens
-% when we apply the $M_R$ and $R^2$ selection. This is illustrated in figure~\ref{fig:T1ttcc_eff_SIG}.
-% We further found that this is mainly because of the difference in the \ETm distribution, which
-% arises because of a difference in the \pt distribution of the LSP, see figure~\ref{fig:MET_LSPpt}.
-% It is also interesting to look at the 2D plot of LSP \pt vs charm \pt for two adjacent points. As is
-% shown in figure~\ref{fig:LSPpt_vs_charmpt}, both the LSP and the charm can receive any share of the
-% momentum in the case where they have about equal mass ($\approx 1\GeV$). In the case where the LSP
-% is heavier however, the LSP almost always ends up with more momentum than the charm. 
-% We can explain this by performing a simple calculation involving Lorentz boosts.
-% 
-% The mass points considered here all have a big mass difference between the gluino and the stop. 
-% Because of this, the stop is produced with a lot of momentum, \ie it is boosted. 
-% Its velocity is given by
-%   \begin{equation}
-%     \beta = \frac{v}{c} = \frac{1}{\sqrt{1+\frac{m_{\tilde{t}_1}^2}{p_{\tilde{t}_1}^2}}}
-%   \end{equation}
-% with $p_{\tilde{t}_1}$ the magnitude of the stop three-momentum in the lab frame. 
-% Using this as boost-factor, we can compute the momentum of the stop decay products in the lab
-% frame. 
-% In the rest frame of the stop, the LSP and charm have momentum
-%   \begin{equation}
-%     p' = |\vec{p'}| = \frac{\sqrt{\left(m_{\tilde{t}_1}^2 -
-% (m_{\tilde{\chi}_1^0}+m_c)^2\right)\cdot\left(m_{\tilde{t}_1}^2 -
-% (m_{\tilde{\chi}_1^0}-m_c)^2\right)}}{2m_{\tilde{t}_1}}
-%   \end{equation}
-% and energy
-%   \begin{equation}
-%     E'_{\tilde{\chi}_1^0} = \frac{m_{\tilde{t}_1}^2 - m_c^2 +
-% m_{\tilde{\chi}_1^0}^2}{2m_{\tilde{t}_1}}
-%   \end{equation}
-%   \begin{equation}
-%     E'_{c} = \frac{m^2 - m_{\tilde{\chi}_1^0}^2 + m_{c}^2}{2m_{\tilde{t}_1}}
-%   \end{equation}
-% The formula for a Lorentz boost in one direction (in units $c=1$) is given by 
-%   \begin{equation}
-%     p = \gamma (p' + vE') = \frac{p' + vE'}{\sqrt{1-\beta^2}}
-%   \end{equation}
-% where primed quantities are given in the rest frame of the stop, and unprimed quantities in the lab
-% frame. 
-% In the labframe, we see the stop rest frame moving with speed $v$.
-% 
-% Using the formulas listed above, we can compute the energy and momentum of the charm and LSP in the
-% rest frame, for a few selected mass points. The results, assuming a stop momentum of $500\GeV$ in
-% the lab frame, are given in table~\ref{tab:boost_ex}. For the case where $m_c \approx
-% m_{\tilde{\chi}_1^0}=1\GeV$, the charm and LSP have the same momentum in the lab frame, whereas for
-% the case $m_c << m_{\tilde{\chi}_1^0}$, the LSP has a significantly larger
-% momentum compared to the charm. 
-% This is consistent with what we observed in the plots earlier. 
-% 
-% \begin{figure}[htpb]
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-25_jet1ptg200}
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/efficiency_T1ttcc_DM-25_SIG}
-% \caption{Efficiency for T1ttcc SMS ($\Delta m = 25\GeV$) before (left) and after (right) applying
-% the $M_R$ and $R^2$ cuts.
-% \label{fig:T1ttcc_eff_SIG}}
-% \end{figure} 
-% 
-% \begin{figure}[htpb]
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/met_comparison_1vs50}
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/LSP_pt_comparison_1vs50}
-% \caption{Distribution of the \ETm (left) and generator level LSP \pt (right) for two adjacent mass
-% points of the T1ttcc SMS ($\Delta m = 25\GeV$). Red: mass point with $m_{\tilde{g}}=1250\GeV,
-% m_{\tilde{t}_1}=26\GeV, m_{\tilde{\chi}_1^0}=1\GeV$; Blue: mass point with $m_{\tilde{g}}=1250\GeV,
-% m_{\tilde{t}_1}=75\GeV, m_{\tilde{\chi}_1^0}=50\GeV$ 
-% \label{fig:MET_LSPpt}}
-% \end{figure} 
-% 
-% \begin{figure}[htpb]
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/LSP_vs_charm_pt_T1ttcc_1250_26_1}
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/LSP_vs_charm_pt_T1ttcc_1250_75_50}
-% \caption{2D distribution of generator level charm \pt versus generator level LSP \pt for two
-% adjacent mass points of the T1ttcc SMS ($\Delta m = 25\GeV$). Left: mass point with
-% $m_{\tilde{g}}=1250\GeV, m_{\tilde{t}_1}=26\GeV, m_{\tilde{\chi}_1^0}=1\GeV$; Right: mass point with
-% $m_{\tilde{g}}=1250\GeV, m_{\tilde{t}_1}=75\GeV, m_{\tilde{\chi}_1^0}=50\GeV$ 
-% \label{fig:LSPpt_vs_charmpt}}
-% \end{figure} 
-% 
-% \begin{table}
-% \centering
-% \caption{All units are in \GeV. \label{tab:boost_ex}}
-% \begin{tabular}{|c|c|c|c|}
-% \hline
-% & Case $m_{\tilde{\chi}_1^0} = 1$ GeV & Case $m_{\tilde{\chi}_1^0} = 50$ GeV & Case
-% $m_{\tilde{\chi}_1^0} = 200$ GeV\\ \hline
-% $m_{\tilde{t}_1}$ & 26  & 75  & 225 \\
-% $\beta$ & 0.9979 &  0.9829 & 0.8716 \\ \hline
-% $p'$ & 12.96 & 20.82 & 23.59 \\
-% $E'_c$ & 13 & 20.84 & 23.61 \\
-% $E'_{\tilde{\chi}_1^0}$ & 13 & 54.16 & 201.39 \\ \hline
-% \multicolumn{4}{|c|}{Decay along boost direction} \\\hline
-% $p_c$ & 399.8 & 224.1 & 109.9 \\
-% $p_{\tilde{\chi}_1^0}$ & 399.8 & 401.8 & 505.0 \\ \hline
-% \multicolumn{4}{|c|}{Decay perpendicular to boost direction} \\ \hline
-% $p_c$ &  200 &  111.1 & 52.5  \\
-% $p_{\tilde{\chi}_1^0}$ & 200  & 288.9 & 447.5  \\ \hline
-% \multicolumn{4}{|c|}{Decay opposite boost direction} \\ \hline
-% $p_c$ &  0.17 & -1.8 & -5 \\
-% $p_{\tilde{\chi}_1^0}$ &  0.17 &  175.9 & 390 \\
-% \hline
-% \end{tabular}
-% \end{table}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The efficiencies for mass points of the T1t1t model are lower than for the equivalent points of the
+T1ttcc models. There are two main reasons for this.
+Firstly, the top quark is heavier than the charm quark. The afore-mentioned effect will thus occur
+not only for the lowest LSP mass, but for all masses smaller than the top quark mass. 
+In addition, the combination of the large top quark mass and the considered $\Delta m = 175\GeV$
+results in a much smaller mass gap between gluino and top squark compared to the T1ttcc models.
+This in turn results in less boosted top quarks, as can be seen in Fig.~\ref{fig:boost_gen_toppt},
+and thus fewer events passing the boosted $\W$ boson tagger. 
 
 \begin{figure}[htbp]
  \centering
@@ -359,22 +225,50 @@ left, top right, and bottom left, respectively. The T1t1t model is shown on the 
  \label{fig:eff_T1ttcc_T1t1t}}
 \end{figure}
 
-Figure~\ref{fig:boost_limits} shows the observed and expected limit using the CLs method for the
-T1ttcc model with $\Delta m=10,25,80$\GeV and for the T1t1t model. This analysis has
-made significant inroads into the parameter space of the T1ttcc model. 
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/events_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
+~
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/events_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} 
+
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/events_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} 
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/events_T1t1t_g1Mbg1W0Ll_mdPhig0p5} 
+\caption{Expected signal yield in the signal region for the T1ttcc and T1t1t simplified
+models. Three mass splittings between top squark and LSP are considered for the T1ttcc model: 10, 25
+and 80 \GeV, shown on the top left, top right, and bottom left, respectively. The T1t1t model is
+shown on the bottom right plot. 
+ \label{fig:events_T1ttcc_T1t1t}}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+As no discrepancy from the SM prediction was observed, we compute upper limits on the allowed
+cross section across the parameter space of the T1ttcc and T1t1t models, using the CLs method which
+is explained in more detail in Appendix~\ref{app:CLs}. 
+Figure~\ref{fig:boost_limits} shows the observed and expected limit for the T1ttcc model with
+$\Delta m=10,25,80$\GeV and for the T1t1t model. 
+The uncertainty band for the observed limit is computed by varying the signal cross section within
+the theoretical uncertainties, of which the PDFs are the main component. The uncertainty on the
+expected limit incorporates all experimental uncertainties. 
+From these figures we observe that this analysis has made significant inroads into the parameter
+space of the T1ttcc model. 
 Gluinos with mass up to about 1\TeV have been excluded for neutralinos with mass less than about
 500\GeV, when the top squark decays to a charm and a neutralino and $\Delta m < 80\GeV$. This also
 means that top squarks with masses up to about 500\GeV have been excluded for small mass
 differences with the LSP, given the existence of a gluino with mass less than about 1\TeV. 
 Similarly, for the T1t1t model, top squarks with a mass up to about 450\GeV have been excluded
-for the scenarios with $\Delta m = 175\GeV$ and gluino mass less than 900\GeV.
-Coming back to our cartoon from the introduction in Section~\ref{sec:boost_motivation}, we have now
-filled in several of the gaps. This is illustrated in Fig.~\ref{fig:boost_story_final}. 
+for the scenarios with $\Delta m = 175\GeV$ and gluino mass less than 850\GeV.
+Considering again our cartoon from the introduction in Section~\ref{sec:boost_motivation}, we have
+now filled in several of the gaps, as we had set out to do. This is illustrated in
+Fig.~\ref{fig:boost_story_final}. 
 
-
-% TODO Explain CLs method somewhere
-
-\begin{figure}[htpb]
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1ttcc_DM10_XSEC}
 \includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1ttcc_DM25_XSEC}
@@ -389,6 +283,7 @@ models (top left, top right, bottom left and bottom right, respectively).
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/razor_interpretation/story_boost}
-  \caption{
+  \caption{Impact of the razor boost analysis on the exclusion limits for top squarks. Assuming
+the existence of gluinos, the gaps have been closed for certain ranges of gluino masses. 
   \label{fig:boost_story_final}}
 \end{figure}

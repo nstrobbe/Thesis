@@ -8,10 +8,10 @@ and boosted $\W$ bosons in the final state. Therefore, we require, on top of the
 selection, the presence of at least one CSV medium $\cPqb$ tagged jet, and at least one $\W$ boson
 tagged jet. AK5 jets are used for $\cPqb$ tagging, whereas for $\W$ tagging we use the CA8 jets, as
 explained in Section~\ref{sec:boost_wtag}. 
-Additionally, we only consider fully-hadronic events and thus select only those events with no
+Additionally, we only consider fully-hadronic events and thus select only those events without
 loose electrons or muons, and no isolated tracks. 
-These selection criteria already reduce the background substantially, but it is not yet sufficient
-to get a good signal separation. We need an additional handle on the QCD multijet production,
+These selection criteria already reduce the background substantially, but the achieved signal
+separation is not yet sufficient. We need an additional handle on the QCD multijet production,
 which is the dominant background at this stage. 
 
 Missing transverse energy, \ETm, in multijet events is largely due to jet mismeasurements,
@@ -23,17 +23,18 @@ events and events with real \ETm.
 \begin{equation}
  \Delta\phi_{min} = \min_{i=1,2,3}{\Delta\phi(\VEtmiss, \ptvec^{\,i})},
 \end{equation}
-where $i$ runs over the three AK5 jets. We require $\Delta\phi_{min} > 0.5$ to suppress multijet
-events. The $\Delta\phi_{min}$ distribution before applying this selection is shown in
+where $i$ runs over the three leading AK5 jets. We require $\Delta\phi_{min} > 0.5$ to suppress
+multijet events. The $\Delta\phi_{min}$ distribution, obtained from simulation, before applying this
+selection is shown in
 Fig.~\ref{fig:boost_signal_mindeltaphi}. The multijet events are clearly gathered in the first few
 bins.
 
 \begin{figure}[htbp]
  \centering
  \includegraphics[width=0.7\textwidth]
- {figures/razor_selection/plots/DataMC_minDeltaPhi_g1Mbg1W0Ll_rebin}
-\caption{Comparison between data and simulation for the $\Delta\phi_{min}$ distribution with
-all signal region requirements applied except $\Delta\phi_{min} > 0.5$.
+ {figures/razor_selection/plots/DataMC_minDeltaPhi_g1Mbg1W0Ll_rebin_nodata}
+\caption{Simulated $\Delta\phi_{min}$ distribution with all signal region requirements applied
+except $\Delta\phi_{min} > 0.5$. QCD multijet events are clearly gathered in the first few bins.
 \label{fig:boost_signal_mindeltaphi}}
 \end{figure}
 
@@ -44,6 +45,8 @@ composition in percent, are reported in Table~\ref{tab:cutflow} and
 Table~\ref{tab:BG_comp_percent}, respectively. 
 The signal region is $t\bar{t}$ dominated, with additional contributions from $\W(\rightarrow
 \ell\nu)+$jets and multijet processes.
+The \pt distribution of the highest \pt tagged $\W$ boson jet in the event is shown in
+Fig.~\ref{fig:boost_signal_Wpt_met}, alongside the \ETm distribution.  
 
 \begin{figure}[htbp]
 \centering
@@ -53,19 +56,32 @@ The signal region is $t\bar{t}$ dominated, with additional contributions from $\
 \includegraphics[width=0.48\textwidth]
 {figures/razor_selection/DataMC_R2_g1Mbg1W0Ll_mdPhig0p5_width_nodata}
 \caption{Simulated $\mr$ (left) and $\rsq$ (right) distributions in the signal region. An example
-signal point, corresponding to the {\it T1ttcc} mass point with $m_{\tilde{g}}
+signal point, corresponding to the T1ttcc mass point with $m_{\tilde{g}}
 \,{=}\, 1\TeV$, $m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is
 stacked on top of the background processes. The bin entries are normalized proportional to the bin
 width.  
 \label{fig:boost_signal_dataMC}}
 \end{figure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_Wpt_g1Mbg1W0Ll_mdPhig0p5_nodata}
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_met_g1Mbg1W0Ll_mdPhig0p5_nodata}
+\caption{Simulated $\W$ tagged jet $\pt$ (left) and $\ETm$ (right) distributions in the signal
+region. An example signal point, corresponding to the T1ttcc mass point with $m_{\tilde{g}}
+\,{=}\, 1\TeV$, $m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is
+stacked on top of the background processes. 
+\label{fig:boost_signal_Wpt_met}}
+\end{figure}
+
 
 
 % In figures~\ref{fig:DataMC_SignalRegion_MR_R2_mdphig0p5} and \ref{fig:DataMC_SignalRegion_mdphig0p5}
 % we show a Data/MC comparison for various quantities for the signal region with $\Delta\phi_{min} >
-% 0.5$. The \pt distribution of the highest \pt tagged $W$ in the event is shown in
-% figure~\ref{fig:Wpt_SignalRegion}.  
+% 0.5$. 
 % Please note that these plots are for illustration purposes only. 
 % We will predict the background using data control regions and only use the simulation for
 % translation factors between those control regions and the signal region (see further). We stress in

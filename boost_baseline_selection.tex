@@ -9,9 +9,9 @@ at least two jets in the final state. The megajets from which the razor variable
 constructed from the AK5 jets.  
 After sensitivity studies, it was decided to raise the requirement on the jet multiplicity from two
 to three, reducing the background, while maintaining very good signal efficiency. The signal
-processes that are the main focus of this analysis usually have even more reconstructed jets. In
-order to remain as inclusive as possible, we did not, however, raise this threshold further.
-%Figure~\ref{fig:njets_sig_BG} shows the distribution of the number of jets in the signal region. 
+processes that are the main focus of this analysis usually have even more reconstructed jets, as
+can be seen from Fig.~\ref{fig:njets_sig_BG}. In order to remain as inclusive as possible, we did
+not, however, raise this threshold further.
 The minimal requirements on the razor variables themselves are $\mr > 800\GeV$ and $\rsq > 0.08$.
 This selection is complementary to that of previous razor analyses. By requiring a larger
 minimal \mr, consistent with the boosted scenario, we can explore the low \rsq region, which is
@@ -33,13 +33,12 @@ fired.
 For simulated events, we apply an event-by-event trigger efficiency, as explained in
 Section~\ref{sec:boost_data_trigger}. 
 
-
 \begin{figure}[htbp]
  \centering
- %\includegraphics[width=0.55\textwidth]{figures/njets_sig_BG} % TODO remake the plot
- \caption{Distribution of the number of jets for total background and an example signal point
-(T1ttcc, mgluino=1000GeV, mstop=325GeV, mLSP=300GeV), in the signal region. All cuts except for the
-cut on the jet multiplicity were applied. The samples have been normalized to unit area.
+ \includegraphics[width=0.6\textwidth]{figures/razor_selection/njets_signal_region}
+ \caption{Distribution of the number of jets for the total SM background and three example signal
+points in the signal region. The full selection except for the jet multiplicity requirement was
+applied. The histograms are normalized to unit area.
  \label{fig:njets_sig_BG}}
 \end{figure}
 
@@ -53,13 +52,13 @@ performed for each region, but for some, such as the $\cPqb$ tagging scale facto
 is only applied when the source of the reweighting is used explicitely in the selection. For the
 $\cPqb$ tagging this would be a specific requirement or veto on the $\cPqb$-tagged jet
 multiplicity. Hence, the reweighting is not applied in the baseline selection region. 
-An full overview of these sources of event reweighting is given in
+A full overview of these sources of event reweighting is given in
 Table~\ref{tab:boost_reweighting}. Each of these sets of event weights has an associated
 uncertainty. These will be taken into account as systematic uncertainties on the final background
 prediction, as explained in more detail in Section~\ref{sec:boost_systematics}. 
 From the figure, we see that there is good agreement between data and simulation for the highest
 $\mr$ and $\rsq$ bins, i.e. when the contribution of QCD multijet MC is very small. 
-For the first $\mr$ and $\rsq$ bins, which are dominated by multijet production, the MC
+For the first $\mr$ and $\rsq$ bins, which are dominated by multijet production, the simulation
 underpredicts the data by about 50\%. 
 
 \begin{table}[htpb]
@@ -97,7 +96,8 @@ in Table~\ref{tab:BG_comp_percent}.
  \includegraphics[width=0.48\textwidth]{figures/razor_selection/plots/DataMC_MR_HLT_width}
  ~
  \includegraphics[width=0.48\textwidth]{figures/razor_selection/plots/DataMC_R2_HLT_width}
- \caption{Data/MC comparison plot of $\mr$ (left) and $\rsq$ (right) in the baseline selection
-region. The bin entries are scaled proportional to the bin width.
+ \caption{Comparison between data and simulation for the $\mr$ (left) and $\rsq$ (right)
+distribution in the baseline selection region. The bin entries are scaled proportional to the bin
+width.
  \label{fig:boost_baseline_dataMC}}
 \end{figure}
