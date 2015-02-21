@@ -96,155 +96,6 @@ will be discussed.
 \input{event_objects.tex}
 
 
-
-% \subsection{Pileup reweighting \label{sec:pileup}}
-% 
-% The distribution of the number of pileup interactions is different in Data vs MC. 
-% As the number of pileup interactions can have an influence on various aspects of the reconstruction,
-% we need to reweight the MC events to match the pileup distribution in data. 
-% The method to do this is quite straightforward. 
-% 
-% \begin{enumerate}
-% 
-% \item Determine the pileup distribution in data by using a centrally provided script:
-% {\footnotesize
-% \begin{verbatim}
-% pileupCalc.py -i Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt 
-%               -o data_pileup.root --inputLumiJSON=pileup_latest.txt 
-%               --calcMode=true --minBiasXsec=69400 --maxPileupBin=100
-% \end{verbatim}
-% }
-% In this, \texttt{pileup\_latest.txt} is taken directly from the central DQM area, as is the Lumi
-% JSON. The Lumi JSON used is the one for the full Jan22 ReReco, corresponding to the data we are
-% using, see section~\ref{sec:samples}. 
-% 
-% \item Determine the pileup distribution in simulation: \\ 
-% For this we use a variable called \texttt{trueNumInteractions}. 
-% The distribution of this variable for all MC events is used as the pileup distribution for Monte
-% Carlo. 
-% 
-% \item Normalize the MC and data histograms to unit area, and divide them (Data/MC). The resulting
-% histogram contains the event weights. 
-% 
-% \item Apply these event weights to each MC event, by picking up the value for
-% \texttt{TrueNum\-Interactions} for that event, finding in what bin it falls and then applying the
-% corresponding weight.
-% 
-% \end{enumerate}
-% 
-% The distribution of the pileup in data and simulation, and the corresponding pileup weight is shown
-% in Figure~\ref{fig:DataMC_pileup} for the FullSim simulation and in figure~\ref{fig:DataMC_pileup52}
-% for the FastSim simulation using CMSSW\_52X. 
-% 
-% \begin{figure}[p]
-%  \centering
-%  \includegraphics[width=0.7\textwidth]{figures/Pileup/compare_pileup_profile}
-% \caption{Comparison plot of the true number of interactions in data and in MC. On the top the
-% distribution of both are shown, on the bottom the ratio Data/MC. Left is linear scale, right is log
-% scale. 
-% \label{fig:DataMC_pileup}}
-% \end{figure}
-% 
-% \begin{figure}[p]
-%  \centering
-%  \includegraphics[width=0.7\textwidth]{figures/Pileup/compare_pileup_profile_52X}
-% \caption{Comparison plot of the true number of interactions in data and in MC processed with
-% CMSSW\_52X. On the top the distribution of both are shown, on the bottom the ratio Data/MC. Left is
-% linear scale, right is log scale. 
-% \label{fig:DataMC_pileup52}}
-% \end{figure}
-% 
-% As a test of the performance of the pileup reweighting, we can check the agreement between data and
-% simulation for the distribution of the number of good primary vertices ($PV$) at different selection
-% levels. 
-% We expect to find a reasonable, although not perfect agreement as the vertex reconstruction
-% efficiency depends on many things. 
-% This comparison is shown in figure~\ref{fig:comparison_PV}. 
-% 
-% \begin{figure}
-%  \includegraphics[width=0.49\textwidth]{figures/Pileup/DataMC_PV_0Lb1Ll}
-%  \includegraphics[width=0.49\textwidth]{figures/Pileup/DataMC_PV_g1Mb1Ll}
-% \caption{Data/MC comparison plot of the number of good primary vertices after pileup reweighting for
-% a control region enhanced in $W+$jets (left) and enhanced in $t\bar{t}+$jets (right).
-% \label{fig:comparison_PV}}
-% \end{figure}
-
-
-% \subsection[Top pt reweighting]{Top \pt reweighting \label{sec:toppt_reweighting}}
-% 
-% The TOP group has found in the normalized differential top-quark-pair cross section analysis that
-% the shape of the \pt spectrum of the individual top quarks in data is softer than predicted by the
-% various simulations while the available approx. NNLO prediction delivers a reasonable description.
-% Based on this measurement, they have derived event scalefactors with associated systematic
-% uncertainties to test the potential impact of the modelling of the top quark \pt spectrum
-% \cite{TopPt}. 
-% 
-% The event weight is derived as a function of the generated \pt of both the top and anti-top quark in
-% the event: 
-% \begin{equation}
-% w_{\textrm{TopPt}} = \sqrt{ SF_t * SF_{\bar{t}} }
-% \end{equation}
-% \begin{equation}
-% SF(\pt^{gen}) = \exp(a + b \pt^{gen})
-% \end{equation}
-% with $a = 0.156$ and $b = -0.00137$.
-% 
-% The uncertainty on this reweighting is given by the following prescription: 
-% \begin{align}
-% +1~\sigma &: w = w_{\textrm{TopPt}} * w_{\textrm{TopPt}} \\
-% -1~\sigma &: w = 1 
-% \end{align}
-% where $w$ is the weight to be applied to the event for the up/down variation. 
-% 
-% In figure~\ref{fig:TopPt} we show the Data/MC comparison for the $M_R$ and $R^2$ distribution in the
-% $t\bar{t}+$jets control region (see section~\ref{sec:Tregion}) before and after applying the
-% reweighting procedure. 
-% We observe that this reweighting greatly improves the agreement between data and simulation. 
-% Therefore we will always apply this reweighting to the $t\bar{t}+$jets simulated sample. 
-% 
-% \begin{figure}[htpb]
-% \centering
-% \includegraphics[width=0.49\textwidth]{
-% figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width_noTopPt}
-% \includegraphics[width=0.49\textwidth]{
-% figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width_noTopPt}
-% 
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
-% \caption{[top] $M_R$ (left) and $R^2$ (right) distribution before applying the top \pt reweighting
-%          [bottom] $M_R$ (left) and $R^2$ (right) distribution after applying the top \pt reweighting
-% for the $T$ region as defined in section~\ref{sec:Tregion}
-% \label{fig:TopPt}}
-% \end{figure}
-
-% 
-% \subsection{ISR reweighting \label{sec:ISRreweighting}}
-% 
-% As recommended, we apply the ISR reweighting recipe developed in the SUSY group
-% \cite{ISRreweighting} to all our simulated signal samples.
-% Each event is reweighted with an event weight, depending on the \pt of the system that is recoiling
-% against the ISR jet(s). 
-% For the T1ttcc simplified model this system is the system of the two gluinos. For T2tt this is the
-% system of the two stop squarks. 
-% In table~\ref{tab:ISRreweighting} we list the scale factor to be applied for the different \pt
-% ranges. 
-% The difference between that scale factor and 1 is taken to be the one standard deviation
-% uncertainty. 
-% 
-% \begin{table}[htpb]
-% \centering
-% \caption{ISR reweighting prescription \label{tab:ISRreweighting}}
-% \begin{tabular}{|c|c|}
-% \hline
-% \pt of recoiling system & Scale factor \\ \hline
-% $\leq 120$\GeV & 1 \\
-% $120 - 150 $\GeV & 0.95 \\
-% $150-250$\GeV & 0.9 \\
-% $> 250$\GeV & 0.8 \\
-% \hline
-% \end{tabular}
-% \end{table}
-
 \subsection{Event Cleaning \label{sec:event_cleaning}}
 
 The full CMS data taking and event reconstruction proces is very intricate. Every now and then a
@@ -304,3 +155,19 @@ are removed.
 \bigl| |\Delta\phi_{\textrm{PF,CALO}}| - \pi \bigr| < 1
 \label{eqn:dphicut}
 \end{equation}
+
+
+\subsection{Event reweighting \label{sec:event_reweighting}}
+
+The generation and simulation of events are tuned to mimic the data. However, the complete data
+taking conditions, in particular the pileup profile, are not fully known before data
+taking starts. It is thus impossible to mimic the data in all aspects. 
+In addition to this, the event generation itself is also not perfect. For example, event generators
+can only compute physics processes up to maximally NLO precision, whereas data contains all orders. 
+
+To correct for some of these imperfections, event reweighting prescriptions have been developed. 
+In the next subsections I will cover the reweightings that correct for mismodelling of the pileup
+distribution, the initial state radiation (ISR), and the top quark \pt distribution for the
+$t\bar{t}$ simulation.
+
+\input{event_reweighting.tex}
