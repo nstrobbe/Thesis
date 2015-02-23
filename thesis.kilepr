@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.0
-lastDocument=event_generation.tex
+lastDocument=lhc.tex
 masterDocument=
 name=thesis
 pkg_extIsRegExp=false
@@ -187,6 +187,16 @@ Mode=LaTeX
 ReadWrite=true
 
 [document-settings,item:event_objects.tex]
+Bookmarks=
+Encoding=UTF-8
+FoldedColumns=
+FoldedLines=
+Highlighting=LaTeX
+Indentation Mode=normal
+Mode=LaTeX
+ReadWrite=true
+
+[document-settings,item:event_reweighting.tex]
 Bookmarks=
 Encoding=UTF-8
 FoldedColumns=
@@ -388,10 +398,10 @@ order=4
 
 [item:boost_systematics.tex]
 archive=true
-column=96
+column=26
 encoding=UTF-8
 highlight=LaTeX
-line=487
+line=339
 mode=LaTeX
 open=false
 order=2
@@ -428,12 +438,12 @@ order=-1
 
 [item:event_generation.tex]
 archive=true
-column=17
+column=79
 encoding=UTF-8
 highlight=LaTeX
-line=283
+line=169
 mode=LaTeX
-open=true
+open=false
 order=2
 
 [item:event_objects.tex]
@@ -443,8 +453,18 @@ encoding=UTF-8
 highlight=LaTeX
 line=416
 mode=LaTeX
-open=true
+open=false
 order=3
+
+[item:event_reweighting.tex]
+archive=true
+column=69
+encoding=UTF-8
+highlight=LaTeX
+line=14
+mode=LaTeX
+open=false
+order=-1
 
 [item:introduction.tex]
 archive=true
@@ -461,10 +481,10 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=3
+line=192
 mode=LaTeX
-open=false
-order=-1
+open=true
+order=2
 
 [item:razorboost.tex]
 archive=true
@@ -498,10 +518,10 @@ order=4
 
 [item:thesis.bib]
 archive=true
-column=0
+column=23
 encoding=UTF-8
 highlight=BibTeX
-line=192
+line=43
 mode=BibTeX
 open=true
 order=1
@@ -521,7 +541,7 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=40
+line=46
 mode=LaTeX
 open=true
 order=0
@@ -599,8 +619,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_systematics.tex]
-CursorColumn=96
-CursorLine=487
+CursorColumn=26
+CursorLine=339
 JumpList=
 ViMarks=
 
@@ -623,14 +643,20 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:event_generation.tex]
-CursorColumn=17
-CursorLine=283
+CursorColumn=79
+CursorLine=169
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:event_objects.tex]
 CursorColumn=89
 CursorLine=416
+JumpList=
+ViMarks=
+
+[view-settings,view=0,item:event_reweighting.tex]
+CursorColumn=69
+CursorLine=14
 JumpList=
 ViMarks=
 
@@ -642,7 +668,7 @@ ViMarks=
 
 [view-settings,view=0,item:lhc.tex]
 CursorColumn=0
-CursorLine=3
+CursorLine=192
 JumpList=
 ViMarks=
 
@@ -665,13 +691,13 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.bib]
-CursorColumn=0
-CursorLine=192
+CursorColumn=23
+CursorLine=43
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.tex]
 CursorColumn=0
-CursorLine=40
+CursorLine=46
 JumpList=
 ViMarks=

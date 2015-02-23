@@ -12,38 +12,27 @@ data~\cite{pileup_twiki}.
 
 The pileup distribution in data is provided centrally by the Physics Validation Group for each
 data taking period. This distribution depends on the total \Pp\Pp inelastic cross section, sometimes
-referred to as the \textit{MinBias} cross section. 
+referred to as the \textit{minbias} cross section~\cite{Field:2012jv}. 
 In simulation, the pileup distribution is taken from truth information, through the variable
 \texttt{trueNumInteractions}. 
 The pileup weights are computed as the ratio of the normalized pileup distributions in data and
-simulation, and should be applied to all simulated events. 
-
-
+simulation, and should be applied to all simulated events.
 The distribution of the pileup in data and simulation, and the corresponding pileup weight is
-shown
-in Figure~\ref{fig:DataMC_pileup} for the FullSim simulation and in
-figure~\ref{fig:DataMC_pileup52}
-for the FastSim simulation using CMSSW\_52X. 
-% 
-% \begin{figure}[p]
-%  \centering
-%  \includegraphics[width=0.7\textwidth]{figures/Pileup/compare_pileup_profile}
-% \caption{Comparison plot of the true number of interactions in data and in MC. On the top the
-% distribution of both are shown, on the bottom the ratio Data/MC. Left is linear scale, right is
-% log
-% scale. 
-% \label{fig:DataMC_pileup}}
-% \end{figure}
-% 
-% \begin{figure}[p]
-%  \centering
-%  \includegraphics[width=0.7\textwidth]{figures/Pileup/compare_pileup_profile_52X}
-% \caption{Comparison plot of the true number of interactions in data and in MC processed with
-% CMSSW\_52X. On the top the distribution of both are shown, on the bottom the ratio Data/MC. Left
-% is
-% linear scale, right is log scale. 
-% \label{fig:DataMC_pileup52}}
-% \end{figure}
+shown in Figure~\ref{fig:pileup_comparison}. 
+
+\begin{figure}[htpb]
+ \centering
+ \includegraphics[width=0.48\textwidth]{figures/eventreco_reweighting/pileup_comparison}
+ ~
+ \includegraphics[width=0.48\textwidth]{figures/eventreco_reweighting/pileup_weight_comparison}
+\caption{[left] Comparison of the distribution of the true number of interactions in data and in
+simulation. 
+[right] Pileup weight as a function of the number of interactions. 
+\label{fig:pileup_comparison}}
+\end{figure}
+
+% TODO decide whether to add the data mc comparison for the primary vertices
+
 % 
 % As a test of the performance of the pileup reweighting, we can check the agreement between data
 % and
@@ -109,30 +98,29 @@ $> 250$ & $0.80 \pm 0.20$ \\
 \end{table}
 
 \subsubsection{Top quark \texorpdfstring{$\pt$}{pt} reweighting \label{sec:event_toppt_reweighting}}
-% 
-% The TOP group has found in the normalized differential top-quark-pair cross section analysis that
-% the shape of the \pt spectrum of the individual top quarks in data is softer than predicted by the
-% various simulations while the available approx. NNLO prediction delivers a reasonable description.
-% Based on this measurement, they have derived event scalefactors with associated systematic
-% uncertainties to test the potential impact of the modelling of the top quark \pt spectrum
-% \cite{toppt_twiki}. 
-% 
-% The event weight is derived as a function of the generated \pt of both the top and anti-top quark in
-% the event: 
-% \begin{equation}
-% w_{\textrm{TopPt}} = \sqrt{ SF_t * SF_{\bar{t}} }
-% \end{equation}
-% \begin{equation}
-% SF(\pt^{gen}) = \exp(a + b \pt^{gen})
-% \end{equation}
-% with $a = 0.156$ and $b = -0.00137$.
-% 
-% The uncertainty on this reweighting is given by the following prescription: 
-% \begin{align}
-% +1~\sigma &: w = w_{\textrm{TopPt}} * w_{\textrm{TopPt}} \\
-% -1~\sigma &: w = 1 
-% \end{align}
-% where $w$ is the weight to be applied to the event for the up/down variation. 
+
+Differential top-quark-pair cross section analyses have shown that the shape of the \pt spectrum of 
+top quarks in data is softer than predicted by simulation~\cite{toppt,toppt_twiki}. 
+To remedy this, events are reweighted based on the \pt of the generator level $t$ and $\bar{t}$
+quarks in the $t\bar{t}$ simulation. 
+
+The event weight, $w_{\rm TopPt}$, is computed as a function of the generated \pt of both the top
+and anti-top quark
+in the event: 
+\begin{equation}
+w_{\rm TopPt} = \sqrt{ SF_t \cdot SF_{\bar{t}} }
+\end{equation}
+\begin{equation}
+SF(\pt^{gen}) = \exp(a + b\, \pt^{gen})
+\end{equation}
+with $a = 0.156$ and $b = -0.00137$.
+The uncertainty associated with this reweighting is taken to be equal to the full size of the
+reweighting, which gives for the up and down variations of the event weight:
+\begin{align}
+ +1~\sigma &: w_{\rm up} = w_{\textrm{TopPt}} * w_{\textrm{TopPt}}, \\
+ -1~\sigma &: w_{\rm down} = 1 .
+\end{align}
+
 % 
 % In figure~\ref{fig:TopPt} we show the Data/MC comparison for the $M_R$ and $R^2$ distribution in the
 % $t\bar{t}+$jets control region (see section~\ref{sec:Tregion}) before and after applying the

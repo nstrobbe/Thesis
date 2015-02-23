@@ -305,62 +305,42 @@ variation is, consequently, not taken into account.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Initial State Radiation} 
 
-Deficiencies in the modelling of initial-state-radiation (ISR) are corrected by
-reweighting~\cite{ISRerr} the signal samples using an event weight that depends on the \pt of the
-recoiling system, which in this case is the $\tilde{g}\tilde{g}$ system.  
-The associated uncertainty is equal to the difference $1 - w_{\rm ISR}$, where $w_{\rm ISR}$ is the
-nominal ISR event weight, as listed in Table~\ref{tab:ISR_reweighting}. 
-
-\begin{table}[htpb]
-  \centering
-  \caption{ISR reweighting prescription. Event weights depend on the \pt of the system recoiling
-against the initial state radiation. 
-  \label{tab:ISR_reweighting}}
-  \vspace{1ex}
-  \begin{tabular}{c c}
-    \toprule
-    $\pt$ of recoil system (\GeV) & ISR weight \\
-    \midrule
-    $[\ldots - 120]$ & 1 \\
-    $]120 - 150]$    & 0.95 \\
-    $]150-250]$      & 0.9 \\
-    $]250 - \ldots]$ & 0.8 \\
-    \bottomrule
-  \end{tabular}
-
-\end{table}
-
+Deficiencies in the modelling of initial state radiation are corrected by reweighting the
+signal samples using an event weight that depends on the \pt of the recoiling system, which in this
+case is the $\tilde{g}\tilde{g}$ system. 
+More information on this reweighting and how it was derived, was given in
+Section~\ref{sec:event_ISRreweighting}. 
+The associated uncertainty on the ISR reweighting, see Table~\ref{tab:ISRreweighting} for the
+numerical values, is incorporated as a systematic uncertainty on the signal efficiency. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Top quark \texorpdfstring{\pt}{pT} spectrum} 
 
 Differential top-quark-pair cross section analyses have shown that the shape of the \pt spectrum of 
-top quarks in data is softer than predicted by simulation~\cite{toppt,toppt_twiki}. 
+top quarks in data is softer than predicted by simulation. 
 To account for this, we reweight events based on the \pt of the generator level $t$ and $\bar{t}$
-quarks in the $t\bar{t}$ simulation.  
-The event weight is computed as a function of the generated \pt of both the top and anti-top quark
-in the event: 
-\begin{equation}
-w_{\rm TopPt} = \sqrt{ SF_t \cdot SF_{\bar{t}} }
-\end{equation}
-\begin{equation}
-SF(\pt^{gen}) = \exp(a + b\, \pt^{gen})
-\end{equation}
-with $a = 0.156$ and $b = -0.00137$.
-The uncertainty associated with this reweighting is taken to be equal to the full size of the
+quarks in the $t\bar{t}$ simulation, as explained in Section~\ref{sec:event_toppt_reweighting}. 
+The uncertainty associated with this reweighting is equal to the full size of the
 reweighting, and is propagated as a systematic uncertainty to the final background estimation. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Pileup} 
 
 Simulated events are reweighted such that their pileup distribution matches the observed pileup
-distribution. The minbias~\cite{Field:2012jv} cross section is varied by
-$\pm 5\%$, thereby changing the shape of observed pileup distribution and therefore the
-pileup weights. The difference in weights is taken as a measure of the uncertainty in the pileup
-distribution, and is multiplied by the random number associated to each given sampling.  
-
-\textcolor{red}{TODO: add plot of the pileup weights, and possibly more info on how they were
-computed technically.}
+distribution, see Section~\ref{sec:event_pileup}. The uncertainty on this procedure is largely
+driven by the uncertainty on the minbias cross section. We consider a variation in the minbias cross
+section of $\pm 5\%$, thereby changing the shape of observed pileup distribution and
+therefore the resulting pileup event weights. The difference in weights is taken as a measure of the
+uncertainty in the pileup distribution, and is multiplied by the random number, $\sigma_{\rm PU}$,
+associated to each given sampling.  The pileup weight that is applied in each sampling is given by
+\begin{eqnarray}
+w_{\rm PU} & = & w_{\rm PU}^{\rm nom} + \sigma_{\rm PU}\delta w^+_{\rm PU}, \,\,\, {\rm if}
+\,\, \sigma_{\rm PU} > 0, \\ 
+w_{\rm PU} & = & w_{\rm PU}^{\rm nom} + \sigma_{\rm PU}\delta w^-_{\rm PU}, \,\,\, {\rm if}
+\,\, \sigma_{\rm PU} < 0. 
+\end{eqnarray}
+with $w_{\rm PU}^{\rm nom}$ the nominal pileup weight, $\delta w^+_{\rm PU} = w_{\rm PU}^{+5\%} -
+w_{\rm PU}^{\rm nom}$, and $\delta w^-_{\rm PU} = w_{\rm PU}^{\rm nom} - w_{\rm PU}^{-5\%}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{QCD spectrum} 
