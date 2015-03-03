@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.0
-lastDocument=lhc.tex
+lastDocument=cms.tex
 masterDocument=
 name=thesis
 pkg_extIsRegExp=false
@@ -428,13 +428,13 @@ order=3
 
 [item:cms.tex]
 archive=true
-column=0
+column=89
 encoding=UTF-8
 highlight=LaTeX
-line=2
+line=308
 mode=LaTeX
-open=false
-order=-1
+open=true
+order=2
 
 [item:event_generation.tex]
 archive=true
@@ -481,9 +481,9 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=192
+line=230
 mode=LaTeX
-open=true
+open=false
 order=2
 
 [item:razorboost.tex]
@@ -518,10 +518,10 @@ order=4
 
 [item:thesis.bib]
 archive=true
-column=23
+column=20
 encoding=UTF-8
 highlight=BibTeX
-line=43
+line=159
 mode=BibTeX
 open=true
 order=1
@@ -538,7 +538,7 @@ order=-1
 
 [item:thesis.tex]
 archive=true
-column=0
+column=16
 encoding=UTF-8
 highlight=LaTeX
 line=46
@@ -637,8 +637,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:cms.tex]
-CursorColumn=0
-CursorLine=2
+CursorColumn=89
+CursorLine=308
 JumpList=
 ViMarks=
 
@@ -668,7 +668,7 @@ ViMarks=
 
 [view-settings,view=0,item:lhc.tex]
 CursorColumn=0
-CursorLine=192
+CursorLine=230
 JumpList=
 ViMarks=
 
@@ -691,13 +691,13 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.bib]
-CursorColumn=23
-CursorLine=43
+CursorColumn=20
+CursorLine=159
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.tex]
-CursorColumn=0
+CursorColumn=16
 CursorLine=46
 JumpList=
 ViMarks=
