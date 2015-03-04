@@ -46,7 +46,7 @@ Figure taken from Ref.~\cite{CMS_slice}.
 \section{Coordinate system and basic variables \label{sec:cms_coordinates}}
 
 The CMS coordinate system takes the nominal collision point as the origin, with the $y$-axis
-pointing vertically upward, and the $x$-axis pointing radially inward towards the center of the
+pointing vertically upward, and the $x$-axis pointing radially inward towards the centre of the
 LHC. The coordinate system is right-handed, such that the $z$-axis points along the beam direction
 toward the Jura mountains as seen from P5. 
 The azimuthal angle $\phi$ is measured from the $x$-axis in the ($x,y$) plane. The polar angle
@@ -103,16 +103,16 @@ Since the curvature decreases as the \pt of the particles increases, the strengt
 field, and the precision of the tracker, will determine how accurately the momentum of highly
 energetic particles can be measured. 
 
-To take as much advantage of track bending as possible, CMS decided they wanted to have the
-strongest magnetic field possible. Therefore, the largest magnet that could be transported to P5
-was built. The CMS solenoid measures 6.3\meter in diameter, and the steel return yoke has an outer
-diameter of 14\meter. The total magnet system is 13\meter long, weighs a whopping $12\,000$ tonnes,
+To take as much advantage of track bending as possible, CMS decided to have the strongest magnetic
+field possible. Therefore, the largest magnet that could be transported to P5 was built. The CMS
+solenoid measures 6.3\meter in diameter, and the steel return yoke has an outer diameter of
+14\meter. The total magnet system is 13\meter long, weighs a whopping $12\,000$ tonnes,
 and is the largest superconducting magnet ever built. The solenoid is cooled to 4.5\unit{K}, and the
 very strong magnetic field of 3.8\unit{T} results in a momentum resolution of $\Delta p / p \approx
 10\%$ at momenta of 1\TeV, sufficient to determine the sign of muons with $\pt \approx 1 \TeV$. 
 
 The tracker, ECAL, and HCAL fit inside the magnet coil, whereas the muon stations are interleaved
-with the return yoke. The yoke is made up of three layers, as shown in Fig.~\ref{fig:cms_magnet},
+with the return yoke. The yoke consists of three layers, as shown in Fig.~\ref{fig:cms_magnet},
 provides most of the structural support for the whole experiment, and acts as a shield that blocks
 any particles that made their way across the HCAL, apart from muons, neutrinos, and possible new
 weakly interacting particles. 
@@ -139,9 +139,9 @@ vertices stemming from e.g. $\cPqb$ quark decays.
 In addition, particles should be disturbed the least amount possible while passing through the
 tracker. The tracker should thus consist of as little material as possible in order to avoid
 multiple scattering, bremsstrahlung, photon conversion, and nuclear interactions.
-To accomplish this, the tracker consists of several thin layers. When a particle passes
-through a layer, it creates a signal, a \textit{hit}. Out of the different hits, the reconstruction
-software then builds a track. 
+To accomplish this, the tracker comprises several thin layers. When a particle passes
+through a layer, it creates a signal, a \textit{hit}. The reconstruction software then builds a
+track out of the different hits. 
 
 The tracker is the innermost layer of the CMS detector, perfectly placed to measure the particles
 coming directly from the collision point. Its closeness to the beam pipe also means that it will
@@ -160,8 +160,8 @@ There are a total of 75 million read-out channels with very fast response, provi
 
 The pixel detector has three cylindrical layers very close to the collision point (at 4\cm, 7\cm and
 11\cm from the beampipe), and two disks at either end. Each of the 65 million pixel sensors measures
-100\mum by 150\mum. A cooling system is installed to keep the temperature from rising too much. The
-operating temperature is $-10\de$C.
+100\mum by 150\mum. A cooling system is installed to keep the temperature from rising too much
+above the operating temperature of $-10\de$C.
 
 The silicon strip detector consists of ten layers in total. There are four inner barrel (TIB)
 layers with two inner endcaps (TID), each composed of three small discs. The outer barrel (TOB)
@@ -186,7 +186,7 @@ layers of silicon modules. Figure taken from Ref.~\cite{CMS_tracker}.
 
 The CMS electromagnetic calorimeter is a hermetic homogeneous calorimeter, consisting of a central
 barrel region and two endcaps, and is located in between the tracker and the HCAL. 
-It has a fine granularity, is fast, and is radiation resistant.
+It has a fine granularity, is fast, and radiation resistant.
 The ECAL provides a very good energy resolution for electrons and photons, which played a key role
 in the discovery of the Higgs boson in the $h\rightarrow\gamma\gamma$ final state. 
 
@@ -194,7 +194,7 @@ The ECAL is made of about $75\,000$ highly transparent lead tungstate ($\text{Pb
 crystals whose length corresponds to about 25 radiation lengths. A photograph of the crystals
 during testing, and a schematic view of the ECAL structure is shown in
 Fig.~\ref{fig:cms_ecal_crystal}. The crystals are arranged side-by-side with their longitudinal axes
-slightly pointed away from the interaction point to avoid cracks.
+slightly pointing away from the interaction point to avoid cracks.
 
 When electrons or photons pass through such a lead tungstate crystal, it scintillates. 
 This scintillation light is detected, and converted to an electrical signal, by avalanche
@@ -254,22 +254,25 @@ material, where they too can interact, resulting in a cascade or “shower” of
 As this shower develops, the particles pass through the layers of scintillators, causing them to
 emit blue-violet light. This light is absorbed by wavelength-shifting optical fibres, which shift
 the light into the green region of the spectrum, before being transported to the readout boxes by
-clear optic cables. The amount of light that is collected is a measure of the energy of the passing
-particle. Hybrid Photodiodes convert the optical signals into fast electronic signals which are
-then sent to the data acquisition system. 
+clear optical cables. The amount of light that is collected is a measure of the energy of the
+passing particle. Hybrid Photodiodes convert the optical signals into fast electronic signals which
+are then sent to the data acquisition system. A photograph of the barrel HCAL is shown on the left
+in Fig.~\ref{fig:cms_hcal}. 
 
-To fully absorb the particle showers, about one metre of absorber material is needed. As CMS is a
+To fully absorb a particle shower, about one metre of absorber material is needed. As CMS is a
 very compact detector, it was impossible to fit the full HCAL barrel inside the magnet coil. This
 is the reason why the outer barrel, the tail-catcher, is located just behind the magnet coil, where
-it ensures that the punch-through particles are absorbed as much as possible.  
+it ensures that the punch-through particles are absorbed as much as possible, rather than create
+fake hits in the muon system. 
 
 The two hadronic forward calorimeters are positioned at either end of CMS, at 11.2\meter from
 the interaction point, extending the coverage down to very high $|\eta|$. 
 The HF receives the bulk of the particle energy contained in the collision, and so must be very
 resistant to radiation. The design of the HF was primarily guided by the necessity to survive the
 hostile conditions. Over 1000\unit{km} of quartz fibres are inserted into steel absorber
-blocks. When particles traverse these fibres, they generate Cherenkov light. This light is then
-transported through the fibers to photo multiplier tubes where it is converted into an electrical
+blocks, as can be seen on the right in Fig.~\ref{fig:cms_hcal}. 
+When particles traverse these fibres, they generate Cherenkov light. This light is then
+transported through the fibers to photomultiplier tubes where it is converted into an electrical
 signal. 
 The HF is divided into two longitudinal segments, making it possible to distinguish the more shallow
 showers generated by electrons and photons, from those generated by hadrons.
@@ -304,7 +307,7 @@ the path of a muon. The momentum of the muon is then inferred from its curvature
 field. Three different types of muon chambers are used: resistive plate chambers (RPCs) provide a
 very fast trigger decision, while drift tubes (DTs) and cathode strip
 chambers (CSCs) provide positional information and additional trigger information.
-In the barrel region, DTs and RPC are arranged in concentric cylinders, whereas the endcap disks
+In the barrel region, DTs and RPCs are arranged in concentric cylinders, whereas the endcap disks
 contain different layers of CSCs and RPCs. Figure~\ref{fig:cms_muon_system} shows a schematic view
 of the muon system, along with a picture from the barrel muon chambers in the return yoke. 
 
@@ -346,10 +349,10 @@ trigger decision, besides performing the task of precision muon measurement.
 \textbf{Resistive plate chambers} are made of two parallel plates of a very high resistivity
 material, a positively-charged anode and a negatively-charged cathode, which are separated by a gas
 volume, the \textit{gap}. The CMS RPC system uses 610 double-gap modules comprising two gas gaps
-with read-out strips in between. 
+with readout strips in between. 
 As for the other muon detectors, passing muons knock electrons out of gas atoms. These electrons
 then initiate an avalanche which moves towards the anode. The avalanche is detected by the metallic
-read-out strips. The pattern of the hit strips gives a measure of the muon momentum. Because RPCs
+readout strips. The pattern of the hit strips gives a measure of the muon momentum. Because RPCs
 have a time resolution of just one nanosecond, they are very well suited be part of the muon trigger
 system. 
 
@@ -392,7 +395,7 @@ Less than 1\mus is allocated to the L1 trigger to perform the calculations neede
 decision. It is, therefore, built from custom hardware processors, fully optimized for the task at
 hand. 
 
-Because decisions have to made so quickly, it is impossible to use all available information, so
+Because decisions have to be made so quickly, it is impossible to use all available information, so
  only the calorimeters and the muon system are included. 
 The trigger objects, such as photons, electrons, muons, and jets, are constructed by the global
 calorimeter trigger and global muon trigger, using the reduced granularity and resolution data
@@ -437,7 +440,7 @@ data fragments from the separate parts of the detector. The builder networks con
 units, each of which will assemble the data for one event. 
 Once the event is assembled it is passed to one of the HLT processors associated to that particular
 builder unit. As soon as the HLT decision is made, that decision is transferred back to the builder
-unit which then either discards the event, freeing up the memory, or sends it to the storage
+unit which then either discards the event, freeing up memory, or sends it to the storage
 manager to be written to disk.
 Apart from building the events, the DAQ also provides detector control and monitoring services.
 
