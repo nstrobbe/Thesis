@@ -1,11 +1,40 @@
-\chapter{Event generation, simulation and reconstruction \label{chap:event_generation}}
+\chapter[Event generation, simulation, reconstruction]{Event generation, simulation and
+reconstruction \label{chap:event_generation}}
 
-\textcolor{red}{Outline to be finalized}
+In the previous two chapters I discussed how $\Pp\Pp$ collisions are produced by the CERN
+accelerator complex, and how they are detected by CMS. This chapter will elaborate on the different
+steps needed to actually use the collisions for physics analysis. 
+First I will explain more details about the collisions, or \textit{events}, themselves. I will
+discuss the separate components an event consists of, as well as touch upon how events are described
+mathematically. 
+
+In order to understand what we observe in the data, which might contain signals of new physics, it
+is important to know how Standard Model processes will appear in the detector. To achieve this we
+generate those processes using Monte Carlo generation techniques, incorporating everything that is
+known about how the Standard Model works. The principal options that are available to generate
+events will be discussed in Section~\ref{sec:event_generation}. 
+For each generated collision, we obtain a set of final state particles according to the specified
+physics process. This could for example be the particles that result from the production and decay
+of a top quark. 
+At this stage we do not know yet how these particles would interact with the detector. That is
+taken care of in a next step by the event simulation, as explained in
+Section~\ref{sec:event_simulation}. An event simulator mimics how a particle, e.g. an electron,
+would interact with all the different detector layers, and stores the response of the detector in
+the same format as the actual detector data. 
+
+At this point the simulated data and the real data are very similar, but are stored in a raw format,
+containing detector hits and energy depositions, rather than physics objects. This format is hard to
+use for further analysis. The final step will thus be to perform the event reconstruction. The
+purpose of event reconstruction is to convert the raw detector information, be it real or simulated,
+into physical objects, such as electrons, muons, photons, charged or neutral hadrons. Each of those
+objects comes with a set of defining variables, which can be very basic (e.g. \pt, $\eta$ or $\phi$)
+or more complex (e.g. shower shape). The different algorithms and techniques that are used within
+CMS for this purpose are detailed in Section~\ref{sec:event_reconstruction}. 
 
 \section{What is an ``event''? \label{sec:event}}
 
-% add picture of CMS event display
-% add picture of hadronization etc for event
+\input{event_what_is_an_event.tex}
+
 
 \section{Event generation \label{sec:event_generation}}
 
@@ -27,7 +56,7 @@
 
 \subsection{CMS Fast Simulation \label{subsec:fastsim}}
 
-% explain what approximations are made, why it is necessery, especially in SUSY searches
+% explain what approximations are made, why it is necessary, especially in SUSY searches
 
 \section{Event reconstruction \label{sec:event_reconstruction}}
 
