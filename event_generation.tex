@@ -4,8 +4,255 @@
 
 % add info on Madgraph, pythia, jet matching etc
 
-\subsection{Matrix element generators}
+\cite{Campbell:2006wx}
+
+\subsection{Matrix element generators \label{sec:event_matrix_element_generators}}
+
+% explain basics of how madgraph works internally 
+% narrow width approx?
+
+% From P. Skands:
+% Using PDFs extracted using higher-order matrix elements in lower-order calculations, as, e.g.,
+% when using NLO PDFs as input to an LO calculation. In principle, the higher-order PDFs are
+% better constrained and the difference between, e.g., an NLO and an LO set should formally be
+% beyond LO precision, so that one might be tempted to simply use the highest-order available
+% PDFs for any calculation. However, as described in section 2.4, it is often possible to partly
+% absorb
+% higher-order terms into lower-order coefficients. In the context of PDFs, the fit parameters
+% of lower-order PDFs will effectively attempt to “compensate” for missing higher-order contributions
+% in the matrix elements. To the extent those higher-order contributions are universal, this
+% is both desirable and self-consistent. However, this will only give an improvement when used
+% with matrix elements at the same order as those used to extract the PDFs. It is therefore quite
+% possible that NLO PDFs used in conjunction with LO matrix elements give a worse agreement
+% with data than LO PDFs do
+
+
+% There is a wide range of programs available, most notably ALPGEN [17, 18],
+% the COMPHEP package [19, 20] and MADGRAPH [21, 22]. All of these programs
+% implement the calculation of the diagrams numerically and provide a suitable phase
+% space over which they can be integrated. ALPGEN uses an approach which is not based
+% on a traditional Feynman diagram evaluation [23], whereas the other two programs rely
+% on more conventional methods such as the helicity amplitudes evaluation of HELAS [24]
+% in MADGRAPH.
+% Although in principle these programs can be used to calculate any tree-level
+% prediction, in practice the complexity of the process that may be studied is limited
+% by the number of particles that is produced in the final state. This is largely due to the
+% factorial growth in the number of Feynman diagrams that must be calculated. Even in
+% approaches which do not rely directly on the Feynman diagrams, the growth is still as a
+% power of the number of particles. For processes which involve a large number of quarks
+% and gluons, as is the case when attempting to describe a multi-jet final state at a hadron
+% collider such as the Tevatron or the LHC, an additional concern is the calculation of
+% colour matrices which appear as coefficients in the amplitudes [25].
+
 
 \subsection{Parton shower and hadronization}
 
+% discuss underlying event tunes etc
+% discuss string model for hadronization
+
+
+% 
+% By the use of the parton showering process, a few partons produced in a hard
+% interaction at a high energy scale can be related to partons at an energy scale close to
+% ΛQCD . At this lower energy scale, a universal non-perturbative model can then be used
+% to provide the transition from partons to the hadrons that are observed experimentally.
+% This is possible because the parton showering allows for the evolution, using the DGLAP
+% formalism, of the parton fragmentation function. The solution of this DGLAP evolution
+% equation can be rewritten with the help of the Sudakov form factor, which indicates the
+% probability of evolving from a higher scale to a lower scale without the emission of a
+% gluon greater than a given value. For the case of parton showers from the initial state,
+% the evolution proceeds backwards from the hard scale of the process to the cutoff scale,
+% with the Sudakov form factors being weighted by the parton distribution functions at
+% the relevant scales.
+
+% In the parton showering process, successive values of an evolution variable t, a
+% momentum fraction z and an azimuthal angle φ are generated, along with the flavours
+% of the partons emitted during the showering. The evolution variable t can be the
+% virtuality of the parent parton (as in PYTHIA versions 6.2 and earlier and in SHERPA),
+% E 2 (1 − cos θ), where E is the energy of the parent parton and θ is the opening angle
+% between the two partons (as in HERWIG) , or the square of the relative transverse
+% momentum of the two partons in the splitting (as in PYTHIA 6.3). The HERWIG
+% evolution variable has angular ordering built in, angular ordering is implicit in the
+% PYTHIA 6.3 [85] evolution variable, and angular ordering has to be imposed after the
+% fact for the PYTHIA 6.2 evolution variable. Angular ordering represents an attempt to
+% simulate more precisely those higher order contributions that are enhanced due to soft
+% gluon emission (colour coherence). Fixed order calculations explicitly account for colour
+% coherence, while parton shower Monte Carlos that include colour flow information model
+% it only approximately.
+% Note that with parton showering, we in principle introduce two new scales, one for
+% initial state parton showering and one for the shower in the final state. In the PYTHIA
+% Monte Carlo, the scale used is most often related to the maximum virtuality in the
+% hard scattering, although a larger ad hoc scale, such as the total centre-of-mass energy,
+% can also be chosen by the user. The HERWIG showering scale is determined by the
+% specific colour flow in the hard process and is related to the invariant mass of the colour
+% connected partons.
+% the Sudakov form
+% factor gives the probability for a parton to evolve from a harder scale to a softer scale
+% without emitting a parton harder than some resolution scale, either in the initial state
+% or in the final state. Sudakov form factors form the basis for both parton showering and
+% resummation
+% A Sudakov
+% form factor will depend on: (1) the parton type (quark or gluon), (2) the momentum
+% fraction x of the initial state parton, (3) the hard and cutoff scales for the process and
+% (4) the resolution scale for the emission.
+
+
+% 
+% The programs we’ve discussed so far, known as ‘Matrix Element Monte Carlos’ provide a powerful
+% combination of accuracy and flexibility as long as you want to calculate IR and collinear safe
+% observables
+% (jets, W’s, Z’s, but not pions, kaons, etc.), don’t mind dealing with wildly fluctuating positive
+% and
+% negative weights, and don’t need to study regions of phase space that involve disparate physical
+% scales.
+% All these defects are essentially related to the presence of soft and collinear divergences. Yet we
+% know that real life does not diverge. So it is natural to wonder whether we can reinterpret the
+% divergences
+% of perturbation theory physically. It turns out that the right kind of question to ask is “what is
+% the
+% probability of not radiating a gluon above some (transverse momentum) scale kt”. Starting from a qq¯
+% system, using the results of Section 2, we know that to O (αs) the answer in the soft and collinear
+% limit
+% goes as(64)
+% It so happens that in the soft and collinear limit, this result is easy to work out not just at
+% first order, but
+% at all orders, giving simply the exponential of the first order result.
+% .
+% Whereas Eq. (64) had a ‘bare’ infinity if one took kt → 0, Eq. (65) is simply bounded to be between
+% 0
+% and 1.
+% The quantity ∆(kt
+% , Q) is known as a Sudakov form factor. We’ve been very approximate in the
+% way we’ve calculated it, neglecting for example the running of the coupling (αs should be placed
+% inside
+% the integral and evaluated at the scale Eθ) and the treatment of hard collinear radiation (the dE/E
+% integral should be replaced with the full collinear splitting function), but these are just
+% technical details.
+% The importance of the Sudakov form factor is that it allows us to easily calculate the distribution
+% in
+% transverse momentum kt1 of the gluon with largest transverse momentum in an event:
+% dP
+% dkt1
+% =
+% d
+% dkt1
+% ∆(kt1, Q). (66)
+% This distribution is easy to generate by Monte Carlo methods: take a random number r from a
+% distribution
+% that’s uniform in the range 0 < r < 1 and find the kt1 that solves ∆(kt1, Q) = r. Given kt1 we also
+% need to generate the energy for the gluon, but that’s trivial. If we started from a qq¯ system (with
+% some
+% randomly generated orientation), then this gives us a qqg¯ system. As a next step one can work out
+% the
+% Sudakov form factor in the soft/collinear limit for there to be no emission from the qqg¯ system as
+% a whole
+% above some scale kt2 (< kt1) and use this to generate a second gluon. The procedure is then repeated
+% over and over again until you find that the next gluon you would generate is below some
+% non-perturbative
+% cutoff scale Q0, at which point you stop. This gives you one ‘parton shower’ event.
+% This is essentially the procedure that’s present in the shower of PYTHIA 8 [82] and the pt ordered
+% option of PYTHIA 6.4
+
+
+
+
 \subsection{Jet matching}
+
+% motivation (double counting)
+% MLM matching 
+% xqcut, qcut
+
+% Parton-shower Monte Carlo programs do a good job of describing most of the features of common
+% events,
+% including the hadron-level detail that is essential for the correct simulation of detector effects
+% on event
+% reconstruction. Another nice feature of theirs is that events have equal weight, just as with real
+% data.
+% A drawback of parton-shower Monte Carlos is that, because they rely on the soft and collinear
+% approximation, they do not necessarily generate the correct pattern of hard large-angle radiation.
+% This
+% can be important, e.g., if you’re simulating backgrounds to new-physics processes, for which often
+% the
+% rare, hard multi-jet configurations are of most interest. In contrast, fixed-order programs do
+% predict these
+% configurations correctly
+
+% As we have discussed previously in Section 3.5, parton showers provide an excellent
+% description in regions which are dominated by soft and collinear gluon emission. On the
+% other hand, matrix element calculations provide a good description of processes where
+% the partons are energetic and widely separated and, in addition, include the effects of
+% interference between amplitudes with the same external partons. But, on the other
+% hand, the matrix element calculations do not take into account the interference effects
+% in soft and collinear gluon emissions which cannot be resolved, and which lead to a
+% Sudakov suppression of such emissions.
+% Clearly, a description of a hard interaction which combines the two types of
+% calculations would be preferable. For this combination to take place, there first needs
+% to be a universal formalism that allows the matrix element calculation to “talk” to the
+% parton shower Monte Carlo. Such a universal formalism was crafted during the Les
+% Houches Workshop on Collider Physics in 2001 and the resulting “Les Houches Accord”
+% is in common use [90]. The accord specifies an interface between the matrix element
+% and the parton shower program which provides information on the parton 4-vectors, the
+% mother-daughter relationships, and the spin/helicities and colour flow. It also points to
+% intermediate particles whose mass should be preserved in the parton showering. All of
+% the details are invisible to the casual user and are intended for the matrix element/parton
+% shower authors.
+% Some care must be taken however, as a straight addition of the two techniques
+% would lead to double-counting in kinematic regions where the two calculations overlap.
+% There have been many examples where matrix element information has been used to
+% correct the first or the hardest emission in a parton shower. There are also more general
+% techniques that allow matrix element calculations and parton showers to each be used
+% in kinematic regions where they provide the best description of the event properties and
+% that avoid double-counting. One such technique is termed CKKW [91]
+
+% With the CKKW technique, the matrix element description is used to describe
+% parton branchings at large angle and/or energy, while the parton shower description is
+% used for the smaller angle, lower energy emissions. The phase space for parton emission is
+% thus divided into two regions, matrix element dominated and parton shower dominated,
+% using a resolution parameter dini. The argument of αS at all of the vertices is chosen
+% to be equal to the resolution parameter di at which the branching has taken place and
+% Sudakov form factors are inserted on all of the quark and gluon lines to represent the
+% lack of any emissions with a scale larger than dini between vertices. The di represent
+% a virtuality or energy scale. Parton showering is used to produce additional emissions
+% at scales less than dini . For a typical matching scale, approximately 10% of the n-jet
+% cross section is produced by parton showering from the n-1 parton matrix element; the
+% rest arises mostly from the n-parton matrix element. A schematic representation of the
+% CKKW scheme is shown in Figure 26 for the case of W + jets production at a hadron-
+% hadron collider. A description of a W + 2 jet event in the NLO formalism is also shown
+% for comparison.
+% The CKKW procedure provides a matching between the matrix element and parton
+% shower that should be correct to the next-to-leading-logarithm (NLL) level. There are,
+% however, a number of choices that must be made in the matching procedure that do
+% not formally affect the logarithmic behaviour but do affect the numerical predictions,
+% on the order of 20–30%. The CKKW procedure gives the right amount of radiation but
+% tends to put some of it in the wrong place with the wrong colour flow. Variations that
+% result from these choices must be considered as part of the systematic error inherent in
+% the CKKW process. This will be discussed further in Section 5.
+% For the CKKW formalism to work, matrix element information must in principle
+% be available for any number n of partons in the final state. Practically speaking, having
+% information available for n up to 4 is sufficient for the description of most events at the
+% Tevatron or LHC. The CKKW formalism is implemented in the parton shower Monte
+% Carlo SHERPA [92] and has also been used for event generation at the Tevatron and
+% LHC using the Mrenna-Richardson formalism [94]. An approximate version of CKKW
+% matching (the “MLM approach” + ) is available in ALPGEN 2.0 [18]
+
+\subsection{Hadronization}
+
+
+% Real events consist not of partons but of hadrons. Since we have no idea how to calculate the
+% transition between partons and hadrons, Monte Carlo event generators resort to ‘hadronization’
+% models.
+% One widely-used model involves stretching a colour ‘string’ across quarks and gluons, and breaking
+% it up into hadrons [89, 90]. For a discussion of the implementation of this ‘Lund’ model in the MC
+% program PYTHIA, with further improvements and extensions, Ref. [86] and references therein provide
+% many details. Another model breaks each gluon into a qq¯ pair and then groups quarks and anti-quarks
+% into colourless ‘clusters’, which then give the hadrons. This cluster type hadronization is
+% implemented in
+% the HERWIG event generator [87,88,91] and recent versions of SHERPA. Both approaches are illustrated
+% in Fig. 26
+% Hadronization models involve a number of ‘non-perturbative’ parameters. The parton-shower
+% itself involves the non-perturbative cutoff Q0. These different parameters are usually tuned to data
+% from
+% the LEP experiments. The quality of the description of the data that results is illustrated in Fig.
+% 27.
+
+
