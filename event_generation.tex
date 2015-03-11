@@ -4,7 +4,11 @@
 
 % add info on Madgraph, pythia, jet matching etc
 
-\cite{Campbell:2006wx}
+In this section I will explain in more detail the various techniques employed by the most common
+event generators. In particular, I will focus on \textsc{Madgraph} and \textsc{Pythia}, the programs
+that generated the events for most of the processes used in the Razor Boost analysis, presented in
+Chapter~\ref{chap:razorboost}. 
+The following sections are based on Refs.~\cite{Campbell:2006wx,Salam:2010zt,Buckley:2011ms}. 
 
 \subsection{Matrix element generators \label{sec:event_matrix_element_generators}}
 
@@ -45,22 +49,13 @@
 % colour matrices which appear as coefficients in the amplitudes [25].
 
 
-\subsection{Parton shower and hadronization}
+\subsection{Parton shower}
 
 % discuss underlying event tunes etc
 % discuss string model for hadronization
 
 
-% 
-% By the use of the parton showering process, a few partons produced in a hard
-% interaction at a high energy scale can be related to partons at an energy scale close to
-% ΛQCD . At this lower energy scale, a universal non-perturbative model can then be used
-% to provide the transition from partons to the hadrons that are observed experimentally.
-% This is possible because the parton showering allows for the evolution, using the DGLAP
-% formalism, of the parton fragmentation function. The solution of this DGLAP evolution
-% equation can be rewritten with the help of the Sudakov form factor, which indicates the
-% probability of evolving from a higher scale to a lower scale without the emission of a
-% gluon greater than a given value. For the case of parton showers from the initial state,
+% For the case of parton showers from the initial state,
 % the evolution proceeds backwards from the hard scale of the process to the cutoff scale,
 % with the Sudakov form factors being weighted by the parton distribution functions at
 % the relevant scales.
@@ -97,64 +92,133 @@
 % (4) the resolution scale for the emission.
 
 
-% 
-% The programs we’ve discussed so far, known as ‘Matrix Element Monte Carlos’ provide a powerful
-% combination of accuracy and flexibility as long as you want to calculate IR and collinear safe
-% observables
-% (jets, W’s, Z’s, but not pions, kaons, etc.), don’t mind dealing with wildly fluctuating positive
-% and
-% negative weights, and don’t need to study regions of phase space that involve disparate physical
-% scales.
-% All these defects are essentially related to the presence of soft and collinear divergences. Yet we
-% know that real life does not diverge. So it is natural to wonder whether we can reinterpret the
-% divergences
-% of perturbation theory physically. It turns out that the right kind of question to ask is “what is
-% the
-% probability of not radiating a gluon above some (transverse momentum) scale kt”. Starting from a qq¯
-% system, using the results of Section 2, we know that to O (αs) the answer in the soft and collinear
-% limit
-% goes as(64)
-% It so happens that in the soft and collinear limit, this result is easy to work out not just at
-% first order, but
-% at all orders, giving simply the exponential of the first order result.
-% .
-% Whereas Eq. (64) had a ‘bare’ infinity if one took kt → 0, Eq. (65) is simply bounded to be between
-% 0
-% and 1.
-% The quantity ∆(kt
-% , Q) is known as a Sudakov form factor. We’ve been very approximate in the
-% way we’ve calculated it, neglecting for example the running of the coupling (αs should be placed
-% inside
-% the integral and evaluated at the scale Eθ) and the treatment of hard collinear radiation (the dE/E
-% integral should be replaced with the full collinear splitting function), but these are just
-% technical details.
-% The importance of the Sudakov form factor is that it allows us to easily calculate the distribution
-% in
-% transverse momentum kt1 of the gluon with largest transverse momentum in an event:
-% dP
-% dkt1
-% =
-% d
-% dkt1
-% ∆(kt1, Q). (66)
-% This distribution is easy to generate by Monte Carlo methods: take a random number r from a
-% distribution
-% that’s uniform in the range 0 < r < 1 and find the kt1 that solves ∆(kt1, Q) = r. Given kt1 we also
-% need to generate the energy for the gluon, but that’s trivial. If we started from a qq¯ system (with
-% some
-% randomly generated orientation), then this gives us a qqg¯ system. As a next step one can work out
-% the
-% Sudakov form factor in the soft/collinear limit for there to be no emission from the qqg¯ system as
-% a whole
-% above some scale kt2 (< kt1) and use this to generate a second gluon. The procedure is then repeated
-% over and over again until you find that the next gluon you would generate is below some
-% non-perturbative
-% cutoff scale Q0, at which point you stop. This gives you one ‘parton shower’ event.
-% This is essentially the procedure that’s present in the shower of PYTHIA 8 [82] and the pt ordered
-% option of PYTHIA 6.4
 
+The fixed-order matrix-element MC programs discussed in the previous section provide a powerful
+combination of accuracy and flexibility as long as you want to calculate infrared and collinear safe
+observables -- such as jets, $\W$ or $\cPZ$ bosons, but not pions, kaons, et cetera -- and
+don’t need to study regions of phase space that involve disparate physical scales. An example of
+the latter could be requiring a heavy boson to have a \pt much smaller than its mass, leading to
+large coefficients at all orders in the perturbative expansion.
+These defects are related to the presence of soft and collinear divergences in the calculations.
+Real life does not diverge, however. We thus need a different approach to tackle the soft and
+collinear part of the phase space. This approach is the parton shower. 
 
+Parton shower algorithms, such as the one implemented in \textsc{Pythia}, describe the evolution in
+momentum transfer from the high scales associated with the hard process down to the low scales, of
+order 1\GeV, associated with the confinement of the partons it describes into hadrons. 
+In analogy with bremsstrahlung of photons in QED, a parton (quark or gluon) with high momentum will
+have some probability to radiate a gluon. This gluon can then radiate more gluons, or it can split
+in a $q\bar{q}$ pair. This process repeats itself until the energy of the quarks and gluons becomes
+too low, and hadronization begins. Hadronization is a non-perturbative process, but fortunately it
+is universal, i.e. it does not depend on the hard interaction, but only on the partons at the low
+scale after the parton shower.
 
+The probabilities for the various parton splittings are encompassed in the splitting functions,
+$P_{j\leftarrow i}$, which were already mentioned briefly in Section~\ref{sec:event_pdfs}.
+Let us first introduce the variable $t$ as
+\begin{equation}
+  t = \ln\frac{Q^2}{\Lambda^2},
+\end{equation}
+with $\Lambda$ the QCD scale. We then find for the differential
+\begin{equation}
+  \text{d}t = \text{d}\ln Q^2 = \frac{\text{d}Q^2}{Q^2}.
+\end{equation}
+We can view $t$ as a kind of time in the evolution of the parton shower. The smaller $t$, and
+thus the lower the scale, the further along in the shower process we are. 
+In terms of the variable $t$, we can write the differential probability for a parton $i$ to branch
+into any parton $j$ with momentum fraction $z$ in the following way,
+\begin{equation}
+  \text{d}\mathcal{P}_i = \sum_j \frac{\alpha_S}{2\pi} P_{j\leftarrow i}(z)\text{d}t\text{d}z,
+\label{eq:splitting}
+\end{equation}
+with the different splitting functions in the collinear limit given by
+\begin{align}
+  P_{q\leftarrow q}(z) &= C_F \frac{1 + z^2}{1 - z}, & 
+  P_{g\leftarrow q}(z) &= C_F \frac{1 + (1-z)^2}{z}, \\
+  P_{g\leftarrow g}(z) &= C_A \frac{z^4 + 1 + (1-z)^4}{z(1-z)}, &
+  P_{q\leftarrow g}(z) &= T_R (z^2 + (1-z)^2), 
+\end{align}
+where $C_F$ and $C_A$ are color factors and $T_R$ is a constant depending on the definition of
+$\alpha_S$. 
+There are two sets of divergencies that occur in the computation of the branching probability: when
+the radiated parton becomes extremely soft, or when it becomes collinear with the original parton. 
+The cases where this occurs can in fact not be resolved in any physical measurement. Two exactly
+collinear partons look exactly like one parton with the same total momentum. We should thus impose
+a resolution criterion. Often the chosen criterion is that the relative transverse momentum
+between the two partons is larger than some cutoff scale $Q_0$. Imposing this cutoff, then results
+in a finite resolvable emission probability. Because the total probability of something happening
+has to be unity, we can find the probability to not have a resolvable emission as one minus the
+resolvable emission probability. In this way we have avoided computing the divergent pieces, which
+would have to be added to the divergent loop-correction to the hard process in order to cancel.
+
+Since Eq.~\ref{eq:splitting} is a completely general expression that does not depend on the hard
+process, we can iterate it, using it on a parton resulting from the hard process to generate
+one branching and then treating the new final state as the hard process, generating another
+splitting from it, and so on. In what follows we will discuss how this shall be done in practice.
+%utiziling the trick of unit total probability to avoid computing divergent pieces, and thus
+%implicitly including high-order corrections into our results. 
+
+The integral of the branching probability over all allowed $z$ values, according to the
+particular resolution criterion imposed, and for a given $t$ value, is defined as
+\begin{equation}
+  \mathcal{I}_{j\leftarrow i}(t) = \int dz \frac{\alpha_S}{2\pi} P_{j\leftarrow i}(z)
+\end{equation}
+The naive probability that a resolved branching occurs during a small range of $t$ values, $\delta
+t$, is given by 
+\begin{equation}
+ \sum_j \mathcal{I}_{j\leftarrow i}(t) \delta t,
+\end{equation}
+where we did not take into account anything which could have happened during the parton shower,
+before that time. The probability for no resolved emission to occur is then simply given by $1 -
+\sum_j \mathcal{I}_{j\leftarrow i}(t) \delta t$. 
+If the evolution of parton $i$ starts at $t_{\text{max}}$, then the probability that the parton
+has not yet branched later in the shower, when $t < t_{\text{max}}$, is given by
+the product of the probabilities that it did not branch in any of the small intervals $\delta t$
+between $t$ and $t_{\text{max}}$. In other words, letting $\delta t \rightarrow 0$, the no-branching
+probability at time $t$, given starting point $t_{\text{max}}$, exponentiates, and is given by
+\begin{equation}
+  \mathcal{P}_{\text{no-branching}}(t_{\text{max}},t) = \exp 
+  \left\{ - \int_t^{t_{\text{max}}} dt' \sum_j \mathcal{I}_{j\leftarrow i}(t') \right\} .
+\end{equation}
+The actual differential probability that the first resolved branching of parton $i$ occurs at `time'
+$t$, which is the actual question we wish to answer, is thus given by
+\begin{align}
+  \frac{\text{d}\mathcal{P}_i}{\text{d}t} &= -
+\frac{\mathcal{P}_{\text{no-branching}}(t_{\text{max}},t)}{\text{d}t} \\
+ &= \left( \sum_j \mathcal{I}_{j\leftarrow i}(t)\right) \exp \left\{ - \int_t^{t_{\text{max}}} dt'
+\sum_j \mathcal{I}_{j\leftarrow i}(t) \right\}, \label{eq:prob_first_branch}
+\end{align}
+where the first factor in Eq.~\ref{eq:prob_first_branch} is the naive probability mentioned above,
+and the second term is an exponential suppression, similar to that found in the formula for
+radioactive decay, to account for the fact that if a parton has already branched at $t'$, it can no
+longer branch at $t$. 
+This exponential factor, the probability to not branch above a certain scale, here
+contained in the variable $t$, is called the Sudakov form factor, $\Delta_i(t_max,t)$. 
+
+Implementing this in a Monte Carlo program is conceptually straightforward. 
+First, a random number $r$ is sampled uniformly between 0 and 1. Then the value for $t$ such that 
+$\Delta_i(t_max,t) = r$ is determined. If the solution is above the cutoff $t_0$, corresponding to
+the resolution $Q_0$, then a resolvable branching is generated with scale $t$, otherwise the shower
+evolution is terminated. In case a resolvable branching is to be generated, a $z$ value is chosen
+according to the splitting functions $P_{j\leftarrow i}(z)$, and then the algorithm is started
+again. 
+Of course, in practice one has to take into account several complications. 
+Different approaches exist for deciding what the initial scale $t_{\text{max}}$ should be.
+This scale has to match the hard interaction, and could thus be the largest virtuality in the hard
+scatter, but could also be the centre-of-mass energy. 
+The Sudakov form factor is also not necessarily easily invertible analytically, which can dealt
+with by using the so-called veto-algorithm. 
+Apart from final state
+showers, such as explained here, the initial state also undergoes showering. There it is important
+to properly match the parton shower with the PDF treatment, as well as ensure on-shell partons that
+take part in the hard interaction.
+For all details on how this is fully implemented in the \textsc{Pythia} shower routine, I refer to
+the manual~\cite{Sjostrand:2006za}. 
+
+At the end of the parton shower procedure, we end up with many more partons than we had directly
+after the hard interaction, all which should be described at the low scale, via non-perturbative
+models. The most widely used hadronization model will be discussed in
+Section~\ref{sec:event_hadronization}. 
 
 \subsection{Jet matching}
 
@@ -235,7 +299,7 @@
 % LHC using the Mrenna-Richardson formalism [94]. An approximate version of CKKW
 % matching (the “MLM approach” + ) is available in ALPGEN 2.0 [18]
 
-\subsection{Hadronization}
+\subsection{Hadronization \label{sec:event_hadronization}}
 
 
 % Real events consist not of partons but of hadrons. Since we have no idea how to calculate the
