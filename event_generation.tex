@@ -5,10 +5,11 @@
 % add info on Madgraph, pythia, jet matching etc
 
 In this section I will explain in more detail the various techniques employed by the most common
-event generators. In particular, I will focus on \textsc{Madgraph} and \textsc{Pythia}, the programs
+event generators. In particular, I will focus on \MADGRAPH and \PYTHIA, the programs
 that generated the events for most of the processes used in the Razor Boost analysis, presented in
 Chapter~\ref{chap:razorboost}. 
-The following sections are based on Refs.~\cite{Campbell:2006wx,Salam:2010zt,Buckley:2011ms}. 
+The following sections are based on
+Refs.~\cite{Campbell:2006wx,Salam:2010zt,Skands:2011pf,Buckley:2011ms,Sjostrand:2006za}. 
 
 \subsection{Matrix element generators \label{sec:event_matrix_element_generators}}
 
@@ -31,29 +32,20 @@ The following sections are based on Refs.~\cite{Campbell:2006wx,Salam:2010zt,Buc
 % with data than LO PDFs do
 
 
-% There is a wide range of programs available, most notably ALPGEN [17, 18],
-% the COMPHEP package [19, 20] and MADGRAPH [21, 22]. All of these programs
-% implement the calculation of the diagrams numerically and provide a suitable phase
-% space over which they can be integrated. ALPGEN uses an approach which is not based
-% on a traditional Feynman diagram evaluation [23], whereas the other two programs rely
-% on more conventional methods such as the helicity amplitudes evaluation of HELAS [24]
-% in MADGRAPH.
-% Although in principle these programs can be used to calculate any tree-level
-% prediction, in practice the complexity of the process that may be studied is limited
-% by the number of particles that is produced in the final state. This is largely due to the
-% factorial growth in the number of Feynman diagrams that must be calculated. Even in
-% approaches which do not rely directly on the Feynman diagrams, the growth is still as a
-% power of the number of particles. For processes which involve a large number of quarks
-% and gluons, as is the case when attempting to describe a multi-jet final state at a hadron
-% collider such as the Tevatron or the LHC, an additional concern is the calculation of
-% colour matrices which appear as coefficients in the amplitudes [25].
+As explained previously, the hard interaction can be described using matrix elements, which can be
+computed, at least in principle, order by order using perturbation theory. 
+There are a variety of programs available that calculate the tree-level diagrams numerically,
+and integrate over the relevant phase space. The most widely used are \MADGRAPH, now merged
+into \textsc{MG\_aMC@NLO}, and \textsc{Alpgen}. 
+There are no inherent limits to the number of final state particles that could be produced with
+these programs, although, in practice, the computation is limited by the factorial growth of the
+number of diagrams as we go higher in multiplicity of final state particles. 
+ 
 
 
 \subsection{Parton shower}
 
 % discuss underlying event tunes etc
-% discuss string model for hadronization
-
 
 % For the case of parton showers from the initial state,
 % the evolution proceeds backwards from the hard scale of the process to the cutoff scale,
@@ -103,7 +95,7 @@ These defects are related to the presence of soft and collinear divergences in t
 Real life does not diverge, however. We thus need a different approach to tackle the soft and
 collinear part of the phase space. This approach is the parton shower. 
 
-Parton shower algorithms, such as the one implemented in \textsc{Pythia}, describe the evolution in
+Parton shower algorithms, such as the one implemented in \PYTHIA, describe the evolution in
 momentum transfer from the high scales associated with the hard process down to the low scales, of
 order 1\GeV, associated with the confinement of the partons it describes into hadrons. 
 In analogy with bremsstrahlung of photons in QED, a parton (quark or gluon) with high momentum will
@@ -212,7 +204,7 @@ Apart from final state
 showers, such as explained here, the initial state also undergoes showering. There it is important
 to properly match the parton shower with the PDF treatment, as well as ensure on-shell partons that
 take part in the hard interaction.
-For all details on how this is fully implemented in the \textsc{Pythia} shower routine, I refer to
+For all details on how this is fully implemented in the \PYTHIA shower routine, I refer to
 the manual~\cite{Sjostrand:2006za}. 
 
 At the end of the parton shower procedure, we end up with many more partons than we had directly
@@ -220,103 +212,192 @@ after the hard interaction, all which should be described at the low scale, via 
 models. The most widely used hadronization model will be discussed in
 Section~\ref{sec:event_hadronization}. 
 
-\subsection{Jet matching}
+\subsection{Matching the matrix element to the parton shower}
 
 % motivation (double counting)
 % MLM matching 
 % xqcut, qcut
 
-% Parton-shower Monte Carlo programs do a good job of describing most of the features of common
-% events,
-% including the hadron-level detail that is essential for the correct simulation of detector effects
-% on event
-% reconstruction. Another nice feature of theirs is that events have equal weight, just as with real
-% data.
-% A drawback of parton-shower Monte Carlos is that, because they rely on the soft and collinear
-% approximation, they do not necessarily generate the correct pattern of hard large-angle radiation.
-% This
-% can be important, e.g., if you’re simulating backgrounds to new-physics processes, for which often
+On the one hand, parton shower MC programs provide an excellent event description in regions which
+are dominated by soft and collinear gluon emission, including the hadron-level details that are
+necessary for the proper simulation of detector effects. 
+On the other hand, matrix element calculations provide a good description of processes where
+the partons are energetic and widely separated. They also include the effects of
+interference between amplitudes with the same external partons. 
+The best possible event description can thus only be achieved by combining both approaches.
+However, the direct addition of the two techniques can lead to double-counting in kinematic regions
+where the two calculations overlap. This is of particular importance when merging samples for
+different parton multiplicities, as illustrated in Fig.~\ref{fig:overlap}.
+We will thus need a matching between the matrix element
+and the parton shower to ensure the proper removal of these overlaps.
+There are several techniques available to perform this matching. I will focus here on the so-called
+\textit{MLM matching}, which is the technique used in CMS to match \MADGRAPH with
+\PYTHIA. The MLM technique comprises three main steps, the first of which is done at the
+matrix element level. In next paragraphs I will discuss each step in more detail. 
+
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/eventreco_generation/overlap}
+  \caption{ Illustration of the double-counting issues that can arise if one naively attempts to
+shower $\cPZ+$parton and $\cPZ+2$parton events. Partons generated by the matrix element are
+shown in black, whereas the effects of the parton shower are shown in red. Showering the 1-parton
+sample could lead to the generation of a hard gluon, which is already included in the matrix-element
+description of the 2-parton sample, leading to a double-counting. Figure taken from
+Ref.~\cite{Salam:2010zt}. 
+  \label{fig:overlap}}
+\end{figure}
+
+
+For each event generated by \MADGRAPH according to the considered hard process, we want to
+find out how it looks from a parton shower point of view. To arrive at this ``equivalent parton
+shower history", we cluster the final state partons. The reason this is done, is to obtain
+a smooth transition from the matrix element to the parton shower dominated region. 
+
+The clustering is performed using the $k_\text{T}$ jet algorithm, which defines the following two
+distance measures,
+\begin{align}
+  k^2_{\mathrm{T},i\text{beam}} &= p_{\mathrm{T},i}^2 + m_i^2, \\ 
+  k^2_{\mathrm{T},ij} &= \Delta R_{ij} \min (p_{\mathrm{T},i}^2 , p_{\mathrm{T},j}^2) + \max (m_i^2,
+m_j^2),
+\end{align}
+with $\Delta R^2_{ij} = 2 (\cosh \Delta y - \cos \Delta\phi)$. The standard $k_\text{T}$ clustering
+starts by finding the smallest of the $k^2_{\mathrm{T},ij}$ or $k^2_{\mathrm{T},i\text{beam}}$, and
+combining those two partons $i$ and $j$. The combination then replaces the original two partons, and
+the clustering is repeated. This continues until there is only a $2 \rightarrow 1$ or $2 \rightarrow
+2$ scattering left. 
+To obtain the equivalent parton shower history, a few modifications to the standard $k_\text{T}$
+clustering are made. 
+\begin{itemize}
+  \item Only clusterings that correspond to actual Feynman diagrams of the considered model are
+included. Two quarks of different flavour will thus never be clustered.  
+  \item 
+\end{itemize}
+
+
+
+
+% The essential problem that leads to matrix-element/parton-shower matching can be illustrated in a
+% very simple way. Assume we have computed the LO cross section for some process, F , and that we
+% have added an LL shower to it, as in the left-hand pane of figure 12. We know that this only gives
+% us an
+% LL description of F + 1. We now wish to improve this from LL to LO by adding the actual LO matrix
+% element for F + 1. Since we also want to be able to hadronize these events, etc, we again add an LL
+% shower off them. However, since the matrix element for F + 1 is divergent, we must restrict it to
+% cover
+% only the phase-space region with at least one hard resolved jet, illustrated by the half-shaded
+% boxes in
+% the middle pane of figure 12. Adding these two samples, however, we end up counting the LL terms
+% of the inclusive cross section for F + 1 twice, since we are now getting them once from the shower
+% off F and once from the matrix element for F + 1, illustrated by the dark shaded (red) areas of the
+% right-hand pane of figure 12. This double-counting problem would grow worse if we attempted to add
+% more matrix elements, with more legs. The cause is very simple. Each such calculation corresponds
+% to an inclusive cross section, and hence naive addition would give
+% σtot = σ0;incl + σ1;incl = σ0;excl + 2 σ1;incl .
+% (58)
+% Instead, we must match the coefficients calculated by the two parts of the full calculation —
+% showers
+% and matrix elements — more systematically, for each order in perturbation theory, so that the
+% nesting
+% of inclusive and exclusive cross sections is respected without overcounting.
+
+% Given a parton shower and a matrix-element generator, there are fundamentally three different
+% ways in which we can consider matching the two [34]:
+% 1. Slicing: The most commonly encountered matching type is currently based on separating
+% (slicing) phase space into two regions, one of which is supposed to be mainly described by hard
+% matrix
+% elements and the other of which is supposed to be described by the shower. This type of approach
+% was first used in H ERWIG [50], to include matrix-element corrections for one emission beyond the
+% basic hard process [51, 52]. This is illustrated in figure 13. The method has since been generalized
+% by several independent groups to include arbitrary numbers of additional legs [53–57]. Effectively,
+% the shower approximation is set to zero above some scale (either due to the presence of explicit
+% dead
+% zones in the shower, as in H ERWIG, or by vetoing any emissions above a certain matching scale, as
+% in
+% the (L)-CKKW [53, 54, 56] and MLM [55, 57] approaches), causing the matched result to be identical
+% to the matrix element (ME) in that region, modulo higher-order corrections. We may sketch this as
+% ME
+% corrections
+% Matched (above matching scale) = Exact × (1 + O(αs )) ,
+% (59)
+% where the “shower-corrections” include approximate Sudakov factors and αs reweighting factors ap-
+% plied to the matrix elements in order to obtain a smooth transition to the shower-dominated region.
+% Below the matching scale, the small difference between the matrix elements and the shower approx-
+% imation can be dropped (since their leading singularities are identical and this region by
+% definition
+% includes no hard jets), yielding the pure shower answer in that region,
+% shower
+% Matched (below matching scale)
+% =
+% =
+% correction
+% Approximate + (Exact − Approximate)
+% Approximate + non-singular
+% → Approximate .
+% This type of strategy is illustrated in figure 14. Since this strategy is discontinuous across phase
+% space, a main point here is to ensure that the behaviour across the matching scale be as smooth as
+% possible. CKKW showed [53] that it is possible to remove any dependence on the matching scale
+% through NLL precision by careful choices of all ingredients in the matching; technical details of
 % the
-% rare, hard multi-jet configurations are of most interest. In contrast, fixed-order programs do
-% predict these
-% configurations correctly
+% implementation (affecting the O(αs ) terms in eq. (59)) are important, and the dependence on the
+% unphysical matching scale may be larger than NLL unless the implementation matches the theoretical
+% algorithm precisely [54, 56, 58]. One should also be aware that all strategies of this type are
+% quite
+% computing intensive. This is basically due to the fact that a separate phase-space generator is
+% required
+% for each of the n-parton correction terms, with each such sample a priori consisting of weighted
+% events
+% such that a separate unweighting step (often with quite low efficiency) is needed before an
+% unweighted
+% sample can be produced.
 
-% As we have discussed previously in Section 3.5, parton showers provide an excellent
-% description in regions which are dominated by soft and collinear gluon emission. On the
-% other hand, matrix element calculations provide a good description of processes where
-% the partons are energetic and widely separated and, in addition, include the effects of
-% interference between amplitudes with the same external partons. But, on the other
-% hand, the matrix element calculations do not take into account the interference effects
-% in soft and collinear gluon emissions which cannot be resolved, and which lead to a
-% Sudakov suppression of such emissions.
-% Clearly, a description of a hard interaction which combines the two types of
-% calculations would be preferable. For this combination to take place, there first needs
-% to be a universal formalism that allows the matrix element calculation to “talk” to the
-% parton shower Monte Carlo. Such a universal formalism was crafted during the Les
-% Houches Workshop on Collider Physics in 2001 and the resulting “Les Houches Accord”
-% is in common use [90]. The accord specifies an interface between the matrix element
-% and the parton shower program which provides information on the parton 4-vectors, the
-% mother-daughter relationships, and the spin/helicities and colour flow. It also points to
-% intermediate particles whose mass should be preserved in the parton showering. All of
-% the details are invisible to the casual user and are intended for the matrix element/parton
-% shower authors.
-% Some care must be taken however, as a straight addition of the two techniques
-% would lead to double-counting in kinematic regions where the two calculations overlap.
-% There have been many examples where matrix element information has been used to
-% correct the first or the hardest emission in a parton shower. There are also more general
-% techniques that allow matrix element calculations and parton showers to each be used
-% in kinematic regions where they provide the best description of the event properties and
-% that avoid double-counting. One such technique is termed CKKW [91]
 
-% With the CKKW technique, the matrix element description is used to describe
-% parton branchings at large angle and/or energy, while the parton shower description is
-% used for the smaller angle, lower energy emissions. The phase space for parton emission is
-% thus divided into two regions, matrix element dominated and parton shower dominated,
-% using a resolution parameter dini. The argument of αS at all of the vertices is chosen
-% to be equal to the resolution parameter di at which the branching has taken place and
-% Sudakov form factors are inserted on all of the quark and gluon lines to represent the
-% lack of any emissions with a scale larger than dini between vertices. The di represent
-% a virtuality or energy scale. Parton showering is used to produce additional emissions
-% at scales less than dini . For a typical matching scale, approximately 10% of the n-jet
-% cross section is produced by parton showering from the n-1 parton matrix element; the
-% rest arises mostly from the n-parton matrix element. A schematic representation of the
-% CKKW scheme is shown in Figure 26 for the case of W + jets production at a hadron-
-% hadron collider. A description of a W + 2 jet event in the NLO formalism is also shown
-% for comparison.
-% The CKKW procedure provides a matching between the matrix element and parton
-% shower that should be correct to the next-to-leading-logarithm (NLL) level. There are,
-% however, a number of choices that must be made in the matching procedure that do
-% not formally affect the logarithmic behaviour but do affect the numerical predictions,
-% on the order of 20–30%. The CKKW procedure gives the right amount of radiation but
-% tends to put some of it in the wrong place with the wrong colour flow. Variations that
-% result from these choices must be considered as part of the systematic error inherent in
-% the CKKW process. This will be discussed further in Section 5.
-% For the CKKW formalism to work, matrix element information must in principle
-% be available for any number n of partons in the final state. Practically speaking, having
-% information available for n up to 4 is sufficient for the description of most events at the
-% Tevatron or LHC. The CKKW formalism is implemented in the parton shower Monte
-% Carlo SHERPA [92] and has also been used for event generation at the Tevatron and
-% LHC using the Mrenna-Richardson formalism [94]. An approximate version of CKKW
-% matching (the “MLM approach” + ) is available in ALPGEN 2.0 [18]
+
 
 \subsection{Hadronization \label{sec:event_hadronization}}
 
+Real events do not consist of partons but of hadrons. Therefore, the set of post-shower partons
+must be transformed into a set of primary hadrons, which can then decay further. 
+Hadronization is a non-perturbative transition taking place at the hadronization scale. In the
+event generation context this scale is by construction identical to the cutoff (resolution) scale of
+the parton shower.
+Since we have no idea how to calculate the transition between partons and hadrons from first
+principles, event generators use QCD-inspired phenomenological models.
+Although non-perturbative QCD is not solved, we do have some knowledge of the properties
+that such a solution must have. 
+An important result from lattice QCD calculations is that the potential of the colour dipole field
+between a charge and an anticharge appears to grow linearly with the separation of the charges, when
+the separation is greater than about a femtometer. This is known as \textit{linear confinement}, and
+is used as a starting point for the string model of hadronization.
+The most widely used model is the Lund model, which is implemented in \textsc{Pythia}.
 
-% Real events consist not of partons but of hadrons. Since we have no idea how to calculate the
-% transition between partons and hadrons, Monte Carlo event generators resort to ‘hadronization’
-% models.
-% One widely-used model involves stretching a colour ‘string’ across quarks and gluons, and breaking
-% it up into hadrons [89, 90]. For a discussion of the implementation of this ‘Lund’ model in the MC
-% program PYTHIA, with further improvements and extensions, Ref. [86] and references therein provide
-% many details. Another model breaks each gluon into a qq¯ pair and then groups quarks and anti-quarks
-% into colourless ‘clusters’, which then give the hadrons. This cluster type hadronization is
-% implemented in
-% the HERWIG event generator [87,88,91] and recent versions of SHERPA. Both approaches are illustrated
-% in Fig. 26
-% Hadronization models involve a number of ‘non-perturbative’ parameters. The parton-shower
-% itself involves the non-perturbative cutoff Q0. These different parameters are usually tuned to data
-% from
-% the LEP experiments. The quality of the description of the data that results is illustrated in Fig.
-% 27.
+Let us consider the production of a $\cPq\bar{\cPq}$ pair. As the quarks move apart,
+linear confinement implies that a potential
+\begin{equation}
+  V(r) = \kappa r
+\end{equation}
+is expected at large distances $r$.  This is exactly the potential describing a
+string with tension $\kappa$. We can thus interpret this as a colour flux tube that is being
+stretched
+between the quark and the antiquark. From hadron mass spectroscopy the string tension is
+measured to be about $1\GeV/\unit{fm}$.
+As the $\cPq$ and $\bar{\cPq}$ move apart, their kinetic energy is gradually converted to potential
+energy, stored in the growing string spanned between them. 
+Quark-antiquark fluctuations inside the string field can become real particles by absorbing energy
+from the string. The original endpoint charges are then screened from each other and the
+string breaks into two separate colour-singlet pieces, $(\cPq \bar{\cPq}) \rightarrow (\cPq
+\bar{\cPq}') + (\cPq' \bar{\cPq})$. This process continues until only hadrons remain.
+Since the string breaks are causally disconnected, they do not have to be considered in any
+specific time-ordered sequence. In the Lund model, the string breaks are generated starting
+with the hadrons containing the endpoint quarks, and iterating inwards towards the centre of the
+string, alternating randomly between the left- and right-hand sides, allowing a single on-shell
+hadron to be split off in each step. 
 
-
+The details of the individual string breaks are not known from first principles. The Lund model
+uses the idea of quantum mechanical tunneling, which leads to a flavour-independent
+Gaussian spectrum for the transverse momentum (w.r.t. the flux tube) of the $\cPq \bar{\cPq}$ pairs.
+Baryon production can be incorporated by allowing string breaks to occur by the production of
+pairs of so-called diquarks, loosely bound states of two quarks in a color antitriplet state. 
+Because the knowledge of hadronization is incomplete, experimental input is needed to tune many of
+the parameters describing the finer details, such as flavor composition, and the ratio of vector to
+pseudoscalar mesons. 
