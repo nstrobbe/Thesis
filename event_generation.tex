@@ -2,50 +2,186 @@
 %% Event generation 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% add info on Madgraph, pythia, jet matching etc
 
 In this section I will explain in more detail the various techniques employed by the most common
-event generators. In particular, I will focus on \MADGRAPH and \PYTHIA, the programs
-that generated the events for most of the processes used in the Razor Boost analysis, presented in
-Chapter~\ref{chap:razorboost}. 
+event generators. In particular, I will focus on \MADGRAPH~\cite{Alwall:2011uj,Alwall:2014hca} and
+\PYTHIA~\cite{Sjostrand:2006za}, the programs that generated the events for most of the processes
+used in the Razor Boost analysis, presented in Chapter~\ref{chap:razorboost}. 
 The following sections are based on
-Refs.~\cite{Campbell:2006wx,Salam:2010zt,Skands:2011pf,Buckley:2011ms,Sjostrand:2006za}. 
+Refs.~\cite{Campbell:2006wx,Salam:2010zt,Skands:2011pf,Buckley:2011ms,Sjostrand:2006za,Alwall:2011uj
+,Alwall:2014hca}. 
 
 \subsection{Matrix element generators \label{sec:event_matrix_element_generators}}
-
-% explain basics of how madgraph works internally 
-% narrow width approx?
-
-% From P. Skands:
-% Using PDFs extracted using higher-order matrix elements in lower-order calculations, as, e.g.,
-% when using NLO PDFs as input to an LO calculation. In principle, the higher-order PDFs are
-% better constrained and the difference between, e.g., an NLO and an LO set should formally be
-% beyond LO precision, so that one might be tempted to simply use the highest-order available
-% PDFs for any calculation. However, as described in section 2.4, it is often possible to partly
-% absorb
-% higher-order terms into lower-order coefficients. In the context of PDFs, the fit parameters
-% of lower-order PDFs will effectively attempt to “compensate” for missing higher-order contributions
-% in the matrix elements. To the extent those higher-order contributions are universal, this
-% is both desirable and self-consistent. However, this will only give an improvement when used
-% with matrix elements at the same order as those used to extract the PDFs. It is therefore quite
-% possible that NLO PDFs used in conjunction with LO matrix elements give a worse agreement
-% with data than LO PDFs do
-
 
 As explained previously, the hard interaction can be described using matrix elements, which can be
 computed, at least in principle, order by order using perturbation theory. 
 There are a variety of programs available that calculate the tree-level diagrams numerically,
 and integrate over the relevant phase space. The most widely used are \MADGRAPH, now merged
-into \textsc{MG\_aMC@NLO}, and \textsc{Alpgen}. 
+into \textsc{MG\_aMC@NLO}, and \textsc{Alpgen}~\cite{Mangano:2002ea}. 
 There are no inherent limits to the number of final state particles that could be produced with
 these programs, although, in practice, the computation is limited by the factorial growth of the
 number of diagrams as we go higher in multiplicity of final state particles. 
+In this section I will explain the basic algorithms used by \MADGRAPH to generate events at leading
+order accuracy. For all details, and a discussion on how event generation at next-to-leading order
+precision is done, I refer to Refs.~\cite{Alwall:2011uj,Alwall:2014hca}.
+
+\MADGRAPH allows for automatic generation of matrix elements for collider physics processes, such as
+decays and $2 \rightarrow n$ scatterings. 
+As the user, one first specifies the desired process in terms of initial and
+final state particles. It is possible to exclude or require the presence of s-channel resonances,
+and one can force a particular decay chain. 
+Once the process is fully specified, \MADGRAPH computes all Feynman diagrams that can contribute,
+and writes process-specific code to compute the matrix elements. The user is not restricted
+to models implemented by default in \MADGRAPH. Feynman rules for any (new) physics model can be
+obtained via \textsc{FeynRules}~\cite{Alloul:2013bka} and passed to \MADGRAPH via the standardized
+UFO format~\cite{Degrande:2011ua}. 
+
+The algorithm to determine all relevant diagrams recursively creates sub-diagrams by merging legs.
+It can be most easily explained by considering a simple example. We will go through the different
+steps for the diagram generation of $e^+ e^- \rightarrow \cPqu \cPaqu \cPg$. The relevant vertices
+in the standard model are $(e^+ e^- \gamma)$, $(e^+ e^- \cPZ)$, $(\cPqu \cPaqu \gamma)$, $(\cPqu
+\cPaqu \cPZ)$, and $(\cPqu \cPaqu \cPg)$. Before the start of the algorithm, the initial state
+particles are flipped such that only outgoing particles are present. We then proceed as follows.
+\begin{enumerate}
+  \item  First it is checked whether there is a vertex including all particles. In this example
+this is not the case. 
+  \item Then all possible two-particle groupings are performed, and the groups are replaced by a
+single particle according to the allowed vertices. An example is the grouping $(e^+ e^-) \cPqu
+\cPaqu \cPg$, which results in the replacements $(\gamma) \cPqu \cPaqu \cPg$ and $(\cPZ) \cPqu
+\cPaqu \cPg$. The full list of groupings and replacements for this example is shown in
+Table~\ref{tab:madgraph_diagrams}. Each option gets assigned a number according to how many groups
+were replaced, here either 1 or 2. 
+  \item All combinations after the replacement for which fewer than two groupings were replaced,
+i.e. the first seven in the table, are discarded because they cannot give rise to valid diagrams, or
+would lead to double counting if grouped further. 
+  \item For the remaining combinations the presence of a valid vertex is checked. Only the final
+four options have a valid vertex in this example. These diagrams are thus added to the list of
+possible diagrams. 
+  \item The iteration ends here because any further grouping of these valid diagrams would result
+in a state that contained less than two replacements. The four diagrams that were generated are
+shown in Fig.~\ref{fig:madgraph_diagrams}.
+\end{enumerate}
+
+\begin{table}[t]
+  \caption{Steps for the diagram generation algorithm employed in \MADGRAPH. Table taken from
+Ref.~\cite{Alwall:2011uj}. 
+  \label{tab:madgraph_diagrams}}
+  \begin{center}
+  {\setlength{\tabcolsep}{1.5eM}
+  \begin{tabular}{l l l}
+  \toprule
+  First iteration & Groupings & Replacements \\
+  \midrule
+  \multirow{17}{*}{$e^-,e^+,\cPqu,\cPaqu,\cPg$} & \multirow{2}{*}{$(e^-,e^+),\cPqu,\cPaqu,\cPg$} &
+$(\gamma), \cPqu, \cPaqu, \cPg$ \\
+  & & $(\cPZ), \cPqu, \cPaqu, \cPg$ \\ \cmidrule(lr){2-3}
+  & \multirow{3}{*}{$e^- , e^+ , (\cPqu, \cPaqu), \cPg$} & $e^- , e^+ , (\gamma), \cPg$ \\
+  & & $e^- , e^+ , (\cPZ), \cPg$ \\
+  & & $e^- , e^+ , (\cPg), \cPg$\\ \cmidrule(lr){2-3}
+  & $e^- , e^+ , (\cPqu, \cPg), \cPaqu$ & $e^- , e^+ , (\cPqu), \cPaqu$\\ \cmidrule(lr){2-3}
+  & $e^- , e^+ , \cPqu, (\cPaqu,\cPg)$ & $e^- , e^+ , \cPqu, (\cPaqu)$\\ \cmidrule(lr){2-3}
+  & \multirow{6}{*}{$(e^- , e^+ ), (\cPqu, \cPaqu), \cPg$} & $(\gamma), (\gamma), \cPg$ \\
+  & & $(\gamma), (\cPZ), \cPg$\\
+  & & $(\gamma ), (\cPg), \cPg$\\
+  & & $(\cPZ ), (\gamma), \cPg$\\
+  & & $(\cPZ ), (\cPZ), \cPg$\\
+  & & $(\cPZ ), (\cPg), \cPg$\\ \cmidrule(lr){2-3}
+  & \multirow{2}{*}{$(e^- , e^+ ), (\cPqu, \cPg), \cPaqu$} & $(\gamma ), (\cPqu), \cPaqu$\\
+  & & $(\cPZ ), (\cPqu), \cPaqu$ \\ \cmidrule(lr){2-3}
+  & \multirow{2}{*}{$(e^- , e^+ ), \cPqu, (\cPg, \cPaqu)$} & $(\gamma ), \cPqu, (\cPaqu)$\\
+  & & $(\cPZ ), \cPqu, (\cPaqu)$\\ 
+  \bottomrule
+  \end{tabular}
+  }
+  \end{center}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth, clip=true, trim=1cm 10.5cm 1cm 2cm]
+{figures/eventreco_generation/matrix1}
+  \caption{Feynman diagrams for the process $e^+ e^- \rightarrow \cPqu \cPaqu \cPg$
+  \label{fig:madgraph_diagrams}}
+\end{figure}
+
+The computation of the squared matrix element for a given process is done via calls to helicity
+wavefunctions and amplitudes. Helicity amplitudes work on the amplitude level, in constrast to the
+methods using contraction of Lorentz-indices that work on squared amplitudes.  A big advantage is
+that the complexity of the calculation grows linearly rather than quadratically, and that diagrams
+are factorized such that the subcomponents, i.e. the helicity wavefunction calls, can be reused
+between diagrams. 
+A helicity wavefunction is first generated for each external leg in any diagram using the
+\textsc{ALOHA}~\cite{deAquino:2011ub} package. 
+These wavefunctions are then combined into new wavefunctions corresponding to the propagators in the
+diagram by successive helicity wavefunction calls. The final vertex then corresponds to a helicity
+amplitude call which returns the value of the amplitude corresponding to this particular diagram.
+
+Particle decays are treated in the same way as the production, allowing for efficient treatment of
+multiprocesses with the same decay pattern. An example of this is the process $\Pp \Pp \rightarrow
+\W^+$, with $\W^+ \rightarrow \ell^+ \nu_l$. This process contains the production
+processes, $\cPqu \cPaqd \rightarrow \W^+$, $\cPaqd \cPqu \rightarrow \W^+$, $\cPqc \cPaqs
+\rightarrow \W^+$, $\cPaqs \cPqc \rightarrow \W^+$, and the decay processes $\W^+ \rightarrow
+e^+ \nu_e$, $\W^+ \rightarrow \mu^+ \nu_\mu$, $\W^+ \rightarrow \tau^+ \nu_\tau$. 
+All these building blocks only need to be generated once, and can then be combined in all possible
+ways to obtain the full matrix element.  
  
+Once the code for the process under consideration is generated, we can start generating events.
+\MADGRAPH uses a so-called run\_card as configuration for the event generation. In this card the
+user can specify how many events to produce, which phase space cuts to apply, which parton
+distribution functions to use, how to choose the renormalization scale, et cetera. Using this
+configuration, the numerical integration of the matrix element squared over the appropriate phase
+space is performed, and unweighted events are finally obtained. 
+
+The phase space to integrate is usually high-dimensional, and contains many peaks, which are often
+ related to propagators in one of the diagrams becoming large. 
+Efficient sampling techniques are thus critical for the performance of the event generation.
+Standard MC integration techniques such as importance sampling have the drawback that you need to
+know a lot about the function $f$ you wish to integrate in order to find an appropriate, more
+well-behaved, function $g$ to help the MC integration. 
+Since this is not usually the case for these phase space integrals, the \MADGRAPH program implements
+a custom integration method, called single-diagram-enhanced multi-channel
+integration~\cite{Maltoni:2002qb}.
+The method works as follows.
+Assume that the function to be integrated could be written in terms of a basis of $n$ functions
+$f_i$,
+\begin{equation}
+  f = \sum_{i=1}^n f_i, \text{ with } f_i > 0, \quad \forall i,
+\end{equation}
+such that the peak structure of each $f_i$ can be efficiently mapped by a single function $g_i$.
+Then, the integration of $f$ reduces to a sum of $n$ independent, and simpler, integrations.
+\begin{equation}
+  I = \int d\Phi f(\Phi) = \sum_{i=1}^n \int d\Phi g_i(\Phi) \frac{f_i(\Phi)}{g_i(\Phi)} =
+\sum_{i=1}^n I_i .
+\end{equation}
+For a generic integration problem, such a basis might be too difficult to identify, but here we can
+use the physical content of the process and decompose $f$ according to the single Feynman diagrams, 
+\begin{equation}
+  f_i = \frac{|A_i|^2}{\sum_i |A_i|^2} |A_{\text{total}}|^2
+\end{equation}
+where $A_i$ is the amplitude corresponding to a single Feynman diagram and $A_{\text{total}}$ is the
+total amplitude. Finding the suitable mapping $g_i$ is straightforward, since it can be
+derived from the known propagator structure of the corresponding Feynman diagram. 
+Since the $I_i$ can be computed independently and then combined, this method is inherently parallel
+in nature, allowing the use of computer clusters to speed up the computation and thus facilitating
+the generation of more complicated processes.  
+
+Because of its good performance, ease of use, and flexibility, \MADGRAPH is the standard
+matrix-element generator used by the CMS experiment. 
+Other generators are still used for dedicated processes, or to derive systematic
+uncertainties on the prediction coming from the details and approximations made by the various 
+event generators. 
+
+The result of the event generation is a set of final state, hard particles. Very
+soft or collinear particles cannot be computed by matrix-element generators, as the matrix element
+diverges. The next section will cover parton shower programs, whose purpose is exactly to deal with
+soft and collinear radiation. Section~\ref{sec:event_matching} will discuss a technique on how to
+match the matrix element computation with the parton shower to obtain the best of both worlds. 
+
 
 
 \subsection{Parton shower}
 
-% discuss underlying event tunes etc
+
 
 % For the case of parton showers from the initial state,
 % the evolution proceeds backwards from the hard scale of the process to the cutoff scale,
@@ -212,7 +348,7 @@ after the hard interaction, all which should be described at the low scale, via 
 models. The most widely used hadronization model will be discussed in
 Section~\ref{sec:event_hadronization}. 
 
-\subsection{Matching the matrix element to the parton shower}
+\subsection{Matching the matrix element to the parton shower \label{sec:event_matching}}
 
 % motivation (double counting)
 % MLM matching 
@@ -410,7 +546,7 @@ An important result from lattice QCD calculations is that the potential of the c
 between a charge and an anticharge appears to grow linearly with the separation of the charges, when
 the separation is greater than about a femtometer. This is known as \textit{linear confinement}, and
 is used as a starting point for the string model of hadronization.
-The most widely used model is the Lund model, which is implemented in \textsc{Pythia}.
+The most widely used model is the Lund model, which is implemented in \PYTHIA.
 
 Let us consider the production of a $\cPq\bar{\cPq}$ pair. As the quarks move apart,
 linear confinement implies that a potential
@@ -442,3 +578,35 @@ pairs of so-called diquarks, loosely bound states of two quarks in a color antit
 Because the knowledge of hadronization is incomplete, experimental input is needed to tune many of
 the parameters describing the finer details, such as flavor composition, and the ratio of vector to
 pseudoscalar mesons. 
+
+
+\subsection{Generator tuning}
+
+Monte Carlo event generators are able to provide a full picture of collider final states, down to
+the level of individual particles. This allows them to be used as theory reference against which
+the standard model, or a new physics model, can be tested. The accuracy of the prediction depends
+on the chosen observable, and on the sophistication of the generation. 
+Apart from including higher order corrections, or using better non-perturbative models, it is also
+crucial to constrain the remaining free parameters of the generation models using existing data.
+This process is referred to as generator tuning. 
+
+Generator models have a vast array of adjustable parameters, but most of these control relatively
+small details. The few exceptions are the value of $\alpha_S$ in the perturbative domain, and the
+form of the fragmentation functions that govern the non-perturbative hadronization process. 
+Tuning all possible parameters is usually done in a highly factorized way, constraining just a few
+parameters at a time using carefully selected experimental data. 
+Of course, subsequent steps can alter the agreement obtained in the previous steps. Obtaining a
+full generator tune requires several iterations. 
+Automated tools have been developed in recent years to reduce the amount of manpower required.
+However, the need for expert input cannot be fully removed. 
+
+Different kinds of experimental data are used to contrain different parameters. Tuning of final
+state radiation and hadronization is mostly done using LEP and other $e^+ e^-$ data,  which have
+the advantage that the initial state does not cause extra complications in the interpretation of jet
+related observables. Constraints on initial state radiation are derived primarily from Drell-Yan
+events in hadron collisions. 
+While performing the generator tuning it is important to realize that for many observables we do
+not expect agreement to better than about 5-10\%. We should thus take care not to overtune on one
+single observable, but rather aim for an overall adequate performance. 
+
+
