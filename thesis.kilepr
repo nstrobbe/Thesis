@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.0
-lastDocument=event_what_is_an_event.tex
+lastDocument=event_generation.tex
 masterDocument=
 name=thesis
 pkg_extIsRegExp=false
@@ -471,17 +471,17 @@ archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=183
 mode=LaTeX
 open=true
 order=4
 
 [item:event_gensimreco.tex]
 archive=true
-column=88
+column=53
 encoding=UTF-8
 highlight=LaTeX
-line=3
+line=38
 mode=LaTeX
 open=true
 order=2
@@ -518,10 +518,10 @@ order=5
 
 [item:event_what_is_an_event.tex]
 archive=true
-column=3
+column=62
 encoding=UTF-8
 highlight=LaTeX
-line=90
+line=231
 mode=LaTeX
 open=true
 order=3
@@ -578,10 +578,10 @@ order=4
 
 [item:thesis.bib]
 archive=true
-column=10
+column=2
 encoding=UTF-8
 highlight=BibTeX
-line=12
+line=528
 mode=BibTeX
 open=true
 order=1
@@ -598,10 +598,10 @@ order=-1
 
 [item:thesis.tex]
 archive=true
-column=23
+column=17
 encoding=UTF-8
 highlight=LaTeX
-line=104
+line=40
 mode=LaTeX
 open=true
 order=0
@@ -704,13 +704,13 @@ ViMarks=
 
 [view-settings,view=0,item:event_generation.tex]
 CursorColumn=0
-CursorLine=0
+CursorLine=183
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:event_gensimreco.tex]
-CursorColumn=88
-CursorLine=3
+CursorColumn=53
+CursorLine=38
 JumpList=
 ViMarks=
 
@@ -733,8 +733,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:event_what_is_an_event.tex]
-CursorColumn=3
-CursorLine=90
+CursorColumn=62
+CursorLine=231
 JumpList=
 ViMarks=
 
@@ -769,13 +769,13 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.bib]
-CursorColumn=10
-CursorLine=12
+CursorColumn=2
+CursorLine=528
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.tex]
-CursorColumn=23
-CursorLine=104
+CursorColumn=17
+CursorLine=40
 JumpList=
 ViMarks=

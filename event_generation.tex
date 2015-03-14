@@ -181,46 +181,6 @@ match the matrix element computation with the parton shower to obtain the best o
 
 \subsection{Parton shower}
 
-
-
-% For the case of parton showers from the initial state,
-% the evolution proceeds backwards from the hard scale of the process to the cutoff scale,
-% with the Sudakov form factors being weighted by the parton distribution functions at
-% the relevant scales.
-
-% In the parton showering process, successive values of an evolution variable t, a
-% momentum fraction z and an azimuthal angle φ are generated, along with the flavours
-% of the partons emitted during the showering. The evolution variable t can be the
-% virtuality of the parent parton (as in PYTHIA versions 6.2 and earlier and in SHERPA),
-% E 2 (1 − cos θ), where E is the energy of the parent parton and θ is the opening angle
-% between the two partons (as in HERWIG) , or the square of the relative transverse
-% momentum of the two partons in the splitting (as in PYTHIA 6.3). The HERWIG
-% evolution variable has angular ordering built in, angular ordering is implicit in the
-% PYTHIA 6.3 [85] evolution variable, and angular ordering has to be imposed after the
-% fact for the PYTHIA 6.2 evolution variable. Angular ordering represents an attempt to
-% simulate more precisely those higher order contributions that are enhanced due to soft
-% gluon emission (colour coherence). Fixed order calculations explicitly account for colour
-% coherence, while parton shower Monte Carlos that include colour flow information model
-% it only approximately.
-% Note that with parton showering, we in principle introduce two new scales, one for
-% initial state parton showering and one for the shower in the final state. In the PYTHIA
-% Monte Carlo, the scale used is most often related to the maximum virtuality in the
-% hard scattering, although a larger ad hoc scale, such as the total centre-of-mass energy,
-% can also be chosen by the user. The HERWIG showering scale is determined by the
-% specific colour flow in the hard process and is related to the invariant mass of the colour
-% connected partons.
-% the Sudakov form
-% factor gives the probability for a parton to evolve from a harder scale to a softer scale
-% without emitting a parton harder than some resolution scale, either in the initial state
-% or in the final state. Sudakov form factors form the basis for both parton showering and
-% resummation
-% A Sudakov
-% form factor will depend on: (1) the parton type (quark or gluon), (2) the momentum
-% fraction x of the initial state parton, (3) the hard and cutoff scales for the process and
-% (4) the resolution scale for the emission.
-
-
-
 The fixed-order matrix-element MC programs discussed in the previous section provide a powerful
 combination of accuracy and flexibility as long as you want to calculate infrared and collinear safe
 observables -- such as jets, $\W$ or $\cPZ$ bosons, but not pions, kaons, et cetera -- and
@@ -283,8 +243,6 @@ Since Eq.~\ref{eq:splitting} is a completely general expression that does not de
 process, we can iterate it, using it on a parton resulting from the hard process to generate
 one branching and then treating the new final state as the hard process, generating another
 splitting from it, and so on. In what follows we will discuss how this shall be done in practice.
-%utiziling the trick of unit total probability to avoid computing divergent pieces, and thus
-%implicitly including high-order corrections into our results. 
 
 The integral of the branching probability over all allowed $z$ values, according to the
 particular resolution criterion imposed, and for a given $t$ value, is defined as
@@ -348,11 +306,8 @@ after the hard interaction, all which should be described at the low scale, via 
 models. The most widely used hadronization model will be discussed in
 Section~\ref{sec:event_hadronization}. 
 
-\subsection{Matching the matrix element to the parton shower \label{sec:event_matching}}
 
-% motivation (double counting)
-% MLM matching 
-% xqcut, qcut
+\subsection{Matching the matrix element to the parton shower \label{sec:event_matching}}
 
 On the one hand, parton shower MC programs provide an excellent event description in regions which
 are dominated by soft and collinear gluon emission, including the hadron-level details that are
@@ -367,8 +322,8 @@ different parton multiplicities, as illustrated in Fig.~\ref{fig:overlap}.
 We will thus need a matching between the matrix element
 and the parton shower to ensure the proper removal of these overlaps.
 There are several techniques available to perform this matching. I will focus here on the so-called
-\textit{MLM matching}, which is the technique used in CMS to match \MADGRAPH with
-\PYTHIA. The MLM technique comprises three main steps, the first of which is done at the
+\textit{MLM matching}~\cite{Alwall:2007fs}, which is the technique used in CMS to match \MADGRAPH
+with \PYTHIA. The MLM technique comprises three main steps, the first of which is done at the
 matrix element level. Then the partons are showered, and finally the shower jets are matched to the
 hard partons. 
 In next paragraphs I will discuss each step in more detail. 
@@ -438,97 +393,57 @@ the event.
 If we can match all partons, and there are no additional jets, the event is accepted. 
 In case all partons are matched, but there is an additional jet, then we need to be more careful. 
 If the full process we generated had up to $N$ additional partons at the matrix element level, and
-the current event had $n < N$ hard partons, then the event is rejected. The reason is that
-the additional jet that was added by the parton shower is actually already included at the next
-multiplicity. In case the current event had $N$ hard partons, we will still accept the event as
-long as the added jet is softer than the softest hard parton in the event. 
-In this way any double-counting is removed. 
+the current event had $n < N$ hard partons, then we are in exclusive mode and the event is rejected.
+The reason is that the additional jet that was added by the parton shower is actually already
+included at the next multiplicity. In case the current event had $N$ hard partons, we are in
+inclusive mode, and we will still accept the event as long as the added jet is softer than the
+softest hard parton in the event. 
+In this way any double-counting is removed. These three cases are illustrated in
+Figure~\ref{fig:matching}. 
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.31\textwidth, clip=true, trim=4cm 3cm 4cm 2cm]
+  {figures/eventreco_generation/matching1}
+  ~
+  \includegraphics[width=0.31\textwidth, clip=true, trim=4cm 3cm 4cm 2cm]
+  {figures/eventreco_generation/matching2}
+  ~
+  \includegraphics[width=0.31\textwidth, clip=true, trim=4cm 3cm 4cm 2cm]
+  {figures/eventreco_generation/matching3}
+  \caption{Illustration of the matching procedure for an event with three hard partons (solid
+lines). On the left the jet clustering after the shower results in three jets, that are matched to
+the three partons. The full event is thus matched, and accepted. In the middle plot the parton
+shower added two extra partons (dashed lines), and the hard partons were emitted closer together.
+The jet clustering still results in three jets, but now one hard parton cannot be matched to a jet.
+The event will thus be rejected. In the right-hand plot each hard parton is matched to a jet, but
+there is an additional jet present. If we are in inclusive mode, the event is accepted, otherwise
+it is rejected.  
+  Figures adapted from Ref.~\cite{mlm_plots}. 
+  \label{fig:matching}}
+\end{figure}
+
 
 It is important to verify that the matching procedure behaves properly. In particular, jet related
 quantities should have a smooth shape, without any jumps. The presence of discontinuities indicates
-the that the scales $Q_{\mathrm{match}}$ and $Q_{\mathrm{cut}}^{\mathrm{ME}}$ are not chosen
+that the scales $Q_{\mathrm{match}}$ and $Q_{\mathrm{cut}}^{\mathrm{ME}}$ are not chosen
 correctly to ensure a smooth transition between matrix element and parton shower. The distributions
-that are typically checked in this regard are the so-called difference jet rates (DJR). 
-Another test is the stability of the matched cross section when varying the matching scale. In
-general, the systematic uncertainty associated to the matching procedure can be estimated by
-varying the matching scale. A common choice is to vary the scale by a factor two up or down. 
+that are typically checked in this regard are the so-called difference jet rates
+(DJR)~\cite{Alwall:2008qv}. 
 
+The differential jet rate $i$ is the scale at which a given configuration with $n\geq i$ hard
+partons passes from being reconstructed as an $i$-jet one to being reconstructed as an $(i − 1)$-jet
+one. 
+In this case, with $k_\mathrm{T}$ jet clustering, the differential jet rates are simply the actual
+clustering scales. The $1\rightarrow 0$ differential jet rate (DJR1) is the \pt of the last
+remaining jet after clustering. The $2\rightarrow 1$ differential jet rate (DJR2) is the smallest of
+the \pt of the second last remaining jet and the $k_\mathrm{T}$ between the second and the first
+jet, and so on for the other DJR distributions.
 
-% The essential problem that leads to matrix-element/parton-shower matching can be illustrated in a
-% very simple way. Assume we have computed the LO cross section for some process, F , and that we
-% have added an LL shower to it, as in the left-hand pane of figure 12. We know that this only gives
-% us an
-% LL description of F + 1. We now wish to improve this from LL to LO by adding the actual LO matrix
-% element for F + 1. Since we also want to be able to hadronize these events, etc, we again add an LL
-% shower off them. However, since the matrix element for F + 1 is divergent, we must restrict it to
-% cover
-% only the phase-space region with at least one hard resolved jet, illustrated by the half-shaded
-% boxes in
-% the middle pane of figure 12. Adding these two samples, however, we end up counting the LL terms
-% of the inclusive cross section for F + 1 twice, since we are now getting them once from the shower
-% off F and once from the matrix element for F + 1, illustrated by the dark shaded (red) areas of the
-% right-hand pane of figure 12. This double-counting problem would grow worse if we attempted to add
-% more matrix elements, with more legs. The cause is very simple. Each such calculation corresponds
-% to an inclusive cross section, and hence naive addition would give
-% σtot = σ0;incl + σ1;incl = σ0;excl + 2 σ1;incl .
-% (58)
-% Instead, we must match the coefficients calculated by the two parts of the full calculation —
-% showers
-% and matrix elements — more systematically, for each order in perturbation theory, so that the
-% nesting
-% of inclusive and exclusive cross sections is respected without overcounting.
-
-% Given a parton shower and a matrix-element generator, there are fundamentally three different
-% ways in which we can consider matching the two [34]:
-% 1. Slicing: The most commonly encountered matching type is currently based on separating
-% (slicing) phase space into two regions, one of which is supposed to be mainly described by hard
-% matrix
-% elements and the other of which is supposed to be described by the shower. This type of approach
-% was first used in H ERWIG [50], to include matrix-element corrections for one emission beyond the
-% basic hard process [51, 52]. This is illustrated in figure 13. The method has since been generalized
-% by several independent groups to include arbitrary numbers of additional legs [53–57]. Effectively,
-% the shower approximation is set to zero above some scale (either due to the presence of explicit
-% dead
-% zones in the shower, as in H ERWIG, or by vetoing any emissions above a certain matching scale, as
-% in
-% the (L)-CKKW [53, 54, 56] and MLM [55, 57] approaches), causing the matched result to be identical
-% to the matrix element (ME) in that region, modulo higher-order corrections. We may sketch this as
-% ME
-% corrections
-% Matched (above matching scale) = Exact × (1 + O(αs )) ,
-% (59)
-% where the “shower-corrections” include approximate Sudakov factors and αs reweighting factors ap-
-% plied to the matrix elements in order to obtain a smooth transition to the shower-dominated region.
-% Below the matching scale, the small difference between the matrix elements and the shower approx-
-% imation can be dropped (since their leading singularities are identical and this region by
-% definition
-% includes no hard jets), yielding the pure shower answer in that region,
-% shower
-% Matched (below matching scale)
-% =
-% =
-% correction
-% Approximate + (Exact − Approximate)
-% Approximate + non-singular
-% → Approximate .
-% This type of strategy is illustrated in figure 14. Since this strategy is discontinuous across phase
-% space, a main point here is to ensure that the behaviour across the matching scale be as smooth as
-% possible. CKKW showed [53] that it is possible to remove any dependence on the matching scale
-% through NLL precision by careful choices of all ingredients in the matching; technical details of
-% the
-% implementation (affecting the O(αs ) terms in eq. (59)) are important, and the dependence on the
-% unphysical matching scale may be larger than NLL unless the implementation matches the theoretical
-% algorithm precisely [54, 56, 58]. One should also be aware that all strategies of this type are
-% quite
-% computing intensive. This is basically due to the fact that a separate phase-space generator is
-% required
-% for each of the n-parton correction terms, with each such sample a priori consisting of weighted
-% events
-% such that a separate unweighting step (often with quite low efficiency) is needed before an
-% unweighted
-% sample can be produced.
-
-
+Another test of the matching procedure is the stability of the matched cross section when varying
+the matching scale. In general, the systematic uncertainty associated to the matching procedure can
+be estimated by varying the matching scale. A common choice is to vary the scale by a factor two up
+or down. 
 
 
 \subsection{Hadronization \label{sec:event_hadronization}}
@@ -568,7 +483,18 @@ Since the string breaks are causally disconnected, they do not have to be consid
 specific time-ordered sequence. In the Lund model, the string breaks are generated starting
 with the hadrons containing the endpoint quarks, and iterating inwards towards the centre of the
 string, alternating randomly between the left- and right-hand sides, allowing a single on-shell
-hadron to be split off in each step. 
+hadron to be split off in each step. An illustration of the colour flux tube and the breakup of the
+string system is shown in Fig.~\ref{fig:hadronization_string}.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/eventreco_generation/stringone}
+  \caption{ (a) A colour flux tube spanned between a quark and an antiquark. (b) The motion
+and breakup of a string system. Diagonal lines are (anti-)quarks, horizontal lines snapshots of the
+string field. Figure and caption taken from Ref.~\cite{Buckley:2011ms}.
+  \label{fig:hadronization_string}}
+\end{figure}
+
 
 The details of the individual string breaks are not known from first principles. The Lund model
 uses the idea of quantum mechanical tunneling, which leads to a flavour-independent
