@@ -2,12 +2,112 @@
 %% Event simulation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Simulation of the CMS detector response is done in one of two ways: a `full' simulation
+(FullSim) which is time-consuming but very accurate, or a `fast' simulation (FastSim), which is much
+faster, but for which approximations have been made. The following subsections will explain the
+basic concepts and use cases for both of these options. 
 
 \subsection{CMS Full Simulation using Geant4 \label{subsec:fullsim}}
 
-% add some info on how this is done, particle interaction with matter, ionization, 
-% how it deals with long lived particles?
+The purpose of the CMS full simulation~\cite{Banerjee:2007zz,Banerjee:2011zzc,Banerjee:2012ge} is to
+provide a very accurate description of how particles interact with the CMS detector. These simulated
+event samples can then be used to understand and demonstrate the power of analysis methods which
+will later be applied to the real data. They can also be used to derive calibrations, efficiencies
+and resolutions for high level physics objects in case the available data are not sufficient
+
+The inputs to the detector simulation are the hadronized particles from the event generator. These
+particles and their four-vectors are passed to the simulation software in the \textsc{HepMC}
+format~\cite{Dobbs:2001ck}. 
+The particles are then propaged through the CMS detector using the \GEANTfour toolkit~\cite{G4}.
+\GEANTfour contains a large collection of electromagnetic and hadronic physics processes describing
+the interaction of particles with material, and the resulting energy loss. Examples of this are
+brehmsstrahlung, photon conversion, nuclear interactions, multiple scattering, and showering. In
+case new particles are produced in these interactions, they are also propagated further. 
+
+A key component for the success of the simulation is the precise implementation of the detector
+geometry, material budget, and magnetic field strength. Not only the active layers need to be
+accounted for, but also the cooling, cabling, and support structures. 
+Choices must be made for the level of detail to include in the simulation geometry in order to
+optimize computation speed versus the correctness of the simulation.
+Within the CMS software framework there is a single, common implementation of the full detector
+geometry for both the simulation and the reconstruction, ensuring full compatibility.
+
+The accuracy of the detector implementation has been thoroughly tested with dedicated test beam
+data, cosmic muon data, and early LHC collision data. Overall, very good agreement was
+found, and adjustments were made where necessary. 
+
+Pileup interactions are also added at this stage of the processing chain. A library of simulated
+hits of minimum bias events is prepared beforehand, and then used to overlay a number of extra
+interactions onto the signal event according to a specified pileup scenario. 
+As the bunch crossing time is shorter than the time needed for particles of a given event to fully
+traverse the CMS detector, we also need to take into account \textit{out-of-time pileup}, which is
+the effect of previous or subsequent bunch-crossings on the current event. Out-of-time pileup is
+modelled by modifying the timing of the detector hits when overlaying a minimum bias interaction. 
+
+The next step is the conversion of all energy depositions, from signal and pileup events, in the
+sensitive detector volumes to electronic signals. Electronic noise is also included during this
+\textit{digitization} step.
+The output of the digitization is simulated data in a format identical to that of real collision
+data read directly from the detector. The L1 and HLT decisions, and the objects used to arrive at
+them, are also included in the simulated data. 
+From this point onwards the simulated events go through the same reconstruction steps as the real
+data, as will be explained in Section~\ref{sec:event_reconstruction}. 
+
+
+
+
 
 \subsection{CMS Fast Simulation \label{subsec:fastsim}}
 
 % explain what approximations are made, why it is necessary, especially in SUSY searches
+
+
+The CMS fast simulation~\cite{fastsim,Rahmat:2012fs} is a faster alternative to the full simulation
+explained above. 
+It is intended to be used for physics analyses that require the generation of many
+samples to span a wide phase-space region, e.g. the vast SUSY simplified model scans. 
+A set of approximations is made, resulting in a speed
+increase of about a factor twenty. 
+
+The interactions simulated in FastSim are electron bremsstrahlung, photon conversion, charged
+particle energy loss by ionization, charged particle multiple scattering, nuclear interactions, and
+electron, photon and hadron showering. The various CMS subsystems are modelled in different ways,
+with various levels of approximation. 
+
+The tracking detector is the most complicated CMS subsystem, and the one for which the most
+approximations are made, including for the geometry.
+The tracker is modelled by 30 thin nested cylinders, and is assumed to be made of pure silicon,
+uniformly distributed over each layer. The thickness of each layer in terms of interaction lengths
+was tuned to reproduce the number of brehmsstrahlung photons above a certain treshold as observed in
+FullSim.
+Charged particles are propagated between two detector surfaces according to the magnetic field, and
+experience multiple scattering and energy loss by ionization. The intersections between the
+trajectories and each tracker layer define the position of the simulated hits that are then
+converted into reconstructed hits with a certain efficiency, which is determined from FullSim. 
+
+The showers of electrons and photons which hit the electromagnetic calorimeter are simulated as if
+the ECAL were a homogeneous medium. This is a reasonable approximation because the ECAL crystals
+are organized to have almost no gaps in between them. 
+Electrons and photons at rapidity values not covered by the electromagnetic calorimeter ($|\eta| >
+3$) are propagated directly to the forward hadron calorimeter.
+
+Charged and neutral hadrons are propagated to the start of the ECAL, HCAL and HF after their
+interactions with the tracker layers. Their energy response is derived from the full
+simulation. First the energy is smeared according to energy resolution measured in FullSim for
+single pions. Then, this smeared energy is distributed in the calorimeters using parameterized
+longitudinal shower profiles. 
+
+Muons propagate through the tracker, the calorimeters, the solenoid, and the muon chambers. 
+Both muons coming directly from the main interaction vertex and those produced inside the
+tracker from the decay of another particle are included. 
+The calorimeter response is treated similarly to that of charged hadrons. In the muon systems the
+only processes that are taken into account are multiple scattering and energy loss by ionization.
+
+The reconstruction of FastSim tracker hits into tracks is done in a different, faster, way compared
+to FullSim or data. The truth information is used to group hits together that come from the same
+particle. Consequently, FastSim does not have fake tracks. Two hits in the same place are also not
+merged to be one reconstructed hit, as would be the case for the real detector readout. 
+Despite these simplifications, good agreement between FastSim and FullSim track reconstruction is
+observed. 
+
+
