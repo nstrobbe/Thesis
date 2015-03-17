@@ -48,6 +48,8 @@ CMS for this purpose are detailed in Section~\ref{sec:event_reconstruction}.
 
 \section{Event reconstruction \label{sec:event_reconstruction}}
 
+\input{event_reconstruction.tex}
+
 % Add subsection on each object with all the object definitions we use
 
 % We select events with at least one interaction vertex, associated with at least 4 charged-particle
@@ -61,21 +63,7 @@ CMS for this purpose are detailed in Section~\ref{sec:event_reconstruction}.
 % in transverse momentum.  
 
 
- 
-
-\subsection{Particle Flow technique \label{sec:event_reco_pf}}
-
-% CMS reconstructs events using the particle flow (PF) method~\cite{PF}, which reconstructs particles
-% (PF candidates) by combining information from the inner tracker, the calorimeters, and the muon
-% system.  Each PF candidate is a ssigned to one of five object categories: muons, electrons, photons,
-% charged hadrons, and neutral hadrons.  Contamination from pileup events is reduced by discarding
-% charged PF candidates that are incompatible with having originated from the primary
-% vertex~\cite{CMS-PAS-JME-14-001}.   The average pileup energy due to neutral hadrons is computed
-% event-by-event and subtracted from the energy when computing lepton isolation and jet energy.  The
-% energy subtracted is  the average pileup energy per unit area (in $\Delta\eta \times \Delta\phi$)
-% times the jet area~\cite{Fastjet1, Fastjet2}.
-
-\subsection{Object identification}
+\subsection{Physics object identification \label{sec:event_objects}}
 
 The event selection is an integral part of any physics analysis. It determines which events are
 used, and thus what processes contribute to the data sample. This in turn drives how the
@@ -113,7 +101,7 @@ will be discussed.
 \input{event_objects.tex}
 
 
-\subsection{Event Cleaning \label{sec:event_cleaning}}
+\subsection{Event cleaning \label{sec:event_cleaning}}
 
 The full CMS data taking and event reconstruction proces is very intricate. Every now and then a
 subdetector might not have behaved properly, or a reconstruction algorithm could have failed. 

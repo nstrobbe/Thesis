@@ -1,0 +1,231 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Event reconstruction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The CMS event reconstruction aims to provide a global event description in terms of electrons,
+muons, photons, charged hadrons, and neutral hadrons. Information from all subdetectors is combined
+to achieve a fully consistent picture of the event. The algorithm that implements this, is called
+particle flow (PF), and is documented in Refs.~\cite{CMS-PAS-PFT-09-001,PF}. 
+
+Particle flow relies heavily on the high resolution sicilon tracker, and high granularity ECAL. The
+basic building blocks are tracks, constructed using a very efficient tracking algorithm, and
+clusters of calorimeter energy deposits. 
+These two elements are then linked together using a linking algorithm. The actual particle flow
+algorithm uses the links to create a list of reconstructed and identified particles, that are
+subsequently used for physics analysis. A description of each of these steps will be given in
+Section~\ref{sec:event_reco_pf}.
+
+The particles that are reconstructed by the PF algorithm can be further refined to suit the needs
+of individual analyses or analysis groups. More stringent identification criteria are usually
+required, so that the misidentification rate, and thus background rate, is substantially reduced.
+All physics objects that will be used in the razor boost analysis will be listed in
+Section~\ref{sec:event_objects}.
+
+Reconstructed events are sometimes affected by spurious detector noise or reconstruction failures,
+leading to anomalous amounts of missing transverse momentum, or to very high \pt jets. 
+These events are filtered out by various targeted cleaning algorithms, as discussed in
+Section~\ref{sec:event_cleaning}.
+
+The PF event reconstruction is applied in the same way to data and simulation, resulting in an
+overall very good agreement between them. Some quantities cannot be adequately modelled in
+simulation, however. Event reweighting techniques are employed to account for discrepancies that
+might influence a physics analysis. In Section~\ref{sec:event_reweighting} I will discuss the
+standard event reweighting techniques that are applied in the razor boost analysis. 
+
+
+\subsection{Particle flow \label{sec:event_reco_pf}}
+
+
+The particle flow method reconstructs particles, the PF candidates, by combining information from
+the inner tracker, the calorimeters, and the muon system.  Each PF candidate is assigned to one of
+five object categories: muons, electrons, photons, charged hadrons, and neutral hadrons.  
+
+By simultaneously using information from all subdetectors, overlaps between object collections are
+removed. In a calorimeter only reconstruction, for example, photons and electrons are also
+reconstructed as jets. 
+Since about 65\% of the jet energy is carried by charged hadrons, inclusion of the tracker
+information in the jet reconstruction results in a much improved energy resolution. For jets
+originating from a $\cPqb$ quark this is even more striking, as energy carried away by muons from
+the $\cPqb$ decay can be included in the jet when taking a PF approach. 
+
+The separate components of the PF algorithm are explained below, including a discussion on how
+particle flow is used to suppress pileup effects.
+
+
+\subsubsection{Iterative tracking}
+
+The tracker provides a very good momentum resolution for charged hadrons, better than the
+calorimeters up to a \pt of several hundred \GeV. It also gives a precise measurement of the
+direction of charged particles. For these reasons, the tracker is the cornerstone of the PF
+algorithm. A tracking efficiency as close to 100\% as possible, while keeping the tracking fake rate
+as low as possible, is thus of the utmost importance.
+An iterative, Kalman filter based, tracking strategy~\cite{Chatrchyan:2014fea} is used to achieve
+this.
+
+The track finding algorithm starts by requiring very tight criteria for the track seeds and
+reconstruction quality, leading to a moderate tracking efficiency, but with a negligibly small fake
+rate. 
+The hits assigned to those tracks are then removed, and the tracking cycle is repeated two times
+more for the remaining hits with progressively looser track seeding criteria. The looser criteria
+increase the tracking efficiency, and the fake rate is kept low because of the reduced combinatorics
+resulting from the removal of hits in the previous iteration. 
+During three more iterations, the constraints on the origin vertex are also relaxed, allowing
+the reconstruction of tracks associated with secondary vertices. 
+
+With the iterative tracking technique, charged particles with a \pt as low as 150\MeV, as little
+as three hits, and originating more than 50\unit{cm} from the beam axis, can be reconstructed with a
+fake rate of the order of 1\%. 
+
+\subsubsection{Calorimeter clustering}
+
+The calorimeter clustering in the PF method aims for a high detection efficiency and a separation
+of nearby energy deposits. 
+The calorimeters are also solely responsible for providing a measurement of the energy and direction
+of neutral hadrons and photons, and should provide additional information on charged hadrons in
+case the track parameters could not be determined with high precision. 
+The clustering is done separately for the ECAL, HCAL and preshower, and separately for barrel and
+endcaps.
+The algorithm consists of three steps. 
+\begin{enumerate}
+  \item Cluster seeds are identified as calorimeter cells with energy deposits above a certain
+threshold, and larger than their neighbouring cells. 
+  \item Topological clusters are grown from the cluster seeds by joining adjacent cells that pass a
+chosen minimum energy threshold related to the level of noise in the electronics. 
+  \item PF clusters are constructed from the topological clusters using an iterative procedure. Each
+cluster seed gives rise to one PF cluster, even when multiple seeds are part of one large
+topological cluster. If this happens, the energy of each calorimeter cell is shared among all PF
+clusters according to the distance between cluster and cell. During the different iterations, the
+PF cluster position is computed as a weighted average of the positions of the cells. As the
+cluster position changes, the distance between cluster and cell changes, and thus the energy
+sharing, which prompts the recalculation of the cluster position. This continues until the cluster
+positions are stable. 
+\end{enumerate}
+
+% The purpose of a clustering algorithm in the calorimeters is at least fourfold:
+% (ii) separate these neutral particles from energy deposits from charged hadrons; 
+% (iii) reconstruct and identify electrons and all accompanying Bremsstrahlung photons; and 
+
+
+\subsubsection{Link algorithm}
+
+A particle passing through the CMS detector can leave hits in multiple subdetectors, as was
+illustrated in Fig.~\ref{fig:cms_slice}, and will thus most likely give rise to multiple PF
+elements. There can be a track, one or more calorimeter clusters, or possibly a track in the muon
+system. The linking algorithm is designed to link together all elements originating from a single
+particle, thereby removing any possible double counting from different subsystems. The quality of a
+given link is quantified by the distance between the linked elements. 
+
+A link between a charged particle track and a calorimeter cluster is made by extrapolating the
+track to the calorimeters, at a depth corresponding to the expected shower maximum. The track is
+linked to a calorimeter cluster if the extrapolated track position falls within the cluster. The
+link distance is defined as the distance in the $(\eta,\phi)$ plane between the extrapolated track
+position and the cluster position.  
+Calorimeter clusters originating from bremsstrahlung photons emitted by electrons are captured by
+extrapolating tangents to a track at each intersection between the track and a tracker layer
+toward the ECAL. If the extrapolated tangent position is within a cluster, the cluster is linked to
+the track as well.
+
+Links between calorimeter clusters are made when the position of a cluster in the higher granularity
+calorimeter falls within the boundaries of a cluster in the less granular calorimeter. The link
+distance is defined as before. 
+
+A charged-particle track in the tracker and a muon track in the muon system are linked when a global
+fit between the two tracks returns an acceptable $\chi^2$, the value of which is used as link
+distance. When several of these `global muons' can be fit using a given muon track and several
+tracker tracks, only the global muon that returns the smallest $\chi^2$ is retained. 
+
+
+\subsubsection{Particle reconstruction and identification}
+
+The blocks of linked elements are converted into a set of identified particles by the particle-flow
+algorithm. The order of the particle reconstruction follows how clean the signature is. Muons are
+reconstructed first, neutral hadrons last. The full particle reconstruction and identification
+algorithm proceeds in this way for each block of linked tracks and clusters. 
+
+\begin{enumerate}
+  \item Each global muon is added to the list of PF muons if its momentum is compatible with the
+momentum determined using tracker information only. The track is then removed from the block. 
+
+  \item The algorithm then proceeds to reconstruct electrons, using a dedicated
+method~\cite{Khachatryan:2015hwa}. A Gaussian-Sum Filter is used to refit the candidate electron
+track, taking into account the possible energy loss by bremsstrahlung, and follow its trajectory to
+the ECAL. Seeds for the time-consuming fitting procedure are chosen only from the subset of tracks
+that pass certain identification criteria.
+An electron is fully identified if its track matches with an ECAL cluster, and if it passes a set of
+tracking and calorimeter requirements. The electron is then added to the PF electron
+collection, and the associated electron track and ECAL clusters, including those from
+bremsstrahlung, are removed from the block before further processing. 
+
+  \item The remaining tracks are subject to tighter quality criteria, namely the relative
+uncertainty on the transverse momentum should be smaller than the relative calorimeter energy
+resolution for charged hadrons. The presence of photons and neutral hadrons will be inferred from a
+detailed comparison of the track momenta and calorimeter energies. 
+
+  \item For each HCAL cluster all associated charged hadron candidate tracks are found. If a track
+traverses more than one HCAL cluster, it is assigned to the closest one. 
+  The charged hadron candidate tracks associated with a given HCAL cluster are then matched with
+the ECAL clusters. The closest ECAL cluster they traverse is assigned to the charged hadron
+candidate. If the track passes through multiple ECAL clusters, those clusters are first ordered by
+distance. They are added, one by one, to the charged hadron candidate for as long as the total
+calorimetric energy is smaller than the momentum of the charged particle track. 
+
+  \item If the total reconstructed calorimeter energy is significantly smaller than the total
+charged particle momentum, there is an inconsistency, and a relaxed muon reconstruction is
+performed.
+Tracks that fail more stringent track quality criteria are subsequently removed as well. 
+
+  \item If on the other hand the total track momentum is smaller than the total calorimeter energy,
+then the remaining tracks are indeed consistent with stemming from charged hadrons. The tracks are
+thus added to the list of PF charged hadrons, with the track momentum as charged hadron momentum.
+
+  \item For cases where the track momentum is compatible with the calorimeter energy, the charged
+hadron energy and momentum are refit, using both tracker and calorimeter information. This is of
+particular interest for high \pt hadrons, where the calorimeters provide a better resolution. 
+ 
+  \item When there is a substantial excess of calorimeter energy compared to the track momentum,
+photons and possibly neutral hadrons are reconstructed. First, photons are reconstructed from the
+ECAL clusters. If this cannot account for the full excess, neutral hadrons are reconstructed from
+the remainder.  
+ 
+  \item Finally, ECAL and HCAL clusters without matching tracks are reconstructed as photons and
+neutral hadrons, respectively. 
+\end{enumerate}
+
+At the end of the PF sequence, we now have a list of identified particles which can be used to
+reconstruct jets. The user can specify which particle types are included in the jet reconstruction. 
+By default, isolated muons and electrons are not included.  
+
+
+\subsubsection{Pileup mitigation techniques}
+
+The presence of pileup causes extra energy deposits and tracks to be overlaid with those of the
+hard interaction. This results in a degraded resolution, and less clean signatures.
+Pileup vertices are usually separated in space from the vertex of interest. The very precise
+tracker system allows these vertices to be reconstructed, and we can use the particle flow
+framework to mitigate the effect of in-time pileup, using a technique called \textit{charged
+hadron subtraction}~\cite{CMS-PAS-JME-14-001}, or also \texttt{PFNoPileUp}. 
+
+Contamination from pileup events is reduced by discarding charged hadron PF candidates that are
+associated to pileup vertices, prior to jet clustering and any further processing.   
+The leading primary vertex of the event is the one with the largest value of $\sum
+|\pt^{\mathrm{track}}|^2$. The pileup vertices are all other primary vertices for which the number
+of degrees of freedom (d.o.f.) in the vertex fit is greater than four. 
+Charged hadrons are assigned to a particular vertex according to the compatibility, expressed as
+the $\chi^2/\mathrm{d.o.f.}$, of the track with the proto-vertex reconstructed without the
+currently considered track. If $\chi^2/\mathrm{d.o.f.}<20$ for a given track-vertex combination,
+the track is associated to that vertex. 
+Charged hadron candidates with a track associated to a pileup vertex are removed. All other tracks,
+even when not associated to a vertex, are retained. 
+
+Since charged hadron subtraction relies on the tracker information, it can only be applied within
+the tracker acceptance, $|\eta| < 2.5$. It has been shown that this technique is successful at
+removing a large portion of pileup jets, in addition to removing a significant part of the pileup
+contribution to jets from the hard interaction. This results in an improved energy and angular
+resolution. 
+
+
+% The average pileup energy due to neutral hadrons is computed
+% event-by-event and subtracted from the energy when computing lepton isolation and jet energy.  The
+% energy subtracted is  the average pileup energy per unit area (in $\Delta\eta \times \Delta\phi$)
+% times the jet area~\cite{Fastjet1, Fastjet2}.
+
