@@ -11,3 +11,4 @@ thesis.pdf
 *.root
 *.pyc
 *.C
+figures/razor_selection/plots_noTopPt

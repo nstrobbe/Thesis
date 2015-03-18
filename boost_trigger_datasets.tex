@@ -151,11 +151,11 @@ Multijet, $t\bar{t}$, $\W({\rightarrow}\,\ell\nu)+$jets, $\cPZ/\gamma^*({\righta
 \bar{q})bb$, 
 $\W\W\cPZ+$jets, $\W\W\gamma+$jets, $\cPZ\cPZ\cPZ+$jets, $t\bar{t}\gamma+$jets, and
 $t\bar{t}\W\W+$jets.
-$\W\W$, $\W\cPZ$, $\cPZ\cPZ$,  $\cPZ/\gamma^*({\rightarrow} c\bar{c})$, and 
-$\cPZ/\gamma^*({\rightarrow} \cPqb\bar{\cPqb})$ events are generated using 
+$\cPZ/\gamma^*({\rightarrow} c\bar{c})$, $\cPZ/\gamma^*({\rightarrow} \cPqb\bar{\cPqb})$,
+$\W\W$, $\W\cPZ$, and $\cPZ\cPZ$ events are generated using 
 {\PYTHIA}6.424~\cite{Sjostrand:2006za}.
 For all these samples CTEQ6L1~\cite{Pumplin:2002vw} is used as the set of parton distribution
-functions (PDFs). 
+functions. 
 Single top quark events are generated using \POWHEG 1.0~\cite{powheg,powheg2} with CT10
 PDFs~\cite{Lai:2010vv}, and $\W\W\W$, $\W\cPZ\cPZ$, $t\bar{t}\W$ and $t\bar{t}\cPZ$ are generated using
 \AMCATNLO~\cite{Frixione:2002ik} with CTEQ6M PDFs~\cite{Pumplin:2002vw}. 
@@ -164,12 +164,12 @@ The simplified model signals are produced using \MADGRAPH 5.1.5.4 using CTEQ6L1 
 The parton level events are showered and hadronized using {\PYTHIA}6.426 with tune
 Z2*~\cite{Chatrchyan:2013gfi}, except for the samples generated with \AMCATNLO which use 
 \HERWIG~\cite{Corcella:2000bw,Corcella:2002jc} for the parton shower and hadronization.  
+The \MADGRAPH samples are matched to the parton shower using the MLM technique, as discussed
+in Section~\ref{sec:event_matching}.
 For the background events, the response of the CMS detector is
 simulated with a full simulation based on \GEANTfour~\cite{G4}.  A parameterized fast detector
 simulation, i.e. FastSim, is used to simulate the detector response to the signal
 events~\cite{fastsim}. 
-
-% TODO mention MLM matching here?
 
 \begin{sidewaystable}
 \fontsize{8 pt}{1 em}

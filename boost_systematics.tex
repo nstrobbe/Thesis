@@ -9,66 +9,67 @@ The independent systematic effects, described below, are sampled simultaneously.
 This is one of the characteristics that sets this analysis apart. 
 For each sampled systematic effect, the same zero mean, unit variance, Gaussian variate is used in
 the calculation of the random shift of the systematic effect for all the signal and background
-models. Likewise, the same randomly sampled parton distribution functions (PDFs) are used for all
+models. Likewise, the same randomly sampled parton distribution functions are used for all
 signal and background models. 
 In this way, the statistical dependencies among all bins of the signal and background models are
 correctly, and automatically, modelled. The sampling of the systematic effects
-is repeated several hundred times.  
+is repeated several hundred ($N$) times.  
 In all cases, except for the PDFs, the systematic uncertainties are in the scale factors (SF) 
 applied to the simulated samples to correct them for modelling deficiencies. 
 In the next subsections I will discuss each source of systematic uncertainty in more detail. 
 
-\vspace{1eM}
+%\vspace{1eM}
 
 % TODO merge/divide with object id section
-\textcolor{red}{Some of this information might be moved to the event reconstruction and object
-ID section.}
+%\textcolor{red}{Some of this information might be moved to the event reconstruction and object
+%ID section.}
 
-\vspace{1eM}
+%\vspace{1eM}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Jet energy scale corrections}  
+\subsection{Jet energy scale corrections \label{sec:boost_JEC}}  
 
-\textcolor{red}{For now just copied from the AN, needs updating}
-
-Jet energy corrections (JEC) are a set of tools that map the measured jet energy deposition in the
-detector to the particle or parton level, as desired. 
-Within CMS the JEC are applied in different sequential levels, correcting for different effects.
-Each level of correction is a scaling of the four-momentum of a jet by a scale factor -- the
-correction -- that depends on the jet \pt, $\eta$ and flavour.  
+Jet energy scale corrections (JEC) map the measured jet energy deposition in the detector back to
+the particle level. Within CMS the JEC are applied in sequential levels, each correcting for a
+different effect. Details on the various levels were given in Section~\ref{sec:object_jets}.
+For our discussion here, the important thing to remember is that each level of correction is simply
+a scaling of the four-momentum of the jet by a scale factor that depends on the jet \pt and $\eta$.
 
 Uncertainties on JEC originate from various uncorrelated sources.   
-Given $M$ such sources, the correction on the \pt of a jet becomes 
+Given $M$ such sources, the full correction on the \pt of a jet, according to a random shift
+within the uncertainties, becomes 
 \begin{equation}
 s(\pt, \eta, \alpha_i) = \sum_{i=1}^M \alpha_i S_i (\pt, \eta)
 \end{equation}
 where $S_i (\pt, \eta)$ is a \pt and $\eta$-dependent JEC uncertainty for a source $i$ and
-$\alpha_i$ are weights randomly sampled from Gaussian distributions with zero mean and unit
+$\alpha_i$ are weights randomly sampled from a Gaussian distribution with zero mean and unit
 width. 
-Here, the $\alpha_i$ are different for each source, but are universal for each jet and each event.
-
-In a much simpler approach JEC corrections can be computed as
+Here, the weights $\alpha_i$ are different for each source, but are universal for each jet and each
+event when considering a given systematic sampling.
+Dealing with the myriad of uncertainty sources is not so straight-forward in practice, and also not
+necessary for a new physics search. As recommended by the POG providing the jet energy scale
+corrections and uncertainties, we will therefore take on a much simpler approach, using a total
+uncertainty $S (\pt, \eta)$ and a random number $\alpha$ from a single Gaussian,
 \begin{equation}
-s(\pt, \eta, \alpha) = \alpha S (\pt, \eta) = \alpha \sqrt {\sum_i^M s_i^2 (\pt, \eta) }
+s(\pt, \eta, \alpha) = \alpha S (\pt, \eta) = \alpha \sqrt {\sum_i^M s_i^2 (\pt, \eta) }.
 \end{equation}
-using a total uncertainty $S (\pt, \eta)$ and a random number from a single Gaussian.  
-The jet $p_T$ is corrected as:
+The jet $p_T$ for a given random variation becomes:
 \begin{equation}
 \pt^{\rm corr} = \left(1 + s(\pt, \eta, \alpha)\right) \pt^{\rm orig}.
 \end{equation}
 This calculation is repeated $N$ times, each time, using a different number sampled from the
 Gaussian.  
-The overall effect of JEC uncertainty on the yield is obtained from the distribution of resulting
-$N$ yields.  
-The JEC uncertainties are also propagated to \ETm .
+The overall effect of the JEC uncertainty on the yield is obtained from the distribution of
+resulting $N$ yields.  
+As for the jet energy scale corrections themselves, the associated uncertainties are also
+propagated to the \VEtmiss.
 
-% TODO look up more information
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Parton distribution functions} 
+\subsection{Parton distribution functions \label{sec:boost_pdf_unc}} 
 
 In order to evaluate the systematic uncertainty arising from imperfect knowledge of the parton
-distribution functions (PDFs), we use three PDF sets, {\tt MSTW2008lo68cl}~\cite{Martin:2009iq},
+distribution functions, we use three PDF sets, {\tt MSTW2008lo68cl}~\cite{Martin:2009iq},
 {\tt CT10}~\cite{Lai:2010vv}, and {\tt NNPDF23\_lo\_as\_0130\_qed}~\cite{nnpdf}, which are
 recommended by the PDF4LHC group~\cite{Alekhin:2011sk,Botje:2011sn}.  
 Since we take into account full correlations within systematic variations, we need a way to sample
@@ -207,7 +208,7 @@ systematic sampling.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{\texorpdfstring{$\cPqb$}{b} tagging} 
+\subsection{\texorpdfstring{$\cPqb$}{b} tagging \label{sec:boost_btag_sf}} 
 
 The $\cPqb$ tagging performance differs between data and simulation, and differs further between 
 CMS FullSim and FastSim.  
@@ -250,7 +251,7 @@ source of the $\cPqb$ tag systematic uncertainty on the background prediction.
 These uncertainties are taken into account in the following way.
 $N$ numbers $\sigma_n$ are sampled from a Gaussian with zero mean and unit variance
 (different $\sigma$'s are sampled for FullSim and FastSim, and also for different jet truth
-flavors). The analysis is then run $N$ times. For each run $n$ we use the corresponding $\sigma_n$
+flavours). The analysis is then run $N$ times. For each run $n$ we use the corresponding $\sigma_n$
 to compute $\epsilon^{\rm data}$ for the FullSim or Fastsim samples as follows, 
 \begin{align}
 \textrm{FullSim: } \epsilon^{\rm data} &= \left(\mathrm{SF^{data}_{Full}} + \sigma_n \, \delta
@@ -259,8 +260,8 @@ to compute $\epsilon^{\rm data}$ for the FullSim or Fastsim samples as follows,
 \mathrm{SF^{data}_{Full}}\right) \cdot \left(\mathrm{SF^{Full}_{Fast}} + \sigma_n' \, \delta
 \mathrm{SF^{Full}_{Fast}} \right) \cdot \epsilon^{\rm Fast}.
 \end{align}
-For each of the $N$ runs, $\epsilon^{\rm data}$ will be different, and will lead to different
-event weights $w_{\rm btag}$ such that, overall, the weighted event yields for a given simulated
+For each of the $N$ runs, $\epsilon^{\rm data}$ will be different, and will lead to a different
+event weight $w_{\rm btag}$ such that, overall, the weighted event yields for a given simulated
 sample will differ. 
 We obtain the systematic uncertainty from the ensemble of the resulting $N$ yields.
 
@@ -284,7 +285,7 @@ systematic uncertainty. For each systematic sampling, the scale factors are vari
 sampled uncertainty and propagated to the corresponding event weights.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Lepton identification} 
+\subsection{Lepton identification \label{sec:boost_leptonID}} 
 
 The razor boost analysis requires the presence of a single loose electron or muon in the definition
 of $T$ and $W$ regions. We therefore apply lepton scale factors to our simulated events to correct
@@ -292,7 +293,7 @@ for mismodelling of the lepton identification. The uncertainties on these scale 
 incorporated as a systematic uncertainty on the background prediction.  
 
 For electrons, we use $\pt$ and $\eta$-dependent scale factors and associated uncertainties, as
-derived by the CMS EGamma Object Group~\cite{ElectronSF}.
+derived by the CMS EGamma POG~\cite{ElectronSF}.
 The overall event weight associated with a given systematic variation of the electron scale
 factor, is given as:
 \begin{equation}
@@ -450,8 +451,9 @@ standard deviation up and down.
 The effect on the background and signal samples in the signal region is shown in
 Table~\ref{tab:bgsigsys}.  
 The signal values are obtained from averaging over all mass points in the T1ttcc ($\Delta m =
-25\GeV$) plane.  The size of the systematic effects for each separate mass point is shown in
-Appendix~\ref{app:signal_systematics}. 
+25\GeV$) plane.  
+%The size of the systematic effects for each separate mass point is shown in
+%Appendix~\ref{app:signal_systematics}. 
 The PDF systematic uncertainties are obtained by running
 over 100 different PDF set members, fitting a Gaussian to the efficiency distribution and taking the
 width of that Gaussian.  

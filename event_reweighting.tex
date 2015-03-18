@@ -11,21 +11,22 @@ the simulated events should be reweighted such that their pileup distribution ma
 data~\cite{pileup_twiki}.
 
 The pileup distribution in data is provided centrally by the Physics Validation Group for each
-data taking period. This distribution depends on the total \Pp\Pp inelastic cross section, sometimes
-referred to as the \textit{minbias} cross section~\cite{Field:2012jv}. 
+data taking period. This distribution depends on the total $\Pp\Pp$ inelastic cross section. 
 In simulation, the pileup distribution is taken from truth information, through the variable
-\texttt{trueNumInteractions}. 
+\texttt{trueNumInteractions} which stores how many pileup events were overlaid on the hard scatter. 
 The pileup weights are computed as the ratio of the normalized pileup distributions in data and
 simulation, and should be applied to all simulated events.
 The distribution of the pileup in data and simulation, and the corresponding pileup weight is
-shown in Figure~\ref{fig:pileup_comparison}. 
+shown in Figure~\ref{fig:pileup_comparison}. As can be seen, the initial guess for the pileup
+distribution, which was implemented in the simulation, was not perfect, resulting in an effective
+reduction of the statistical precision of the simulated samples. 
 
 \begin{figure}[htpb]
  \centering
  \includegraphics[width=0.48\textwidth]{figures/eventreco_reweighting/pileup_comparison}
  ~
  \includegraphics[width=0.48\textwidth]{figures/eventreco_reweighting/pileup_weight_comparison}
-\caption{[left] Comparison of the distribution of the true number of interactions in data and in
+\caption{[left] Comparison of the distribution of the number of pileup interactions in data and in
 simulation. 
 [right] Pileup weight as a function of the number of interactions. 
 \label{fig:pileup_comparison}}
@@ -65,13 +66,14 @@ A mismodelling of the initial state radiation, or uncertainty on the modelling, 
 directly impact the interpretation of these searches. 
 
 A study was performed to investigate how well the ISR is
-modelled~\cite{Chatrchyan:2013xna,ISRreweighting} by evaluating the agreement between data and
-simulation in the boost \pt for $\cPZ+$jets and $t\bar{t}$ events. 
+modelled in the simulation by evaluating the agreement between data and simulation in the boost \pt
+for $\cPZ+$jets and $t\bar{t}$ events~\cite{Chatrchyan:2013xna,ISRreweighting}. 
 For $\cPZ+$jets events the boost \pt was measured from the leptonic decay products of the $\cPZ$
 boson. For $t\bar{t}$ events the ISR radiation was measured using the hadronic recoil system, which
 is computed from all jets except for the $\cPqb$-tagged jets from the $t\bar{t}$ decay. 
 
-It was found that the initial state radiation is not well modelled at high \pt. The mismodelling
+It was found that the initial state radiation is not well modelled at high \pt, as illustrated in
+Fig.~\ref{fig:ISRreweighting}. The mismodelling
 can be corrected by applying a scale factor, with associated uncertainty, which was derived from the
 observed disagreement. The scale factor depends on the \pt of the system recoiling against the ISR
 jets. This system could be e.g. the $t\bar{t}$ system, the $\cPZ$ boson, or the $\tilde{g}\tilde{g}$
@@ -80,8 +82,19 @@ between the scale factor and unity.
 The CMS SUSY group recommendeds to apply this ISR reweighting to all SUSY signal samples.
 The prescription is summarized in Table~\ref{tab:ISRreweighting}. 
 
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/eventreco_reweighting/ISR_reweighting}
+  \caption{ Comparison of data to simulation for the \pt of the dilepton ($ee$ or
+$\mu\mu$) system in $\cPZ$+jets events. The prediction from simulation is normalized to the total
+data yield to compare the shapes of the distributions. The ratio of data/simulation is shown at the
+top of the figure, and the light blue band shows the weights derived for simulation and the
+variation to assess systematic uncertainties. Figure from Ref.~\cite{Chatrchyan:2013xna}.
+  \label{fig:ISRreweighting}}
+\end{figure}
+
 \begin{table}[htpb]
-\caption{ISR reweighting prescription \label{tab:ISRreweighting}}
+\caption{ISR reweighting prescription. \label{tab:ISRreweighting}}
 \begin{center}
 \begin{tabular}{c c}
 \toprule
@@ -97,16 +110,17 @@ $> 250$ & $0.80 \pm 0.20$ \\
 \end{center}
 \end{table}
 
+
+
+
 \subsubsection{Top quark \texorpdfstring{$\pt$}{pt} reweighting \label{sec:event_toppt_reweighting}}
 
 Differential top-quark-pair cross section analyses have shown that the shape of the \pt spectrum of 
 top quarks in data is softer than predicted by simulation~\cite{toppt,toppt_twiki}. 
 To remedy this, events are reweighted based on the \pt of the generator level $t$ and $\bar{t}$
-quarks in the $t\bar{t}$ simulation. 
-
+quarks in the $t\bar{t}$ simulation.
 The event weight, $w_{\rm TopPt}$, is computed as a function of the generated \pt of both the top
-and anti-top quark
-in the event: 
+and anti-top quark in the event: 
 \begin{equation}
 w_{\rm TopPt} = \sqrt{ SF_t \cdot SF_{\bar{t}} }
 \end{equation}
@@ -115,33 +129,29 @@ SF(\pt^{gen}) = \exp(a + b\, \pt^{gen})
 \end{equation}
 with $a = 0.156$ and $b = -0.00137$.
 The uncertainty associated with this reweighting is taken to be equal to the full size of the
-reweighting, which gives for the up and down variations of the event weight:
+reweighting, which gives for the one standard deviation up and down variations of the event
+weight:
 \begin{align}
- +1~\sigma &: w_{\rm up} = w_{\textrm{TopPt}} * w_{\textrm{TopPt}}, \\
+ +1~\sigma &: w_{\rm up} = w_{\textrm{TopPt}} \cdot w_{\textrm{TopPt}}, \\
  -1~\sigma &: w_{\rm down} = 1 .
 \end{align}
+The effect of this reweighting on the data/simulation agreement in a $t\bar{t}$ enriched region is
+shown in Fig.~\ref{fig:TopPt}. The $x$-axis on these plots shows the razor variable $\mr$, which
+will be defined in Section~\ref{sec:boost_razor}. It is clear that including this reweighting
+improves the agreement. 
 
-% 
-% In figure~\ref{fig:TopPt} we show the Data/MC comparison for the $M_R$ and $R^2$ distribution in the
-% $t\bar{t}+$jets control region (see section~\ref{sec:Tregion}) before and after applying the
-% reweighting procedure. 
-% We observe that this reweighting greatly improves the agreement between data and simulation. 
-% Therefore we will always apply this reweighting to the $t\bar{t}+$jets simulated sample. 
-% 
-% \begin{figure}[htpb]
-% \centering
-% \includegraphics[width=0.49\textwidth]{
-% figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width_noTopPt}
-% \includegraphics[width=0.49\textwidth]{
-% figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width_noTopPt}
-% 
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
-% \includegraphics[width=0.49\textwidth]{figures/DataMC/DataMC_R2_g1Mbg1W1LlmT100_mdPhig0p5_width}
-% \caption{[top] $M_R$ (left) and $R^2$ (right) distribution before applying the top \pt reweighting
-%          [bottom] $M_R$ (left) and $R^2$ (right) distribution after applying the top \pt reweighting
-% for the $T$ region as defined in section~\ref{sec:Tregion}
-% \label{fig:TopPt}}
-% \end{figure}
-% 
-% 
-% 
+ 
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots_noTopPt/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_selection/plots/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
+\caption{Distribution of the razor variable $\mr$ in data and simulation before applying the top
+\pt reweighting (left), and after (right). 
+\label{fig:TopPt}}
+\end{figure}
+
+
+

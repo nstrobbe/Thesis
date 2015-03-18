@@ -79,8 +79,9 @@ are discussed.
 
 The full CMS data taking and event reconstruction proces is very intricate. Every now and then a
 subdetector might not have behaved properly, or a reconstruction algorithm could have failed. 
-Events affected by such failures need to be removed from the selection, as they can for example
-create artificially high missing transverse momentum.
+Events affected by such failures need to be removed from the selection, as they can create
+artificially high missing transverse momentum and would then end up in the signal region of many
+supersymmetry searches. 
 The following cleaning filters are applied:
 
 \begin{itemize}
@@ -88,7 +89,7 @@ The following cleaning filters are applied:
 ECAL produce anomalous activity.
 \item The {\tt hcalLaserEventFilter}, which removes events where the HCAL laser produces anomalous
 activity.
-\item The {\tt hcalLaserEventFilter2012}, 
+%\item The {\tt hcalLaserEventFilter2012}, 
 \item The {\tt trackingFailureFilter}, which removes events where the tracking algorithm does not
 perform properly.
 \item The {\tt CSCTightHaloFilter}, which removes events contaminated by beam halo.
@@ -103,35 +104,51 @@ noise.
 tracks.
 \end{itemize}
 
-More details on these filters can be found in Ref.~\cite{metfilters}. The {\tt CSCTightHaloFilter}
-and {\tt HBHENoiseFilter} filters are not applied for simulated samples that are
-passed through the fast CMS detector simulation because the necessary input collections are
+More details on these filters can be found in Ref.~\cite{metfilters}. The effect on the \ETm
+distribution is shown in Fig.~\ref{fig:event_metcleaning}. There is a very clear reduction in the
+\ETm tail in data, which brings data and simulation in agreement. 
+The {\tt CSCTightHaloFilter} and {\tt HBHENoiseFilter} filters are not applied for simulated samples
+that are passed through the fast CMS detector simulation because the necessary input collections are
 not produced.
 
-In addition to the standard filters listed above, we also use an extra cleaning selection designed
-to remove events with spurious HCAL noise originating in the Hadron Outer Calorimeter (HO). 
-Energy deposits in the HO are included in the computation of the missing transverse momentum using 
-the particle flow algorithm (PFMET), but are not included in the missing transverse energy obtained
-from calorimeter information only (CaloMET). 
-A selection requiring no substantial discrepancy between PFMET and CaloMET is thus effective at
-reducing the contribution of these noisy events. 
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/eventreco_objects/METTail}
+  \caption{ The PF \VEtmiss distribution for events passing a dijet selection without cleaning
+filters applied (open markers), with cleaning filters applied (filled markers), and simulated
+events (filled histograms). Figure taken from Ref.~\cite{Khachatryan:2014gga}.
+  \label{fig:event_metcleaning}}
+\end{figure}
 
-We reject events in which the PFMET vector $\VEtmiss(\textrm{PF})$ is flipped with
-respect to the CaloMET vector $\VEtmiss(\textrm{CALO})$. 
+\paragraph{HCAL noise filter}
+
+In addition to the standard filters listed above, we also use an extra cleaning selection designed
+to remove events with spurious HCAL noise originating in the outer barrel of the HCAL. 
+Energy deposits in the HO are included in the computation of the missing transverse momentum using 
+the particle flow algorithm, but are not included in the missing transverse energy
+obtained from calorimeter information only. 
+A selection requiring no substantial discrepancy between the two \ETm definitions is thus effective
+at reducing the contribution of these noisy events. 
+
+We reject events in which the PF missing transverse energy vector, $\VEtmiss(\text{PF})$, is
+flipped with respect to the calorimeter based one, $\VEtmiss(\text{Calo})$. 
 To accomplish this we compute the absolute value of the difference in polar angle,
- $|\Delta\phi_{\textrm{PF,CALO}}|$, taken in the range $[0,2\pi[$, and defined as
-\begin{align}
-|\Delta\phi_{\textrm{PF,CALO}}| &= \min \left ( \phi^{\textrm{PF}} - \phi^{\textrm{CALO}},   2\pi -
-\phi^{\textrm{PF}} + \phi^{\textrm{CALO}} \right) ,\\
-&\textrm{with } \phi^{\textrm{PF}} = \textrm{arctan} \left( \frac{\ETm(\textrm{PF})|_y}
-{\ETm(\textrm{PF})|_x} \right) , \\
-&\textrm{and } \phi^{\textrm{CALO}} = \textrm{arctan}\left( \frac{\ETm(\textrm{CALO})|_y}
-{\ETm(\textrm{CALO})|_x} \right) .
-\end{align}
-Events for which $|\Delta\phi_{\textrm{PF,CALO}}|$ falls in a 1 radian window centred around $\pi$
+ $|\Delta\phi_{\text{PF,Calo}}|$, taken in the range $[0,2\pi[$, and defined as
+\begin{equation}
+|\Delta\phi_{\text{PF,Calo}}| = \min \left ( \phi^{\text{PF}} - \phi^{\text{Calo}},   2\pi -
+\phi^{\text{PF}} + \phi^{\text{Calo}} \right) ,\\
+\end{equation}
+with 
+\begin{equation}
+\phi^{\text{PF/Calo}} = \textrm{arctan} \left( \frac{\VEtmiss(\text{PF/Calo})|_y}
+{\VEtmiss(\text{PF/Calo})|_x} \right) . \\
+%\phi^{\text{Calo}} &= \textrm{arctan}\left( \frac{\VEtmiss(\text{Calo})|_y}
+%{\VEtmiss(\text{Calo})|_x} \right) .
+\end{equation}
+Events for which $|\Delta\phi_{\text{PF,Calo}}|$ falls in a 1 radian window centred around $\pi$
 are removed. 
 \begin{equation}
-\bigl| |\Delta\phi_{\textrm{PF,CALO}}| - \pi \bigr| < 1
+\bigl| |\Delta\phi_{\text{PF,Calo}}| - \pi \bigr| < 1
 \label{eqn:dphicut}
 \end{equation}
 
@@ -141,12 +158,18 @@ are removed.
 The generation and simulation of events are tuned to mimic the data. However, the complete data
 taking conditions, in particular the pileup profile, are not fully known before data
 taking starts. It is thus impossible to mimic the data in all aspects. 
-In addition to this, the event generation itself is also not perfect. For example, event generators
-can only compute physics processes up to maximally NLO precision, whereas data contains all orders. 
+Furthermore, the event generation itself is also not perfect. 
+Many details of the hadronzation process are still unknown, and state of the art event
+generators can only compute hard physics processes up to maximally NLO precision,
+whereas data contains all orders.  
+All these effects can lead to discrepancies between the observed data and the simulation.  
 
-To correct for some of these imperfections, event reweighting prescriptions have been developed. 
-In the next subsections I will cover the reweightings that correct for mismodelling of the pileup
-distribution, the initial state radiation (ISR), and the top quark \pt spectrum for the
+To correct for some of these imperfections, event reweighting prescriptions have been developed. I
+have already mentioned some correction factors that should be applied to various objects, such as
+the jet energy scale corrections for jets. 
+In the next subsections I will cover the reweightings that have to be applied to the full event,
+rather than a particular object. These include the corrections for mismodelling of the pileup
+distribution, the initial state radiation, and the top quark \pt spectrum for the
 $t\bar{t}$ simulation.
 
 \input{event_reweighting.tex}

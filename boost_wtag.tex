@@ -73,12 +73,11 @@ with $R$ the size parameter of the resulting jets, and
 \Delta R_{ij}^2 = (y_i - y_j)^2 + (\phi_i - \phi_j)^2 ,
 \label{eq:DeltaR_jet_algo}
 \end{equation}
-where $y, \phi$ are the rapidity and azimuthal angle. The rapidity is given in terms
-of
-energy and longitudinal momentum as
-\begin{equation}
-  y = \frac{1}{2} \ln{\frac{ E + p_z }{ E - p_z }} .
-\end{equation}
+where $y, \phi$ are the rapidity (defined in Eq.~\ref{eq:rapidity}) and azimuthal angle. 
+%The rapidity is given in terms of energy and longitudinal momentum as
+%\begin{equation}
+%  y = \frac{1}{2} \ln{\frac{ E + p_z }{ E - p_z }} .
+%\end{equation}
 The distance between constituent $i$ and the beam is given by $d_{iB} = 1$.
 As is clear from the above, these distance measures only use angular information, unlike for the
 $k_T$ and anti-$k_T$ algorithms, which use a $\pt$-weighted distance. 
@@ -484,9 +483,10 @@ All three uncertainties are varied up (down) at the same time to get the overall
 systematic  uncertainty.
 The fake rate in data and simulation, as well as the resulting $\W$ boson tag fake rate scale factor
 are shown in Fig.~\ref{fig:boost_wfake}. As we can see from the figure, there is a drop in the scale
-factor just above a \pt of 300\GeV. This is a result of a residual mismodeling of the trigger
+factor just above a \pt of 300\GeV. This is a result of a residual mismodelling of the trigger
 efficiency. 
-\textcolor{red}{TODO: add more information on this "wiggle", perhaps in an appendix.}
+
+%\textcolor{red}{TODO: add more information on this "wiggle", perhaps in an appendix.}
 
 \begin{figure}[htbp]
 \centering

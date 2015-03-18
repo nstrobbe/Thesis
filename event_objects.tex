@@ -91,7 +91,7 @@ The distance measures are in this case given by
 where $\Delta R_{ij}^2 = (y_i - y_j)^2 + (\phi_i - \phi_j)^2$ and $R$ is a tuneable parameter
 determining the size of the jets. The rapidity $y$ of a particle is given by,
 \begin{equation}
-  y = \frac{1}{2} \ln{\frac{ E + p_z }{ E - p_z }} .
+  y = \frac{1}{2} \ln{\frac{ E + p_z }{ E - p_z }} . \label{eq:rapidity}
 \end{equation}
 The jet clustering proceeds by identifying the smallest of all distances. If it is a $d_{ij}$, we
 recombine particles $i$ and $j$, while if it is $d_{iB}$, we move $i$ from the list of particles to
@@ -104,30 +104,36 @@ The input to the jet clustering are the PF candidates that pass the charged hadr
 The clustering itself is done with the anti-$k_\textrm{T}$ algorithm with size parameter $R=0.5$
 (AK5), as implemented in \textsc{FastJet 3.0.1}~\cite{Cacciari:2011ma}.
 We apply the standard loose identification criteria to the resulting jets, as defined by the
-requirements listed in Table~\ref{tab:object_jets}. 
+requirements listed in Table~\ref{tab:object_jets}. Jets are required to not be composed of only a
+single component, as this usually indicates that the reconstruction is of poor quality. 
 
-Unfortunately, the calorimeter response to incident particles is not uniform. It it, therefore, not
+Unfortunately, the calorimeter response to incident particles is not uniform. It is, therefore, not
 straightforward to translate the measured jet energy to the true particle energy, which is what we
 want to use to do our analysis. A set of jet energy scale corrections -- scalings of the
-jet four-momentum depending on jet \pt, $\eta$ and flavour -- are applied to both data and
-simulation in order to achieve a proper mapping to the particle level. The difference between the
-reconstructed and particle-level jet energy is called the \textit{offset} in what follows.
+jet four-momentum depending on jet \pt and $\eta$ -- are applied to both data and
+simulation in order to achieve a proper mapping to the particle level. 
 Jet energy corrections within CMS are taken care of in a sequential way, each level of correction
-taking care of a different effect~\cite{JEC}. 
+taking care of a different effect~\cite{JEC,Chatrchyan:2011ds}. 
+The uncertainties associated with the jet energy scale corrections need to be taken into account as
+systematic uncertainty on any analysis result. How this will be done in the razor boost analysis is
+explained in Section~\ref{sec:boost_JEC}.  
 
-First, the residual effect from pileup is removed using the so-called L1 corrections. The effects
-of charged hadrons from in-time pileup have already been largely reduced by the charged hadron
-subtraction method. The effect of neutral particles and out-of-time pileup is removed at this stage
-using a slightly modified version of the \textit{jet area method}~\cite{Fastjet1,Fastjet2}.
+First, the residual effect from pileup is removed using the \textit{L1 corrections}. 
+The effect of pileup on a given jet is quantified by the so-called offset, defined as the
+difference in \pt for a reconstructed jet with added pileup and the same jet without pileup.
+The effects of charged hadrons from in-time pileup have already been largely reduced by the charged
+hadron subtraction method. The effect of neutral particles and out-of-time pileup is removed at this
+stage using a slightly modified version of the \textit{jet area method}~\cite{Fastjet1,Fastjet2}.
 This method uses the effective area of the jets, $A$, multiplied by the average energy density
 in the event, $\rho$, to calculate the energy to be subtracted from the jets.
 Both real and simulated jets are first corrected with a $\pt$, $\eta$, and number of primary
 vertices dependent offset correction determined in simulation. For data events, an additional
 data/simulation scale factor is derived from ZeroBias data to correct for remaining $\eta$ dependent
 discrepancies.
-Figure~\ref{fig:JEC_L1} shows the size of the energy offset between reconstructed and particle level
-jets, before and after the L1 corrections have been applied. A clear reduction of the overall offset
-is observed. 
+Figure~\ref{fig:JEC_L1} shows the size of the energy offset for AK5 jets in the central region,
+before and after the L1 corrections have been applied. A clear reduction of the overall offset is
+observed. The dependence on the number of pileup interaction has also been reduced, indicating that
+the L1 corrections behave properly.  
 
 \begin{figure}[tpb]
   \centering
@@ -143,60 +149,55 @@ Ref.~\cite{JEC_plots}.
   \label{fig:JEC_L1}}
 \end{figure}
 
+Since the simulation of the detector response is very detailed, see
+Section~\ref{sec:event_simulation}, the jet response in the absence of pileup is in fact very well
+modelled in simulation. The bulk of the jet energy corrections will thus be derived using
+simulation, and only the residual differences between data and simulation are derived directly
+from the data.
 
-The second level of corrections, the L2 Relative corrections, are designed to make the jet response
-flat in $\eta$. Since the simulation of the detector response is very detailed, see
-Section~\ref{sec:event_simulation}, the jet response is in fact very well modelled in simulation,
-which is why it is used for the bulk of the jet energy corrections. 
-MC truth information is used to correct a jet at arbitrary $\eta$ relative to a jet
-in the central area ($|\eta|<1.3$). 
+The second and third level of corrections, the \textit{L2 Relative} and \textit{L3 Absolute
+corrections}, are designed to make the jet response flat in $\eta$ and \pt, respectively. They are
+derived from the simulation together. The L2 correction corrects a jet at arbitrary $\eta$ relative
+to a jet in the central area ($|\eta|<1.3$). Once that is done, the jet energy is translated back to
+the particle level, such that on average the \pt of a reconstructed jet matches that of a jet
+clustered using generator level particles,
+\begin{equation}
+  <\pt(\mathrm{reco})_{\mathrm{corr}}> {=} <\pt(\mathrm{gen})> .
+\end{equation}
+These are the final corrections applied to jets from simulated events. The size of the L2 and L3
+corrections as a function of jet $\eta$, for three reference \pt values, is shown in
+Fig.~\ref{fig:JEC_L23} on the lefthand side. 
 
 \begin{figure}[tpb]
   \centering
-\includegraphics[width=0.6\textwidth]
+\includegraphics[height=0.22\textheight]
 {figures/eventreco_objects/CorrectionVsEta_Overview_TDR_ak5pfl1_L2L3}
-  \caption{ The size of the L2 and L3 corrections as a function of jet $\eta$ for three reference
-transverse momentum values: 30\GeV (white hollow circles), 100\GeV (red squares) and 300\GeV (blue
-circles). Figure taken from Ref.~\cite{JEC_plots2}.
+~
+\includegraphics[height=0.22\textheight]
+  {figures/eventreco_objects/ResComp_FSRcorr_residuals_Abseta_PF_DiJetData}
+  \caption{[left] The size of the L2 and L3 corrections as a function of jet $\eta$ for three
+reference transverse momentum values: 30\GeV (white hollow circles), 100\GeV (red squares) and
+300\GeV (blue circles). 
+[right] L2 Residual corrections, obtained from dijet events, as a function of $\eta$. The jet
+energy scale uncertainty is shown with a yellow band, while the statistical uncertainty is shown
+with a blue band.
+Figures taken from Ref.~\cite{JEC_plots2}.
   \label{fig:JEC_L23}}
 \end{figure}
 
+Data events are further corrected by the \textit{L2L3 Residual} jet energy scale
+\textit{corrections} to take care of the small differences between data and simulation. These
+corrections are \pt and $\eta$ dependent, and only correct the relative energy scale. The absolute
+energy scale was found to be well modelled in the simulation. A dedicated, data-driven approach is
+employed, using data samples of dijet, $\gamma+$jet, and $\cPZ+$jet events. The L2 Residual
+correction derived from dijet events is shown on the right in Fig.~\ref{fig:JEC_L23}.
 
-Then the L3 Absolute corrections, which flatten the jet response with respect to \pt, are applied.
-They are derived from simulation, and correct the jet energy back to the particle level, such that
-on average the \pt of a reconstructed jet matches that of a jet clustered using generator level
-particles,
-\begin{equation}
-  <\pt(\mathrm{reco})_{\mathrm{corr}}> {=} <\pt(\mathrm{gen})>
-\end{equation}
-These are the final corrections applied to jets from simulated events. 
-
-Data events are further corrected by the L2L3 Residual jet energy scale corrections to take care of
-the small differences between data and simulation. These corrections are \pt and $\eta$ dependent,
-and only correct the relative energy scale. The absolute energy scale was found to be well modelled
-in the simulation. A dedicated, data-driven approach is employed, using data samples of dijet,
-$\gamma+$jet, and $\cPZ+$jet events. 
-
-% TODO Add information on jet corrections and pileup subtraction
-
-
-% The jets are corrected for pile-up effects in a two step process.  
-% First charged hadron particle-flow candidates that have been associated with a pile-up vertex are
-% removed from the list of particles to be clustered using the {\tt PFNoPileUp} algorithm.  
-% The jets are then clustered and corrected for the L2 and L3 corrections, taking into
-% account the charged-hadron removal. 
-% The remaining PU energy is subtracted by applying the event-by-event quantity $\pi \rho (\Delta
-% R)^2$, where $\Delta R$ is the jet size and $\rho$ is the average density from PU events, as
-% computed by {\tt FastJet} using only neutral hadron particle-flow candidates.  
-
-After all corrections are applied, jets are required to have $\pt > 30\GeV$ and $|\eta| < 2.4$.  
-
-  
-
-
-
-
-
+After all corrections have been applied, jets to be used for analysis are required to have $\pt >
+30\GeV$ and $|\eta| < 2.4$.
+The AK5 jets defined in this section will be used for most aspects of
+the razor boost analysis, except for the reconstruction of boosted hadronic $\W$-candidates. 
+Section~\ref{sec:boost_wtag} provides details on the dedicated jet treatment that is used for $\W$
+tagging.
 
 \begin{table}[htdp]
 \caption{Jet selection criteria. \label{tab:object_jets}}
@@ -217,32 +218,57 @@ $|\eta|$ & $< 2.4$ \\
 \end{center}
 \end{table}
 
-The AK5 jets defined here will be used for most aspects of the razor boost analysis, except for the
-reconstruction of boosted hadronic $\W$-candidates. 
-Section~\ref{sec:boost_wtag} provides details on the dedicated jet treatment that is used for $\W$
-tagging.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{B-Tagging \label{sec:object_btag}}
+\subsubsection{B-tagging \label{sec:object_btag}}
 
 Jets originating from the hadronization of $\cPqb$ quarks can be distinguished from other jets,
-initiated by gluons or light flavor quarks, due to the long lifetime of the $\cPqb$ quark. 
-The non-prompt decay of the $B$ hadrons results in a secondary vertex, displaced with respect to
-the primary vertex of the hard interaction. 
-
-% TODO add more info on b-tagging algorithm
+initiated by gluons or light flavour quarks, due to the long lifetime, of the order of
+1.5\ten{-12}\second, of the $B$ hadrons. 
+The non-prompt decay of the $B$ hadrons results in a secondary vertex, displaced by hundreds of
+micrometers with respect to the primary vertex of the hard interaction. This feature can be used to
+identify jets as originating from a $\cPqb$ quark. 
 
 The ability to distinguish $\cPqb$ jets is especially important for new physics searches. Many new
 physics models are associated with production of third generation quarks, whereas this is more rare
 in the standard model. For many searches $\cPqb$ jet tagging is an essential tool in suppressing
 the background from multijet or vector boson production. 
 
-In the razor boost analysis $\cPqb$ tagging will also be employed. We will use the combined
-secondary vertex (CSV) algorithm at two working points~\cite{btag7TeV,btag8TeV,BTagWP}, which are
-shown on Table~\ref{tab:object_btag}. 
+CMS has developed several $\cPqb$ tagging algorithms\cite{btag7TeV,btag8TeV}. The combined
+secondary vertex (CSV) algorithm is the most widely used, and combines information on the secondary
+vertices and the impact parameter of the tracks into a likelihood based discriminant. 
+ 
+The input to any $\cPqb$ tag algorithm are high purity tracks, which feature a good track fit with
+many separate hits, have $\pt > 1\GeV$, and lie within the jet cone. 
+The impact parameter of a track is defined as the distance from the primary vertex to the track at
+the point of closest approach.  
+Secondary vertices within jets are reconstructed using an adaptive vertex
+fitter~\cite{Fruhwirth:2007hz}. The list of secondary vertices is cleaned from candidates that
+share more than 65\% of their tracks with the primary vertex of the event. Vertices that are
+consistent with originating from a $K^0$ decay are also removed. Properties of the secondary
+vertices used in the CSV likelihood discriminant are the flight distance between secondary and
+primary vertex, the flight distance significance, the vertex invariant mass, and the total \pt of
+all associated tracks. The impact parameter of the tracks is also included. The shape of the CSV
+discriminant, and a data versus simulation comparison, is shown on Fig.~\ref{fig:CSV_discriminant}.
+
+In the razor boost analysis the CSV $\cPqb$ tagging algorithm will be applied on the PF jets at two
+working points~\cite{BTagWP}, which are shown on Table~\ref{tab:object_btag}. 
 The Loose working point (CSVL), corresponding to a misidentification rate of $\sim$10\% and
 efficiency of $\sim$85\%, will be used to veto $\cPqb$ jets, whereas the Medium working point
 (CSVM), corresponding to a misidentification rate of $\sim$1\% and a typical efficiency of
-$\sim$70\% , is used to select $\cPqb$ jets. 
+$\sim$70\% , is used to select $\cPqb$ jets.
+The small differences in the discriminant shape, as observed from Fig.~\ref{fig:CSV_discriminant}, 
+will result in a slightly different $\cPqb$ tagging efficiency in data versus simulation. Scale
+factors with associated uncertainties have been derived to correct for this effect, and are
+provided by the BTAG POG in CMS. Section~\ref{sec:boost_btag_sf} will cover how these
+uncertainties are propagated to the final systematic uncertainties for the razor boost analysis. 
+
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/eventreco_objects/CSV_Log_ttbar}
+  \caption{ Discriminator value for the CSV discriminant for a $t\bar{t}$-enriched data sample.
+  \label{fig:CSV_discriminant}}
+\end{figure}
 
 \begin{table}[htdp]
 \caption{Working points for the combined secondary vertex $\cPqb$ jet tagger.
@@ -258,37 +284,26 @@ Loose & $> 0.244$ \\
 \end{tabular}
 \end{center}
 \end{table}
-% 
-% As will be explained in section~\ref{sec:selection}, we define our signal and control regions
-% based on the number of b-tagged jets. 
-% As the b-tagged jet multiplicity distribution is not exactly the same in data as in simulation, we
-% need to apply appropriate Data/MC scale factors to the simulation. These scalefactors and their
-% prescription have been provided by the BTag POG \cite{BTagSF1,BTagSF2}. 
-% Whenever an explicit selection based on the number of b-tagged jets is made, the btag scale
-% factors are applied to the simulation. 
-% For more detailed information on the scale factors and their associated uncertainties, we refer to
-% section~\ref{sec:btag_uncertainties}. 
 
-% TODO Decide where to put the scale factor information
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Muons \label{sec:object_muon}}
 
-Muons are identified using two different working points, a loose selection and a tight selection,
-both of which will be detailed below. 
+The razor boost analysis uses muons that are identified using two different working
+points, a loose selection and a tight selection, both of which will be detailed below. 
+The loose selection is used throughout most of the analysis, both for vetoing the presence of muons
+in the signal region, and for selecting single muon events in the control regions. The tight
+selection is used only to define a control region enriched in $\cPZ\rightarrow
+\ell\bar{\ell}$ events which is used to derive a systematic uncertainty on the contribution of
+$\cPZ\rightarrow \nu\bar{\nu}$ in the signal region. 
 
-
-% Currently we mainly use the loose definition in the analysis, both for vetoing, and for selecting
-% single muon events for the control regions enriched in TTJets and WJets. The tight selection is
-% only used to define a control region enriched in $Z\rightarrow ll$ events, from which we derive a
-% systematic uncertainty on the predicted number of $Z\rightarrow\nu\nu$ events in our signal
-% region.
-
-The \textbf{loose muon selection} that will be employed was developed especially for events with a
+The \textbf{loose muon selection} was developed especially for events with a
 large amount of hadronic activity, where the standard identification criteria were observed to lose
 efficiency, resulting in less background suppression when vetoing the presence of muons. 
 The details and performance of this optimized selection is documented in
 Ref.~\cite{CMS-AN2011-498}. 
-The main feature is the use of a so-called \textit{directional} isolation.
+The main feature is the use of a so-called \textit{directional isolation}.
 The isolation of a particle is a measure of how far it is from other activity in the detector. The
 leptons we are interested in, those originating in the hard interaction, are usually separated from
 other activity, e.g. jets. This is not the case for misidentified muons or for muons from the decay
@@ -393,13 +408,14 @@ In addition to the identification criteria, we also require the tight muon to be
 Here we do not use directional isolation, but rather the more standard particle-based relative
 isolation. 
 This isolation, denoted $I_\mu$, is calculated using the PF candidates in a cone of size $\Delta R =
-0.4$ around the muon. Charged-hadron candidates associated with pileup vertexes are not taken into
+0.4$ around the muon. Charged-hadron candidates associated with pileup vertices are not taken into
 account in the calculation of the isolation. However, they are used to estimate the remaining
 contribution to the isolation coming from neutral hadrons associated with pileup. This contribution
 is then subtracted. 
 The isolation definition is given by:
 \begin{equation}
-I_\mu = \frac{I_{Charged} + I_{Neutral} + I_{\gamma} - \Delta\beta\cdot I_{Charged}^{PU}}
+I_\mu = \frac{I_{Charged} + \max\left(0, I_{Neutral} + I_{\gamma} - \Delta\beta\cdot
+I_{Charged}^{PU}\right)}
              {\pt^\mu} , 
 \label{eqn:iso}
 \end{equation}
@@ -443,18 +459,13 @@ $I_\mu =$ [\texttt{\footnotesize pfIsolationR04().sumChargedHadronPt()}& \\
 \end{table}
 
  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \subsubsection{Electrons \label{sec:object_electron}}
 
 Similar to the muon selection, we identify electrons using two different working points, a loose
 selection, and a tight selection. 
-
-% Currently we mainly use the loose definition in the analysis, both for vetoing, and for selecting
-% single electron events for the control regions enriched in TTJets and WJets. The tight selection
-% is only used to define a control region enriched in $Z\rightarrow ll$ events, from which we
-% derive a systematic uncertainty on the predicted number of $Z\rightarrow\nu\nu$ events in our
-% signal region.
-
 
 The \textbf{loose electron selection} uses directional isolation as described in the previous
 section, and fully documented in Ref.~\cite{CMS-AN2011-498}. A summary of the complete
@@ -516,19 +527,19 @@ $\overrightarrow{\mathrm{ISO}}(0.3,\textrm{charged})$ & $\overrightarrow{\mathrm
 
 The \textbf{tight electron selection} is in accordance with the recommendations of the EGamma POG
 \cite{ElectronID}. A summary of the selection can be found in table~\ref{tab:object_tightelectron}.
-We also require to electron to be isolated. The isolation is calculated using the PF candidates in a
-cone of size $\Delta R = 0.3$ around the electron, and then corrected with an estimate of the
-median energy from pileup as calculated with the {\tt FastJet} algorithm in a similar way to the
-jet corrections explained in Sec.~\ref{sec:object_jets}. We require that this corrected isolation,
-relative to the $\pt$ of the electron is less than 0.15.
-
+We also require to electron to be isolated. The isolation $I_e$ is calculated using the PF
+candidates in a cone of size $\Delta R = 0.3$ around the electron, and then corrected with an
+estimate of the median energy from pileup as calculated with the {\tt FastJet} algorithm in a
+similar way to the L1 jet corrections explained in Sec.~\ref{sec:object_jets}. 
+We require that this corrected isolation, relative to the $\pt$ of the electron is less than 0.15.
 \begin{equation}
-I_e = \frac{ I_{Charged} + \max(0, I_{NeutralHad} + I_{\gamma} - A \rho ) }{\pt^e}
+I_e = \frac{ I_{Charged} + \max(0, I_{NeutralHad} + I_{\gamma} - A \rho ) }{\pt^e}, 
 \end{equation}
+with $A$ the effective area of the cone, and $\rho$ the average pileup density. 
+Small discrepancies exist between the electron identification efficiency in data and in simulation.
+Scale factors are provided to correct for this effect, see Section~\ref{sec:boost_leptonID}.
 
-% TODO: add more info on the pileup correction
-
-\begin{table}[p]
+\begin{table}[htpb]
 \caption{Tight electron definition. }
 \begin{center}
 {\small
@@ -559,6 +570,7 @@ $I_e$ & $<0.15$ & $< 0.15$ \\
 \label{tab:object_tightelectron}
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Isolated tracks \label{sec:object_isolatedtrack}}
 
@@ -588,15 +600,34 @@ $I_{\textrm{track}_i} = \frac{\sum_{j \neq i} \pt{}_j }{ \pt{}_i }$ & $< 0.1$ \\
 
 \subsubsection{Missing transverse momentum \label{sec:object_met}}
 
-The missing transverse momentum, \ETm, associated with a given event is computed as the negative
+The missing transverse momentum, \VEtmiss, associated with a given event is computed as the negative
 vector sum of the transverse momentum of all PF candidates $i$,
 \begin{equation}
-  \ETm = - \sum_i \pt^i .
+  \VEtmiss = - \sum_i \ptvec^{\,i} .
 \end{equation}
-The corrections to the jet energy scale discussed above are propagated to the \ETm as well. 
-Within CMS this type of missing transverse momentum is know as type-1 corrected \ETm.
+and its magnitude is denoted by \ETm. 
 
-No explicit selection will be placed on \ETm in the razor boost analysis selection, although it is
+The corrections to the jet energy scale discussed above are propagated to the \VEtmiss as well. 
+Within CMS this type of missing transverse momentum is known as type-1 corrected
+\VEtmiss~\cite{Khachatryan:2014gga}.
+\begin{equation}
+  {\vec E}_{\mathrm{T}\text{,type-1}}^{\text{miss}} = 
+  {\vec E}_{\mathrm{T}\text{,raw}}^{\text{miss}} + \sum_i {\vec p}^{\,i}_{\mathrm{T}\text{,raw}}
+ - \sum_i {\vec p}^{\,i}_{\mathrm{T}\text{,corr}} - \sum_i \vec{\mathcal{O}}^{\,i}
+\end{equation}
+where $\VEtmiss{}_{\mathrm{raw}}$ is the uncorrected missing transverse energy,
+$\ptvec{}_{\mathrm{raw}}$ is the uncorrected jet \pt, $\ptvec{}_{\mathrm{corr}}$ is the fully
+corrected jet \pt, and $\vec{\mathcal{O}}$ is the average offset due to pileup. 
+Only jets with ${\vec p}^{\,i}_{\mathrm{T}\text{,corr}} > 10 \GeV$ are included in the sum.
+The average pileup offset underneath jets is included in the \ETm vector sum to ensure that the
+pileup offset remains isotropic and does not cause any bias.
+
+The missing transverse momentum is sensitive to detector malfunctions and to various
+reconstruction effects that result in the mismeasurement of particles or their misidentification.
+Precise calibration of all reconstructed physics objects is thus crucial for the performance of
+\VEtmiss. 
+
+No explicit selection will be placed on \ETm in the razor boost analysis selection, but it is
 used in the definition of the razor variable $\rsq$, to be introduced in
 Section~\ref{sec:boost_razor}.
 
