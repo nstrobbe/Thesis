@@ -50,18 +50,6 @@ CMS for this purpose are detailed in Section~\ref{sec:event_reconstruction}.
 
 \input{event_reconstruction.tex}
 
-% Add subsection on each object with all the object definitions we use
-
-% We select events with at least one interaction vertex, associated with at least 4 charged-particle
-% tracks, that lies within 24~cm of the origin of the CMS coordinate system along the beam direction
-% and 2~cm from the origin in the plane transverse to the beam. Owing to the high luminosity of the
-% LHC, hard scattering events are typically accompanied by many additional events arising from the
-% multiple proton-proton interactions that occur when the proton bunches cross.  The overlapping of
-% events is referred to as pileup.  The primary vertex is identified as the vertex with the highest
-% value of the $\sum \pt^2$ of the associated tracks.  Detector- and beam-related cleaning algorithms
-% are used to remove events with detector noise that mimic events with high energy and large imbalance
-% in transverse momentum.  
-
 
 \subsection{Physics object identification \label{sec:event_objects}}
 
@@ -70,30 +58,16 @@ used, and thus what processes contribute to the data sample. This in turn drives
 backgrounds are estimated, what the sensitivity will be, et cetera. 
 An event selection is most easily described in terms of particles, e.g. two electrons, no muons, at
 least four jets, as this is the closest to how we think about a given process.  
-The particle flow technique is very compatible with this approach, given that it already
-reconstructs particles out of the detector hits. 
+The particle flow technique described in the previous section is very compatible with this approach,
+given that it reconstructs a fully consistent set of identified particles out of the detector hits. 
 However, a more thorough selection of the PF objects is needed in order to ensure that their
 behaviour is understood, and to ensure that the selected events are not dominated by
 misidentified particles, or detector artefacts. 
 The physics object groups (POG's) within the CMS Collaboration are in charge of providing general
-recommendations on how to define each object. 
+recommendations on how to define each object. These recommendations are based on extensive studies,
+and are applicable for most analyses, thus reducing the workload for the analysis teams.
 In the following paragraphs all the standard objects that will be used in the razor boost analysis
-will be discussed.
-
-% 
-% Missing transverse energy, which is used in the calculation of the razor variable $\mr$, is 
-% defined to be the negative sum of the transverse momenta of all the particle flow objects in an
-% event.  Loosely identified and isolated electrons with $\pt > 5$~\GeV and $|\eta| < 2.5$ and muons
-% with $\pt > 5$\GeV and $|\eta| < 2.4$ are used both to suppress backgrounds in our signal region and
-% in the definition of the control regions.  A tight definition of isolated leptons (electrons with
-% $\pt > 10$~\GeV and $|\eta| < 2.5$ and muons with $\pt > 10$~\GeV and $|\eta| < 2.4$) defines a
-% control region enriched in $\cPZ \rightarrow \ell \ell $ events, from which we estimate the
-% systematic uncertainty in the predicted number of $\cPZ \rightarrow \nu \nu$ events in the signal
-% region. Any electron candidates with $1.44 < |\eta| < 1.57$ are rejected since the transition region
-% between barrel and endcap calorimeters is less well-instrumented.
-% In order to suppress the decays of taus and other leptons that fail the loose selection, events that
-% have isolated tracks with $\pt > 10$\GeV and track-primary vertex distance along the beam direction
-% $dz < 0.05$ are rejected.
+are discussed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
