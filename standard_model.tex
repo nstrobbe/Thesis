@@ -7,7 +7,7 @@ by many different experiments. So far, the Standard Model has proven to be very 
 predicting and explaining a variety of physics processes. 
 In this chapter I will give a short overview of some of the main characteristics of the Standard
 Model. For an in-depth and extensive discussion, I refer to
-Refs.~\cite{Povh:1995mua,Peskin:1995ev,Burgess:2007zi}.
+Refs.~\cite{Povh:1995mua,bettini2014introduction,Peskin:1995ev,Burgess:2007zi,Agashe:2014kda}.
 Section~\ref{sec:SM_particles} will cover the particle content and interactions
 present in the Standard Model. The origin of the mass of the elementary particles is touched upon
 in Section~\ref{sec:SM_HiggsMechanism}. This chapter concludes with some of the biggest success
@@ -136,18 +136,6 @@ the weak force, which governs radioactive decay, has only a short range.
 
 
 \section{QCD and asymptotic freedom \label{sec:SM_QCD}}
-% confinement
-% asymptotic freedom
-
-% probe hadron structure via deep inelastic scattering
-% no free quarks ever observed
-% How was it possible to describe such a force, strong enough to confine yet weak enough for
-% scaling?
-% The essential feature of QCD is
-% asymptotic freedom [11], according to which its coupling, gs decreases toward short distances and
-% increases toward longer distances and times. Asymptotic freedom matches qualitatively with the
-% requirements of approximate scaling, and its converse, that the coupling increases toward longer
-% distances and times, is consistent with the behavior that gave the strong force its name
 
 The key difference between QCD and QED is that the gluons interact with themselves because they
 carry colour charge, unlike the photons, which have no electric charge. The results of this
@@ -428,31 +416,36 @@ boson, and a global test of the validity of the Standard Model via electroweak p
 \subsection{Higgs boson discovery}
 
 The existence of the Higgs boson was first proposed in 1964 by Robert Brout and Fran\c{c}ois
-Englert, and independently also by Peter Higgs. Nearly half a century later, on the fourth of July,
-2012, its discovery was finally announced by the CMS and ATLAS collaboration at the LHC. 
-This was a major accomplishment, made possible by the work of thousands of physicists. 
+Englert~\cite{Englert:1964et}, and independently also by Peter Higgs~\cite{Higgs:1964pj}. Nearly
+half a century later, on the fourth of July, 2012, its discovery was finally announced by the CMS
+and ATLAS collaboration at the LHC.
 
 The allowed mass range for the Higgs boson had already been narrowed down by the experiments at LEP
 and Tevatron, and by the dataset delivered by the LHC in 2011 at a centre-of-mass energy of 7\TeV. 
 In that latter dataset, some evidence for a particle with a mass of around 125\GeV was already
-observed, although not strong enough to claim a discovery. 
+observed~\cite{Chatrchyan:2012tx}, although not strong enough to claim a discovery. 
 The energy increase to 8\TeV centre-of-mass energy in 2012 provided just the boost needed to claim
-discovery with $5\sigma$ significance. The evidence was strongest in the decay channels
-$H\rightarrow\gamma\gamma$ and $H\rightarrow\cPZ\cPZ^*\rightarrow 4\ell$.
+discovery with $5\sigma$ significance~\cite{Chatrchyan:2012ufa}. The evidence was strongest in the
+decay channels $H\rightarrow\gamma\gamma$ and $H\rightarrow\cPZ\cPZ^*\rightarrow 4\ell$.
 Figure~\ref{fig:higgs_discovery} shows the invariant mass distribution of the diphoton and
 four-lepton system obtained by the CMS experiment. There is an excess visible around 125\GeV. 
 The Higgs boson mass measurement at CMS, combining all decay channels, and combining the 7\TeV and
-8\TeV datasets found the following value for the Higgs mass,
+8\TeV datasets, found the following value for the Higgs mass,
 \begin{equation}
-  m_H = 125.02 {\,}^{+0.26}_{-0.27} (\text{stat}) {\,}^{+0.14}_{-0.15} (\text{syst}) \GeV.
+  m_H = 125.02 {\,}^{+0.26}_{-0.27} \, (\text{stat}) {\,}^{+0.14}_{-0.15} \, (\text{syst}) \GeV.
 \end{equation}
 The measured cross section $\sigma$ also agrees very well with the expectation from the Standard
 Model. The signal strength at the measured mass was measured to be
 \begin{equation}
- \frac{\sigma}{\sigma_{\text{SM}}} = 1.00 \pm 0.09 (\text{stat}) {\,}^{+0.08}_{-0.07} (\text{theo})
-\pm 0.07 (\text{syst})
+ \frac{\sigma}{\sigma_{\text{SM}}} = 1.00 \pm 0.09 \, (\text{stat})
+{\,}^{+0.08}_{-0.07} \, (\text{theory}) \pm 0.07 (\text{syst})
 \end{equation}
-
+Many more tests of the properties of the observed particle have been
+made~\cite{Khachatryan:2014jba}. Examples are the spin and parity of the particle, the ratios of
+production rates for different production modes, the ratios of couplings to fermions and vector
+bosons, and the possible branching fraction to non-SM particles. 
+A subset of these measurements are shown in Fig.~\ref{fig:higgs_sm_test}. Excellent agreement with
+the Standard Model expectation is found.
 
 \begin{figure}[p]
   \centering
@@ -465,7 +458,7 @@ Ref.~\cite{Chatrchyan:2012ufa}.
 $\frac{S}{S+B}$ value of its category. The lines represent the fitted background and signal, and
 the coloured bands represent the ±1 and ±2 standard deviation uncertainties in the background
 estimate. 
-  [right] Distribution of the four-lepton invariant mass for the $\cPZ\cPZ \rightarrow 4\ell$
+  [right] Distribution of the four-lepton invariant mass for the $\cPZ\cPZ^* \rightarrow 4\ell$
 analysis. The points represent the data, the filled histograms represent the background, and the
 open histogram shows the signal expectation for a Higgs boson of mass $m_H = 125\GeV$, added to the
 background expectation.
@@ -484,22 +477,62 @@ from Ref.~\cite{Khachatryan:2014jba}.
 
 \subsection{Precision electroweak fits}
 
+Electroweak precision observables can probe energy scales much larger than what is possible in
+direct measurements, through the effects of higher-order corrections. 
+Measurements of these observables at lepton collides such as LEP and SLC, along with
+measurements at hadron colliders, such as Tevatron and LHC, therefore need to be paired with
+very accurate theoretical predictions.
+Up until the Higgs boson discovery, these experimental and theoretical input was used in global fits
+of the electroweak sector in order to constrain the free parameters of the Standard Model.
+Now on the other hand, assuming that the newly discovered Higgs boson is indeed the SM Higgs boson,
+all fundamental parameters that are used in the fit are known, and the fit is overconstrained. This
+means that we can now fully test the consistency of the Standard Model, as well as predict some of
+the observables with higher precision than the direct measurements. 
+There are several groups performing these global
+fits~\cite{CKMFitter,GFitter,ZFitter,LEPEWWG}. I will take the latest results from the GFitter
+group~\cite{Baak:2014ora,Flacher:2008zq} as illustration here.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\includegraphics[width=0.5\textwidth]
+{figures/standardmodel/2014_07_16_PullPlotTwoBarsTwoTheos_logo}
+\caption{ Comparison of the GFitter fit results with the direct measurements in units of the
+experimental uncertainty. 
+Figure from Ref.~\cite{Baak:2014ora}
+\label{fig:global_fit1}}
+\end{wrapfigure}
+The measurements that are used in the fit include, among others, the mass of the Higgs boson, the
+mass and width of the $\W$ and $\cPZ$ bosons, the mass of the top, bottom and charm quarks, the
+strong coupling constant, the forward-backward asymmetry and asymmetry parameters for leptons,
+$\cPqc$ and $\cPqb$ quarks, and the weak mixing angle. 
+Several of the theoretical predictions that are used in the fit procedure are now known up to two
+or more loop orders. Examples are the effective weak mixing angle, the mass of the $\W$ boson, and
+the partial widths and branching ratios of the $\cPZ$ boson. 
+
+Figure~\ref{fig:global_fit1} shows the comparison of the fit results with the direct measurements.
+The agreement is within three standard deviations for all observables. 
+An important consistency test of the SM is the simultaneous indirect determination of
+the top and $\W$ boson mass. The top plot in Fig.~\ref{fig:global_fit} shows a scan of the
+confidence level profile of $m_\W$ versus $m_\cPqt$ for the scenarios where the direct Higgs mass
+measurement is included in the fit (blue) or not (grey). Both contours agree with the direct
+measurements shown in the green bands and ellipses. The corresponding plot for the effective weak
+mixing angle and the $\W$ boson mass is shown on the bottom of Fig.~\ref{fig:global_fit}. 
+The agreement between the indirect determination via the fit procedure and the direct measurement,
+is very good, showing the consistency of the Standard Model. 
+
 
 \begin{figure}[p]
-\begin{minipage}{0.44\textwidth}
-\includegraphics[width=\textwidth]{figures/standardmodel/2014_07_16_PullPlotTwoBarsTwoTheos_logo}
-\end{minipage}
-\hfill
-\begin{minipage}{0.54\textwidth}
-\includegraphics[width=\textwidth]{figures/standardmodel/2014_07_16_Scan2D_MWvsmt_logo}
- 
- \vspace{1eM}
- 
-\includegraphics[width=\textwidth]{figures/standardmodel/2014_07_16_Scan2D_MWvsSinEffLep_logo}
-\end{minipage}
-\caption{ \cite{Baak:2014ora}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/standardmodel/2014_07_16_Scan2D_MWvsmt_logo}
+  
+  \vspace{1eM}
+  
+  \includegraphics[width=0.8\textwidth]{figures/standardmodel/2014_07_16_Scan2D_MWvsSinEffLep_logo}
+\caption{Contours at 68\% and 95\% confidence level obtained from scans of $m_\W$ versus $m_\cPqt$
+(top) and $m_W$ versus $\sin^2 (\theta^l_{\text{eff}})$ (bottom), for a fit including $m_H$ (blue)
+and excluding $m_H$ (grey), as compared to the direct measurements (vertical and horizontal green
+bands and ellipses). In both figures, the corresponding direct measurements are excluded
+from the fit. Figure and caption from Ref.~\cite{Baak:2014ora}
 \label{fig:global_fit}}
 \end{figure}
-
 
 

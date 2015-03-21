@@ -1,17 +1,276 @@
-\chapter{The need for beyond the Standard Model physics \label{chap:beyond_standard_model}}
+\chapter{The need for physics beyond the Standard Model \label{chap:beyond_standard_model}}
 
-\textcolor{red}{Preliminary outline}
+Although the Standard Model has succeeded in predicting and explaining a plethora of physics
+processes, it cannot be the ultimate theory describing Nature. In
+Section~\ref{sec:missing_elements}, I will list some open questions for which the Standard Model
+does not provide an answer. A very pertinent question regarding the Higgs boson mass is discussed
+in Section~\ref{sec:hierarchy_problem}.
+Any new theory that attempts to solve these issues should revert back to
+the Standard Model for the energy domains that have been so thoroughly tested over the past
+decades. In this respect we can view the Standard Model as an effective low-energy theory, just
+like Newton's laws of motion follow from a low-energy approximation of special relativity. 
+Most of the proposed new physics theories are, therefore, extensions of the Standard Model. 
+A number of possibilities are introduced in Section~\ref{sec:extensions_standard_model}.
 
-\section{Missing elements \label{sec:missing_elements}}
+\section{Open questions \label{sec:missing_elements}}
+
+The open questions can roughly be divided in two categories. The first category comprises the
+experimental observations that are not covered at all by the SM, while the second category concerns
+characteristics of the SM for which we have no fundamental explanation. 
+I provide a non-exhaustive list below.
+
+\paragraph{Category 1}
+\begin{itemize}
+  \item \textbf{Gravity} is not included in the Standard Model. The main reason for this is that
+a satisfactory microscopic theory of gravity has not been formulated yet. Some advances have been
+made, e.g. supergravity
+theories~\cite{VanNieuwenhuizen:1981ae,freedman2012supergravity,Nastase:2011aa}, but it is not yet
+at the point where it can be unified with the rest of the Standard Model. 
+
+  \item The latest Planck results~\cite{Planck:2015xua} state that about 26\% of the energy budget
+of the universe is covered by \textbf{dark matter}, compared to less than about 5\% for the ordinary
+matter that is described by the Standard Model. Currently, the Standard Model does not contain any
+particle that could be a dark matter candidate. Such a particle should be stable, neutral, weakly
+interacting and have a reasonably large mass. 
+
+  \item In addition to the presence of dark matter, we have very strong indications that
+the remaining 69\% of the universe is \textbf{dark energy}, and drives the expansion of the
+universe. The Planck results also indicate that this dark energy is consistent with the assumption
+of a cosmological constant. The SM again does not provide an explanation for this, in fact any
+attempt to compute this cosmological constant in terms of vacuum energy leads to a mismatch of
+around 100 orders of magnitude. 
+
+  \item The universe is almost entirely made up of matter, rather than antimatter. Assuming that
+equal amounts were created in the Big Bang, the SM cannot explain this \textbf{matter-antimatter
+asymmetry}. As postulated by Sakharov~\cite{Sakharov}, there are three necessary conditions for a
+baryon asymmetry to exist: charge (C) and charge-parity (CP) violation; the absence of thermal
+equilibrium; and at least one baryon number violating process. Within the SM there is a small amount
+of CP violation, e.g. in the decay of $K^0$, but if the other two conditions were satisfied, there
+would not be enough to explain the observed matter-antimatter discrepancy. 
+  
+  \item Neutrinos of different flavour have been observed to
+oscillate~\cite{Abe:2008aa,Abe:2014ugx,Agafonova:2014ptn}. These \textbf{neutrino oscillations} can
+only occur if at least two of the three neutrino types have mass. The neutrino mass eigenstates
+($\nu_1, \nu_2, \nu_3$) are then superpositions of the flavour eigenstates ($\nu_e, \nu_\mu,
+\nu_\tau$).
+No measurements of the absolute masses have been made so far, but the squared mass differences are
+known. 
+In the Standard Model the neutrinos are massless. Adding a mass to the neutrinos can be
+done~\cite{Klinkhamer:2011aa}, but the question remains whether they are normal Dirac fermions, or
+Majorana fermions (i.e. their own antiparticle). 
+\end{itemize}
+
+\paragraph{Category 2}
+
+\begin{itemize}
+  \item Why is the Higgs boson mass only 125\GeV? Radiative corrections would automatically drive
+this mass up to very large scales. This is often referred to as the hierarchy problem.
+As we will see later, this issue forms part of the motivation for the search presented in this
+thesis, and will thus be covered in some more detail in Section~\ref{sec:hierarchy_problem}. 
+
+  \item Why are there three families of fermions? Careful study of the lineshape of the $\cPZ$
+boson has shown that there is no fourth family with light neutrinos~\cite{Decamp:1989fr}. Could
+there be an extra family with heavier neutrinos?
+
+  \item Why do the fermions have the masses, i.e. couplings to the Higgs boson, they have? And why
+is there such a wide range of masses, i.e. from $0.511\MeV$ for the electron up to 173\GeV for the
+top quark, a difference of 5 orders of magnitude. This is sometimes referred to as the fermion mass
+hierarchy problem. 
+
+  \item Are baryon and lepton number conserved? In the Standard Model these are accidental
+symmetries, without an underlying reason such as a local gauge symmetry. There is thus no
+compelling reason to assume that baryon and lepton number are conserved quantities. 
+  
+  \item Why is the $\mu^2$ parameter in the Higgs potential ($\mu^2 \Phi^\dagger \Phi + \lambda
+(\Phi^\dagger \Phi)^2$) negative? Within the SM this is an assumption that is made, without
+underlying motivation other than that it is needed to trigger electroweak symmetry breaking.
+\end{itemize}
+
 
 \section{The hierarchy problem \label{sec:hierarchy_problem}}
 
+At the core of the hierarchy problem are the different mass scales that are present in the
+universe. The Standard Model does a very good job explaining phenomena at the electroweak scale of
+$\mathcal{O}(100\GeV)$. We know that when we reach the Planck scale,
+$\mathcal{O}(\text{10}^{\text{19}}\GeV)$, the SM can no longer be the complete theory, as 
+quantumgravity effects will then need to be included. 
+
+Observed particle masses are a combination of the bare, tree-level mass, and all radiative
+corrections from additional loop diagrams. The loop momenta are cut off at the scale where we
+believe the theory to be no longer valid, in this case the Planck scale. 
+For fermion masses these corrections are only logarithmically dependent on the high cutoff scale,
+as they are protected by chiral symmetry. Gauge bosons are similarly protected by the local gauge 
+symmetry. The Higgs boson, being a scalar, does not have any protection, and therefore the
+radiative corrections introduce a quadratic dependence on the cutoff scale. 
+
+The one-loop corrections to the Higgs boson mass arise from the diagrams shown in
+Fig.~\ref{fig:oneloopdiagrams}. The fermionic loop correction arises from the Yukawa interaction
+between the Higgs boson and the fermions. The relevant part of the Lagrangian (Eq.~\ref{eq:yukawa})
+is given for a generic fermion as,
+\begin{equation}
+  \mathcal{L}_{f\bar{f}H} = - \frac{\lambda_f}{\sqrt{2}} H f \bar{f} .
+\end{equation}
+When one computes the fermionic one-loop diagram, we find for the correction to the Higgs boson
+mass, 
+\begin{equation}
+  \Delta m_H^2 = N_f \frac{\lambda_f^2}{8\pi^2} \left[ - \Lambda^2 + 6 m_f^2 \log
+\left(\frac{\Lambda}{m_f}\right) - 2 m_f^2 \right] + \mathcal{O}\left(\frac{1}{\Lambda^2}\right) ,
+\end{equation}
+where the quadratic dependence on the cutoff scale $\Lambda$ is explicitly visible. Taking this
+cutoff to be the Planck scale results in a correction that is more than 30 orders of magnitude
+larger than the Higgs boson mass squared itself. To still achieve an observable mass of 125\GeV, the
+bare mass and the correction would thus have to cancel to an extremely high precision. The inclusion
+of the vector boson and Higgs self-coupling loops do not change this overall behaviour. 
+The requirement for this large amount of finetuning is viewed to be unnatural, and many models of
+new physics will use the \textit{naturalness} argument in their favour. 
+
+\begin{figure}[t]
+\begin{tikzpicture}[scale=1.2]
+  \node[void] (in) at (0,0)  {};
+  \node[void] (v1) at (1,0) {};
+  \node[void] (v2) at (2,0) {};
+  \node[void] (out) at (3,0) {};
+  \draw[spin0] (in) -- node [above]{$H$} (v1) ;
+  \draw (1.5,0) circle (0.5);
+  \node at (1.5,0.7) {$f$};
+  \draw[spin0] (v2) -- node [above]{$H$} (out);
+\end{tikzpicture}
+\begin{tikzpicture}[scale=1.2]
+  \node[void] (in) at (0,0)  {};
+  \node[void] (v1) at (1,0) {};
+  \node[void] (v2) at (2,0) {};
+  \node[void] (out) at (3,0) {};
+  \draw[massvect] (v1) arc(180:0:0.5) ;
+  \node at (1.5,0.8) {$W,Z$};
+  \draw[spin0] (in) -- node [above]{$H$} (v1) -- (v2) -- node [above]{$H$} (out);
+\end{tikzpicture}
+\begin{tikzpicture}[scale=1.2]
+  \node[void] (in) at (0,0)  {};
+  \node[void] (v1) at (1,0) {};
+  \node[void] (v2) at (2,0) {};
+  \node[void] (out) at (3,0) {};
+  \draw[massvect] (1.5,0.45) circle (0.5);
+  \node at (1.5,1.3) {$W,Z$};
+  \draw[spin0] (in) -- node [above]{$H$} (v1) -- (v2) -- node [above]{$H$} (out);
+\end{tikzpicture}
+\begin{tikzpicture}[scale=1.2]
+  \node[void] (in) at (0,0)  {};
+  \node[void] (v1) at (1,0) {};
+  \node[void] (v2) at (2,0) {};
+  \node[void] (out) at (3,0) {};
+  \draw[spin0] (1.5,0.5) circle (0.5);
+  \node at (1.5,1.3) {$H$};
+  \draw[spin0] (in) -- node [above]{$H$} (v1) -- (v2) -- node [above]{$H$} (out);
+\end{tikzpicture}
+\caption{One-loop quantum corrections to the Higgs boson mass. From left to right: contribution
+from the Yukawa interaction; two contributions from the gauge interaction; contribution from the
+Higgs self-interaction.
+\label{fig:oneloopdiagrams}}
+\end{figure}
+
+A way to remove this quadratic dependence on the cutoff scale is to introduce extra particles in
+the theory, with properties such that the loop behaviour is opposite to the Standard Model
+particles. It is straight-forward to show that we can cancel the fermionic loops by introducing
+extra scalar particles. 
+Assuming that there are $N_S$ new scalar particles, with mass $m_S$, trilinear coupling $v\lambda_S$
+and quadrilinear coupling $\lambda_S$, we find as additional contribution to the
+one-loop correction to the Higgs mass:
+\begin{equation}
+  \Delta m_H^2 =  \frac{N_S\lambda_S}{16\pi^2} \left[ - \Lambda^2 + 2 m_S^2 \log
+\left(\frac{\Lambda}{m_S}\right)\right] - \frac{\lambda_S^2 N_S}{16 \pi^2} v^2 \left[ -1 + 2
+\log\left(\frac{\Lambda}{m_S}\right) \right] + \mathcal{O}\left(\frac{1}{\Lambda^2}\right) .
+\end{equation}
+By assuming $\lambda_f^2 = - \lambda_S$ and $N_S = 2 N_f$, we find upon adding both
+contributions
+\begin{equation}
+  \Delta m_H^2 = \frac{\lambda_f^2 N_f}{4\pi^2} \left[ \left(m_f^2-m_S^2\right)
+\log\left(\frac{\Lambda}{m_S}\right) + 3 m_f^2 \log\left(\frac{m_S}{m_f}\right) \right] .
+\end{equation}
+All quadratic divergent terms have vanished. Introducing scalar particles with the
+appropriate couplings has thus technically solved the hierarchy and naturalness problem. 
+If in addition $m_S = m_f$, then the logarithmically divergent terms vanish as well. 
+
+The divergencies introduced by the other loop diagrams in Fig.~\ref{fig:oneloopdiagrams} can also be
+resolved by the introduction of new particles, fermions in this case, that have just the right
+couplings to the Higgs boson. In this way all divergent contributions to the Higgs mass will
+vanish, and no large finetuning is needed. 
+%As we will see shortly, supersymmetry introduces extra particles that behave exactly in this
+%way. 
+
+
 \section{Extensions of the Standard Model \label{sec:extensions_standard_model}}
+
+
+In an attempt to address some of the afore-mentioned open questions, numerous models of
+beyond-the-SM (BSM) physics have been developed. With the discovery of the Higgs boson, some of
+these are now ruled out. Examples are the Higgsless models such as the most basic incarnation of
+technicolour, or the models which predict a very large Higgs boson mass, such as Composite Higgs
+models where the Higgs mass would be related to some new strong dynamics at high scales. 
+Nevertheless, several viable models still remain. A subset of these are presented in the following
+sections.
 
 \subsection{Supersymmetry \label{sec:supersymmetry}}
 
-% explain why it is one of the best candidates (link with boost intro)
+Supersymmetric models impose a new symmetry, supersymmetry (SUSY), that relates fermions and
+bosons. Given that the razor boost analysis was developed with supersymmetry in mind and provides
+interpretations in a SUSY context, I will discuss supersymmetric models in a separate chapter
+(Chapter~\ref{chap:supersymmetry}) and only provide a brief motivation here. 
 
-\subsection{Fourth generation \label{sec:fourth_generation}}
+One of the nice features of SUSY is that it provides a solution to the hierarchy problem. 
+The reason is that each known SM particle comes with a supersymmetric partner that differs in
+spin by 1/2, and has the same mass. The structure of the couplings is also exactly as we suggested
+in Section~\ref{sec:hierarchy_problem}, resulting in the removal of the quadratically divergent
+terms in the mass correction. In practice we have not observed any such partner particles. Hence,
+their masses cannot be equal to the corresponding SM particles, and SUSY must be broken somehow. 
+If the breaking mechanism is such that the quadratic divergencies still cancel, but not necessarily
+the logarithmic ones, then the hierarchy problem can still be solved. 
 
-\subsection{Excited quarks \label{sec:excited_quarks}}
+SUSY also triggers electroweak symmetry breaking in a dynamic way. There is thus no need to
+explicitly assume a negative $\mu^2$ in the Higgs potential. 
+A very generic SUSY Lagrangian would allow interactions leading to proton decay. To avoid this,
+R-parity is introduced. If R-parity is conserved, then the lightest supersymmetric particle (LSP) is
+stable, as it cannot decay without violating R-parity. This LSP can be a dark matter candidate, as
+it would be heavy and only weakly interacting. 
+
+For all these reasons, and more, SUSY is nowadays by far the most popular extension of the Standard
+Model. Hopes are high to find hints of the existence of supersymmetric particles during the
+upcoming Run 2 of the LHC. 
+
+\subsection{Little Higgs scenarios \label{sec:little_higgs}}
+
+In little Higgs theories~\cite{Cheng:2007bu,Reuter:2012sd,Schmaltz:2005ky} the electroweak scale is
+stabilized in a natural way. 
+The Higgs boson is viewed as a pseudo-Goldstone boson of a new global symmetry that is broken,
+both spontaneously and explicitly, by new physics around the 10\TeV scale. 
+The Lagrangian contains two sets of interactions that explicitly break the symmetry, in addition to
+the symmetric part $\mathcal{L}_0$
+\begin{equation}
+  \mathcal{L} = \mathcal{L}_0 + \lambda_1 \mathcal{L}_1 + \lambda_2 \mathcal{L}_2 .
+\end{equation}
+The Higgs boson would be an exact massless Goldstone boson if both couplings $\lambda_1$ and
+$\lambda_2$ vanish, and can only acquire a mass if both of them are present. This means that
+the corrections to the Higgs mass are suppressed by two loops w.r.t. the cutoff scale, and as such
+the hierarchy problem only appears around a scale of 10\TeV, compared to 1\TeV for the SM. 
+Similarly to supersymmetry, new particles are postulated to exist, but they should have the same 
+spin as the known SM particles. 
+Many choices for the new global symmetry can be made, resulting in slightly different model
+predictions. To avoid having a big impact on electroweak precision observables, T-parity is usually
+introduced. This parity ensures that the new particles have to be produced in pairs, as is the case
+for R-parity in SUSY, which means they only impact the observables at loop-level. 
+
+\subsection{Extra dimensions \label{sec:extra_dimensions}}
+
+A key assumption in models of extra spatial dimensions~\cite{ArkaniHamed:1998rs}, is that the
+electroweak scale is the only fundamental short distance scale. The loop corrections to the Higgs
+mass are thus cut off at the electroweak rather than the Planck scale, resulting in a much less
+finetuned model.  
+The weakness of gravity is explained by assuming that gravity permeats these new dimensions, while
+the gauge interactions do not. 
+The Planck scale in ($4+n$) dimensions is assumed to be of the order of the electroweak scale.  
+The effective Planck scale at large distances (larger than the size $R$ of the extra dimensions)
+then becomes $M_{\text{Pl}(4+n)}\cdot R^n$. For $n\geq 2$, the needed size of the extra dimensions
+is sub-millimetre, a scale where the current understanding of gravity has not been tested yet. 
+Models of extra dimensions can be tested in the high-energy collisions at the
+LHC~\cite{Chatrchyan:2011fq}. One could detect excited gravitons, which preferentially decay to two
+high energy photons, or one could look for missing energy when particles disappear into the extra
+dimensions. 
