@@ -329,7 +329,7 @@ All allowed soft SUSY breaking terms in the Lagrangian are:
     \begin{equation}
       - \mathcal{L}_{\text{gaugino}} = \frac{1}{2} \left( M_1\widetilde{B}\widetilde{B} + M_2
 \sum_{a=1}^3 \widetilde{W}^a\widetilde{W}_a + M_3 \sum_{a=1}^8 \widetilde{g}^a\widetilde{g}_a + h.c.
-\right)
+\right) \label{eq:gaugino_mass}
     \end{equation}
   \item scalar fermion mass terms:
     \begin{align}
@@ -494,18 +494,176 @@ scalars $h^0$ and $H^0$, one CP-odd neutral scalar $A^0$ and two charged scalars
 convention $h^0$ is lighter than $H^0$. 
 To compute their masses, one can expand the doublet fields around their vacuum expectation value and
 plug this expansion into the Higgs potential. One finds that the mass of $h^0$ is bounded from
-above. Including radiative loop corrections and assuming that the sparticles contributing to the
-loop diagrams are lighter than about $1\TeV$, this bound is $m_{h^0} < 130\GeV$. This is
-consistent with the newly observed Higgs boson, and strengthens the belief in SUSY as a
-possible SM extension. With the discovery of the Higgs boson, we can also invert this reasoning, and
-obtain limits on the masses of sparticles running in the loops.  
-The masses of the other four Higgs bosons can, in principle, become arbitralily large. 
+above by $m_\cPZ |\cos 2\beta|$ at tree level. Including radiative loop corrections and assuming
+that the sparticles contributing to the loop diagrams are lighter than about $1\TeV$, this bound is
+$m_{h^0} < 135\GeV$. 
+This lightest Higgs boson is also expected to behave as the single Higgs from the SM for most of
+the MSSM parameter space. 
+These predictions are thus consistent with the newly observed Higgs boson, and this strengthens the
+belief in SUSY as a possible SM extension. Using the observed Higgs mass,
+we can also invert this reasoning, and obtain limits on the masses of sparticles running in the
+loops. An example of this will be given in Section~\ref{sec:susy_natural_susy} when we discuss
+Natural SUSY. 
+The masses of the other four Higgs bosons can, in principle, become arbitralily large, and can
+thus escape detection at the LHC. 
 
 
 \section{Sparticle production and decay \label{sec:susy_sparticles}}
 
+\subsection{Mass eigenstates}
+
+In the MSSM, the superpartners listed in Tables~\ref{tab:chiral_multiplets} and
+\ref{tab:gauge_multiplets} are not necessarily the mass eigenstates of the theory. After
+electroweak symmetry breaking, gauge eigenstates with the same $SU(3)_c \times U(1)_{EM}$ quantum
+numbers can mix with each other. 
+The mass eigenstates can be determinant by diagonalizing the mass matrices, which can be
+constructed by gathering all terms in the Lagrangian that are quadratic in the fields. 
+
+The charged electroweak gauginos, $\widetilde{\W}_1$ and $\widetilde{\W}_2$ (the winos), and the
+charged higgsinos, $\widetilde{H}_u^+$ and$\widetilde{H}_d^-$, mix to form the so-called
+\textit{charginos}, denoted by $\widetilde{\chi}_1^\pm$ and $\widetilde{\chi}_2^\pm$. 
+The same happens for their neutral counterparts. The neutral wino $\widetilde{\W}_3$, the bino
+$\widetilde{B}$, and the higgsinos, $\widetilde{H}_u^0$ and$\widetilde{H}_d^0$,  mix to form
+\textit{neutralinos}, denoted by $\widetilde{\chi}_{1,2,3,4}^0$. 
+Neutralinos are very interesting for cosmology. If the lightest supersymmetric particle is a
+neutralino, this is an ideal candidate for dark matter: it is heavy, only weakly interacting and
+stable. 
+
+The gluino, which is a color octet, cannot mix with any other particle. In this respect it is unique
+among all MSSM sparticles. The mass eigenstate is thus the same as the gauge eigenstate, and has as
+mass term $M_3$, coming from the soft SUSY breaking part of the Lagrangian
+(Eq.~\ref{eq:gaugino_mass}). The physical mass can be computed from the running of $M_3$ by
+considering the renormalization group equations. 
+
+The squarks and sleptons are scalars with the same quantum numbers, and so they can mix with each
+other. The mass eigenstates of the squarks and sleptons should therefore be determined by
+diagonalizing three $6\times6$ mass matrices -- one for up-type squarks, one for down-type squarks
+and one for charged sleptons -- and one $3\times3$ mass matrix -- for the sneutrinos. 
+However, because we usually assume that the soft breaking parameters are flavour-blind,
+the mixing angles are generally small. The exception are the third generation squarks and sleptons,
+which can have very different masses compared to their first and second generation counterparts,
+because of the effects of the large Yukawa and soft couplings for the third 
+generation. Furthermore, they can also have substantial mixing in pairs
+$(\widetilde{t}_L,\widetilde{t}_R)$, $(\widetilde{b}_L,\widetilde{b}_R)$ and
+$(\widetilde{\tau}_L,\widetilde{\tau}_R)$. 
+The off-diagonal terms in the mass matrices are given by,
+\begin{equation}
+  m^2_{\widetilde{f}_{L,R}} = m_f \left( A_f + \mu \cot\beta \right),
+\end{equation}
+for the up-type quarks and by,
+\begin{equation}
+  m^2_{\widetilde{f}_{L,R}} = m_f \left( A_f + \mu \tan\beta \right),
+\end{equation}
+for the down-type quarks and charged fermions.
+Because of the dependence on the fermion masses, the mixing is especially important for
+the top squark sector. The mass eigenstates are usually denoted by $\stopone$ and $\stoptwo$.  
+The $\stopone$ can become substantially lighter than all other squarks because of the large mixing
+that can be present. It is thus very well possible that the $\stopone$ is the only accessible
+squark at the LHC. 
+Mixing for the sbottoms and staus can become significant in the case of large $\tan\beta$, while
+mixing for the first and second generation sfermions is insignificant due to the smallness of the
+electron, muon and light quark masses. The squarks of the first and second generation are usually
+grouped together, and assumed to be mass-degenerate. 
+
+\subsection{Sparticle decays}
+
+The decay possibilities for SUSY particles depend strongly on the precise SUSY mass spectrum. 
+This spectrum is very model-dependent, and is largely related to how SUSY has been broken, and
+which relationships between masses and couplings are assumed to be realized. 
+
+If kinematically allowed, two-body decays will always dominate. In case the mass spectrum is more
+compressed, and the direct two-body decay is forbidden, the decay will proceed via virtual
+sparticles giving rise to three- and four-body decays. These scenarios with small mass splittings
+can be very challenging to detect experimentally. In the following I will go through all sparticles
+and mention the decay options. The presence of antiparticles will be implicitely understood to
+reduce clutter in the notation. 
+
+Let us first consider the decays of the neutralinos and charginos. They contain an admixture of the
+electroweak gauginos and therefore inherit their couplings. Possible two-body decays are the decays
+to lepton + slepton, quark + squark and neutralino/chargino + $\W$/$\cPZ$/$h$. If these two-body
+decays are not allowed, the three-body decay to fermion + fermion + neutralino/chargino will
+occur. In case the sleptons are relatively light, they will mediate the three-body decay, and the
+resulting fermions will often be leptons. In case the decay proceeds through the lightest Higgs
+boson, these fermions are often $\cPqb$ quarks. This will then give rise to $\cPqb$ tagged jets in
+the final state. 
+
+Sleptons decay predominantly to a lepton and a neutralino or chargino. 
+In particular, the direct decay to lepton + LSP is hardly ever forbidden. 
+The mass spectrum would have to be very compressed for this to happen, and is only really
+possible for staus if the mass difference between stau and LSP is less than the mass
+of the tau (1.77\GeV). If this is the case, the stau will be long-lived. 
+
+For squarks, the decay to quark + gluino will dominate if the gluino is light enough. The reason
+for this is the large QCD coupling. 
+In case this decay is not accessible, the decay can proceed via the electroweak interaction to a
+quark + neutralino/chargino. For right-handed squarks the decay to the lightest neutralino will
+ dominate if it is predominantly bino. 
+
+Finally, gluinos can only decay through a squark, wich can be on-shell or not. 
+As discussed above, the stop and sbottom can be much lighter than the other squarks, which means
+that $\widetilde{g} \rightarrow t\stopone$ and $\widetilde{g} \rightarrow b\widetilde{b}_1$ could
+be the only available two-body decays. In this case, they will dominate and $\cPqb$-tagged jets will
+appear in the final states. 
+In case all squarks are heavier than the gluino, it will decay via a three body decay to two quarks
+and a neutralino or chargino. 
+
+
+\subsection{Signature at hadron colliders}
+
+When we assume that R-parity is conserved, the production of sparticles at hadron colliders such as
+the LHC can only occur in pairs. 
+The production of squarks and gluinos will proceed predominantly via the strong interaction, 
+\begin{align}
+  gg \quad &\rightarrow \quad \tilde{g}\tilde{g}, \ \tilde{q}_i\tilde{q}_j^*, \\
+  gq \quad &\rightarrow \quad \tilde{g}\tilde{q}_i, \\
+  q\overline{q} \quad &\rightarrow \quad \tilde{g}\tilde{g}, \ \tilde{q}_i\tilde{q}_j^*, \\
+  qq \quad &\rightarrow \quad \tilde{q}_i\tilde{q}_j, 
+\end{align}
+while neutralinos, charginos and sleptons can only be produced via the electroweak interaction, 
+\begin{align}
+  q\overline{q} \quad &\rightarrow \quad \tilde{\chi}_i^+\tilde{\chi}_j^-,\ 
+\tilde{\chi}_i^0\tilde{\chi}_j^0, \ \tilde{l}_i^+\tilde{l}_j^-, \ \tilde{\nu}_l\tilde{\nu}_l^*, \\
+  u\overline{d} \quad &\rightarrow \quad \tilde{\chi}_i^+ \tilde{\chi}_j^0, \
+\tilde{l}_L^+\tilde{\nu}_l, \\
+  d\overline{u} \quad &\rightarrow \quad \tilde{\chi}_i^- \tilde{\chi}_j^0, \
+\tilde{l}_L^-\tilde{\nu}_l^* .
+\end{align}
+An overview of the cross sections for the production of various sparticles is shown in
+Fig.~\ref{fig:susy_cross_sections}. The gluino-gluino production is seen to dominate, followed by
+the squark production. The electroweakinos have a much lower cross section. 
+In principle, one can also have associated production of a chargino or neutralino together with a
+squark or gluino, the predicted cross-sections are usually much lower than for the other processes.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/susy/xsections_strong}
+  \caption{Cross sections for the production of various supersymmetric particles at a
+centre-of-mass energy of 8\TeV. The expected number of produced events for a dataset of 20\fbinv
+are also shown. Figure taken from~\cite{Kramer:2012bx}.
+  \label{fig:susy_cross_sections}}
+\end{figure}
+
+At the LHC, the production of squarks and gluinos is dominated the gluon-gluon and gluon-quark
+fusion. Once produced, they decay as explained in the previous section, possibly resulting in a
+long decay cascade in which quarks and leptons can be produced. The full decay chain ends with
+the production of at least two LSP's due to the conservation of R-parity. 
+When this LSP is a neutralino, it will escape from the detector without being detected. This
+will result in an imbalance of transverse momentum, which is one of the most powerful
+discriminating variables in the search for SUSY signals. 
+
+In general, SUSY signatures can contain any number of jets, leptons, and gauge bosons, depending on
+the details of the mass spectrum. The SUSY search program at the CMS and ATLAS experiments therefore
+covers a wide variety of final state topologies. Each analysis will be more or less sensitive to
+certain classes of SUSY parameter points, and it is thus of extreme importance to search everywhere,
+in all possible ways. The results of these searches can then be interpreted as limits on the
+allowed SUSY parameter space. 
+
+
+
+
 
 \section{Natural SUSY \label{sec:susy_natural_susy}}
+
 
 Let us now come back to the hierarchy problem. As we have discussed before, radiative corrections
 to the Higgs boson mass have the tendency to drive this mass up to very high scales in the SM. When
@@ -534,9 +692,10 @@ spectrum is shown in Fig.~\ref{fig:natural_spectrum}. The idea of natural SUSY h
 searches at the LHC, and has drawn particular attention to searches for gluinos and third
 generation squarks. 
 
+
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/susy/NaturalSpec}
+  \includegraphics[width=0.8\textwidth]{figures/susy/NaturalSpec}
   \caption{ A natural SUSY spectrum, containing light higgsinos, light top squarks, and a light
 gluino. All other superpartners can be decoupled at high masses. Figure taken from
 Ref.~\cite{Papucci:2011wy}.
@@ -544,8 +703,76 @@ Ref.~\cite{Papucci:2011wy}.
 \end{figure}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Simplified model spectra \label{sec:susy_sms}}
 
-% explain basics of simplified models
-% \cite{Alwall:2008ag,Chatrchyan:2013sza},
+Many extensions of the Standard Model are possible, and many of the models have numerous free
+parameters. The MSSM is no exception. Without additional simplifications there are 104 extra free
+parameters, with a minimal set of assumptions there are still about 20 parameters left. This
+extremely large parameter space is not very practical to do an analysis. 
+Furthermore, similar experimental signatures can be produced in different ways, and by different
+models.
+To address these issues, a simplified approach was developed, using the so-called
+\textit{simplified model spectra} (SMS)~\cite{Alves:2011wf,Alwall:2008ag,Chatrchyan:2013sza},
+rather than full models. These SMS are based primarily on the experimental topologies, in terms of
+how many jets or leptons are produced, whether there are $\cPqb$ jets, et cetera. 
+
+Simplified models only contain a limited number of particles and interactions, and can be modelled
+as an effective theory. 
+The result is a very minimal set of parameters for which no assumptions on relations between
+parameters have been made. This makes the simplified models both simpler, and more general.
+They are more suitable to optimize and interpret a new physics search compared to a full-fletched
+new physics model, for which, depending on assumptions, key topologies could be missing.
+The purpose of simplified models is three-fold,
+\begin{itemize}
+  \item Identifying the boundaries of the search sensitivity. By scanning different masses, or mass
+differences between particles, it becomes easier to identify where searches lose sensitivity. This
+can then be used as input in the proposal of new dedicated analyses. 
+
+  \item Characterizing possible new physics signals. If a signal is observed, SMS's can be used as
+a starting point to quantify the compatibility with different kinds of processes. Starting the
+characterization with full models from the beginning would be very cumbersome due to the many free
+parameters that would need to be scanned.
+
+\item Derive limits on more general models. Complex models can be decomposed into experimental
+final state topologies. Ideally, each of those topologies would correspond to a SMS. The exclusion
+limits on the simplified models can then be translated back into a limit on the full model. There
+exist several efforts in this respect within the phenomenology community, such as
+SModelS~\cite{Kraml:2013mwa,Kraml:2014sna}, checkMATE~\cite{Kim:2015wza}, and
+Fastlim/ATOM~\cite{Papucci:2014rja}.
+\end{itemize}
+
+
+Let us consider as example a simplified model that only includes a gluino and the lightest
+neutralino. We further assume that the gluino can only decay as $\tilde{g}\rightarrow \cPq \cPaq
+\lsp$. Simplified models are described by effective theories, in this example the decay
+proceeds through the dimension-six operator, 
+\begin{equation}
+  \mathcal{L}_{\text{int}} = \frac{\lambda_i^2}{M_i^2} \tilde{g} \cPq_i \cPaq_i \lsp + h.c. , 
+\end{equation}
+where $i$ runs over the different quark flavors, $\lambda_i$ is the Yukawa coupling for the
+quark-squark-$\lsp$ vertex, and $M_i$ is the effective scale of the interaction. 
+Collision events can be simulated according to this effective Lagrangian in two main ways. The
+first is through the use of \textsc{marmoset}~\cite{ArkaniHamed:2007fw}, which allows to directly
+simulate the on-shell effective theory. The second, and most widely used, way is to use a matrix
+element generator, such as \MADGRAPH (see Section~\ref{sec:event_matrix_element_generators}), and
+simulate events using the MSSM as model, and whereby the masses for all particles that are not
+involved in the SMS are set to very high values of $\mathcal{O}(100\TeV)$.
+Any diagrams involving particles not included in the SMS will then effectly not contribute at
+all, and the MSSM will be reduced to the SMS under study.  
+For both cases, the only parameters that are relevant for this SMS are the gluino production cross
+section, the branching ratio for the decay (here assumed to be 100\%), and the masses for the gluino
+and the $\lsp$. Analyses will then usually make a two-dimensional scan across the
+($\tilde{g},\lsp$) mass plane, and investigate how the sensitivity changes.
+
+
+We also note that although the simplified models are SUSY-inspired, and use the SUSY nomenclature,
+they are in fact more general. Any model containing a spectrum of new narrow resonances, with the
+same gauge and flavour quantum numbers as the SM, and that are odd under some conserved parity, fits
+within the scope of the simplified models. Non-SUSY examples are the little Higgs models with
+T-parity, or universal extra dimensions with KK-parity. 
+
+
+
+ 
