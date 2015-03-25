@@ -5,8 +5,8 @@
 One of the main highlights of the razor boost analysis is the tagging of boosted $\W$ bosons in
 order to access a signal dominated phase space. 
 $\W$ bosons either decay to two quarks, or to a lepton and a neutrino. The razor boost analysis is
-an all-hadronic analysis, which means we do not explicitely consider the leptonic decays. 
-$\W$ bosons with low to moderate transverse momentum will thus result in two jets, correponding to
+an all-hadronic analysis, which means we do not explicitly consider the leptonic decays. 
+$\W$ bosons with low to moderate transverse momentum will thus result in two jets, corresponding to
 the two clusters of particles resulting from the hadronization of the two quarks. 
 As the $\pt$ of the $\W$ boson increases, the separation between the two resulting jets decreases.
 For high enough momentum, the two jets can no longer be fully resolved with the usual jet
@@ -63,7 +63,7 @@ Henceforth, we will call these jets \textit{CA8 jets}.
 
 %\begin{quote}
 \begin{cajet} \theoremstyle{definition}
-The Cambridge-Aachen jet algorithm is a sequental recombination algorithm that uses the
+The Cambridge-Aachen jet algorithm is a sequential recombination algorithm that uses the
 distance measure $d_{ij}$ between two constituents $i$ and $j$,
 \begin{equation}
 d_{ij} = \frac{\Delta R_{ij}^2}{R^2}, \label{eq:CA_distance}
@@ -126,7 +126,7 @@ The resulting pruned jet is used as further input to our $\W$ boson tagger. For 
 products to be collimated, we need a large transverse momentum. We will therefore require that the
 pruned jets have $\pt > 200\GeV$. 
 Because of the reduction of the effect of UE and PU, the jet mass variable as computed from the
-constituents of the jet after jet pruning has a much better behavior than if it was computed from
+constituents of the jet after jet pruning has a much better behaviour than if it was computed from
 the unpruned jets, see Fig.~\ref{fig:wtag_jet_pruning}. Jet pruning shifts the jet mass of QCD jets
 to smaller values, while maintaining the jet mass for $\W$ jets close to the $\W$ boson mass.
 
@@ -187,7 +187,7 @@ jets, which have a single subjet, we will use the variables $\tau_2$ and $\tau_1
 from the unpruned CA8 jets. To ensure that the N-subjettiness ratio as computed from the unpruned
 jet collection is assigned to the correct pruned jet, we find the highest \pt unpruned jet that is
 within $\Delta R = 0.7$ of the considered pruned jet.  
-It has been shown that the ratio of the $\tau_N$ variables are better discriminitors than the
+It has been shown that the ratio of the $\tau_N$ variables are better discriminators than the
 separate variables. We will thus require that the ratio $\tau_2 / \tau_1$ is small. The $\tau_2 /
 \tau_1$ distribution for highly boosted and longitudinally polarized $\W$ bosons and for inclusive
 QCD jets is shown in Fig.~\ref{fig:boost_wtag_tau2tau1}. 
@@ -211,7 +211,7 @@ pileup corresponding to an average number of 12 and 22 interactions~\cite{Khacha
 
 \subsection{\texorpdfstring{$\W$}{W} boson tagging definitions}
 
-In the razor boost analysis we will emply a boosted $\W$ boson tagger, utilizing the techniques
+In the razor boost analysis we will employ a boosted $\W$ boson tagger, utilizing the techniques
 outlined in the previous sections, to identify events that are consistent with the presence of a
 high \pt, hadronically decaying $\W$ boson. 
 A given pruned CA8 jet is $\W$ tagged if it has $\pt > 200\GeV$, $|\eta|<2.4$, $70 < m_\textrm{jet}
@@ -267,7 +267,7 @@ bosons, such as $t\bar{t}$ or the signal, compared to processes which do not hav
 their final state, such as QCD multijet production. For processes without real hadronically
 decaying $\W$ bosons, any tagged jet is necessarily a misidentified, or \textit{fake}, $\W$ boson
 tag. For those processes we will speak of the $\W$ boson tagging fake rate scale factors, where the
-fake rate is defined as the probability to tag, with one of the used W tagging definitions, a jet
+fake rate is defined as the probability to tag, with one of the used $\W$ tagging definitions, a jet
 not coming from a hadronically decaying $\W$ boson. 
 One last consideration concerns the signal simulation. As the signal is simulated with FastSim, we
 need an additional scale factor to correct for differences in the modelling of the $\W$ tagger
@@ -318,7 +318,7 @@ SF_{\textrm{Wtag}} = 0.86 \pm 0.07 .
 For our signal samples, which are produced with FastSim, we have derived an additional $\W$ tag
 efficiency FullSim/FastSim scale factor, $SF_{\textrm{Full/Fast}}$, which is a function of the \pt
 of the CA8 jet. This scale factor corrects for the different modelling of jets, jet
-substructure, et cetera, in FastSim with respect to FullSim. The product of $SF_{\textrm{Wtag}}$ and
+substructure, etcetera, in FastSim with respect to FullSim. The product of $SF_{\textrm{Wtag}}$ and
 $SF_{\textrm{Full/Fast}}$ will be applied to the signal simulation. 
 
 To compute the $\W$ boson tag efficiency FullSim/FastSim scale factor we use a sample of $t\bar{t}$
@@ -327,7 +327,7 @@ A FastSim versus FullSim comparison of the distributions of the pruned jet mass,
 variables $\tau_1$, $\tau_2$ and their ratio $\tau_2/\tau_1$, both before and after requiring the
 jets to satisfy the pruned jet mass window, is shown in
 Figs.~\ref{fig:FastFull_jmass}-\ref{fig:FastFull_tau21}. It is clear that the agreement is not
-perfect. The $\tau_2/\tau_1$ distribution for Fastsim is shifted with respect to FullSim. This
+perfect. The $\tau_2/\tau_1$ distribution for FastSim is shifted with respect to FullSim. This
 disagreement will then of course be translated into the efficiencies, and thus the need for a scale
 factor arises. 
 
@@ -367,7 +367,7 @@ $t\bar{t}$.
 
 These figures also illustrate some of the features of the N-subjettiness variables.
 Consider first the $\tau_1$ distribution in Fig.~\ref{fig:FastFull_tau1}. Without a jet mass
-requirement, the distibution is quite broad and bimodal. Once the jet mass is required to
+requirement, the distribution is quite broad and bimodal. Once the jet mass is required to
 be consistent with the $\W$ boson mass, the lower part of the distribution disappears. This
 illustrates that quark/gluon jets are expected to have only a single subjet, resulting in a small
 $\tau_1$ value. For jets that result from the decay of a $\W$ boson, $\tau_1$ takes on a larger
@@ -375,10 +375,10 @@ value.
 This effect is not seen for the $\tau_2$ distributions (Fig.~\ref{fig:FastFull_tau2}), which is
 expected because $\tau_2$ quantifies the compatibility with having two or fewer subjets. 
 The ratio $\tau_2/\tau_1$, shown on Fig.~\ref{fig:FastFull_tau21}, also displays the
-expected behavior: the part of the distribution at high values is removed when requiring the jet
+expected behaviour: the part of the distribution at high values is removed when requiring the jet
 mass to be within the $\W$ mass window, and thus when selecting more jets with two-prong decays. 
 
-The procedure to determine the $\W$ boson tagging efficiency for both Fastsim and FullSim is the
+The procedure to determine the $\W$ boson tagging efficiency for both FastSim and FullSim is the
 following:
 \begin{enumerate}
 \item Filter the events at the generator level, requiring the presence of exactly one hadronically
@@ -509,7 +509,7 @@ statistical and systematic uncertainties.
 The $\W$ boson tag fake rate scale factor is applied in the $S$ and $T$ region, as is the case for
 the $\W$ boson tag efficiency scale factor. It is applied to all simulated samples without real
 hadronically decaying $\W$ bosons, such as multijet production, $W(\rightarrow\ell\nu)$+jets,
-$DY(\rightarrow\ell\ell)$+jets, et cetera. 
+$DY(\rightarrow\ell\ell)$+jets, etcetera. 
 
 %% ---------------------------------------------------------------------------------------------
 

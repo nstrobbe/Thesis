@@ -18,10 +18,10 @@ and resolutions for high level physics objects in case the available data are no
 The inputs to the detector simulation are the hadronized particles from the event generator. These
 particles and their four-vectors are passed to the simulation software in the \textsc{HepMC}
 format~\cite{Dobbs:2001ck}. 
-The particles are then propaged through the CMS detector using the \GEANTfour toolkit~\cite{G4}.
+The particles are then propagated through the CMS detector using the \GEANTfour toolkit~\cite{G4}.
 \GEANTfour contains a large collection of electromagnetic and hadronic physics processes describing
 the interaction of particles with material, and the resulting energy loss. Examples of this are
-brehmsstrahlung, photon conversion, nuclear interactions, multiple scattering, and showering. In
+bremsstrahlung, photon conversion, nuclear interactions, multiple scattering, and showering. In
 case new particles are produced in these interactions, they are also propagated further. 
 
 A key component for the success of the simulation is the precise implementation of the detector
@@ -78,7 +78,7 @@ The tracking detector is the most complicated CMS subsystem, and the one for whi
 approximations are made, including for the geometry.
 The tracker is modelled by 30 thin nested cylinders, and is assumed to be made of pure silicon,
 uniformly distributed over each layer. The thickness of each layer in terms of interaction lengths
-was tuned to reproduce the number of brehmsstrahlung photons above a certain treshold as observed in
+was tuned to reproduce the number of bremsstrahlung photons above a certain threshold as observed in
 FullSim.
 Charged particles are propagated between two detector surfaces according to the magnetic field, and
 experience multiple scattering and energy loss by ionization. The intersections between the
