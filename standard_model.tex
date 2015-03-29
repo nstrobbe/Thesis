@@ -9,9 +9,12 @@ In this chapter I will give a short overview of some of the main characteristics
 Model. For an in-depth and extensive discussion, I refer to
 Refs.~\cite{Povh:1995mua,bettini2014introduction,Peskin:1995ev,Burgess:2007zi,Agashe:2014kda}.
 Section~\ref{sec:SM_particles} will cover the particle content and interactions
-present in the Standard Model. The origin of the mass of the elementary particles is touched upon
-in Section~\ref{sec:SM_HiggsMechanism}. This chapter concludes with some of the biggest success
-stories of the Standard Model in Section~\ref{sec:SM_success}.
+present in the Standard Model. 
+The phenomenon responsible for binding quarks together is discussed in Section~\ref{sec:SM_QCD},
+whereas the origin of the mass of the elementary particles is touched upon in
+Section~\ref{sec:SM_HiggsMechanism}. 
+This chapter concludes with some of the biggest success stories of the Standard Model in
+Section~\ref{sec:SM_success}.
 
 \section{Particles and interactions \label{sec:SM_particles}}
 
@@ -106,8 +109,9 @@ numbers: electric charge $Q$, third component of weak isospin $T_3$, hypercharge
 \end{table}
 
 
-An important fact is that there cannot be explicit mass terms in the Lagrangian of a chiral theory,
-as this would break the gauge symmetry. All particles in the Standard Model should thus be massless.
+An important observation is that there cannot be explicit mass terms in the Lagrangian of a chiral
+theory, as this would break the gauge symmetry. All particles in the Standard Model should thus be
+massless.
 Of course, this is not what we observe in reality. 
 We need a mechanism to introduce masses into our theory without spoiling gauge
 invariance. This mechanism is the Brout-Englert-Higgs mechanism, which is based on spontaneous
@@ -181,15 +185,16 @@ and the running of the coupling is shown in Fig.~\ref{fig:running_coupling}.
   \includegraphics[width=0.8\textwidth]{figures/standardmodel/asq-2013}
   \caption{Latest summary of measurements of $\alpha_S$ as a function of the energy scale $Q$.
 The respective degree of QCD perturbation theory used in the extraction of $\alpha_S$ is
-indicated in brackets. Figure and caption taken from Ref.~\cite{Agashe:2014kda}
+indicated in brackets. Figure and caption taken from Ref.~\cite{Agashe:2014kda}.
   \label{fig:running_coupling}}
 \end{figure}
 
 At very low energy scales, the running of the strong coupling constant results in a very large
 value for $\alpha_S$. This explains the observation that no one has ever found a single free quark. 
-They are always 'confined' in colourless (white) hadrons, \ie bound states of quarks and/or
-antiquarks.  A quark and antiquark of opposite colour (e.g. $r$ and $\overline{r}$) can form a
+They are always `confined' in colourless (white) hadrons, \ie bound states of quarks and/or
+antiquarks.  A quark and antiquark of opposite colour (\eg $r$ and $\overline{r}$) can form a
 \textit{meson} and 3 quarks of different colour ($r$, $g$ and $b$) can form a \textit{baryon}. 
+Mesons and baryons are collectively referred to as \textit{hadrons}.
 When one tries to separate two quarks, for example in a high energy collision, they behave like a
 string, and energy is built up between them. At some point it becomes energetically more favourable
 to use this energy to create extra quarks from the vacuum. 
@@ -200,16 +205,18 @@ presented in Section~\ref{sec:event_hadronization}.
 
 \section{Brout-Englert-Higgs mechanism \label{sec:SM_HiggsMechanism}}
 
-The Brout-Englert-Higgs mechanism introduces one or more scalar fields, the Higgs
-fields, into the theory. These fields acquire a vacuum expectation value that spontaneously
+Introducing masses into a chiral theory is not a trivial issue, but is required to come to a viable
+description of the elementary particles. 
+The Brout-Englert-Higgs mechanism accomplishes this by introducing one or more scalar fields, the
+Higgs fields, into the theory. These fields acquire a vacuum expectation value that spontaneously
 breaks a symmetry in the Lagrangian. 
 According to the Goldstone theorem, every spontaneously broken continuous symmetry
 results in a massless scalar particle, the Goldstone boson. 
-Hence, the number of Goldstone bosons in the theory is equal to the number of broken generators of
+Hence, the number of Goldstone bosons in a theory is equal to the number of broken generators of
 the symmetry group. 
 However, in the case of a gauge theory, like the Standard Model, this is not the full story. 
 We shall see that the massless gauge bosons of the theory acquire a mass by absorbing the Goldstone
-boson. 
+bosons. 
 The number of massive gauge bosons in a spontaneously broken gauge theory will thus be equal to the
 number of broken generators. 
 
@@ -225,7 +232,7 @@ is conserved. The spontaneous symmetry breaking should thus be of the form
 For three gauge bosons to acquire mass, three Goldstone bosons will have to be absorbed. As a
 consequence, the scalar fields need to contain at least three degrees of freedom for the mechanism
 to work. The simplest way to do this is by introducing a complex, scalar $SU(2)$ doublet $\Phi$ with
-positive hypercharge ($Y = \frac{1}{2}$)
+positive hypercharge ($Y = \frac{1}{2}$),
 \begin{equation}
   \Phi = \begin{pmatrix} \phi^+ \\ \phi^0 \end{pmatrix} \textrm{ .} 
 \end{equation}
@@ -237,22 +244,22 @@ leptons, is given by
 \end{equation}
 where $i$ runs over the three generations, $\mu,\nu$ are Lorentz indices and $a$ runs over the
 number of generators in the gauge group.
-The field strengths are given by:
+The field strengths are given by,
 \begin{align*}
   W_{\mu\nu}^a &= \partial_\mu W_\nu^a - \partial_\nu W_\mu^a + g_2 \epsilon^{abc} W_\mu^b W_\nu^c
-\\
-  B_{\mu\nu} &= \partial_\mu B_\nu - \partial_\nu B_\mu 
+\textrm{ ,} \\
+  B_{\mu\nu} &= \partial_\mu B_\nu - \partial_\nu B_\mu \textrm{ ,}
 \end{align*}
-and the covariant derivative for left- and right-handed leptons by:
+and the covariant derivative for left- and right-handed leptons by,
 \begin{align*}
-  D_\mu L_L &= \left(\partial_\mu - i g_2 T_a W_\mu^a - i g_1 Y B_\mu \right) L_L \\
+  D_\mu L_L &= \left(\partial_\mu - i g_2 T_a W_\mu^a - i g_1 Y B_\mu \right) L_L \textrm{ ,}\\
   D_\mu e_R &= \left(\partial_\mu - i g_1 Y B_\mu \right) e_R \textrm{ ,}
 \end{align*}
 where $T_a$ are the generators of the $SU(2)_L$ gauge group and $g_1$, $g_2$ are the coupling
 constants for the electroweak interaction.
 
-Now that we have introduced the scalar doublet $\Phi$, we need to add the scalar part to the
-Lagrangian
+Having introduced the scalar doublet $\Phi$, we need to add the corresponding scalar part to the
+Lagrangian,
 \begin{equation}
   \mathcal{L}_{S} = (D^\mu \Phi)^\dagger(D_\mu \Phi) - V(\Phi), \quad \textrm{with } V(\Phi) = \mu^2
 \Phi^\dagger \Phi + \lambda (\Phi^\dagger \Phi)^2 \textrm{ . } 
@@ -261,7 +268,8 @@ Lagrangian
 The first term is the kinetic term and the second term is the scalar potential, which is often
 called the ``Mexican Hat'' potential. The form of the Higgs potential is an assumption in the
 Standard Model. It is not known from first principles, but is rather chosen for its nice
-properties. 
+properties. It is the simplest potential that can achieve the necessary spontaneous symmetry
+breaking, while being renormalizable.  
 In order for the vacuum to be stable, the parameter $\lambda$ has to be positive. Depending on the
 sign of $\mu^2$ one can distinguish two cases, which are illustrated in
 Fig.~\ref{fig:Higgs_potential}. 
@@ -296,7 +304,7 @@ origin. The scalar field will not obtain a vacuum expectation value.
 rim around the origin. The scalar field will thus move from the origin down to the actual minimum
 and acquire a vev in the process. The green line indicates a flat direction in the potential,
 corresponding to a massless Goldstone mode.
-  Figures taken from Ref.~\cite{Higgs_potential}
+  Figures taken from Ref.~\cite{Higgs_potential}.
   \label{fig:Higgs_potential}}
 \end{figure}
 
@@ -320,10 +328,10 @@ we find for the kinetic part of the scalar Lagrangian,
 \end{equation}
 We see that the photon $A_\mu$ remains massless, as required for an unbroken symmetry. Mass terms
 for the $W$ and $Z$ bosons have the general form $M_W^2 W_\mu W^\mu$ and $ \frac{1}{2} M_Z^2 Z_\mu
-Z^\mu$. We thus find for the gauge boson masses
+Z^\mu$. We thus find for the gauge boson masses,
 \begin{align}
-  M_W &= \frac{1}{2} v g_2 \\
-  M_Z &= \frac{1}{2} v \sqrt{g_1^2 + g_2^2} \\
+  M_W &= \frac{1}{2} v g_2 ,\\
+  M_Z &= \frac{1}{2} v \sqrt{g_1^2 + g_2^2}, \\
   M_A &= 0 \textrm{ .}
 \end{align}
 After spontaneous symmetry breaking, three gauge bosons have thus absorbed a degree of freedom from
@@ -345,7 +353,8 @@ At tree level, we also find a relation between the masses of the $\W$ and $\cPZ$
 \begin{equation}
   \frac{M_\W}{M_\cPZ} = \frac{g_2}{\sqrt{g_1^2 + g_2^2}} = \cos \theta_W . 
 \end{equation}
-We will return to this relationship as a way to measure the Weinberg angle in the next section.
+The precise measurement of the $\W$ and $\cPZ$ boson masses can thus be used to measure the Weinberg
+angle.
 Working through the interaction terms between the photon and the fermions, one can show that the
 weak mixing angle relates the coupling strength of the weak interaction to that of the
 electromagnetic interaction, 
@@ -438,7 +447,7 @@ The measured cross section $\sigma$ also agrees very well with the expectation f
 Model. The signal strength at the measured mass was measured to be
 \begin{equation}
  \frac{\sigma}{\sigma_{\text{SM}}} = 1.00 \pm 0.09 \, (\text{stat})
-{\,}^{+0.08}_{-0.07} \, (\text{theory}) \pm 0.07 (\text{syst})
+{\,}^{+0.08}_{-0.07} \, (\text{theory}) \pm 0.07 \, (\text{syst}) .
 \end{equation}
 Many more tests of the properties of the observed particle have been
 made~\cite{Khachatryan:2014jba}. Examples are the spin and parity of the particle, the ratios of
@@ -479,12 +488,12 @@ from Ref.~\cite{Khachatryan:2014jba}.
 
 Electroweak precision observables can probe energy scales much larger than what is possible in
 direct measurements, through the effects of higher-order corrections. 
-Measurements of these observables at lepton collides such as LEP and SLC, along with
-measurements at hadron colliders, such as Tevatron and LHC, therefore need to be paired with
+Therefore, measurements of these observables at lepton colliders such as LEP and SLC, along with
+measurements at hadron colliders, such as Tevatron and LHC, need to be paired with
 very accurate theoretical predictions.
-Up until the Higgs boson discovery, these experimental and theoretical input was used in global fits
+Up until the Higgs boson discovery, this experimental and theoretical input was used in global fits
 of the electroweak sector in order to constrain the free parameters of the Standard Model.
-Now on the other hand, assuming that the newly discovered Higgs boson is indeed the SM Higgs boson,
+Now, on the other hand, assuming that the newly discovered Higgs boson is indeed the SM Higgs boson,
 all fundamental parameters that are used in the fit are known, and the fit is overconstrained. This
 means that we can now fully test the consistency of the Standard Model, as well as predict some of
 the observables with higher precision than the direct measurements. 
@@ -497,7 +506,7 @@ group~\cite{Baak:2014ora,Flacher:2008zq} as illustration here.
 {figures/standardmodel/2014_07_16_PullPlotTwoBarsTwoTheos_logo}
 \caption{ Comparison of the GFitter fit results with the direct measurements in units of the
 experimental uncertainty. 
-Figure from Ref.~\cite{Baak:2014ora}
+Figure from Ref.~\cite{Baak:2014ora}.
 \label{fig:global_fit1}}
 \end{wrapfigure}
 The measurements that are used in the fit include, among others, the mass of the Higgs boson, the
@@ -531,7 +540,7 @@ is very good, showing the consistency of the Standard Model.
 (top) and $m_W$ versus $\sin^2 (\theta^l_{\text{eff}})$ (bottom), for a fit including $m_H$ (blue)
 and excluding $m_H$ (grey), as compared to the direct measurements (vertical and horizontal green
 bands and ellipses). In both figures, the corresponding direct measurements are excluded
-from the fit. Figure and caption from Ref.~\cite{Baak:2014ora}
+from the fit. Figures and caption from Ref.~\cite{Baak:2014ora}.
 \label{fig:global_fit}}
 \end{figure}
 
