@@ -79,8 +79,8 @@ with plt.xkcd():
     el3 = Ellipse(xy=(275,100),width=255,height=30,angle=45,lw=3,fc='None',edgecolor='DarkMagenta')
     ax.add_patch(el3)
 
-    plt.xlabel('stop mass',fontsize=20)
-    plt.ylabel('LSP mass',fontsize=20)
+    plt.xlabel('stop mass (GeV)',fontsize=20)
+    plt.ylabel('LSP mass (GeV)',fontsize=20)
 
     plt.annotate(
         'COMPRESSED\nSPECTRUM',
