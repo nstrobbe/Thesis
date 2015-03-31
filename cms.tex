@@ -1,4 +1,4 @@
-\chapter{The Compact Muon Solenoid experiment \label{chap:CMS}}
+\section{The Compact Muon Solenoid experiment \label{chap:CMS}}
 
 The Compact Muon Solenoid (CMS)~\cite{Chatrchyan:2008aa,Bayatian:922757,Ball:2007zza,CMS_website} is
 one of the two general purpose detectors
@@ -43,7 +43,7 @@ Figure taken from Ref.~\cite{CMS_slice}.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Coordinate system and basic variables \label{sec:cms_coordinates}}
+\subsection{Coordinate system and basic variables \label{sec:cms_coordinates}}
 
 The CMS coordinate system takes the nominal collision point as the origin, with the $y$-axis
 pointing vertically upward, and the $x$-axis pointing radially inward towards the centre of the
@@ -92,7 +92,7 @@ undetected particles, or energy mismeasurements.
 % a fully active scintillating crystals-based electromagnetic calorimeter.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Magnet system \label{sec:cms_magnet}}
+\subsection{Magnet system \label{sec:cms_magnet}}
 
 The CMS magnet is a superconducting solenoid, producing a uniform magnetic field of 3.8\unit{T}
 inside the magnet coil. 
@@ -130,7 +130,7 @@ the cold mass inside the cryostat. Figure taken from Ref.~\cite{Chatrchyan:2008a
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Tracker \label{sec:cms_tracker}}
+\subsection{Tracker \label{sec:cms_tracker}}
 
 The purpose of the tracker is to very accurately measure the curved tracks of charged
 particles with $\pt > 1\GeV$, such that a precise momentum measurement can be made. 
@@ -182,7 +182,7 @@ layers of silicon modules. Figure taken from Ref.~\cite{CMS_tracker}.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Electromagnetic calorimeter \label{sec:cms_ecal}}
+\subsection{Electromagnetic calorimeter \label{sec:cms_ecal}}
 
 The CMS electromagnetic calorimeter is a hermetic homogeneous calorimeter, consisting of a central
 barrel region and two endcaps, and is located in between the tracker and the HCAL. 
@@ -234,7 +234,7 @@ endcaps, and the preshower detectors. Figure taken from Ref.~\cite{Chatrchyan:20
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Hadron calorimeter \label{sec:cms_hcal}}
+\subsection{Hadron calorimeter \label{sec:cms_hcal}}
 
 The hadron calorimeter is the last subdetector that is (mostly) located within the magnet coil. It
 is designed to detect and absorb hadrons, such that the only particles leaving the HCAL are muons
@@ -290,7 +290,7 @@ wedges. Figure taken from Ref.~\cite{CMS_hf}.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Muon system \label{sec:cms_muon_system}}
+\subsection{Muon system \label{sec:cms_muon_system}}
 
 Detecting muons, the heavier sibling of electrons, is one of the priorities of the Compact
 \textit{Muon} Solenoid. Because it is 200 times heavier, a muon interacts less with material than
@@ -359,7 +359,7 @@ system.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Trigger and data acquisition \label{sec:cms_tdaq}}
+\subsection{Trigger and data acquisition \label{sec:cms_tdaq}}
 
 At design specifications, CMS detects a proton bunch crossing every 25\unit{ns}. This means that
 there are 40 million collisions per second, too much to fully read out, process and store for
@@ -379,7 +379,7 @@ Data from each subdetector is first collected in separate pipelines and is then 
 switch networks to build the full event. Section~\ref{sec:cms_daq} will discuss in more detail how
 the events are constructed.
 
-\subsection{L1 Trigger \label{sec:cms_level_one}}
+\subsubsection{L1 Trigger \label{sec:cms_level_one}}
 
 The L1 trigger is designed to make extremely fast decisions, based on relatively simple criteria,
 reducing the data rate to about 100\unit{kHz}. 
@@ -405,7 +405,7 @@ or \pt thresholds, and/or on the total summed \ET or \ETm of the event. If the e
 the high-resolution data is sent from the readout pipelines to the event builder and the High
 Level trigger. 
 
-\subsection{High Level Trigger \label{sec:cms_hlt}}
+\subsubsection{High Level Trigger \label{sec:cms_hlt}}
 
 The High Level trigger~\cite{Adam:2005zf} is a computer farm that has access to the full event
 information, and can therefore perform complex calculations similar to those made in the offline
@@ -425,7 +425,7 @@ Each event that is kept receives a set of tags associated with the separate trig
 fulfilled. These tags are later used to sort the data into so-called primary datasets. 
 
 
-\subsection{Data acquisition \label{sec:cms_daq}}
+\subsubsection{Data acquisition \label{sec:cms_daq}}
 
 The CMS data acquisition (DAQ) system~\cite{Cittolin:578006} comprises different components, which
 are illustrated in Fig.~\ref{fig:cms_event_builder}. 
