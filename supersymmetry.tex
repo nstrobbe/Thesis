@@ -690,7 +690,8 @@ sparticle masses are fulfilled.
 A natural SUSY scenario has low finetuning, and thus resolves the hierarchy problem. A typical mass
 spectrum is shown in Fig.~\ref{fig:natural_spectrum}. The idea of natural SUSY has driven many
 searches at the LHC, and has drawn particular attention to searches for gluinos and third
-generation squarks. 
+generation squarks, as those particles are the only strongly produced particles that are required
+to be relatively light. 
 
 
 \begin{figure}[t]
@@ -709,14 +710,14 @@ Ref.~\cite{Papucci:2011wy}.
 
 Many extensions of the Standard Model are possible, and many of the models have numerous free
 parameters. The MSSM is no exception. Without additional simplifications there are 104 extra free
-parameters, with a minimal set of assumptions there are still about 20 parameters left. This
+parameters; with a minimal set of assumptions, there are still about 20 parameters left. This
 extremely large parameter space is not very practical to do an analysis. 
 Furthermore, similar experimental signatures can be produced in different ways, and by different
 models.
 To address these issues, a simplified approach was developed, using the so-called
 \textit{simplified model spectra} (SMS)~\cite{Alves:2011wf,Alwall:2008ag,Chatrchyan:2013sza},
-rather than full models. These SMS are based primarily on the experimental topologies, in terms of
-how many jets or leptons are produced, whether there are $\cPqb$ jets, etcetera. 
+rather than full models. These SMS are based primarily on the experimental topologies, how many jets
+or leptons are produced, whether there are jets originating from $\cPqb$ quarks, etcetera. 
 
 Simplified models only contain a limited number of particles and interactions, and can be modelled
 as an effective theory. 
@@ -732,7 +733,7 @@ can then be used as input in the proposal of new dedicated analyses.
 
   \item Characterizing possible new physics signals. If a signal is observed, SMS's can be used as
 a starting point to quantify the compatibility with different kinds of processes. Starting the
-characterization with full models from the beginning would be very cumbersome due to the many free
+characterization with full models would be very cumbersome due to the many free
 parameters that would need to be scanned.
 
 \item Derive limits on more general models. Complex models can be decomposed into experimental
@@ -754,17 +755,19 @@ proceeds through the dimension-six operator,
 where $i$ runs over the different quark flavours, $\lambda_i$ is the Yukawa coupling for the
 quark-squark-$\lsp$ vertex, and $M_i$ is the effective scale of the interaction. 
 Collision events can be simulated according to this effective Lagrangian in two main ways. The
-first is through the use of \textsc{marmoset}~\cite{ArkaniHamed:2007fw}, which allows to directly
-simulate the on-shell effective theory. The second, and most widely used, way is to use a matrix
-element generator, such as \MADGRAPH (see Section~\ref{sec:event_matrix_element_generators}), and
-simulate events using the MSSM as model, and whereby the masses for all particles that are not
-involved in the SMS are set to very high values of $\mathcal{O}(100\TeV)$.
+first is through the use of programs such as \textsc{marmoset}~\cite{ArkaniHamed:2007fw}, which
+allows to directly simulate the on-shell effective theory. 
+The second, and most widely used, way is to use a matrix element generator, such as \MADGRAPH (see
+Section~\ref{sec:event_matrix_element_generators}), to simulate events using the MSSM as model,
+setting the masses for all particles that are not involved in the SMS to very high values of
+$\mathcal{O}(100\TeV)$.
 Any diagrams involving particles not included in the SMS will then effectively not contribute at
 all, and the MSSM will be reduced to the SMS under study.  
-For both cases, the only parameters that are relevant for this SMS are the gluino production cross
+No matter the details of the simulation, the only parameters that are relevant for this SMS are the
+gluino production cross
 section, the branching ratio for the decay (here assumed to be 100\%), and the masses for the gluino
 and the $\lsp$. Analyses will then usually make a two-dimensional scan across the
-($\tilde{g},\lsp$) mass plane, and investigate how the sensitivity changes.
+($\tilde{g},\lsp$) mass plane, and investigate how their sensitivity changes.
 
 
 We also note that although the simplified models are SUSY-inspired, and use the SUSY nomenclature,
