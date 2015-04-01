@@ -1,7 +1,7 @@
 import sys, os
 from string import *
 import ROOT as rt
-from ROOT import TFile, TText
+from ROOT import TFile, TText, TLine
 
 import plotTools, tdrstyle
 
@@ -49,6 +49,15 @@ if __name__ == '__main__':
     text1 = TText(0.73,0.45,"T1t1t model")
     text1.SetNDC()
     text1.SetTextSize(0.04)
+    line1 = TLine(320,0,320,0.07)
+    line1.SetLineWidth(2)
+    line1.SetLineColor(rt.kGray+2)
+    line1.SetLineStyle(2)
+    arrow1 = rt.TArrow(320,0.06,450,0.06,0.03,"|>")
+    arrow1.SetAngle(40)
+    arrow1.SetLineWidth(2)
+    arrow1.SetLineColor(rt.kGray+2)
+    arrow1.SetFillColor(rt.kGray+2)
     hdict_TTJets1 = plotTools.ConstructHDict(
         infile_TTJ.Get(hname),
         name="t#bar{t}+jets", 
@@ -81,7 +90,8 @@ if __name__ == '__main__':
                hdict_T1t1t_800_275_100,
                hdict_T1t1t_1200_275_100]
     canvasname = "T1t1t_genWpt"
-    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd4,extras=[text1])
+    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd4,extras=[text1,line1,arrow1])
+
 
     legd5 = plotTools.ConstructLDict(0.25,0.9,0.5,0.87)
     text = TText(0.73,0.45,"T1ttcc model")
@@ -119,7 +129,7 @@ if __name__ == '__main__':
                hdict_T1ttcc_1000_425_400,
                hdict_T1ttcc_1200_225_200]
     canvasname = "T1ttcc_genWpt"
-    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text])
+    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text,line1,arrow1])
 
 
     ########################################################
@@ -131,6 +141,15 @@ if __name__ == '__main__':
     text1 = TText(0.73,0.45,"T1t1t model")
     text1.SetNDC()
     text1.SetTextSize(0.04)
+    line2 = TLine(700,0,700,0.05)
+    line2.SetLineWidth(2)
+    line2.SetLineColor(rt.kGray+2)
+    line2.SetLineStyle(2)
+    arrow2 = rt.TArrow(700,0.04,850,0.04,0.03,"|>")
+    arrow2.SetAngle(40)
+    arrow2.SetLineWidth(2)
+    arrow2.SetLineColor(rt.kGray+2)
+    arrow2.SetFillColor(rt.kGray+2)
     hdict_TTJets1 = plotTools.ConstructHDict(
         infile_TTJ.Get(hname),
         name="t#bar{t}+jets", 
@@ -163,7 +182,7 @@ if __name__ == '__main__':
                hdict_T1t1t_800_275_100,
                hdict_T1t1t_1200_275_100]
     canvasname = "T1t1t_gentoppt"
-    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd4,extras=[text1])
+    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd4,extras=[text1,line2,arrow2])
 
     legd5 = plotTools.ConstructLDict(0.28,0.9,0.5,0.87)
     text = TText(0.73,0.45,"T1ttcc model")
@@ -201,7 +220,7 @@ if __name__ == '__main__':
                hdict_T1ttcc_1000_425_400,
                hdict_T1ttcc_1200_225_200]
     canvasname = "T1ttcc_gentoppt"
-    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text])
+    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text,line2,arrow2])
 
 
     outfile.Close()
