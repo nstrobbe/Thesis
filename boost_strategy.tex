@@ -16,10 +16,14 @@ $\Delta R = \frac{2 M}{\pt^\W}$.},
 where $m$ and $\pt$ denote the mass and transverse momentum of the mother particle, and $\Delta R$
 is given in terms of azimuthal angle $\phi$ and pseudorapidity $\eta$ as $\Delta R = \sqrt{\Delta
 \phi^2 + \Delta \eta^2}$.
-For a separation of $\Delta R = 0.5$, a top quark should thus have a momentum of ${\sim}700$\GeV, a
-value difficult to reach with proton-proton collisions at 8 TeV. Therefore, in order to increase the
-signal efficiency, we consider instead $\W$ bosons from top quark decays, which are required to have
-a more accessible $\pt \,{\sim}\, 320$\GeV.  The \pt of the top quark and $\W$ boson at generator
+For a separation of $\Delta R = 0.5$, the standard cone size of jets used in CMS, a top
+quark should thus have a momentum of ${\sim}700$\GeV, a value difficult to reach with proton-proton
+collisions at 8 TeV. 
+Therefore, in order to increase the signal efficiency, we consider instead $\W$ bosons from top
+quark decays, which are required to have a more accessible $\pt \,{\sim}\, 320$\GeV.  This results
+in an increase in the signal efficiency of a factor of about 3--5, depending on the considered mass
+spectrum. 
+The \pt of the top quark and $\W$ boson at generator
 level without applying any selection, is shown in Figs.~\ref{fig:boost_gen_toppt} and
 \ref{fig:boost_gen_Wpt} for several signal models, and the SM $t\bar{t}$ process. 
 We observe that the average \pt is higher for the signal than for $t\bar{t}$. Requiring the
@@ -37,6 +41,8 @@ in Section~\ref{sec:boost_wtag}.
 \caption{Generator level top quark \pt for several signal points of the T1ttcc (left) and T1t1t
 (right) simplified models. The average \pt increases as the mass splitting increases. The boost of
 the top quark is larger for the considered signal models compared to the $t\bar{t}$ background. 
+The range in \pt needed to have merged decay products for jets with size $\Delta R = 0.5$ is
+indicated with an arrow. 
 \label{fig:boost_gen_toppt}}
 \end{figure}
 \begin{figure}[htpb]
@@ -48,6 +54,8 @@ the top quark is larger for the considered signal models compared to the $t\bar{
 (right)
 simplified models. The average \pt increases as the mass splitting increases. The boost of the $\W$
 boson is larger for the considered signal models compared to the $t\bar{t}$ background. 
+The range in \pt needed to have merged decay products for jets with size $\Delta R = 0.5$ is
+indicated with an arrow.
 \label{fig:boost_gen_Wpt}}
 \end{figure}
 
@@ -59,40 +67,17 @@ using hadronic events with at least one boosted $\W$ boson and one jet originati
 quark (\ie $\cPqb$ jet). 
 
 Standard model backgrounds in the signal regions are estimated using observations in control regions
-and global scale factors, calculated from simulated data, that relate the number of events in one
-region to that in another. 
+and global translation factors, calculated from simulated data, that relate the number of events in
+one region to that in another. 
 Three control regions, $Q$, $W$, and $T$, are defined to select high-purity samples of multijet,
 $\W(\rightarrow \ell\nu)+$jets and $t\bar{t}$ processes, respectively.  
 The background estimation method uses a likelihood-based approach, with a simultaneous sampling
 of systematic uncertainties which fully takes into account any correlations automatically.
-An overview of the different regions and how they are related, including for the control regions
-which background parameters of the likelihood each region constrains, is shown in
-Fig.~\ref{fig:boost_flowchart}. For the full explanation of the background estimation method, I
-refer to Section~\ref{sec:boost_likelihood}. 
+%An overview of the different regions and how they are related, including for the control regions
+%which background parameters of the likelihood each region constrains, is shown in
+%Fig.~\ref{fig:boost_flowchart}. 
+The full explanation of the background estimation method will be given in
+Section~\ref{sec:boost_likelihood}. 
 
-\begin{figure}[p]
-  \centering
-  \includegraphics[width=\textwidth]{figures/razor_strategy/BoostFlowChart_noZ}
-  \caption{Definition of, and relationship between, the signal ($S$) and control ($Q,T,W$) regions
-and their relationship to the bin-by-bin background parameters
-$b^{\textrm{region}}_{\textrm{process}}$ for a given region and background process, as well as the
-four global scale factors $\kappa^{A/B}_{\textrm{process}} = \sum_i b^A_{\textrm{process}, MC, i} /
-\sum_i b^B_{\textrm{process}, MC, i}$, where the sum is over all 25 (\mr,\rsq) bins of the simulated
-data. 
-The total expected background, per bin, is the sum of the terms shown for each region. Furthermore,
-associated with each bin of each region is an observed count $N^{\textrm{region}}$, a simulated
-count $N^{\textrm{region}}_{\textrm{process}, MC}$, and a count $N^{\textrm{region}}_{oth, MC}$
-equal to the sum of the smaller backgrounds, with associated parameter $b^{\textrm{region}}_{oth}$.
-  \label{fig:boost_flowchart}}
-\end{figure}
 
-% 
-% \begin{figure}[htbp]
-% \centering
-% \includegraphics[width=0.49\textwidth]{figures/T1ttcc/Signal_comparison_T1ttcc_gen_toppt}
-% \includegraphics[width=0.49\textwidth]{figures/T1t1t/Signal_comparison_T1t1t_gen_toppt}
-% \caption{Generator top \pt for several signalpoints of the T1ttcc (left) andT1t1t (right)
-% simplified
-% models.
-% \label{fig:gen_toppt}}
-% \end{figure}
+

@@ -1,17 +1,32 @@
 \chapter{The razor boost analysis \label{chap:razorboost}}
 
-In this chapter the razor boost analysis will be discussed. 
+The razor boost analysis is a search for new massive particles in hadronic final states with at
+least one highly boosted $\W$ boson and $\cPqb$ jet.  Boosted $\W$ boson candidates are identified
+using jet substructure techniques. The razor variables $\mr$ and $\rsq$ are used to characterize
+the signal as a peak on a falling background.
+The search is performed using $\Pp\Pp$ collision data collected by CMS at a centre-of-mass energy of
+8\TeV, corresponding to an integrated luminosity of 19.7\fbinv.  
+Backgrounds from Standard Model processes are predicted using a data-driven method. 
+A data control region, binned in $\mr$ and $\rsq$, is defined for each of the main background
+components. These control regions are used together with global transfer factors, determined in
+simulation, to obtain the background estimate in the corresponding signal bins on the ($\mr$,$\rsq$)
+plane. The validation of the background estimation technique is done using closure tests. 
+The final results are interpreted in the context of natural SUSY, in terms of top squark production
+from gluino decays, where the top squarks decay either to a charm or top quark, and a neutralino. 
+
+
+This chapter is structured in the following way. 
 I will first cover the motivation and general strategy of the analysis in 
-sections~\ref{sec:boost_motivation} and \ref{sec:boost_strategy}. Then the \textit{razor variables},
-which are our most important discriminating variables, will be derived in 
-section~\ref{sec:boost_razor}. Section~\ref{sec:boost_wtag} details the technique used to tag highly
+Sections~\ref{sec:boost_motivation} and \ref{sec:boost_strategy}. Then, the \textit{razor
+variables}, which are our most important discriminating variables, will be derived in 
+Section~\ref{sec:boost_razor}. Section~\ref{sec:boost_wtag} details the technique used to tag highly
 boosted $\W$ bosons. 
 The datasets and triggers are listed in Section~\ref{sec:trigger_datasets}, followed by the event
 selection in Section~\ref{sec:boost_event_selection}. 
 The full statistical treatment, with its likelihood based approach, is explained in 
-section~\ref{sec:boost_likelihood}. In section~\ref{sec:boost_systematics} the different sources of
+Section~\ref{sec:boost_likelihood}. In Section~\ref{sec:boost_systematics} the different sources of
 systematic uncertainties are discussed, followed by the results of the full background estimation in
-section~\ref{sec:boost_results}. This chapter concludes, in section~\ref{sec:boost_interpretation},
+Section~\ref{sec:boost_results}. This chapter concludes, in Section~\ref{sec:boost_interpretation},
 with the interpretation of the results in terms of several simplified model spectra. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,6 +80,90 @@ The viability of the defined control regions to model the data in our signal reg
 two closure tests, which are presented at the end of this section.
 For all details on the full background estimation itself, I refer to
 section~\ref{sec:boost_likelihood}. 
+
+\subsection{The razor variables in the razor boost analysis}
+
+As the name already indicates, the razor boost analysis uses the razor variables as the main
+discriminating variables. They are well suited for the purpose of the analysis; they are
+designed to describe a signal due to pair production of heavy particles, each of which decays to a
+massless visible particle and a massive invisible particle, as is the case for the targeted models
+in the razor boost analysis. The signal will appear as a peak on an exponentially falling
+background. 
+
+For clarity we repeat the \mr and \rsq definitions here, replacing the relevant variables with their
+megajet counterparts, with indices ${\rm j}_i$, 
+\begin{align}
+  \mr &= \sqrt{\left( E_{{\rm j}_1} + E_{{\rm j}_2}\right)^2 - \left( p_{z}^{{\rm j}_1} +
+p_{z}^{{\rm j}_2} \right)^2} ,\\
+  \rsq &= \frac{\mtr}{\mr} ,\\
+  \textrm{with } \mtr &= \sqrt{\frac{|\VEtmiss|}{2} \left(\pt^{{\rm j}_1} + \pt^{{\rm j}_2}
+\right) - \frac{\VEtmiss}{2} \cdot \left(\ptvec^{\,{\rm j}_1} + \ptvec^{\,{\rm j}_2}
+\right)} ,
+\end{align}
+where we have defined $\pt$ as the magnitude of the transverse momentum vector $\ptvec$. 
+
+The two-dimensional (2D) distributions of \rsq versus \mr for both background and an example signal
+model are shown in Fig.~\ref{fig:razor_MR_Rsq_bg_signal}. A very loose selection is applied,
+requiring the presence of a good primary vertex and at least three jets, one of which should have
+$\pt > 200$ \GeV. It is clear that the background, dominated by QCD multijet production, is located
+in the low \mr and low \rsq regions, and falls off steeply when \mr or \rsq is increased. The
+signal, on the other hand, shows a peaking behaviour in \mr and is located substantially higher in
+the (\mr,\rsq) space. 
+The $\mr$ distribution peaks at higher values for larger sparticle masses and higher mass
+differences between the gluino and the LSP. This is illustrated
+in Figs.~\ref{fig:razor_MR_R2_T1ttcc} and \ref{fig:razor_MR_R2_T1t1t}, which show the $\mr$ and
+$\rsq$ distributions for several signal points using the same loose selection as defined above.
+The width of the $\mr$ distribution also increases with the gluino mass. This is why we use an
+increasingly larger bin width for $\mr$ when defining our analysis regions. 
+
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_bg} 
+\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_sig}
+\caption{Distribution of the overall SM backgrounds and a T1ttcc signal with $m_{\tilde{g}} \,{=}\,
+1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, both obtained
+from MC, on the (\mr,\rsq) space. A very loose selection is used:  a good primary vertex and at
+least three jets, one of which should have $\pt > 200$ \GeV. 
+\label{fig:razor_MR_Rsq_bg_signal}}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_MR_comparison} 
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_R2_comparison}
+\caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
+T1ttcc signal points. A very loose selection is used, including only the requirement of having a
+good primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
+\label{fig:razor_MR_R2_T1ttcc}}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_MR_comparison} 
+~
+\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_R2_comparison}
+\caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
+T1t1t signal points. A very loose selection is used, including only the requirement of having a good
+primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
+\label{fig:razor_MR_R2_T1t1t}}
+\end{figure}
+
+In order to retain sensitivity to low \ETm scenarios, we choose to reduce the minimal $\rsq$
+requirement compared to previous razor
+analyses~\cite{Chatrchyan:2011ek,razorPRL,Chatrchyan:2014goa}, while simultaneously raising
+the $\mr$ requirement to access the boosted phase space, and keep the background to a
+manageable level.
+As explained before, $\mr$ is a measure of mass difference, and since high boost requires high mass
+differences, we opt to work in the high $\mr$ region to obtain better expected signal
+significance. 
+The baseline requirement implemented in this analysis is that events fall within the ranges 
+\begin{itemize}
+\item $\mr > 800\GeV$, 
+\item $\rsq > 0.08$.
+\end{itemize}
+This provides a good balance between background suppression and signal acceptance. 
 
 \subsection{Baseline selection \label{sec:boost_baseline_selection}}
 

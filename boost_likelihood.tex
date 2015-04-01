@@ -5,6 +5,8 @@
 % TODO \textcolor{red}{This section has been copied directly from the paper draft. It will be
 % expanded upon in a next version.}
 
+
+
 The statistical analysis of the observations,  $\{ N^S_i \}$, in the signal region is based on a
 likelihood function, $L(\sigma)$, given by
 \begin{align}
@@ -26,6 +28,22 @@ The likelihood per bin is taken to be
  p(N^S | \sigma, {\cal L}, \theta) = \textrm{Poisson}(N^S,  \epsilon \sigma {\cal L} + b^S_{QCD} +
 b^S_{TTJ} + b^S_{\W\ell\nu} +  b^{S}_{oth}) .
 \end{equation}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\textwidth]{figures/razor_strategy/BoostFlowChart_noZ}
+  \caption{Definition of, and relationship between, the signal ($S$) and control ($Q,T,W$) regions
+and their relationship to the bin-by-bin background parameters
+$b^{\textrm{region}}_{\textrm{process}}$ for a given region and background process, as well as the
+four global scale factors $\kappa^{A/B}_{\textrm{process}} = \sum_i b^A_{\textrm{process}, MC, i} /
+\sum_i b^B_{\textrm{process}, MC, i}$, where the sum is over all 25 (\mr,\rsq) bins of the simulated
+data. 
+The total expected background, per bin, is the sum of the terms shown for each region. Furthermore,
+associated with each bin of each region is an observed count $N^{\textrm{region}}$, a simulated
+count $N^{\textrm{region}}_{\textrm{process}, MC}$, and a count $N^{\textrm{region}}_{oth, MC}$
+equal to the sum of the smaller backgrounds, with associated parameter $b^{\textrm{region}}_{oth}$.
+  \label{fig:boost_flowchart}}
+\end{figure}
 
 The integral in Eq.~(\ref{eq:marginal}) is approximated by Monte Carlo integration by sampling
  the priors $\pi({\cal L})$, and  $\pi(\theta)$. 

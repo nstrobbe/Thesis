@@ -5,8 +5,8 @@
 % add full derivation
 % plots of signal and background
 
-Many extensions of the Standard Model (see chapter~\ref{chap:beyond_standard_model}) predict the 
-existence of new particles, which can be pair-produced in the proton-proton collisions at the LHC. 
+Many extensions of the Standard Model (see Chapter~\ref{chap:beyond_standard_model}) predict the 
+existence of new particles which can be pair-produced in the proton-proton collisions at the LHC. 
 Some of those theories introduce an extra symmetry, such as the R-parity in supersymmetry. A
 consequence of this symmetry is that the lightest BSM particle must be stable, as it cannot decay
 to SM particles only. This lightest BSM particle, called LSP in supersymmetric theories, is weakly
@@ -48,7 +48,7 @@ used in the razor boost analysis.
 
 \subsection{Kinematical configuration and notation \label{sec:razor_notation}}
 
-Let's again consider Fig.~\ref{fig:razor_signature}. For simplicity, we will assume that the
+Let us again consider Fig.~\ref{fig:razor_signature}. For simplicity, we will assume that the
 produced particles $S_1$ and $S_2$ undergo a two-body decay. Each $S_i$ decays to a visible,
 standard model particle $Q_i$, and a particle $\chi_i$ that escapes the detector. 
 We assume a symmetric decay chain, with the following relations for the masses of the different
@@ -213,7 +213,8 @@ particles are heavy. This prediction is the basis of the two approximations we w
 produced near the $\sqrt{\hat{s}} = 2 M_S$ threshold. This means that $\gamma^{\textrm{CM}} \approx
 1$. We will thus assume that $\gamma^{\textrm{CM}} = 1$, which means that $\betaCM \rightarrow 0$. 
 The CM frame is thus equal to both $S_i$ rest frames after this first approximation. 
-  \item The transverse boost between lab frame and CM frame can be approximated by 
+  \item Neglecting the transverse motion of the colliding partons inside the proton, we can
+approximate the transverse boost between lab frame and CM frame by 
   \begin{equation}
     |\vec{\beta}_T| \approx \frac{\pt^{\rm ISR}}{\sqrt{\hat{s}}} \lesssim \frac{\pt^{\rm
 ISR}}{2M_S},
@@ -517,86 +518,4 @@ This approach groups particles travelling in the same direction, and is effectiv
 decay products of each of the two initially produced particles. 
 
 
-\subsection{The razor variables in the razor boost analysis}
 
-As the name already indicates, the razor boost analysis uses the razor variables as the main
-discriminating variables. They are well suited for the purpose of the analysis; they are
-designed to describe a signal due to pair production of heavy particles, each of which decays to a
-massless visible particle and a massive invisible particle, as is the case for the targeted models
-in the razor boost analysis. The signal will appear as a peak on an exponentially falling
-background. 
-
-For clarity we repeat the \mr and \rsq definitions here, replacing the relevant variables with their
-megajet counterparts, with indices ${\rm j}_i$, 
-\begin{align}
-  \mr &= \sqrt{\left( E_{{\rm j}_1} + E_{{\rm j}_2}\right)^2 - \left( p_{z}^{{\rm j}_1} +
-p_{z}^{{\rm j}_2} \right)^2} ,\\
-  \rsq &= \frac{\mtr}{\mr} ,\\
-  \textrm{with } \mtr &= \sqrt{\frac{|\VEtmiss|}{2} \left(\pt^{{\rm j}_1} + \pt^{{\rm j}_2}
-\right) - \frac{\VEtmiss}{2} \cdot \left(\ptvec^{\,{\rm j}_1} + \ptvec^{\,{\rm j}_2}
-\right)} ,
-\end{align}
-where we have defined $\pt$ as the magnitude of the transverse momentum vector $\ptvec$. 
-
-The two-dimensional (2D) distributions of \rsq versus \mr for both background and an example signal
-model are shown in Fig.~\ref{fig:razor_MR_Rsq_bg_signal}. A very loose selection is applied,
-requiring the presence of a good primary vertex and at least three jets, one of which should have
-$\pt > 200$ \GeV. It is clear that the background, dominated by QCD multijet production, is located
-in the low \mr and low \rsq regions, and falls off steeply when \mr or \rsq is increased. The
-signal, on the other hand, shows a peaking behaviour in \mr and is located substantially higher in
-the (\mr,\rsq) space. 
-The $\mr$ distribution peaks at higher values for larger sparticle masses and higher mass
-differences between the gluino and the LSP. This is illustrated
-in Figs.~\ref{fig:razor_MR_R2_T1ttcc} and \ref{fig:razor_MR_R2_T1t1t}, which show the $\mr$ and
-$\rsq$ distributions for several signal points using the same loose selection as defined above.
-The width of the $\mr$ distribution also increases with the gluino mass. This is why we use an
-increasingly larger bin width for $\mr$ when defining our analysis regions. 
-
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_bg} 
-\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_sig}
-\caption{Distribution of the overall SM backgrounds and a T1ttcc signal with $m_{\tilde{g}} \,{=}\,
-1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, both obtained
-from MC, on the (\mr,\rsq) space. A very loose selection is used:  a good primary vertex and at
-least three jets, one of which should have $\pt > 200$ \GeV. 
-\label{fig:razor_MR_Rsq_bg_signal}}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_MR_comparison} 
-~
-\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_R2_comparison}
-\caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
-T1ttcc signal points. A very loose selection is used, including only the requirement of having a
-good primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
-\label{fig:razor_MR_R2_T1ttcc}}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_MR_comparison} 
-~
-\includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_R2_comparison}
-\caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
-T1t1t signal points. A very loose selection is used, including only the requirement of having a good
-primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
-\label{fig:razor_MR_R2_T1t1t}}
-\end{figure}
-
-In order to retain sensitivity to low \ETm scenarios, we choose to reduce the minimal $\rsq$
-requirement compared to previous razor
-analyses~\cite{Chatrchyan:2011ek,razorPRL,Chatrchyan:2014goa}, while simultaneously raising
-the $\mr$ requirement to access the boosted phase space, and keep the background to a
-manageable level.
-As explained before, $\mr$ is a measure of mass difference, and since high boost requires high mass
-differences, we opt to work in the high $\mr$ region to obtain better expected signal
-significance. 
-The baseline requirement implemented in this analysis is that events fall within the ranges 
-\begin{itemize}
-\item $\mr > 800\GeV$, 
-\item $\rsq > 0.08$.
-\end{itemize}
-This provides a good balance between background suppression and signal acceptance. 
