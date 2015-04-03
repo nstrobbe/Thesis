@@ -13,7 +13,7 @@ to SM particles only. This lightest BSM particle, called LSP in supersymmetric t
 interacting, and escapes the detector unseen. 
 
 This general property leads to a generic class of new physics signatures in which a heavy
-particle is pair-produced, and decays into visible, i.e. interacting with detector material, SM
+particle is pair-produced, and decays into visible, \ie interacting with detector material, SM
 particles, and an invisible LSP. This signature is illustrated in Fig.~\ref{fig:razor_signature}.
 
 \begin{figure}[htb]
@@ -27,13 +27,12 @@ system $\chi_i$. \label{fig:razor_signature}}
 
 Several kinematical variables targeting this topology have been
 developed~\cite{Lester:1999tx,Barr:2003rg,Randall:2008rw,Polesello:2009rn,Bai:2012gs}.
-% TODO add citations here
-Most of these variables rely on the presence of the invisible LSP's. This causes the visible system
-to deviate from a di-jet topology, resulting in possibly large missing transverse momentum, altered
+Most of these variables rely on the presence of the invisible LSPs. This causes the visible system
+to deviate from a dijet topology, resulting in possibly large missing transverse momentum, altered
 angular distributions, etcetera. All of this can be used to distinguish the sought-after signal
 from the known background processes. 
 Unfortunately, the ultimate goal of reconstructing the masses of the new particles cannot be
-attained. Because of the escaping LSP's, there is simply not enough information available to fully
+attained. Because of the escaping LSPs, there is simply not enough information available to fully
 constrain the problem. What we can do, however, is approximate the mass scale of the new physics
 particles. Often times this results in variables that exhibit a kinematic edge. 
 The \textit{razor variables} \cite{rogan,Rogan:1557072,Chatrchyan:2011ek,Chatrchyan:2014goa} are no
@@ -41,16 +40,16 @@ exception in this regard. One advantage the razor variables have over many other
 they also reconstruct the mass scale as a peak, in addition to a kinematic edge. 
 In what follows I will derive the two razor variables, denoted \mr and \rsq, which use longitudinal
 and transverse event information, respectively, to estimate a characteristic mass scale associated
-with the new particles. At the end of this section I will briefly show how the razor variables are
-used in the razor boost analysis. 
+with the new particles. 
+The exact use of the razor variables in the razor boost analysis will be discussed in
+the section about the event selection (Section~\ref{sec:boost_event_razor}). 
 
-% explain reference frames
 
 \subsection{Kinematical configuration and notation \label{sec:razor_notation}}
 
 Let us again consider Fig.~\ref{fig:razor_signature}. For simplicity, we will assume that the
 produced particles $S_1$ and $S_2$ undergo a two-body decay. Each $S_i$ decays to a visible,
-standard model particle $Q_i$, and a particle $\chi_i$ that escapes the detector. 
+Standard Model particle $Q_i$, and a particle $\chi_i$ that escapes the detector. 
 We assume a symmetric decay chain, with the following relations for the masses of the different
 particles,
 \begin{alignat}{3}
@@ -66,7 +65,7 @@ variables.
 
 \paragraph{$S_1$ rest frame} 
 From basic two-body decay kinematics it follows that the $Q_1$ and $\chi_1$ particles are produced
-back to back, with equal magnitude of momentum, in the rest frame of the $S_1$ particle. This is
+back-to-back, with equal magnitude of momentum, in the rest frame of the $S_1$ particle. This is
 illustrated in Fig.~\ref{fig:razor_S1_rest_frame}. 
 
 \begin{figure}[htpb]
@@ -74,7 +73,7 @@ illustrated in Fig.~\ref{fig:razor_S1_rest_frame}.
   \includegraphics[width=0.6\textwidth,clip=true,trim=0 4cm 0
 3cm]{figures/razor_variables/rest_frame}
   \caption{Configuration of the $S_1$ rest frame. The decay products $Q_1$ and $\chi_1$ are
-produced back to back with momenta $\vec{p}^{\,S}_1$ and $-\vec{p}^{\,S}_1$, respectively. 
+produced back-to-back with momenta $\vec{p}^{\,S}_1$ and $-\vec{p}^{\,S}_1$, respectively. 
 \label{fig:razor_S1_rest_frame}}
 \end{figure}
 
@@ -166,8 +165,8 @@ an unknown at hadron colliders.
   \centering
   \includegraphics[width=0.6\textwidth,clip=true,trim=0 5.5cm 0
 4.5cm]{figures/razor_variables/cm_frame} 
-  \caption{Configuration of the center-of-mass frame. The particles $S_1$ and $S_2$ are
-produced back to back with velocities $\betaCM$ and $-\betaCM$, respectively. 
+  \caption{Configuration of the centre-of-mass frame. The particles $S_1$ and $S_2$ are
+produced back-to-back with velocities $\betaCM$ and $-\betaCM$, respectively. 
 \label{fig:razor_CM_frame}}
 \end{figure}
 
@@ -209,7 +208,7 @@ The models of new physics that we aim to target with the razor variables all pre
 particles are heavy. This prediction is the basis of the two approximations we will be making. 
 
 \begin{enumerate}
-  \item If $M_S$ is large compared to $\sqrt{s}$, then the particles $S_1$ and $S_2$ will be
+  \item If $M_S$ is large compared to $\sqrt{\hat{s}}$, then the particles $S_1$ and $S_2$ will be
 produced near the $\sqrt{\hat{s}} = 2 M_S$ threshold. This means that $\gamma^{\textrm{CM}} \approx
 1$. We will thus assume that $\gamma^{\textrm{CM}} = 1$, which means that $\betaCM \rightarrow 0$. 
 The CM frame is thus equal to both $S_i$ rest frames after this first approximation. 
@@ -229,7 +228,7 @@ to take us from the lab frame to the approximate $S_i$ rest frames.
 In this so-called \textit{rough-approximation frame}, or \textit{R-frame}, we have that
 \begin{alignat}{4}
   |\vec{q}^{\,R}_1|         &= |\vec{q}^{\,R}_2| &&= \frac{M_\Delta}{2} , \\
-  \textrm{or } E_{Q_1}^R &= E_{Q_2}^R     &&= \frac{M_\Delta}{2}.
+  \textrm{or } E_{Q_1}^R &= E_{Q_2}^R     &&= \frac{M_\Delta}{2},
 \label{eq:razor_equal_energy_R_frame}
 \end{alignat}
 cf. Eq.~\ref{eq:razor_equal_momenta}. Using this constraint, we can compute the boost $\beta^R$
@@ -308,7 +307,7 @@ the characteristic scale $M_\Delta$ with degrading resolution as the Lorentz fac
 More generally, the peak value of \mr scales as $\gamma^{\textrm{CM}}M_\Delta$.
 
 We can use \mr as a way to distinguish signal from background, in particular background from QCD
-multijet production. Let's consider QCD dijet production. In the dijet rest frame we have for the
+multijet production. Let us consider QCD dijet production. In the dijet rest frame we have for the
 four-momenta of the two jets, $k_1$ and $k_2$
 \begin{align}
   k_1 &= \frac{\sqrt{\hat{s}}}{2} \{1, \vec{v}\} ,\\

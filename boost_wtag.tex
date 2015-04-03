@@ -80,13 +80,13 @@ where $y, \phi$ are the rapidity (defined in Eq.~\ref{eq:rapidity}) and azimutha
 %\end{equation}
 The distance between constituent $i$ and the beam is given by $d_{iB} = 1$.
 As is clear from the above, these distance measures only use angular information, unlike for the
-$k_T$ and anti-$k_T$ algorithms, which use a $\pt$-weighted distance. 
+$k_\mathrm{T}$ and anti-$k_\mathrm{T}$ algorithms, which use a $\pt$-weighted distance. 
 
 The jet algorithm starts by computing the minimum distance $d_{ij}$, across all $i,j$. If $\min
 d_{ij} < d_{iB}$, then we combine constituents $i$ and $j$ into a new constituent whose
 four-momentum is the sum of the four-momenta of $i$ and $j$, and repeat the process. Otherwise, we
-call $i$ a jet and remove it from the list of constituents to be clustered. Again, the process is
-repeated with the remaining constituents, until none remain.
+call $i$ a jet and move it from the list of constituents to be clustered to the list of final jets.
+The process is repeated with the remaining constituents, until none remain.
 \end{cajet}
 %\end{quote}
 
@@ -108,7 +108,7 @@ sensitive to these soft contributions, but still reflect the kinematics of the o
 process.
 
 
-During jet pruning the constituents of the jet are reclustered through the CA algorithm, using the
+During jet pruning the constituents of the jet are reclustered with the CA algorithm, using the
 same distance parameter as used for the original jets (here $R=0.8$), but with additional conditions
 beyond those of the standard algorithm.
 In particular, the softer and larger-angle of the two particles $i$ and $j$ to be merged is removed
@@ -117,8 +117,8 @@ when the following conditions are satisfied:
   z_{ij} &= \frac{\min( \pt^i , \pt^j )}{\pt^i + \pt^j} < z_{\textrm{cut}}, \\
   \Delta R_{ij} &> D_{\textrm{cut}} \equiv \alpha \frac{m_J}{\pt} ,
 \end{align}
-where $m_J$ and $\pt$ are the mass and transverse momentum of the originally-clustered jet, $\Delta
-R_{ij}$ is defined as in Eq.~\ref{eq:DeltaR_jet_algo}, and
+where $m_J$ and $\pt$ are the original mass and transverse momentum of the reclustered jet,
+$\Delta R_{ij}$ is defined as in Eq.~\ref{eq:DeltaR_jet_algo}, and
 $z_\textrm{cut}$ and $\alpha$ are parameters of the algorithm, chosen to be 0.1 and 0.5,
 respectively~\cite{Chatrchyan:2013vbb}. 
 
@@ -127,7 +127,8 @@ products to be collimated, we need a large transverse momentum. We will therefor
 pruned jets have $\pt > 200\GeV$. 
 Because of the reduction of the effect of UE and PU, the jet mass variable as computed from the
 constituents of the jet after jet pruning has a much better behaviour than if it was computed from
-the unpruned jets, see Fig.~\ref{fig:wtag_jet_pruning}. Jet pruning shifts the jet mass of QCD jets
+the unpruned jets, as seen on Fig.~\ref{fig:wtag_jet_pruning}. Jet pruning shifts the jet mass of
+QCD jets
 to smaller values, while maintaining the jet mass for $\W$ jets close to the $\W$ boson mass.
 
 We will make the requirement that the pruned jet mass is consistent with the $\W$ boson mass,
@@ -144,8 +145,10 @@ increasing the lower cut value to 70\GeV.
   \centering
   \includegraphics[width=0.6\textwidth]{figures/razor_wtag/1DPFCHS_PR_QCD}
   \caption{Jet mass distribution of QCD jets with $\pt(\textrm{gen}) > 300 \GeV$ for jet pruning
-with different parameters, starting from PF jets with charge-hadron subtraction applied. The fully
-ungroomed mass distribution is also shown for comparison~\cite{CMS-PAS-JME-14-001}. 
+with different parameters, starting from PF jets with charged-hadron subtraction applied. The fully
+ungroomed mass distribution is also shown for comparison. Here, the jets were clustered using the
+anti-$k_\mathrm{T}$ algorithm, but the same picture holds for Cambridge-Aachen jets.
+Figure taken from~Ref.\cite{CMS-PAS-JME-14-001}. 
   \label{fig:wtag_jet_pruning}}
 \end{figure}
 
@@ -154,10 +157,10 @@ ungroomed mass distribution is also shown for comparison~\cite{CMS-PAS-JME-14-00
 \subsection{N-subjettiness}
 
 Requiring the jet mass to be consistent with the $\W$ boson mass already results in a good
-discrimination between $\W$ boson and quark/gluon-initiated jets. We can however still do better. A
-boosted QCD jet with a mass around 80\GeV usually originates from a single hard parton and acquires
-mass through large angle soft splittings. The energy pattern for this process will differ from the
-two-prong pattern that is found in boosted $\W$ jets.  
+discrimination between $\W$ boson and quark/gluon-initiated jets. We can, however, still do better.
+A boosted QCD jet with a mass around 80\GeV usually originates from a single hard parton and
+acquires mass through large-angle soft splittings. The energy pattern for this process will differ
+from the two-prong pattern that is found in boosted $\W$ jets.  
 The set of N-subjettiness observables $\tau_N$~\cite{Thaler:2010tr} aims to exploit this difference
 in expected energy flow to differentiate between $\W$ boson and quark/gluon-initiated jets by
 counting the number of hard lobes of energy within a jet.
@@ -184,12 +187,14 @@ small value (close to 0) if the original jet is consistent with having N or fewe
 almost every jet constituent will be close in $\Delta R$ to its own true subjet. 
 As we are interested in discriminating boosted $\W$ bosons, with two subjets, from quark/gluon
 jets, which have a single subjet, we will use the variables $\tau_2$ and $\tau_1$, as obtained
-from the unpruned CA8 jets. To ensure that the N-subjettiness ratio as computed from the unpruned
-jet collection is assigned to the correct pruned jet, we find the highest \pt unpruned jet that is
-within $\Delta R = 0.7$ of the considered pruned jet.  
+from the unpruned CA8 jets.   
 It has been shown that the ratio of the $\tau_N$ variables are better discriminators than the
 separate variables~\cite{Thaler:2010tr}. We will thus require that the ratio $\tau_2 / \tau_1$ is
-small. The $\tau_2 / \tau_1$ distribution for highly boosted and longitudinally polarized $\W$
+small. 
+To ensure that the N-subjettiness ratio as computed from the unpruned
+jet collection is assigned to the correct pruned jet, we find the highest \pt unpruned jet that is
+within $\Delta R = 0.7$ of the considered pruned jet.
+The $\tau_2 / \tau_1$ distribution for highly boosted and longitudinally polarized $\W$
 bosons and for inclusive QCD jets is shown in Fig.~\ref{fig:boost_wtag_tau2tau1}. 
 
 \begin{figure}[htpb]
@@ -197,7 +202,7 @@ bosons and for inclusive QCD jets is shown in Fig.~\ref{fig:boost_wtag_tau2tau1}
   \includegraphics[width=0.7\textwidth]{figures/razor_wtag/tau2tau1_afterMass}
   \caption{Distributions of the N-subjettiness ratio $\tau_2 / \tau_1$ in simulated samples of
 highly boosted and longitudinally polarized $\W$ bosons and inclusive QCD jets expected in the
-$\W$+jet topology (i.e. with leptonically decaying $\W$ bosons recoiling off a hard jet). 
+$\W$+jet topology (\ie with leptonically decaying $\W$ bosons recoiling off a hard jet). 
 The distribution is shown after a selection on the pruned jet mass of $60 < m_{\textrm{pruned jet}}
 < 100 \GeV$. Note that this is slightly different from what is applied in the razor boost analysis.
 Thick dashed lines represent the generator predictions without pileup interactions and without CMS
@@ -230,8 +235,8 @@ requirement, and define $\W$ boson \textit{mass-tagged} jets by dropping that re
 together. 
 These definitions allow a more efficient selection of background processes, while remaining in a
 similar kinematic regime. How these taggers will be used exactly will be explained in
-Section~\ref{sec:boost_control_selection}. A summary of their definition can be found in
-Table~\ref{tab:Wtag_definition} as well. 
+Section~\ref{sec:boost_control_selection} when discussing the event selection. A summary of their
+definitions can be found in Table~\ref{tab:Wtag_definition} as well. 
 
 \begin{table}[htdp]
 \caption{Boosted $\W$ tagging definitions. The input jet collection is either the pruned or unpruned
@@ -280,9 +285,9 @@ derived and how it will be used in the analysis.
   \includegraphics[width=0.48\textwidth]{figures/razor_wtag/substructure_pas_mass_2}
   \includegraphics[width=0.48\textwidth]{figures/razor_wtag/substructure_pas_tau21_aftermass_2}
   \caption{Pruned jet mass (left) and N-subjettiness ratio $\tau_2/\tau_1$ (right) distributions 
-  in data and simulation for dijet events. MG denotes the \MADGRAPH generator, and the option used
-  for the razor boost analysis. Below each figure the relative deviations are plotted between data
-  and simulation~\cite{Khachatryan:2014vla}. 
+  in data and simulation for dijet events. MG denotes the \MADGRAPH generator, and is the option
+used for the razor boost analysis. The relative deviations between
+data and simulation are plotted at the bottom of each figure~\cite{Khachatryan:2014vla}. 
   \label{fig:boost_wtag_data_sim}}  
 \end{figure}
 
@@ -297,10 +302,10 @@ scale factor is of course also used for the signal processes.
 
 The $\W$ boson tag efficiency scale factor is only applied to the simulation in the $S$ and $T$
 region, see Sections~\ref{sec:boost_signal_selection} and \ref{sec:boost_T_region}, as those are the
-selections that utilize the $\W$ tagging definition. It is also only applied to events for which
-the $\W$ boson tagged jet is matched (within a cone of $\Delta R = 0.8$) to a generator level
-hadronically decaying $\W$ boson. In case no match was found, we apply the $\W$ boson tag fake rate
-scale factor. 
+regions that utilize the $\W$ tagging definition in their selection criteria. It is also only
+applied to events for which the $\W$ boson tagged jet is matched (within a cone of $\Delta R = 0.8$)
+to a generator level hadronically decaying $\W$ boson. In case no match was found, we apply the $\W$
+boson tag fake rate scale factor. 
 
 As we use the same $\W$ boson tagging definition as was used in a search for massive resonances in
 dijet systems containing $\W$ tagged jets~\cite{EXO-12-024}, we can directly apply the scale
@@ -318,7 +323,7 @@ SF_{\textrm{Wtag}} = 0.86 \pm 0.07 .
 \label{sec:wtag_eff_fastfull_sf}}
 
 For our signal samples, which are produced with FastSim, we have derived an additional $\W$ tag
-efficiency FullSim/FastSim scale factor, $SF_{\textrm{Full/Fast}}$, which is a function of the \pt
+efficiency FullSim/FastSim scale factor, $SF_{\textrm{Full/Fast}}$, which depends on the \pt
 of the CA8 jet. This scale factor corrects for the different modelling of jets, jet
 substructure, etcetera, in FastSim with respect to FullSim. The product of $SF_{\textrm{Wtag}}$ and
 $SF_{\textrm{Full/Fast}}$ will be applied to the signal simulation. 
@@ -328,7 +333,7 @@ events simulated with both FullSim and FastSim.
 A FastSim versus FullSim comparison of the distributions of the pruned jet mass, the N-subjettiness
 variables $\tau_1$, $\tau_2$ and their ratio $\tau_2/\tau_1$, both before and after requiring the
 jets to satisfy the pruned jet mass window, is shown in
-Figs.~\ref{fig:FastFull_jmass}-\ref{fig:FastFull_tau21}. It is clear that the agreement is not
+Figs.~\ref{fig:FastFull_jmass}--\ref{fig:FastFull_tau21}. It is clear that the agreement is not
 perfect. The $\tau_2/\tau_1$ distribution for FastSim is shifted with respect to FullSim. This
 disagreement will then of course be translated into the efficiencies, and thus the need for a scale
 factor arises. 
@@ -434,7 +439,7 @@ uncertainties are statistical only.
 
 \begin{table}[htpb]
 \centering
-\caption{Summary of FullSim/FastSim scale factor for the $\W$ tag efficiency}
+\caption{Summary of FullSim/FastSim scale factor for the $\W$ tag efficiency.}
 \vspace{1ex}
 \begin{tabular}{c c}
 \toprule
@@ -469,8 +474,8 @@ $\Delta\phi_{min} < 0.3$.
 \end{itemize}
 This selection is similar to the baseline selection employed in the rest of the analysis. The
 kinematic regime, and the composition of the sample will thus also be similar. The main difference
-is that we have not applied any selection on \mr or \rsq, in order to retain a higher statistical
-power. 
+is that we have not applied any selection on the razor variables \mr or \rsq, in order to retain a
+higher statistical power. 
 
 To obtain the fake rates $\epsilon$ for $\W$ boson tagging we use the leading CA8 jet in each
 event, and check whether it is tagged by the $\W$ boson tagger. After obtaining the
@@ -511,16 +516,16 @@ statistical and systematic uncertainties.
 The $\W$ boson tag fake rate scale factor is applied in the $S$ and $T$ region, as is the case for
 the $\W$ boson tag efficiency scale factor. It is applied to all simulated samples without real
 hadronically decaying $\W$ bosons, such as multijet production, $W(\rightarrow\ell\nu)$+jets,
-$DY(\rightarrow\ell\ell)$+jets, etcetera. 
+$\cPZ/\gamma^*(\rightarrow\ell\ell)$+jets, etcetera. 
 
 %% ---------------------------------------------------------------------------------------------
 
 \subsubsection{\texorpdfstring{$\W$}{W} boson mass-tag fake rate scale factor
 \label{sec:wmasstag_fake_sf}}
 
-This scale factor corresponds to the $\W$ mass-tagging definition, which will be used in the $W$
-control region. As we will see further, the $W$ region is dominated by leptonically decaying $\W$
-bosons. The mass-tagged jet, therefore, originates from a quark or gluon jet, and is a
+This scale factor corresponds to the $\W$ boson mass-tagging definition, which will be used in the
+$W$ control region. As we will see further, the $W$ region is dominated by leptonically decaying
+$\W$ bosons. The mass-tagged jet, therefore, originates from a quark or gluon jet, and is a
 misidentified $\W$ boson jet. For this reason we will derive the scale factor for the $\W$ boson
 mass-tag fake rate from the same multijet-enriched region as was used to derive the scale factor for
 the $\W$ boson tag fake rate. The same method as before is applied, the only difference being
@@ -529,8 +534,10 @@ the use of the $\W$ boson mass-tag definition instead of the $\W$ boson tag defi
 The resulting scale factor, $SF_\textrm{Wmasstag}^\textrm{fake}$, is again a function of the CA8
 jet \pt, and will be applied to all simulated samples in the $W$ region.
 Figure~\ref{fig:boost_wmasstag} shows the $\W$ boson mass-tag fake rate in data and
-simulation, and the corresponding scale factor versus CA8 jet \pt. The scale factor is also
-listed in Table~\ref{tab:SF_Wmass}. 
+simulation, and the corresponding scale factor versus CA8 jet \pt. The scale factor with
+associated statistical and systematic uncertainties is listed in Table~\ref{tab:SF_Wmass}. The
+systematic uncertainty includes the trigger efficiency uncertainty and the uncertainty on the jet
+energy scale corrections. 
 The drop in the scale factor just above a \pt of 300\GeV is also visible here. 
 
 \begin{table}[htbp]
@@ -592,7 +599,8 @@ applied to all simulated samples in the $Q$ region.
 Figure~\ref{fig:boost_wantitag} shows the $\W$ boson anti-tag fake rate in data and
 simulation, and the corresponding scale factor versus CA8 jet \pt. As before, we observe a drop in
 the scale factor just above a \pt of 300\GeV. The scale factor, and breakdown of statistical and
-systematic uncertainties, is also listed in Table~\ref{tab:SF_Wantitagging}.
+systematic uncertainties, is listed in Table~\ref{tab:SF_Wantitagging}. The included systematic
+uncertainties are those stemming from the trigger efficiency and jet energy scale corrections. 
 
 
 \begin{table}[htbp]
