@@ -21,16 +21,16 @@
 \begin{tikzpicture}[scale=1.2,transform shape]
 
   \path[mindmap,concept color=Teal, text=white]
-    node[concept] (cS) {{\Huge \textbf{ S}} \\ $b^S_{\textrm{QCD}}$ \\$ b^S_{\textrm{TTJ}}$ \\ $b^S_{\textrm{Wl}\nu} $ \\ $b^S_{\textrm{oth}}$ }
+    node[concept] (cS) {{\Huge \textbf{ S}} \\ $b^S_{\textrm{QCD}}$ \\$ b^S_{t\bar{t}+t}$ \\ $b^S_{\textrm{W}\ell\nu} $ \\ $b^S_{\textrm{oth}}$ }
     [clockwise from=-20]
     child[concept color=MediumVioletRed] {
       node[concept] (cQ) {{\Huge \textbf{Q}} \\ $\kappa^{Q/S}_{QCD} ~ b^S_{\textrm{QCD}}$ \\ $b^Q_{\textrm{oth}}$}
     }
     child[concept color=FireBrick] {
-      node[concept] (cT) {{\Huge \textbf{T}} \\ $\kappa^{T/S}_{TTJ} ~ b^S_{\textrm{TTJ}}$\\ $\kappa^{T/Q}_{QCD} ~ \kappa^{Q/S}_{QCD} ~ b^S_{\textrm{QCD}}$  \\ $b^T_{\textrm{oth}}$ }
+      node[concept] (cT) {{\Huge \textbf{T}} \\ $\kappa^{T/S}_{t\bar{t}+t} ~ b^S_{t\bar{t}+t}$\\ $\kappa^{T/Q}_{QCD} ~ \kappa^{Q/S}_{QCD} ~ b^S_{\textrm{QCD}}$  \\ $b^T_{\textrm{oth}}$ }
     }
     child[concept color=ForestGreen] { 
-      node[concept] (cW) {{\Huge \textbf{W}} \\ $\kappa^{W/S}_{\textrm{Wl}\nu} ~ b^{S}_{\textrm{Wl}\nu}$  \\ $b^W_{\textrm{oth}}$}
+      node[concept] (cW) {{\Huge \textbf{W}} \\ $\kappa^{W/S}_{\textrm{W}\ell\nu} ~ b^{S}_{\textrm{W}\ell\nu}$  \\ $b^W_{\textrm{oth}}$}
     };
     %\end{scope}
     %\begin{pgfonlayer}{background}

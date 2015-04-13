@@ -3,11 +3,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The control regions are defined such that they are enriched in one of the three main backgrounds in
-the signal region, $t\bar{t}$, QCD multijet, and $\W(\rightarrow \ell \nu)+$jets. The control region
+the signal region: $t\bar{t}$, QCD multijet, and $\W(\rightarrow \ell \nu)+$jets. The control
+region
 selections will be as close as possible to the signal selection, while maximizing the purity in a
 given background process and minimizing possible signal contamination. 
 To construct the control regions, different requirements on the 
-multiplicity of leptons, $\cPqb$ tagged, and $\W$ tagged jets are placed. 
+multiplicity of leptons, $\cPqb$ tagged jets, and $\W$ tagged jets are placed. 
 In the following subsections each control region will be discussed in detail. 
 
 \subsubsection{\texorpdfstring{$T$}{T} region \label{sec:boost_T_region}}
@@ -15,8 +16,8 @@ In the following subsections each control region will be discussed in detail.
 The dominant background in the signal region is $t\bar{t}$ production. We define the $T$ region as a
 dedicated control region enriched in this process. 
 Similarly to the signal, $t\bar{t}$ events are expected to have $\cPqb$ jets in the final state, as
-well as real hadronically decaying $\W$ bosons. We will thus not change those aspects of the signal
-selection when defining the $T$ region. 
+well as real hadronically decaying $\W$ bosons. We will thus not change the $\cPqb$ tagging and
+$\W$ tagging aspects of the signal selection when defining the $T$ region. 
 
 The main change we do make, is requiring the presence of exactly one loose electron or muon, while
 removing the requirement that there be no isolated track. This selection is already sufficient to
@@ -31,7 +32,8 @@ The distribution of $\mT$ exhibits a kinematic edge at the mass of the $\W$ boso
 process, an edge not present for signal events due to the extra contribution to the \ETm from the
 invisible neutralinos.  We require $\mT < 100$\GeV in order to reduce signal contamination and
 retain most of the $t\bar{t}$ contribution. The $\mT$ distribution at this selection level is shown
-in Fig.~\ref{fig:boost_T_region_mT}. 
+in Fig.~\ref{fig:boost_T_region_mT}. It can be seen that signal events could populate the tails of
+this variable.
 
 
 \begin{figure}[htbp]
@@ -48,8 +50,8 @@ visible for the SM backgrounds, whereas the example signal point extends out to 
 \end{figure}
 
 The final ingredient for the full $T$ region selection, is the $\Delta\phi_{min} > 0.5$
-requirement. This is used to obtain a selection, and thus kinematic properties, as close as
-possible to the signal region. The $\Delta\phi_{min}$ distribution is shown in
+requirement. This is applied in order to obtain a selection, and thus kinematic properties, as close
+as possible to the signal region. The $\Delta\phi_{min}$ distribution in the $T$ region is shown in
 Fig.~\ref{fig:boost_T_region_mindeltaphi}. A summary of the full $T$ region selection is presented
 in Table~\ref{tab:boost_selection_summary}. 
 
@@ -62,26 +64,27 @@ in Table~\ref{tab:boost_selection_summary}.
 region without any selection on $\Delta\phi_{min}$. An example signal
 point, corresponding to the T1ttcc mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
 $m_{\stopone} \,{=}\, 325\GeV$ and $m_{\lsp} \,{=}\, 300\GeV$, is stacked on top of
-the
-background processes.
+the background processes. Because the $\mT < 100$\GeV requirement has already been applied, there
+is only a very minimal signal contamination that remains in this region.
 \label{fig:boost_T_region_mindeltaphi}}
 \end{figure}
 
-
-Table~\ref{tab:cutflow} shows a breakdown of the contributions of the various background components,
+Table~\ref{tab:cutflow}, in particular the line listing $T$ in the first column, shows a breakdown
+of the contributions of the various background components,
 as determined directly from simulation, as wel as the observed data counts, and expected counts for
 an example signal point. From Table~\ref{tab:BG_comp_percent} we see that the obtained purity in the
-$T$ region is more than 80\% for $t\bar{t}$ and single top processes combined. This is also
+$T$ region is about 83\% for $t\bar{t}$ and single top processes combined. This is also
 illustrated in the $\mr$ and $\rsq$ distributions, as shown on Fig.~\ref{fig:boost_T_region_MR_Rsq}.
 There is good agreement between data and simulation in the $T$ region. Any discrepancies can
-be accommodated by the systematic uncertainties on the MC, and will not affect the analysis.
+be accommodated by the systematic uncertainties on the MC simulation. Given that we will only use
+the simulation in ratios, any small discrepancies will not affect the analysis.
 We also compare the shape of the $\mr$ and $\rsq$ distributions in the $T$ region versus the $S$
 region. We observe from Fig.~\ref{fig:boost_T_region_shape} that the shapes are very similar. This
 is important as we will use global transfer factors $\kappa$ to translate between the $T$ and $S$
 regions. 
 
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.48\textwidth]
 {figures/razor_selection/plots/DataMC_MR_g1Mbg1W1LlmT100_mdPhig0p5_width}
@@ -114,7 +117,7 @@ distribution in the $T$ control region.
 % \end{figure}
 % 
 
-\begin{figure}[htbp]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/razor_selection/shapeplots/MR_comparison_TTJ_SIG}
 ~
@@ -137,17 +140,17 @@ production, where the lepton from the $\W$ boson decay is lost.
 Because the $\W$ boson decays leptonically, any events passing the signal selection necessarily
 contain a q/g initiated CA8 jet that is misidentified as a boosted $\W$ boson. 
 We do not expect hadronically decaying $\W$ bosons to contribute to the background in the signal
-region, as those events would have very small missing energy, in addition to not having real
-$\cPqb$ jets. Even though we do not explicitly require a minimal \ETm, our $\rsq$ cut is highly
-correlated with \ETm, and induces a minimal cut of around 100\GeV, as can be seen in
-Fig.~\ref{fig:boost_signal_Wpt_met}. 
+region, because those events would have very small missing energy, in addition to not having real
+$\cPqb$ jets. Even though we do not explicitly require a minimal \ETm, the $\rsq$ variable is highly
+correlated with \ETm, and the applied selection on $\rsq$ effectively induces a minimal
+requirement of around 100\GeV on \ETm, as can be seen in Fig.~\ref{fig:boost_signal_Wpt_met}. 
 This expectation was verified by checking the contribution of $\W({\rightarrow}\,
 q\bar{q}')b\bar{b}$ using simulation, where it was found that no events pass our signal
 selection. 
 
 In order to accurately model the $\W(\rightarrow l\nu)$+jets background, we define a dedicated
 control region, the $W$ region, as similar to the signal region as possible. As for the $T$ region,
-we require the presence of a loose electron or muon. Additionally we also veto any event that
+we require the presence of a loose electron or muon. Additionally, we also veto any event that
 contains a CSV loose $\cPqb$ tagged jet.  
 Since for the $\W(\rightarrow l\nu)$+jets process, there is no real hadronically decaying $\W$
 boson, we opt not to use the full $\W$ tagger. 
@@ -158,7 +161,8 @@ requiring a two-prong decay for a process for which these decays do not occur.
 
 We also require $\mT < 100$\GeV in order to reduce possible signal contamination. Unlike for the $T$
 region, we additionally require $\mT > 30$\GeV in order to reduce remaining contamination from
-multijet events. Those events generally have low $\ETm$, which translates in low $\mT$. 
+multijet events in the $W$ region. Those events generally have low $\ETm$, which translates in low
+$\mT$. 
 Multijet contamination in the $T$ region is negligible because of the
 requirement that there be at least one jet tagged a coming from a $\cPqb$ quark. 
 Finally, we also require $\Delta\phi_{min} > 0.5$, as was the case for the signal region. 
@@ -168,8 +172,8 @@ Figure~\ref{fig:boost_W_region_mT} shows the $m_T$ distribution in the $W$ regio
 selection $\mT$ or on $\Delta\phi_{min}$. The $\Delta\phi_{min}$ distribution in the $W$ region
 without applying a selection on $\Delta\phi_{min}$ is given in
 Fig.~\ref{fig:boost_W_region_mindeltaphi}. The full breakdown of the backgrounds in this region is
-listed in Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}. The $W$ region is about 85\% pure
-in the $\W(\rightarrow l\nu)+$jets process. 
+listed in Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}, as was done for the $T$ region.
+The $W$ region is about 85\% pure in the $\W(\rightarrow l\nu)+$jets process. 
 
 \begin{figure}[htbp]
 \centering
@@ -194,7 +198,8 @@ region without any selection on $\Delta\phi_{min}$.
 A comparison between data and simulation for the $\mr$ and $\rsq$ distributions is shown in
 Fig.~\ref{fig:boost_W_region_MR_Rsq}. A reasonable agreement is observed. The offset in the
 normalization will be absorbed automatically during the background estimation procedure. 
-We also compare the shapes of the \mr and \rsq distributions for the $\W(\rightarrow\ell\nu)+$jets
+We also compare the shapes of the \mr and \rsq distributions for the
+$\W(\rightarrow\ell\nu)+$jets
 simulation in the $W$ region versus the $S$ region. From Fig.~\ref{fig:boost_W_region_shape} we
 observe that there is good agreement, within statistical uncertainties. 
  
@@ -255,20 +260,21 @@ jet-substructure of actual boosted $\W$ bosons, this will enhance the statistica
 of the $Q$ region. 
 
 As explained before, QCD multijet events are expected to have small values for the
-$\Delta\phi_{min}$ variable. This can be seen from Fig.~\ref{fig:boost_Q_region_mindeltaphi}. 
+$\Delta\phi_{min}$ variable. This can be seen from Fig.~\ref{fig:boost_Q_region_mindeltaphi},
+where the multijet events are clearly located in the first couple bins. 
 For the $Q$ region definition we will thus reverse
 and tighten the $\Delta\phi_{min}$ requirement from the signal region. We require $\Delta\phi_{min}
 < 0.3$, which results in a very good purity of better than 90\% according to simulation. 
 The full breakdown of the backgrounds according to simulation can again be found in
-Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}.
+Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}, this time in the line corresponding to $Q$.
 Figure~\ref{fig:boost_Q_region_MR_Rsq} shows a comparison between data and simulation for the $\mr$
 and $\rsq$ distributions. It is not surprising to observe that the agreement between data and
-simulation is not very good. This is a known feature of the QCD multijet simulation, and its
-normalisation to LO cross sections. Since we only use ratios of simulated counts in the background
-estimation method, and the proportion of multijet events in the signal region is small, the
-observed mismodelling will not affect our analysis greatly. 
+simulation is not very good, as this is a known feature of the QCD multijet simulation with
+normalization to LO cross sections. Since we only use ratios of simulated counts in the background
+estimation method, and the proportion of multijet events in the signal region is expected to
+be small, the observed mismodelling will, fortunately, not affect our analysis greatly. 
 
-\begin{figure}[htbp]
+\begin{figure}[hbp]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/razor_selection/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
 \caption{Comparison between data and simluation of the $\Delta\phi_{min}$ distribution in the $Q$
@@ -306,15 +312,15 @@ distributions in the $Q$ region.
 % \end{figure}
 
 
-In Fig.~\ref{fig:boost_Q_region_shape}, we show a comparison between the shapes of the $\mr$ and
+In Fig.~\ref{fig:boost_Q_region_shape} we show a comparison between the shapes of the $\mr$ and
 $\rsq$ distributions for the QCD multijet simulation in the signal region versus the $Q$ region.
 Given the limited statistical precision for the multijet simulation in the signal region, it is
 hard to draw any conclusions from this comparison. Therefore, we also show in
 Fig.~\ref{fig:boost_Q_region_shape_no_mindeltaphi} the comparison for the $Q$ and $S$ regions
 without selecting a particular $\Delta\phi_{min}$ region. The shape difference in this
-region is quite small. As will be explained in Section~\ref{sec:boost_closure_tests}, we will assign
-a 40\% systematic uncertainty on the multijet transfer factors in the background prediction to
-account for the possible shape difference induced by the $\Delta\phi_{min}$ cut. 
+region is quite small. As will be explained further in Section~\ref{sec:boost_closure_tests}, we
+will assign a 40\% systematic uncertainty on the multijet transfer factors in the background
+prediction to account for the possible shape difference induced by the $\Delta\phi_{min}$ cut. 
 
 \begin{figure}[htbp]
 \centering
@@ -344,8 +350,10 @@ regions.
 
 \begin{table}[thbp]
 \centering
-\caption{Summary of selection for signal and control regions.
-These requirements are in addition to the baseline selection. \label{tab:boost_selection_summary}}
+\caption{Summary of selection for signal ($S$) and control regions ($Q$, $T$, $W$). The selections
+used to define validation regions ($S'$, $Q'$) used in the closure tests are also included for
+completeness. The requirements listed in this table are to be applied in addition to those
+corresponding to the baseline selection. \label{tab:boost_selection_summary}}
 \vspace{1ex}
 \begin{tabular}{l cc cc c c}
 \toprule

@@ -28,7 +28,7 @@ if __name__ == '__main__':
     #mc_datasets = ["QCD","TTJets","WJetsToLNu","Wbb","Top","TTX","ZJetsToNuNu","DYJetsToLL","DYToBB","DYToCC","VV","VVV"]
     #mc_colors   = [rt.kMagenta,rt.kRed,rt.kGreen+1,rt.kGreen+3,rt.kCyan,rt.kCyan+2,rt.kOrange,rt.kOrange+2,rt.kOrange+7,rt.kOrange+9,rt.kBlue+1,rt.kBlue-3]
     mc_datasets = ["QCD"      ,"TTJets_noTopPt"  ,"WJets"    ,"Top"       ,"ZJetsToNuNu"            ,"DY"        ,"rare"]
-    mc_colors   = [rt.kMagenta,rt.kRed   ,rt.kGreen+1,rt.kCyan    ,rt.kOrange               ,rt.kOrange+2,rt.kBlue+1]
+    mc_colors   = [rt.kMagenta+1,rt.kRed   ,rt.kGreen+1,rt.kCyan    ,rt.kOrange               ,rt.kOrange+2,rt.kBlue+1]
     mc_titles   = [" multijet" ," t#bar{t}"," W+jets"   ," single top"," Z#rightarrow#nu#nu+jets"," Drell-Yan" ," VV(V) + t#bar{t}V(V)"]
     flist = []
     for d in mc_datasets:

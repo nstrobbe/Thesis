@@ -14,17 +14,10 @@ signal and background models.
 In this way, the statistical dependencies among all bins of the signal and background models are
 correctly, and automatically, modelled. The sampling of the systematic effects
 is repeated several hundred ($N$) times.  
-In all cases, except for the PDFs, the systematic uncertainties are in the scale factors (SF) 
+In all cases, except for the PDFs, the systematic uncertainties are in the scale factors 
 applied to the simulated samples to correct them for modelling deficiencies. 
 In the next subsections I will discuss each source of systematic uncertainty in more detail. 
 
-%\vspace{1eM}
-
-% TODO merge/divide with object id section
-%\textcolor{red}{Some of this information might be moved to the event reconstruction and object
-%ID section.}
-
-%\vspace{1eM}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Jet energy scale corrections \label{sec:boost_JEC}}  
@@ -46,7 +39,7 @@ $\alpha_i$ are weights randomly sampled from a Gaussian distribution with zero m
 width. 
 Here, the weights $\alpha_i$ are different for each source, but are universal for each jet and each
 event when considering a given systematic sampling.
-Dealing with the myriad of uncertainty sources is not so straight-forward in practice, and also not
+Dealing with the myriad of uncertainty sources is not so straightforward in practice, and also not
 necessary for a new physics search. As recommended by the POG providing the jet energy scale
 corrections and uncertainties, we will therefore take on a much simpler approach, using a total
 uncertainty $S (\pt, \eta)$ and a random number $\alpha$ from a single Gaussian,
@@ -57,11 +50,11 @@ The jet $p_T$ for a given random variation becomes:
 \begin{equation}
 \pt^{\rm corr} = \left(1 + s(\pt, \eta, \alpha)\right) \pt^{\rm orig}.
 \end{equation}
-This calculation is repeated $N$ times, each time, using a different number sampled from the
+This calculation is repeated $N$ times, each time using a different number sampled from the
 Gaussian.  
-The overall effect of the JEC uncertainty on the yield is obtained from the distribution of
+The overall effect of the JEC uncertainty on a given yield is obtained from the distribution of
 resulting $N$ yields.  
-As for the jet energy scale corrections themselves, the associated uncertainties are also
+As was done for the jet energy scale corrections themselves, the associated uncertainties are also
 propagated to the \VEtmiss.
 
 
@@ -75,7 +68,7 @@ recommended by the PDF4LHC group~\cite{Alekhin:2011sk,Botje:2011sn}.
 Since we take into account full correlations within systematic variations, we need a way to sample
 randomly also from the PDF uncertainties, such that the PDF variations can be incorporated directly
 in our workflow. 
-Of the three recommended PDF sets, {\tt NNPDF} presents the PDF eigenvectors as a randomly
+Of the three recommended PDF sets, {\tt NNPDF} already presents the PDF eigenvectors as a randomly
 distributed set, while the other groups provide eigenvectors obtained by varying the PDF fit
 parameters by $\pm 1$ standard deviation.  
 However, the recently developed {\tt LHAPDF6}~\cite{LHAPDF6} offers a formal way to convert the
@@ -122,7 +115,7 @@ account separately.
 ~
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_Q_QCD_MC}
-\caption{Influence of different PDF sets on the MC counts entering $\kappa_{QCD}^{Q/S}$
+\caption{Influence of different PDF sets on the MC counts entering $\kappa_{\rm QCD}^{Q/S}$.
 \label{fig:PDF_effect_on_bg_QCD}}
 \end{figure}
 
@@ -133,7 +126,7 @@ account separately.
 ~
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_T_TTJ_MC}
-\caption{Influence of different PDF sets on the MC counts entering $\kappa_{TTJ}^{T/S}$
+\caption{Influence of different PDF sets on the MC counts entering $\kappa_{t\bar{t}+t}^{T/S}$.
 \label{fig:PDF_effect_on_bg_TTJ}}
 \end{figure}
 
@@ -144,7 +137,7 @@ account separately.
 ~
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_W_Wlv_MC}
-\caption{Influence of different PDF sets on the MC counts entering $\kappa_{Wlv}^{W/S}$
+\caption{Influence of different PDF sets on the MC counts entering $\kappa_{\W\ell\nu}^{W/S}$.
 \label{fig:PDF_effect_on_bg_Wlv}}
 \end{figure}
 
@@ -235,8 +228,8 @@ where
 \end{equation}
 $i$ runs over the jets that are tagged by the considered $\cPqb$ tagging algorithm, and $j$
 runs over the jets that are not tagged.
-Our SM MC is simulated with FullSim, so we scale the efficiency with ${\rm SF}^{\rm data}_{\rm sim}
-= {\rm SF}^{\rm data}_{\rm Full}$.  
+The SM samples are simulated with FullSim, so we scale the efficiency with ${\rm SF}^{\rm
+data}_{\rm sim} = {\rm SF}^{\rm data}_{\rm Full}$.  
 However, the signal samples have been generated using FastSim, so the overall scale factor for
 those samples becomes 
 ${\rm SF}^{\rm data}_{\rm  sim} = {\rm SF}^{\rm data}_{\rm Full} \cdot {\rm SF}^{\rm Full}_{\rm
@@ -266,7 +259,8 @@ sample will differ.
 We obtain the systematic uncertainty from the ensemble of the resulting $N$ yields.
 
 In this analysis, we use the CSVM and CSVL $\cPqb$ taggers, see Section~\ref{sec:object_btag}, which
-are always used independent of each other. Therefore, for a given event, we compute separate weights
+are always used independently of each other. Therefore, for a given event, we compute separate
+weights
 $w_{\rm btag}$ using CSVM and CSVL, and use them only in the relevant regions. The weight obtained
 with the CSVM tagger is used in the $S$ and $T$ region, and the CSVL weight in the $W$ and $Q$
 region.
@@ -307,7 +301,7 @@ variation is, consequently, not taken into account.
 \subsection{Initial State Radiation} 
 
 Deficiencies in the modelling of initial state radiation are corrected by reweighting the
-signal samples using an event weight that depends on the \pt of the recoiling system, which in this
+signal samples using an event weight that depends on the \pt of the recoiling system, which in our
 case is the $\tilde{g}\tilde{g}$ system. 
 More information on this reweighting and how it was derived, was given in
 Section~\ref{sec:event_ISRreweighting}. 
@@ -348,7 +342,7 @@ w_{\rm PU}^{\rm nom}$, and $\delta w^-_{\rm PU} = w_{\rm PU}^{\rm nom} - w_{\rm 
 
 The closure tests described in Section~\ref{sec:boost_closure_tests} showed that there is a 40\%
 uncertainty in the QCD multijet scale factor $\kappa_{\rm QCD}^{Q/S}$ between the signal and $Q$
-regions. 
+region. 
 A quantitative verification of this number is given in the next paragraph. 
 The uncertainty is accounted for in the background prediction method by including an additional 33\%
 uncertainty directly on the $\kappa_{\rm QCD}^{Q/S}$ parameter, as was mentioned in
@@ -392,8 +386,8 @@ association with heavy flavour}
 About 8\% of the background in the signal region is composed of
 $\cPZ({\rightarrow}\,\nu\bar{\nu})$+jets
 events. Since we require the presence of at least one $\cPqb$ tagged jet, and given the known
-deficiency in modelling $\cPZ$ production in association with heavy flavour, we include an extra
-systematic uncertainty in the $\cPZ({\rightarrow}\,\nu\bar{\nu})$+jets contribution.  
+deficiency in modelling $\cPZ$ production in association with heavy flavour jets, we include an
+extra systematic uncertainty in the $\cPZ({\rightarrow}\,\nu\bar{\nu})$+jets contribution.  
 
 This uncertainty is estimated using a data control region enriched in
 $\cPZ({\rightarrow}\, \ell \bar{\ell})+$jets, required, in addition to the baseline selection
@@ -445,15 +439,15 @@ depicted in black. Each separate component is normalized to the weight it carrie
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Summary of separate systematic effects}
 
-As noted before, all systematic effects are varied simultaneously. However, in order to see the
+As noted before, all systematic effects are varied simultaneously. However, to assess the
 effect of each systematic uncertainty individually, each systematic effect $i$ is varied by one
 standard deviation up and down.  
-The effect on the background and signal samples in the signal region is shown in
+The effect on the background and signal processes in the signal region is shown in
 Table~\ref{tab:bgsigsys}.  
 The signal values are obtained from averaging over all mass points in the T1ttcc ($\Delta m =
 25\GeV$) plane.  
-%The size of the systematic effects for each separate mass point is shown in
-%Appendix~\ref{app:signal_systematics}. 
+The size of the systematic effects for each separate mass point is shown in the figures in 
+Appendix~\ref{app:signal_systematics}. 
 The PDF systematic uncertainties are obtained by running
 over 100 different PDF set members, fitting a Gaussian to the efficiency distribution and taking the
 width of that Gaussian.  
@@ -462,8 +456,8 @@ used in the background prediction. To obtain this value we again fit a Gaussian 
 distribution obtained from the full systematic sampling including 500 variations.  We note that,
 although the effects of some of these systematic uncertainties on the backgrounds are large, these
 do not influence our results greatly because only the  ratios of simulated background counts enter
-the statistical analysis, not the distributions themselves.  Therefore, most of the systematic
-effects cancel. 
+the statistical analysis, via the $\kappa$ factors, and not the distributions themselves. 
+Therefore, most of the systematic effects are largely reduced in magnitude. 
 
 The dominant systematic uncertainty arises from the parton distribution functions, with an effect
 of 15-25\% on the signal efficiencies and around 10\% on the simulated background counts. For the

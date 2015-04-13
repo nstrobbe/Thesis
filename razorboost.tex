@@ -64,24 +64,24 @@ with the interpretation of the results in terms of several simplified model spec
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Event selection \label{sec:boost_event_selection}}
 
-In this section I will discuss the event selection. I will start by detailing the baseline
-selection that is applied, and then move on to the signal region selection and the definition of the
-different control regions. 
-An overview of those different regions, how they are related and how they are used in the
-background estimation was already shown in Fig.~\ref{fig:boost_flowchart}. 
-
-Let us remind ourselves of the goal of the analysis and the basics of the background estimation
-method. 
+In this section I will discuss the event selection, starting by a review of 
+how the razor variables will be used in the razor boost analysis. I will then detail the
+baseline selection that is applied to all events, before moving on to the signal region selection
+and the definition of the different control regions. 
+%An overview of those different regions, how they are related and how they are used in the
+%background estimation was already shown in Fig.~\ref{fig:boost_flowchart}.
+Before we go ahead, it is useful to remind ourselves of the goal of the analysis and the basics
+of the background estimation method. 
 The aim of the analysis is to conduct a search for deviations from the SM in the high $\mr$-high
-$\rsq$ region using hadronic events with at least one boosted $\W$ boson and one $b$ jet.
-Standard model backgrounds in the signal region are estimated via a likelihood method, using
+$\rsq$ region using hadronic events with at least one boosted $\W$ boson and one $\cPqb$ jet.
+Standard Model backgrounds in the signal region are estimated via a likelihood method, using
 observations in three control regions in data, labelled $Q$, $T$ and $W$, and transfer factors
 $\kappa$, calculated from simulated data, between these control regions and the signal region,
 $S$. 
 The viability of the defined control regions to model the data in our signal region is tested by
 two closure tests, which are presented at the end of this section.
 For all details on the full background estimation itself, I refer to
-section~\ref{sec:boost_likelihood}. 
+Section~\ref{sec:boost_likelihood}. 
 
 \subsection{The razor variables in the razor boost analysis \label{sec:boost_event_razor}}
 
@@ -89,11 +89,10 @@ As the name already indicates, the razor boost analysis uses the razor variables
 discriminating variables. They are well suited for the purpose of the analysis; they are
 designed to describe a signal due to pair production of heavy particles, each of which decays to a
 massless visible particle and a massive invisible particle, as is the case for the targeted models
-in the razor boost analysis. The signal will appear as a peak on an exponentially falling
-background. 
+in the razor boost analysis. The signal will appear as a peak on a steeply falling background. 
 
-For clarity we repeat the \mr and \rsq definitions here, replacing the relevant variables with their
-megajet counterparts, with indices ${\rm j}_i$, 
+For clarity, the \mr and \rsq definitions from Section~\ref{sec:razor_mr_r2_improved} are repeated
+here,  
 \begin{align}
   \mr &= \sqrt{\left( E_{{\rm j}_1} + E_{{\rm j}_2}\right)^2 - \left( p_{z}^{{\rm j}_1} +
 p_{z}^{{\rm j}_2} \right)^2} ,\\
@@ -102,12 +101,14 @@ p_{z}^{{\rm j}_2} \right)^2} ,\\
 \right) - \frac{\VEtmiss}{2} \cdot \left(\ptvec^{\,{\rm j}_1} + \ptvec^{\,{\rm j}_2}
 \right)} ,
 \end{align}
-where we have defined $\pt$ as the magnitude of the transverse momentum vector $\ptvec$. 
+where we have replaced the relevant variables with their megajet counterparts (denoted with indices
+${\rm j}_i$), and we have defined $\pt$ as the magnitude of the transverse momentum vector
+$\ptvec$. 
 
 The two-dimensional (2D) distributions of \rsq versus \mr for both background and an example signal
 model are shown in Fig.~\ref{fig:razor_MR_Rsq_bg_signal}. A very loose selection is applied,
 requiring the presence of a good primary vertex and at least three jets, one of which should have
-$\pt > 200$ \GeV. It is clear that the background, dominated by QCD multijet production, is located
+$\pt > 200\GeV$. It is clear that the background, dominated by QCD multijet production, is located
 in the low \mr and low \rsq regions, and falls off steeply when \mr or \rsq is increased. The
 signal, on the other hand, shows a peaking behaviour in \mr and is located substantially higher in
 the (\mr,\rsq) space. 
@@ -121,12 +122,12 @@ increasingly larger bin width for $\mr$ when defining our analysis regions.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_bg} 
-\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_sig}
+\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_bg_v2} 
+\includegraphics[width=0.49\textwidth]{figures/razor_variables/MR_R2_jet1ptg200_sig_v2}
 \caption{Distribution of the overall SM backgrounds and a T1ttcc signal with $m_{\tilde{g}} \,{=}\,
 1\TeV$, $m_{\tilde{t}} \,{=}\, 325\GeV$ and $m_{\tilde{\chi}_1^0} \,{=}\, 300\GeV$, both obtained
 from MC, on the (\mr,\rsq) space. A very loose selection is used:  a good primary vertex and at
-least three jets, one of which should have $\pt > 200$ \GeV. 
+least three jets, one of which should have $\pt > 200\GeV$. 
 \label{fig:razor_MR_Rsq_bg_signal}}
 \end{figure}
 
@@ -137,7 +138,7 @@ least three jets, one of which should have $\pt > 200$ \GeV.
 \includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_R2_comparison}
 \caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
 T1ttcc signal points. A very loose selection is used, including only the requirement of having a
-good primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
+good primary vertex and at least three jets, one of which with $\pt > 200$\GeV. 
 \label{fig:razor_MR_R2_T1ttcc}}
 \end{figure}
 
@@ -148,7 +149,7 @@ good primary vertex and at least three jets, one of which with $\pt > 200$ \GeV.
 \includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_R2_comparison}
 \caption{Distribution of $\mr$ (left) and $\rsq$ (right) for the total SM background, and several
 T1t1t signal points. A very loose selection is used, including only the requirement of having a good
-primary vertex and at least three jets, one of which with $\pt > 200$ \GeV. 
+primary vertex and at least three jets, one of which with $\pt > 200$\GeV. 
 \label{fig:razor_MR_R2_T1t1t}}
 \end{figure}
 
@@ -163,9 +164,11 @@ significance.
 The baseline requirement implemented in this analysis is that events fall within the ranges 
 \begin{itemize}
 \item $\mr > 800\GeV$, 
-\item $\rsq > 0.08$.
+\item $\rsq > 0.08$,
 \end{itemize}
-This provides a good balance between background suppression and signal acceptance. 
+providing a good balance between background suppression and signal acceptance. 
+This part of the razor plane is further divided into 25 bins, whose edges are clear from
+Fig.~\ref{fig:razor_MR_Rsq_bg_signal}.
 
 \subsection{Baseline selection \label{sec:boost_baseline_selection}}
 
@@ -179,6 +182,7 @@ This provides a good balance between background suppression and signal acceptanc
 
 \input{boost_control_selection.tex}
 
+\FloatBarrier
 \subsection{Closure tests \label{sec:boost_closure_tests}}
 
 \input{boost_closure_tests}
@@ -207,14 +211,14 @@ We present the results of the background prediction for each of the 25 considere
 $(\mr,\rsq)$ plane in Fig.~\ref{fig:results_prediction} and Table~\ref{tab:results_prediction}. The
 results are presented as the mean and standard deviation as determined from the sampled prior
 $\pi(\theta)$ described in Section~\ref{sec:boost_systematics}.  
-The observations are found to be in good agreement with the standard model prediction. 
+The observations are found to be in good agreement with the Standard Model prediction. 
 No evidence of a signal is found.
 We do note that for small counts the mean gives a substantially larger value for the background
 prediction than the mode. This is further illustrated in Fig.~\ref{fig:boost_results_mean_mode} for
 two of the predicted background counts. 
 The many bins in the high $\mr$, high $\rsq$ region for which the prediction is around one event,
 without any observed data are thus no cause for concern.
-The full distribution of the counts will be used for the interpretation of the results which
+The full distribution of the counts is used for the interpretation of the results which
 ensures the proper treatment of the non-Gaussian shape.
 
 \begin{figure}[htpb]
@@ -262,7 +266,7 @@ We interpret our results in terms of the simplified models T1ttcc and T1t1t, who
 diagrams were shown in Fig.~\ref{fig:T1ttcc_T1t1t_diagrams}. The general characteristics of
 simplified models were discussed in Section~\ref{sec:susy_sms}. These particular models have three
 free mass parameters: the mass of the gluino, top squark and LSP. The gluino mass is varied between
-600 and 1300\GeV, and the LSP mass between 1 and 700\GeV. The mass difference between top squark and
+600 and 1300\GeV, and the LSP mass between 1 and 500\GeV. The mass difference between top squark and
 LSP, $\Delta m$, is kept fixed at 10, 25 or 80\GeV for the T1ttcc model, and at 175\GeV for the
 T1t1t model. 
 
@@ -307,45 +311,6 @@ results in a much smaller mass gap between gluino and top squark compared to the
 This in turn results in less boosted top quarks, as can be seen in Fig.~\ref{fig:boost_gen_toppt},
 and thus fewer events passing the boosted $\W$ boson tagger. 
 
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=0.48\textwidth]
- {figures/razor_interpretation/efficiency_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
-~
- \includegraphics[width=0.48\textwidth]
- {figures/razor_interpretation/efficiency_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} 
-
-\includegraphics[width=0.48\textwidth]
-{figures/razor_interpretation/efficiency_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} 
-~
-\includegraphics[width=0.48\textwidth]
-{figures/razor_interpretation/efficiency_T1t1t_g1Mbg1W0Ll_mdPhig0p5} 
-\caption{Signal region efficiency for the T1ttcc and T1t1t simplified models. Three mass splittings
-between top squark and LSP are considered for the T1ttcc model: 10, 25 and 80 \GeV, shown on the top
-left, top right, and bottom left, respectively. The T1t1t model is shown on the bottom right plot. 
- \label{fig:eff_T1ttcc_T1t1t}}
-\end{figure}
-
-
-\begin{figure}[htbp]
- \centering
- \includegraphics[width=0.48\textwidth]
- {figures/razor_interpretation/events_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
-~
- \includegraphics[width=0.48\textwidth]
- {figures/razor_interpretation/events_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} 
-
-\includegraphics[width=0.48\textwidth]
-{figures/razor_interpretation/events_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} 
-~
-\includegraphics[width=0.48\textwidth]
-{figures/razor_interpretation/events_T1t1t_g1Mbg1W0Ll_mdPhig0p5} 
-\caption{Expected signal yield in the signal region for the T1ttcc and T1t1t simplified
-models. Three mass splittings between top squark and LSP are considered for the T1ttcc model: 10, 25
-and 80 \GeV, shown on the top left, top right, and bottom left, respectively. The T1t1t model is
-shown on the bottom right plot. 
- \label{fig:events_T1ttcc_T1t1t}}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -369,6 +334,55 @@ Considering again our cartoon from the introduction in Section~\ref{sec:boost_mo
 now filled in several of the gaps, as we had set out to do. This is illustrated in
 Fig.~\ref{fig:boost_story_final}. 
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/razor_interpretation/story_boost}
+  \caption{Impact of the razor boost analysis on the exclusion limits for top squarks. Assuming
+the existence of gluinos, the gaps have been closed for certain ranges of gluino masses. 
+  \label{fig:boost_story_final}}
+\end{figure} 
+
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/efficiency_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
+~
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/efficiency_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} 
+
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/efficiency_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} 
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/efficiency_T1t1t_g1Mbg1W0Ll_mdPhig0p5} 
+\caption{Signal region efficiency for the T1ttcc and T1t1t simplified models. Three mass splittings
+between top squark and LSP are considered for the T1ttcc model: 10, 25 and 80 \GeV, shown on the top
+left, top right, and bottom left, respectively. The T1t1t model is shown on the bottom right plot. 
+ \label{fig:eff_T1ttcc_T1t1t}}
+\end{figure}
+
+
+\begin{figure}[p]
+ \centering
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/events_T1ttcc_DM-10_g1Mbg1W0Ll_mdPhig0p5}
+~
+ \includegraphics[width=0.48\textwidth]
+ {figures/razor_interpretation/events_T1ttcc_DM-25_g1Mbg1W0Ll_mdPhig0p5} 
+
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/events_T1ttcc_DM-80_g1Mbg1W0Ll_mdPhig0p5} 
+~
+\includegraphics[width=0.48\textwidth]
+{figures/razor_interpretation/events_T1t1t_g1Mbg1W0Ll_mdPhig0p5} 
+\caption{Expected signal yield in the signal region for the T1ttcc and T1t1t simplified
+models. Three mass splittings between top squark and LSP are considered for the T1ttcc model: 10, 25
+and 80 \GeV, shown on the top left, top right, and bottom left, respectively. The T1t1t model is
+shown on the bottom right plot. 
+ \label{fig:events_T1ttcc_T1t1t}}
+\end{figure}
+
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/razor_interpretation/Boost_T1ttcc_DM10_XSEC}
@@ -381,10 +395,3 @@ models (top left, top right, bottom left and bottom right, respectively).
 \label{fig:boost_limits}}
 \end{figure}
 
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/razor_interpretation/story_boost}
-  \caption{Impact of the razor boost analysis on the exclusion limits for top squarks. Assuming
-the existence of gluinos, the gaps have been closed for certain ranges of gluino masses. 
-  \label{fig:boost_story_final}}
-\end{figure}

@@ -4,7 +4,7 @@ img_extIsRegExp=false
 img_extensions=.eps .jpg .jpeg .png .pdf .ps .fig .gif
 kileprversion=2
 kileversion=2.1.0
-lastDocument=boost_trigger_datasets.tex
+lastDocument=boost_systematics.tex
 masterDocument=
 name=thesis
 pkg_extIsRegExp=false
@@ -388,63 +388,63 @@ order=-1
 
 [item:app_signal_systematics.tex]
 archive=true
-column=49
+column=67
 encoding=UTF-8
 highlight=LaTeX
-line=5
+line=64
 mode=LaTeX
-open=false
-order=5
+open=true
+order=3
 
 [item:beyond_standard_model.tex]
 archive=true
-column=4
+column=25
 encoding=UTF-8
 highlight=LaTeX
-line=242
+line=173
 mode=LaTeX
 open=false
 order=2
 
 [item:boost_baseline_selection.tex]
 archive=true
-column=86
+column=6
 encoding=UTF-8
 highlight=LaTeX
-line=53
+line=28
 mode=LaTeX
 open=false
 order=4
 
 [item:boost_closure_tests.tex]
 archive=true
-column=2
+column=17
 encoding=UTF-8
 highlight=LaTeX
-line=48
+line=121
 mode=LaTeX
 open=false
-order=3
+order=4
 
 [item:boost_control_selection.tex]
-archive=true
-column=4
-encoding=UTF-8
-highlight=LaTeX
-line=142
-mode=LaTeX
-open=true
-order=2
-
-[item:boost_likelihood.tex]
 archive=true
 column=0
 encoding=UTF-8
 highlight=LaTeX
-line=46
+line=349
 mode=LaTeX
-open=true
-order=4
+open=false
+order=5
+
+[item:boost_likelihood.tex]
+archive=true
+column=17
+encoding=UTF-8
+highlight=LaTeX
+line=183
+mode=LaTeX
+open=false
+order=3
 
 [item:boost_motivation.tex]
 archive=true
@@ -458,23 +458,23 @@ order=-1
 
 [item:boost_razor_variables.tex]
 archive=true
-column=26
+column=31
 encoding=UTF-8
 highlight=LaTeX
-line=309
+line=387
 mode=LaTeX
 open=false
-order=4
+order=5
 
 [item:boost_signal_selection.tex]
 archive=true
-column=0
+column=63
 encoding=UTF-8
 highlight=LaTeX
-line=3
+line=38
 mode=LaTeX
 open=false
-order=4
+order=6
 
 [item:boost_strategy.tex]
 archive=true
@@ -488,13 +488,13 @@ order=4
 
 [item:boost_systematics.tex]
 archive=true
-column=28
+column=91
 encoding=UTF-8
 highlight=LaTeX
-line=329
+line=448
 mode=LaTeX
-open=false
-order=2
+open=true
+order=4
 
 [item:boost_trigger_datasets.tex]
 archive=true
@@ -503,15 +503,15 @@ encoding=UTF-8
 highlight=LaTeX
 line=91
 mode=LaTeX
-open=true
+open=false
 order=5
 
 [item:boost_wtag.tex]
 archive=true
-column=5
+column=11
 encoding=UTF-8
 highlight=LaTeX
-line=527
+line=89
 mode=LaTeX
 open=false
 order=7
@@ -548,10 +548,10 @@ order=2
 
 [item:event_objects.tex]
 archive=true
-column=9
+column=11
 encoding=UTF-8
 highlight=LaTeX
-line=579
+line=261
 mode=LaTeX
 open=false
 order=3
@@ -583,7 +583,7 @@ encoding=UTF-8
 highlight=LaTeX
 line=59
 mode=LaTeX
-open=true
+open=false
 order=6
 
 [item:event_what_is_an_event.tex]
@@ -628,20 +628,20 @@ order=-1
 
 [item:razorboost.tex]
 archive=true
-column=88
+column=12
 encoding=UTF-8
 highlight=LaTeX
-line=85
+line=385
 mode=LaTeX
 open=true
-order=3
+order=2
 
 [item:samenvatting.tex]
 archive=true
 column=50
 encoding=UTF-8
 highlight=LaTeX
-line=163
+line=137
 mode=LaTeX
 open=false
 order=-1
@@ -658,10 +658,10 @@ order=2
 
 [item:summary.tex]
 archive=true
-column=11
+column=12
 encoding=UTF-8
 highlight=LaTeX
-line=76
+line=151
 mode=LaTeX
 open=false
 order=-1
@@ -678,10 +678,10 @@ order=4
 
 [item:thesis.bib]
 archive=true
-column=1
+column=26
 encoding=UTF-8
 highlight=BibTeX
-line=386
+line=1848
 mode=BibTeX
 open=true
 order=1
@@ -698,10 +698,10 @@ order=-1
 
 [item:thesis.tex]
 archive=true
-column=9
+column=0
 encoding=UTF-8
 highlight=LaTeX
-line=215
+line=220
 mode=LaTeX
 open=true
 order=0
@@ -725,38 +725,38 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:app_signal_systematics.tex]
-CursorColumn=49
-CursorLine=5
+CursorColumn=67
+CursorLine=64
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:beyond_standard_model.tex]
-CursorColumn=4
-CursorLine=242
+CursorColumn=25
+CursorLine=173
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_baseline_selection.tex]
-CursorColumn=86
-CursorLine=53
+CursorColumn=6
+CursorLine=28
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_closure_tests.tex]
-CursorColumn=2
-CursorLine=48
+CursorColumn=17
+CursorLine=121
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_control_selection.tex]
-CursorColumn=4
-CursorLine=142
+CursorColumn=0
+CursorLine=349
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_likelihood.tex]
-CursorColumn=0
-CursorLine=46
+CursorColumn=17
+CursorLine=183
 JumpList=
 ViMarks=
 
@@ -767,14 +767,14 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_razor_variables.tex]
-CursorColumn=26
-CursorLine=309
+CursorColumn=31
+CursorLine=387
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_signal_selection.tex]
-CursorColumn=0
-CursorLine=3
+CursorColumn=63
+CursorLine=38
 JumpList=
 ViMarks=
 
@@ -785,8 +785,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_systematics.tex]
-CursorColumn=28
-CursorLine=329
+CursorColumn=91
+CursorLine=448
 JumpList=
 ViMarks=
 
@@ -797,8 +797,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:boost_wtag.tex]
-CursorColumn=5
-CursorLine=527
+CursorColumn=11
+CursorLine=89
 JumpList=
 ViMarks=
 
@@ -821,8 +821,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:event_objects.tex]
-CursorColumn=9
-CursorLine=579
+CursorColumn=11
+CursorLine=261
 JumpList=
 ViMarks=
 
@@ -869,14 +869,14 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:razorboost.tex]
-CursorColumn=88
-CursorLine=85
+CursorColumn=12
+CursorLine=385
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:samenvatting.tex]
 CursorColumn=50
-CursorLine=163
+CursorLine=137
 JumpList=
 ViMarks=
 
@@ -887,8 +887,8 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:summary.tex]
-CursorColumn=11
-CursorLine=76
+CursorColumn=12
+CursorLine=151
 JumpList=
 ViMarks=
 
@@ -899,13 +899,13 @@ JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.bib]
-CursorColumn=1
-CursorLine=386
+CursorColumn=26
+CursorLine=1848
 JumpList=
 ViMarks=
 
 [view-settings,view=0,item:thesis.tex]
-CursorColumn=9
-CursorLine=215
+CursorColumn=0
+CursorLine=220
 JumpList=
 ViMarks=

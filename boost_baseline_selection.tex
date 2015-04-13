@@ -2,17 +2,18 @@
 % Baseline selection
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-The baseline selection for the Razor Boost analysis is driven by the two components of its name, in
+The baseline selection for the razor boost analysis is driven by the two components of its name, in
 addition to requiring the event to be of good quality.
 As we use the razor variables, we need to be able to compute them. This means that there should be
 at least two jets in the final state. The megajets from which the razor variables are computed, are
-constructed from the AK5 jets.  
+constructed from the AK5 jets (see Table~\ref{tab:object_jets} for their definition).  
 After sensitivity studies, it was decided to raise the requirement on the jet multiplicity from two
 to three, reducing the background, while maintaining very good signal efficiency. The signal
 processes that are the main focus of this analysis usually have even more reconstructed jets, as
 can be seen from Fig.~\ref{fig:njets_sig_BG}. In order to remain as inclusive as possible, we did
 not, however, raise this threshold further.
-The minimal requirements on the razor variables themselves are $\mr > 800\GeV$ and $\rsq > 0.08$.
+The minimal requirements on the razor variables themselves are, as mentioned before, $\mr > 800\GeV$
+and $\rsq > 0.08$.
 This selection is complementary to that of previous razor analyses. By requiring a larger
 minimal \mr, consistent with the boosted scenario, we can explore the low \rsq region, which is
 important for signals with more compressed mass spectra.
@@ -20,12 +21,12 @@ Access to the boosted phase space is also provided by making the requirement tha
 jet satisfies $\pt > 200\GeV$.
 In summary, events are required to satisfy the following baseline selection:
 \begin{enumerate}
- \item Satisfy all cleanup filters, as listed in Section~\ref{sec:event_cleaning}
- \item Have at least one good primary vertex
+ \item Satisfy all cleanup filters, as listed in Section~\ref{sec:event_cleaning},
+ \item Have at least one good primary vertex,
  \item Have at least three selected AK5 jets of which at least one has  $\pt > 200$\GeV, thereby
- defining the boosted phase space
+ defining the boosted phase space,
  \item $\mr > 800\GeV$ and $\rsq > 0.08$ (where the megajets are constructed from the selected AK5
-jets)
+jets).
 \end{enumerate}
 In addition to these requirements, we also impose the trigger conditions. 
 For data events, we require that one of the triggers listed in Table~\ref{tab:boost_triggers} was
