@@ -1281,7 +1281,7 @@ def PlotDataMC(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
 def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
                   , outputdir="plots", outfile=0, cname="canvas", plotinfo="Selection X"
                   , ratiotitle="ratio", logscale=False, scale="No", scalefactor=1, intlumi=19.7, style="CMS"
-                  , ymax=-1):
+                  , ymax=-1, stacksignal=True):
 
     # CMS style plots
     if style == "CMS":
@@ -1337,16 +1337,24 @@ def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
                 return
             h = hdict["histogram"].Clone()
             h.Sumw2()
-            h.SetFillColor(hdict["color"])
-            h.SetLineColor(hdict["color"])
+            if stacksignal:
+                h.SetFillColor(hdict["color"])
+                h.SetLineColor(rt.kGray+3)
+                h.SetLineStyle(2)
+                h.SetLineWidth(2)
+            else:
+                h.SetLineColor(hdict["color"])
+                h.SetLineStyle(hdict["linestyle"])
+                h.SetLineWidth(hdict["linewidth"])
             hsignal.append(h)
 
     # make a stack of all the mc, will use the reverse order of the list
     mc = rt.THStack()
     for h in reversed(histos):
         mc.Add(h,"hist")
-    for h in hsignal:
-        mc.Add(h,"hist")
+    if stacksignal:
+        for h in hsignal:
+            mc.Add(h,"hist")
         
     # make the total mc histogram, used for the ratio plot
     htotal = histos[0].Clone()
@@ -1397,7 +1405,11 @@ def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
         htotal = histos[0].Clone()
         for h in histos[1:]:
             htotal.Add(h)
-        
+    
+    if stacksignal:
+        htotal.SetLineColor(rt.kGray+3)
+        htotal.SetLineWidth(2)
+        htotal.SetFillStyle(0)
         
     # make the legend
     legend = rt.TLegend(0.63,0.4,0.87,0.8,"")
@@ -1413,8 +1425,11 @@ def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
             legend.AddEntry(h,hdictlist_bg[i]["name"],"f")
     for i,h in enumerate(hsignal):
         if hdictlist_sig[i]["appear in legend"]:
-            legend.AddEntry(h,hdictlist_sig[i]["name"],"f")
-        
+            if stacksignal:
+                legend.AddEntry(h,hdictlist_sig[i]["name"],"f")
+            else:
+                legend.AddEntry(h,hdictlist_sig[i]["name"],"l")
+
     # Get the maximum of the histograms, so that we can set the Y-axis range
     maxi = 0
     if hdata != 0:
@@ -1477,7 +1492,12 @@ def PlotDataMCPAS(hdictlist_bg, hdict_data, hdictlist_sig=0, legdict=0
             mc.SetMinimum(0.01)
         
     mc.Draw("same")
+    if stacksignal:
+        htotal.Draw("histsame")
     mc.Draw("axis same")
+    if not stacksignal:
+        for h in hsignal:
+            h.Draw("histsame")
     if hdata != 0:
         hdata.Draw("EPsame")
     legend.Draw("same")

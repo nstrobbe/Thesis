@@ -1,7 +1,7 @@
 \pdfoptionpdfminorversion=5
-\documentclass[a4paper,11pt]{book}
+\documentclass[10pt]{book}
 
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
 \usepackage{xspace}
 \usepackage{graphicx}
 \usepackage{rotating}
@@ -13,9 +13,11 @@
 
 \usepackage{wrapfig}
 
-\usepackage[bindingoffset=1cm,margin=2.5cm]{geometry}
-\usepackage{setspace}
+%\usepackage[bindingoffset=1cm,margin=2.5cm]{geometry}
+\usepackage[paperwidth=17cm, paperheight=24cm, bindingoffset=1cm, margin=2cm]{geometry}
 
+\usepackage{setspace}
+\usepackage[hyphens]{url}
 \usepackage{cite}
 
 \usepackage{tikz}
@@ -125,6 +127,7 @@ Another step in the hunt for new physics at CMS \\[0.5cm] \textcolor{red}{(Preli
 
 \newcommand {\ie}{\mbox{i.e.}\xspace}
 \newcommand {\eg}{\mbox{e.g.}\xspace}
+\newcommand {\wrt}{\mbox{w.r.t.}\xspace}
 
 % "theorems"
 \theoremstyle{definition}
@@ -150,7 +153,7 @@ Another step in the hunt for new physics at CMS \\[0.5cm] \textcolor{red}{(Preli
   \vspace{4cm}
 
   \begin{spacing}{1.2}
-  {\Huge \bf The Razor Boost analysis\\[1cm]
+  {\LARGE \bf The Razor Boost analysis\\[1cm]
   
    Another step in the hunt for new physics at CMS\par}
 
@@ -158,24 +161,24 @@ Another step in the hunt for new physics at CMS \\[0.5cm] \textcolor{red}{(Preli
 
   \vspace{2cm}
 
-  {\LARGE \bf Nadja Strobbe}
+  {\Large \bf Nadja Strobbe}
 
 \end{center}
 
 \vfill
 
-  \noindent{\large Promotoren: Prof. Dr. Dirk Ryckbosch, Dr. Michael Tytgat}
+  \noindent{Promotoren: Prof. Dr. Dirk Ryckbosch, Dr. Michael Tytgat}
 
   \vspace{1eM}
 
-  \noindent{\large  Proefschrift ingediend tot het verkrijgen van de academische graad van\\
+  \noindent{Proefschrift ingediend tot het verkrijgen van de academische graad van\\
 Doctor in de Wetenschappen: Fysica }
 
 \vspace{1ex}
 
-\noindent {\large Vakgroep Fysica en Sterrenkunde, academiejaar 2014-2015}
+\noindent{Vakgroep Fysica en Sterrenkunde, academiejaar 2014-2015}
   
-  \vspace{2cm}
+  \vspace{1cm}
   
 \end{titlepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -183,9 +186,9 @@ Doctor in de Wetenschappen: Fysica }
 \chapter*{~}
 \thispagestyle{empty}
 \begin{flushright}
-\vspace{6cm}
+\vspace{4cm}
 
-\textsl{\large The important thing is not to stop questioning. \\Curiosity has its own reason for
+\textsl{The important thing is not to stop questioning. \\Curiosity has its own reason for
 existing.\\
 \vspace{2eM}
 Albert Einstein }

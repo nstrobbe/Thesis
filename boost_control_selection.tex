@@ -14,10 +14,10 @@ In the following subsections each control region will be discussed in detail.
 \subsubsection{\texorpdfstring{$T$}{T} region \label{sec:boost_T_region}}
 
 The dominant background in the signal region is $t\bar{t}$ production. We define the $T$ region as a
-dedicated control region enriched in this process. 
-Similarly to the signal, $t\bar{t}$ events are expected to have $\cPqb$ jets in the final state, as
-well as real hadronically decaying $\W$ bosons. We will thus not change the $\cPqb$ tagging and
-$\W$ tagging aspects of the signal selection when defining the $T$ region. 
+dedicated control region enriched in this process as well as single top production. 
+Similarly to the signal, $t\bar{t}$ and single top events are expected to have $\cPqb$ jets in the
+final state, as well as real hadronically decaying $\W$ bosons. We will thus not change the $\cPqb$
+tagging and $\W$ tagging aspects of the signal selection when defining the $T$ region. 
 
 The main change we do make, is requiring the presence of exactly one loose electron or muon, while
 removing the requirement that there be no isolated track. This selection is already sufficient to
@@ -38,7 +38,7 @@ this variable.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/razor_selection/DataMC_mT_g1Mbg1W1Ll_rebin}
+\includegraphics[width=0.8\textwidth]{figures/razor_selection/DataMC_mT_g1Mbg1W1Ll_rebin_CMS}
 \caption{Comparison between data and simulation of the $\mT$ distribution in the $T$ region without
 any selection on $\mT$ or $\Delta\phi_{min}$. An example signal
 point, corresponding to the T1ttcc mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
@@ -58,7 +58,7 @@ in Table~\ref{tab:boost_selection_summary}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/razor_selection/plots/DataMC_minDeltaPhi_g1Mbg1W1LlmT100_rebin}
 \caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $T$
 region without any selection on $\Delta\phi_{min}$. An example signal
@@ -69,15 +69,16 @@ is only a very minimal signal contamination that remains in this region.
 \label{fig:boost_T_region_mindeltaphi}}
 \end{figure}
 
-Table~\ref{tab:cutflow}, in particular the line listing $T$ in the first column, shows a breakdown
-of the contributions of the various background components,
-as determined directly from simulation, as wel as the observed data counts, and expected counts for
+Tables~\ref{tab:cutflow} and \ref{tab:cutflow_summary}, in particular the line listing $T$ in the
+first column, show a breakdown of the contributions of the various background components,
+as determined directly from simulation, as well as the observed data counts, and expected counts for
 an example signal point. From Table~\ref{tab:BG_comp_percent} we see that the obtained purity in the
 $T$ region is about 83\% for $t\bar{t}$ and single top processes combined. This is also
 illustrated in the $\mr$ and $\rsq$ distributions, as shown on Fig.~\ref{fig:boost_T_region_MR_Rsq}.
 There is good agreement between data and simulation in the $T$ region. Any discrepancies can
 be accommodated by the systematic uncertainties on the MC simulation. Given that we will only use
-the simulation in ratios, any small discrepancies will not affect the analysis.
+the simulation in ratios between different regions, any small discrepancies will not affect the
+analysis.
 We also compare the shape of the $\mr$ and $\rsq$ distributions in the $T$ region versus the $S$
 region. We observe from Fig.~\ref{fig:boost_T_region_shape} that the shapes are very similar. This
 is important as we will use global transfer factors $\kappa$ to translate between the $T$ and $S$
@@ -172,12 +173,13 @@ Figure~\ref{fig:boost_W_region_mT} shows the $m_T$ distribution in the $W$ regio
 selection $\mT$ or on $\Delta\phi_{min}$. The $\Delta\phi_{min}$ distribution in the $W$ region
 without applying a selection on $\Delta\phi_{min}$ is given in
 Fig.~\ref{fig:boost_W_region_mindeltaphi}. The full breakdown of the backgrounds in this region is
-listed in Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}, as was done for the $T$ region.
+listed in Tables~\ref{tab:cutflow} and \ref{tab:BG_comp_percent}, as was
+done for the $T$ region.
 The $W$ region is about 85\% pure in the $\W(\rightarrow l\nu)+$jets process. 
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/razor_selection/plots/DataMC_mT_0Lbg1Y1Ll_rebin}
+\includegraphics[width=0.8\textwidth]{figures/razor_selection/plots/DataMC_mT_0Lbg1Y1Ll_rebin}
 \caption{Comparison between data and simulation of the $\mT$ distribution in the $W$ region without
 any selection on $\mT$ or on $\Delta\phi_{min}$. An example signal
 point, corresponding to the T1ttcc mass point with $m_{\tilde{g}} \,{=}\, 1\TeV$,
@@ -188,7 +190,7 @@ the background processes.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.7\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/razor_selection/plots/DataMC_minDeltaPhi_0Lbg1Y1LlmT_rebin}
 \caption{Comparison between data and simulation of the $\Delta\phi_{min}$ distribution in the $W$
 region without any selection on $\Delta\phi_{min}$. 
@@ -196,7 +198,7 @@ region without any selection on $\Delta\phi_{min}$.
 \end{figure}
 
 A comparison between data and simulation for the $\mr$ and $\rsq$ distributions is shown in
-Fig.~\ref{fig:boost_W_region_MR_Rsq}. A reasonable agreement is observed. The offset in the
+Fig.~\ref{fig:boost_W_region_MR_Rsq}. A good agreement is observed. The offset in the
 normalization will be absorbed automatically during the background estimation procedure. 
 We also compare the shapes of the \mr and \rsq distributions for the
 $\W(\rightarrow\ell\nu)+$jets
@@ -249,7 +251,8 @@ distributions in the $W$ region.
 The final background for which we define a control region, is QCD multijet production.
 To define a region $Q$ enriched in multijet production, we start from the baseline selection, and
 add the requirement that there be no loose lepton or isolated track present, as is the case for the
-signal region selection. We also veto events containing a CSV loose $\cPqb$ tagged jet. 
+signal region selection. We also veto events containing a CSV loose $\cPqb$ tagged jet in order to
+veto contamination of top quarks. 
 
 Multijet events do not produce $\W$ bosons; any CA8 jet that passes the $\W$ boson tagger,
 is thus by definition a misidentified $\W$ boson jet. To reach a similar kinematic phase space as
@@ -276,7 +279,8 @@ be small, the observed mismodelling will, fortunately, not affect our analysis g
 
 \begin{figure}[hbp]
 \centering
-\includegraphics[width=0.7\textwidth]{figures/razor_selection/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin}
+\includegraphics[width=0.65\textwidth]
+{figures/razor_selection/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin_CMS}
 \caption{Comparison between data and simluation of the $\Delta\phi_{min}$ distribution in the $Q$
 region before any selection on $\Delta\phi_{min}$. 
 \label{fig:boost_Q_region_mindeltaphi}}
@@ -355,6 +359,7 @@ used to define validation regions ($S'$, $Q'$) used in the closure tests are als
 completeness. The requirements listed in this table are to be applied in addition to those
 corresponding to the baseline selection. \label{tab:boost_selection_summary}}
 \vspace{1ex}
+{\small
 \begin{tabular}{l cc cc c c}
 \toprule
 Selection & $S$ & $S'$  & $Q$ & $Q'$ & $T$ & $W$ \\ 
@@ -366,9 +371,11 @@ nr of anti-tagged $\W$'s & -          & -          & ${\geq}\, 1$ & ${\geq}\, 1$
 nr of loose leptons      & 0          & 0          & 0   & 0     & 1             & 1 \\
 nr of isolated tracks    & 0          & 0          & 0   & 0     & -             & - \\
 $m_T$                    & -          & -          & -   & -     & ${<}\,100$\GeV   & 30--100\GeV\\
-$\Delta\phi_{min}$       & ${>}\, 0.5$ & ${<}\, 0.5$ & ${<}\, 0.3$  & ${>}\, 0.5$  & ${>}\, 0.5$ & ${>}\, 0.5$\\
+$\Delta\phi_{min}$       & ${>}\, 0.5$ & ${<}\, 0.5$ & ${<}\, 0.3$  & ${>}\, 0.5$  & ${>}\, 0.5$ &
+${>}\, 0.5$\\
 \bottomrule
 \end{tabular}
+}
 \end{table}
 
 \input{tables/cutflow2.tex}

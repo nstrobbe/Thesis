@@ -21,12 +21,14 @@ Access to the boosted phase space is also provided by making the requirement tha
 jet satisfies $\pt > 200\GeV$.
 In summary, events are required to satisfy the following baseline selection:
 \begin{enumerate}
- \item Satisfy all cleanup filters, as listed in Section~\ref{sec:event_cleaning},
- \item Have at least one good primary vertex,
- \item Have at least three selected AK5 jets of which at least one has  $\pt > 200$\GeV, thereby
+ \item Satisfy all detector- and beam-related cleaning filters (Section~\ref{sec:event_cleaning}) to
+remove events with high energy and high transverse momentum imbalance,
+ \item Have at least one primary vertex satisfying quality cuts on vertex fit and position with
+respect to the detector centre,
+ \item Have at least three selected AK5 jets of which at least one has  $\pt > 200\GeV$, thereby
  defining the boosted phase space,
- \item $\mr > 800\GeV$ and $\rsq > 0.08$ (where the megajets are constructed from the selected AK5
-jets).
+ \item Satisfy $\mr > 800\GeV$ and $\rsq > 0.08$ (where the megajets are
+constructed from the selected AK5 jets).
 \end{enumerate}
 In addition to these requirements, we also impose the trigger conditions. 
 For data events, we require that one of the triggers listed in Table~\ref{tab:boost_triggers} was
@@ -74,6 +76,8 @@ underpredicts the data by about 50\%.
     Trigger & All & All \\
     $\cPqb$ tagging & If $\cPqb$ tagging used & All \\
     $\W$ tagging & If $\W$ tagging used & All \\
+    $\W$ mass-tagging & If $\W$ mass-tagging used & All \\
+    $\W$ anti-tagging & If $\W$ anti-tagging used & All \\
     Top \pt spectrum & All & $t\bar{t}$ \\
     Initial state radiation & All & Signal \\
     \bottomrule
@@ -81,8 +85,9 @@ underpredicts the data by about 50\%.
   \end{center}
 \end{table}
  
-The data/MC comparison is also displayed in table form. The first section of Table~\ref{tab:cutflow}
-shows the expected number of events for the different background processes for several steps in the
+The data/MC comparison is also displayed in table form. The first section of
+Tables~\ref{tab:cutflow} and \ref{tab:cutflow_summary} shows the expected number of events for the
+different background processes and observed number of events in data for several steps in the
 baseline cutflow. The entry listed as ``No selection" corresponds to the total number of events
 expected when no selection is applied. It is equal to the cross section of the process times the
 integrated luminosity. 

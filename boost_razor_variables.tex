@@ -25,7 +25,7 @@ in $\Pp\Pp$ collisions at the LHC, and consequently decay to a visible system $Q
 system $\chi_i$. \label{fig:razor_signature}}
 \end{figure}
 
-Several kinematical variables targeting this topology have been
+A number of kinematical variables targeting this topology have been
 developed~\cite{Lester:1999tx,Barr:2003rg,Randall:2008rw,Polesello:2009rn,Bai:2012gs}.
 Most of these variables rely on the presence of the invisible LSPs. This causes the visible system
 to deviate from a dijet topology, resulting in possibly large missing transverse momentum, altered
@@ -33,11 +33,12 @@ angular distributions, etcetera. All of this can be used to distinguish the soug
 from the known background processes. 
 Unfortunately, the ultimate goal of reconstructing the masses of the new particles cannot be
 attained. Because of the escaping LSPs, there is simply not enough information available to fully
-constrain the problem. What we can do, however, is approximate the mass scale of the new physics
-particles. Often times this results in variables that exhibit a kinematic edge. 
+constrain the problem. What we can do, however, is approximate the mass scale of the involved
+particles in a collision, which can then be used to check for evidence of new particles. 
+The variables that approximate this mass scale often exhibit a kinematic edge. 
 The \textit{razor variables} \cite{rogan,Rogan:1557072,Chatrchyan:2011ek,Chatrchyan:2014goa} are no
 exception in this regard. One advantage the razor variables have over many other variables, is that
-they also reconstruct the mass scale as a peak, in addition to a kinematic edge. 
+they also reconstruct the mass scale as a peak, in addition to an edge. 
 In what follows I will derive the two razor variables, denoted \mr and \rsq, which use longitudinal
 and transverse event information, respectively, to estimate a characteristic mass scale associated
 with the new particles. 
@@ -225,7 +226,7 @@ that $\vec{\beta}_T \rightarrow 0$, and thus $\vec{\beta}^{\,\textrm{lab}} \righ
 \end{enumerate}
 The results of these two approximations is that we only need a longitudinal boost $\vec{\beta}_z$
 to take us from the lab frame to the approximate $S_i$ rest frames. 
-In this so-called \textit{rough-approximation frame}, or \textit{R-frame}, we have that
+In this so-called \textit{rough-approximation frame}, or \textit{R-frame}, we have 
 \begin{alignat}{4}
   |\vec{q}^{\,R}_1|         &= |\vec{q}^{\,R}_2| &&= \frac{M_\Delta}{2} , \\
   \textrm{or } E_{Q_1}^R &= E_{Q_2}^R     &&= \frac{M_\Delta}{2},
@@ -339,12 +340,15 @@ $S_i$, we immediately see that $M_{2S} = M_S$. Expanding Eq.~\ref{eq:razor_M2S} 
 \nu_2^{\textrm{lab}} + (\nu_2^{\textrm{lab}})^2\right) } \\
          &= \sqrt{ q_1^{\textrm{lab}}\nu_1^{\textrm{lab}} + q_2^{\textrm{lab}}\nu_2^{\textrm{lab}}
 + M_\chi^2} \\
-         &= \sqrt{ E^{\textrm{lab}}_{Q_1} E^{\textrm{lab}}_{\nu_1} - \vec{q}^{\,\textrm{lab}}_{1T}
+         &= \sqrt{ \begin{multlined}
+         E^{\textrm{lab}}_{Q_1} E^{\textrm{lab}}_{\nu_1} -
+\vec{q}^{\,\textrm{lab}}_{1T}
 \cdot \vec{\nu}^{\,\textrm{lab}}_{1T} - \vec{q}^{\,\textrm{lab}}_{1z} \cdot
-\vec{\nu}^{\,\textrm{lab}}_{1z}
-                  + E^{\textrm{lab}}_{Q_2} E^{\textrm{lab}}_{\nu_2} - \vec{q}^{\,\textrm{lab}}_{2T}
+\vec{\nu}^{\,\textrm{lab}}_{1z} 
+                  + E^{\textrm{lab}}_{Q_2} E^{\textrm{lab}}_{\nu_2} \\ -
+\vec{q}^{\,\textrm{lab}}_{2T}
 \cdot \vec{\nu}^{\,\textrm{lab}}_{2T} - \vec{q}^{\,\textrm{lab}}_{2z} \cdot
-\vec{\nu}^{\,\textrm{lab}}_{2z} + M_\chi^2} .
+\vec{\nu}^{\,\textrm{lab}}_{2z} + M_\chi^2 \end{multlined}}  .
 \end{align}
 Unfortunately we do not a priori know the mass of the $\chi_i$ particles. We will choose $M_\chi =
 0$. As a result $M_{2S}$ will now give us a distribution, with endpoint at $M_S$. For the
@@ -506,11 +510,14 @@ two-body decay chain. We can of course envision many other scenarios in which th
 case. One could have three- or four-body decays, or long decay chains. All of those cases would
 result in more than two visible particles in the final state. 
 
-In order to use the same razor formalism, we simply need to cluster all the particles in the event
-into two so-called \textit{megajets}. Among all possible clusterings of particles in two groups, we
-choose the clustering that minimizes the quadratic sum of invariant masses of the two megajets. The
-four-momenta of the megajets, which are used to compute the invariant masses, are defined as the sum
-of the four-momenta of their constituents. \mr and \rsq are then defined as before, using the
+In order to use the same razor formalism, we simply need to cluster all the visible particles in the
+event into two so-called \textit{megajets}. 
+Among all possible clusterings of particles in two groups, we
+choose the clustering that minimizes the quadratic sum of invariant masses of the two megajets. 
+This choice was observed to be the most efficient in correctly assigning particles with the same
+mother to the same megajet. 
+The four-momenta of the megajets, which are used to compute the invariant masses, are defined as the
+sum of the four-momenta of their constituents. \mr and \rsq are then defined as before, using the
 megajets as the two visible components. 
 
 This approach groups particles travelling in the same direction, and is effective at grouping the

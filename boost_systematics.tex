@@ -9,8 +9,8 @@ The independent systematic effects, described below, are sampled simultaneously.
 This is one of the characteristics that sets this analysis apart. 
 For each sampled systematic effect, the same zero mean, unit variance, Gaussian variate is used in
 the calculation of the random shift of the systematic effect for all the signal and background
-models. Likewise, the same randomly sampled parton distribution functions are used for all
-signal and background models. 
+models. Likewise, the same randomly sampled parton distribution functions are used for each event
+and for all signal and background models. 
 In this way, the statistical dependencies among all bins of the signal and background models are
 correctly, and automatically, modelled. The sampling of the systematic effects
 is repeated several hundred ($N$) times.  
@@ -62,8 +62,9 @@ propagated to the \VEtmiss.
 \subsection{Parton distribution functions \label{sec:boost_pdf_unc}} 
 
 In order to evaluate the systematic uncertainty arising from imperfect knowledge of the parton
-distribution functions, we use three PDF sets, {\tt MSTW2008lo68cl}~\cite{Martin:2009iq},
-{\tt CT10}~\cite{Lai:2010vv}, and {\tt NNPDF23\_lo\_as\_0130\_qed}~\cite{nnpdf}, which are
+distribution functions, we use three PDF sets, {\tt CT10}~\cite{Lai:2010vv}, {\tt
+MSTW2008lo68cl}~\cite{Martin:2009iq},
+ and {\tt NNPDF23\_lo\_as\_0130\_qed}~\cite{nnpdf}, which are
 recommended by the PDF4LHC group~\cite{Alekhin:2011sk,Botje:2011sn}.  
 Since we take into account full correlations within systematic variations, we need a way to sample
 randomly also from the PDF uncertainties, such that the PDF variations can be incorporated directly
@@ -108,7 +109,7 @@ This is done to make sure that only the PDF effects on the acceptance are includ
 experimental uncertainties. The PDF effect on the expected signal cross section is taken into
 account separately.
 
-\begin{figure}[htpb]
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_S_QCD_MC}
@@ -117,10 +118,10 @@ account separately.
 {figures/razor_systematics/h_Q_QCD_MC}
 \caption{Influence of different PDF sets on the MC counts entering $\kappa_{\rm QCD}^{Q/S}$.
 \label{fig:PDF_effect_on_bg_QCD}}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
+%\end{figure}
+\vspace{2eM}
+%\begin{figure}[htpb]
+%\centering
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_S_TTJ_MC}
 ~
@@ -128,10 +129,10 @@ account separately.
 {figures/razor_systematics/h_T_TTJ_MC}
 \caption{Influence of different PDF sets on the MC counts entering $\kappa_{t\bar{t}+t}^{T/S}$.
 \label{fig:PDF_effect_on_bg_TTJ}}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
+%\end{figure}
+\vspace{2eM}
+%\begin{figure}[htpb]
+%\centering
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_S_Wlv_MC}
 ~
@@ -142,7 +143,7 @@ account separately.
 \end{figure}
 
 
-\begin{figure}[htpb]
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_S_oth_MC}
@@ -152,10 +153,10 @@ account separately.
 \caption{Influence of different PDF sets on the MC counts in the $S$ (left) and $T$ (right) region
 for the backgrounds that are taken directly from the simulation.
 \label{fig:PDF_effect_on_bg_oth1}}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
+%\end{figure}
+\vspace{2eM}
+%\begin{figure}
+%\centering
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_W_oth_MC}
 ~
@@ -164,10 +165,10 @@ for the backgrounds that are taken directly from the simulation.
 \caption{Influence of different PDF sets on the MC counts in the $W$ (left) and $Q$ (right) region
 for the backgrounds that are taken directly from the simulation.
 \label{fig:PDF_effect_on_bg_oth2}}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
+%\end{figure}
+\vspace{2eM}
+%\begin{figure}
+%\centering
 \includegraphics[width=0.48\textwidth,clip=true,trim=0 0.2cm 0 1.2cm]
 {figures/razor_systematics/h_S_T1ttcc_DM25_1000_300}
 \caption{Influence of different PDF sets on the signal efficiency for the T1ttcc signal point with
@@ -175,11 +176,12 @@ $m_{\tilde{g}}=1000\GeV, m_{\tilde{t}_1}=325\GeV, m_{\tilde{\chi}_1^0}=300\GeV$.
 \label{fig:PDF_effect_on_sig}}
 \end{figure}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Trigger efficiency}  
 
 Simulated events are weighted by a trigger efficiency, $\epsilon_{\rm trig}$, according to their
-values of $\HT$ and first jet \pt, see Section~\ref{sec:boost_data_trigger}. These trigger weights
+values of $\HT$ and first jet \pt (see Section~\ref{sec:boost_data_trigger}). These trigger weights
 have an associated uncertainty coming from the statistical precision of the data samples used to
 perform the measurement, and the effect of changing the analysis level selection used to measure the
 efficiency. The trigger efficiency uncertainty in each bin, as a function of $\HT$
@@ -262,8 +264,8 @@ In this analysis, we use the CSVM and CSVL $\cPqb$ taggers, see Section~\ref{sec
 are always used independently of each other. Therefore, for a given event, we compute separate
 weights
 $w_{\rm btag}$ using CSVM and CSVL, and use them only in the relevant regions. The weight obtained
-with the CSVM tagger is used in the $S$ and $T$ region, and the CSVL weight in the $W$ and $Q$
-region.
+with the CSVM tagger is used in the $S$ and $T$ regions, and the CSVL weight in the $W$ and $Q$
+regions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{\texorpdfstring{$\W$}{W} tagging} 
@@ -276,7 +278,10 @@ Some of these scale factors were derived specifically for this analysis and were
 in Section~\ref{sec:boost_wtag}.
 The uncertainties on these scale factors are used in the same way as for the other sources of
 systematic uncertainty. For each systematic sampling, the scale factors are varied according to the
-sampled uncertainty and propagated to the corresponding event weights.
+sampled uncertainty and propagated to the corresponding event weights in the following way
+\begin{equation}
+w_{\rm Wtag} = {\rm SF_{Wtag}}(\pt) + \sigma_{\rm Wtag} \delta {\rm SF_{Wtag}}(\pt), 
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lepton identification \label{sec:boost_leptonID}} 
@@ -305,8 +310,8 @@ signal samples using an event weight that depends on the \pt of the recoiling sy
 case is the $\tilde{g}\tilde{g}$ system. 
 More information on this reweighting and how it was derived, was given in
 Section~\ref{sec:event_ISRreweighting}. 
-The associated uncertainty on the ISR reweighting, see Table~\ref{tab:ISRreweighting} for the
-numerical values, is incorporated as a systematic uncertainty on the signal efficiency. 
+The associated uncertainty on the ISR reweighting (see Table~\ref{tab:ISRreweighting} for the
+numerical values) is incorporated as a systematic uncertainty on the signal efficiency. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Top quark \texorpdfstring{\pt}{pT} spectrum} 
@@ -389,9 +394,10 @@ events. Since we require the presence of at least one $\cPqb$ tagged jet, and gi
 deficiency in modelling $\cPZ$ production in association with heavy flavour jets, we include an
 extra systematic uncertainty in the $\cPZ({\rightarrow}\,\nu\bar{\nu})$+jets contribution.  
 
-This uncertainty is estimated using a data control region enriched in
-$\cPZ({\rightarrow}\, \ell \bar{\ell})+$jets, required, in addition to the baseline selection
-requirements, to contain exactly two tight leptons ($e$ or $\mu$), of same flavour and opposite
+This uncertainty is estimated using a data control region which is enriched in
+$\cPZ({\rightarrow}\, \ell \bar{\ell})$+jets events. The events are required to satisfy the
+baseline selection requirements, and to contain exactly two tight leptons ($e$ or $\mu$), of same
+flavour and opposite
 sign, with dilepton invariant mass consistent with the $\cPZ$ boson mass, $60 < m_{\ell\bar{\ell}} <
 120\GeV$.
 We also require the presence of at least one $\cPqb$ tagged jet, and at least one $\W$
@@ -449,7 +455,8 @@ The signal values are obtained from averaging over all mass points in the T1ttcc
 The size of the systematic effects for each separate mass point is shown in the figures in 
 Appendix~\ref{app:signal_systematics}. 
 The PDF systematic uncertainties are obtained by running
-over 100 different PDF set members, fitting a Gaussian to the efficiency distribution and taking the
+over 100 different PDF set members, sampled from all three considered PDF sets, fitting a Gaussian
+to the efficiency distribution and taking the
 width of that Gaussian.  
 The last line in the table corresponds to the full sampling of the systematic uncertainties, as
 used in the background prediction. To obtain this value we again fit a Gaussian to the efficiency

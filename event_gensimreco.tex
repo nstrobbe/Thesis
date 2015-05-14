@@ -9,9 +9,11 @@ discuss the separate components an event consists of, as well as touch upon how 
 mathematically. 
 
 In order to understand what we observe in the data, which might contain signals of new physics, it
-is important to know how Standard Model processes will appear in the detector. To achieve this we
-generate those processes using Monte Carlo generation techniques, incorporating everything that is
-known about how the Standard Model works. The principal options that are available to generate
+is important to know how the Standard Model processes and new physics signals will appear in the
+detector. To achieve this we generate those processes using Monte Carlo generation techniques,
+incorporating everything that is known about the workings of the Standard Model, and the
+considered models of new physics. 
+The principal options that are available to generate
 events will be discussed in Section~\ref{sec:event_generation}. 
 For each generated collision, we obtain a set of final state particles according to the specified
 physics process. This could for example be the particles that result from the production and decay
@@ -94,7 +96,7 @@ activity.
 perform properly.
 \item The {\tt CSCTightHaloFilter}, which removes events contaminated by beam halo.
 \item The {\tt HBHENoiseFilter}, which removes events featuring large hadronic calorimeter noise.
-\item The {\tt eeBadScFilter}, which removes events featuring high amplitude anomalous pulses due
+\item The {\tt eeBadScFilter}, which removes events featuring high amplitude ano\-malous pulses due
 to bad ECAL super-crystals.
 \item The {\tt trkPOGFilters}, which remove events due to track reconstruction anomalies, such as
 events with partly aborted track reconstruction and events affected by the Strip Tracker coherent
@@ -130,8 +132,8 @@ obtained from calorimeter information only.
 A selection requiring no substantial discrepancy between the two \ETm definitions is thus effective
 at reducing the contribution of these noisy events. 
 
-We reject events in which the PF missing transverse energy vector, $\VEtmiss(\text{PF})$, is
-flipped with respect to the calorimeter based one, $\VEtmiss(\text{Calo})$. 
+We reject events in which the particle flow missing transverse energy vector, $\VEtmiss(\text{PF})$,
+is flipped with respect to the calorimeter based one, $\VEtmiss(\text{Calo})$. 
 To accomplish this we compute the absolute value of the difference in polar angle,
  $|\Delta\phi_{\text{PF,Calo}}|$, taken in the range $[0,2\pi[$, and defined as
 \begin{equation}

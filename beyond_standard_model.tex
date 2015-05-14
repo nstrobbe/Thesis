@@ -5,7 +5,7 @@ processes, it cannot be the ultimate theory describing Nature. In
 Section~\ref{sec:missing_elements}, I will list some open questions for which the Standard Model
 does not provide an answer. A very pertinent question regarding the Higgs boson mass is discussed
 in Section~\ref{sec:hierarchy_problem}.
-Any new theory that attempts to solve these issues should revert back to
+Any new theory that attempts to solve these issues should reproduce
 the Standard Model for the energy domains that have been so thoroughly tested over the past
 decades. In this respect we can view the Standard Model as an effective low-energy theory, just
 like Newton's laws of motion follow from a low-energy approximation of special relativity. 
@@ -78,7 +78,7 @@ is there such a wide range of masses, \ie from $0.511\MeV$ for the electron up t
 top quark, a difference of 5 orders of magnitude. This is sometimes referred to as the fermion mass
 hierarchy problem. 
 
-  \item Are baryon and lepton number conserved? In the Standard Model these are accidental
+  \item Are baryon and lepton numbers conserved? In the Standard Model these are accidental
 symmetries, without an underlying reason such as a local gauge symmetry. There is thus no
 compelling reason to assume that baryon and lepton number are conserved quantities. 
   
@@ -126,7 +126,7 @@ The requirement for this large amount of finetuning is viewed to be unnatural, a
 new physics will use the \textit{naturalness} argument in their favour. 
 
 \begin{figure}[t]
-\begin{tikzpicture}[scale=1.2]
+\begin{tikzpicture}[scale=0.9]
   \node[void] (in) at (0,0)  {};
   \node[void] (v1) at (1,0) {};
   \node[void] (v2) at (2,0) {};
@@ -136,7 +136,8 @@ new physics will use the \textit{naturalness} argument in their favour.
   \node at (1.5,0.7) {$f$};
   \draw[spin0] (v2) -- node [above]{$H$} (out);
 \end{tikzpicture}
-\begin{tikzpicture}[scale=1.2]
+\hfill
+\begin{tikzpicture}[scale=0.9]
   \node[void] (in) at (0,0)  {};
   \node[void] (v1) at (1,0) {};
   \node[void] (v2) at (2,0) {};
@@ -145,7 +146,8 @@ new physics will use the \textit{naturalness} argument in their favour.
   \node at (1.5,0.8) {$W,Z$};
   \draw[spin0] (in) -- node [above]{$H$} (v1) -- (v2) -- node [above]{$H$} (out);
 \end{tikzpicture}
-\begin{tikzpicture}[scale=1.2]
+\hfill
+\begin{tikzpicture}[scale=0.9]
   \node[void] (in) at (0,0)  {};
   \node[void] (v1) at (1,0) {};
   \node[void] (v2) at (2,0) {};
@@ -154,7 +156,8 @@ new physics will use the \textit{naturalness} argument in their favour.
   \node at (1.5,1.3) {$W,Z$};
   \draw[spin0] (in) -- node [above]{$H$} (v1) -- (v2) -- node [above]{$H$} (out);
 \end{tikzpicture}
-\begin{tikzpicture}[scale=1.2]
+\hfill
+\begin{tikzpicture}[scale=0.9]
   \node[void] (in) at (0,0)  {};
   \node[void] (v1) at (1,0) {};
   \node[void] (v2) at (2,0) {};
@@ -176,11 +179,11 @@ extra scalar particles.
 Assuming that there are $N_S$ new scalar particles, with mass $m_S$, trilinear coupling $v\lambda_S$
 and quadrilinear coupling $\lambda_S$, we find as additional contribution to the
 one-loop correction to the Higgs mass:
-\begin{equation}
+\begin{multline}
   \Delta m_H^2 =  \frac{N_S\lambda_S}{16\pi^2} \left[ - \Lambda^2 + 2 m_S^2 \log
-\left(\frac{\Lambda}{m_S}\right)\right] - \frac{\lambda_S^2 N_S}{16 \pi^2} v^2 \left[ -1 + 2
+\left(\frac{\Lambda}{m_S}\right)\right] \\ - \frac{\lambda_S^2 N_S}{16 \pi^2} v^2 \left[ -1 + 2
 \log\left(\frac{\Lambda}{m_S}\right) \right] + \mathcal{O}\left(\frac{1}{\Lambda^2}\right) .
-\end{equation}
+\end{multline}
 By assuming $\lambda_f^2 = - \lambda_S$ and $N_S = 2 N_f$, we find upon adding both
 contributions, and using Eq.~\ref{eq:fermion_masses},
 \begin{equation}
@@ -229,8 +232,9 @@ the logarithmic ones, then the hierarchy problem can still be solved.
 
 SUSY also triggers electroweak symmetry breaking in a dynamic way. There is thus no need to
 explicitly assume a negative $\mu^2$ in the Higgs potential. 
-A very generic SUSY Lagrangian would allow interactions leading to proton decay. To avoid this,
-R-parity is introduced. If R-parity is conserved, then the lightest supersymmetric particle (LSP) is
+A very generic SUSY Lagrangian would allow interactions leading to proton decay. To avoid this, a
+new parity, called R-parity, is introduced (see also Section~\ref{sec:susy_rparity}). If R-parity is
+conserved, then the lightest supersymmetric particle (LSP) is
 stable, as it cannot decay without violating R-parity. This LSP can be a dark matter candidate, as
 it would be heavy and only weakly interacting. 
 

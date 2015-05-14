@@ -23,7 +23,7 @@ following sections.
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/cms/CMS_overview_labelled}
+  \includegraphics[width=0.98\textwidth]{figures/cms/CMS_overview_labelled}
   \caption{Overview of the CMS detector. The different subsystems are indicated on the figure, as
 well as a person to serve as reference scale. Figure taken from Ref. \cite{CMS_overview_labelled}.
   \label{fig:cms_overview}}
@@ -31,7 +31,7 @@ well as a person to serve as reference scale. Figure taken from Ref. \cite{CMS_o
 
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/cms/CMS_Slice}
+  \includegraphics[width=0.98\textwidth]{figures/cms/CMS_Slice}
   \caption{Detailed view of a CMS detector slice, showing the interactions of different kinds of
 particles with the various subsystems. Muons leave hits in the tracker and the muon stations,
 before leaving the detector. Electrons leave hits in the tracker, and then deposit their
@@ -106,16 +106,20 @@ energetic particles can be measured.
 To take as much advantage of track bending as possible, CMS decided to have the strongest magnetic
 field possible. Therefore, the largest magnet that could be transported to P5 was built. The CMS
 solenoid measures 6.3\meter in diameter, and the steel return yoke has an outer diameter of
-14\meter. The total magnet system is 13\meter long, weighs a whopping $12\,000$ tonnes,
-and is the largest superconducting magnet ever built. The solenoid is cooled to 4.5\unit{K}, and the
+14\meter. 
+The yoke consists of three layers, as shown in Fig.~\ref{fig:cms_magnet},
+provides most of the structural support for the whole experiment, and acts as a shield that blocks
+any particles that made their way across the HCAL, apart from muons, neutrinos, and possible new
+weakly interacting particles.
+The total magnet system is 13\meter long, weighs a whopping $12\,000$ tonnes,
+and is the largest superconducting magnet ever built. 
+The tracker, ECAL, and HCAL fit inside the magnet coil, whereas the muon stations are interleaved
+with the return yoke.  
+
+The solenoid is cooled to 4.5\unit{K}, and the
 very strong magnetic field of 3.8\unit{T} results in a momentum resolution of $\Delta p / p \approx
 10\%$ at momenta of 1\TeV, sufficient to determine the sign of muons with $\pt \approx 1 \TeV$. 
 
-The tracker, ECAL, and HCAL fit inside the magnet coil, whereas the muon stations are interleaved
-with the return yoke. The yoke consists of three layers, as shown in Fig.~\ref{fig:cms_magnet},
-provides most of the structural support for the whole experiment, and acts as a shield that blocks
-any particles that made their way across the HCAL, apart from muons, neutrinos, and possible new
-weakly interacting particles. 
 
 \begin{figure}[htpb]
   \centering
@@ -171,9 +175,9 @@ damage.
 
 \begin{figure}[tpb]
   \centering
-  \includegraphics[height=0.17\textheight]{figures/cms/CMS_tracker_general_layout}
+  \includegraphics[height=0.165\textheight]{figures/cms/CMS_tracker_general_layout}
   ~
-  \includegraphics[height=0.17\textheight]{figures/cms/cms_tracker}
+  \includegraphics[height=0.165\textheight]{figures/cms/cms_tracker}
   \caption{[left] Schematic cross section through the CMS tracker. Each line represents a detector
 module. Figure taken from Ref.~\cite{Chatrchyan:2008aa}. 
   [right] The first half of the CMS inner tracker barrel (TIB), consisting of three
@@ -190,9 +194,22 @@ It has a fine granularity, is fast, and radiation resistant.
 The ECAL provides a very good energy resolution for electrons and photons, which played a key role
 in the discovery of the Higgs boson in the $h\rightarrow\gamma\gamma$ final state. 
 
-The ECAL is made of about $75\,000$ highly transparent lead tungstate ($\text{PbWO}_\text{4}$)
-crystals whose length corresponds to about 25 radiation lengths. A photograph of the crystals
-during testing, and a schematic view of the ECAL structure is shown in
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=0.47\textwidth]{figures/cms/cms_ecal_crystal}
+~
+  \includegraphics[width=0.47\textwidth]{figures/cms/CMS_ECAL}
+  \caption{[left] The construction of the CMS electromagnetic calorimeter: lead-tungstate crystals
+being tested in 2005. Figure taken from Ref.~\cite{CMS_ecal_crystal}.
+[right] Schematic overview of the ECAL, showing the barrel modules that contain the crystals, the
+endcaps, and the preshower detectors. Figure taken from Ref.~\cite{Chatrchyan:2008aa}.
+  \label{fig:cms_ecal_crystal}}
+\end{figure}
+
+The electromagnetic calorimeter is made of about $75\,000$ highly transparent lead tungstate
+($\text{PbWO}_\text{4}$)
+crystals whose lengths corresponds to about 25 radiation lengths. A photograph of the crystals
+during testing, and a schematic view of the ECAL structure are shown in
 Fig.~\ref{fig:cms_ecal_crystal}. The crystals are arranged side-by-side with their longitudinal axes
 slightly pointing away from the interaction point to avoid cracks.
 
@@ -220,18 +237,6 @@ The sensors are silicon strip detectors of only 2\mm wide, compared to 3\cm for 
 crystals. The two layers of strips are placed orthogonally, thus providing a position
 measurement with extremely fine granularity. 
 
-
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=0.48\textwidth]{figures/cms/cms_ecal_crystal}
-~
-  \includegraphics[width=0.48\textwidth]{figures/cms/CMS_ECAL}
-  \caption{[left] The construction of the CMS electromagnetic calorimeter: lead-tungstate crystals
-being tested in 2005. Figure taken from Ref.~\cite{CMS_ecal_crystal}.
-[right] Schematic overview of the ECAL, showing the barrel modules that contain the crystals, the
-endcaps, and the preshower detectors. Figure taken from Ref.~\cite{Chatrchyan:2008aa}.
-  \label{fig:cms_ecal_crystal}}
-\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hadron calorimeter \label{sec:cms_hcal}}
@@ -277,7 +282,7 @@ signal.
 The HF is divided into two longitudinal segments, making it possible to distinguish the more shallow
 showers generated by electrons and photons, from those generated by hadrons.
 
-\begin{figure}[htpb]
+\begin{figure}[tpb]
   \centering
   \includegraphics[height=0.2\textheight]{figures/cms/cms_hcal}
 ~
@@ -376,8 +381,8 @@ Associating each particle, and thus each detector signal, to the correct bunch c
 possible because of the very good time resolution of the detectors, and the synchronization between
 all the readout channels. 
 Data from each subdetector is first collected in separate pipelines and is then sent off to the
-switch networks to build the full event. Section~\ref{sec:cms_daq} will discuss in more detail how
-the events are constructed.
+switch networks to build the full event. Section~\ref{sec:event_reconstruction} will discuss 
+how the events are then further reconstructed.
 
 \subsubsection{L1 Trigger \label{sec:cms_level_one}}
 
@@ -422,7 +427,8 @@ possible, before reaching the more time consuming parts of the code.
 An example of this could be the use of jets constructed from only calorimeter information, before
 adding the information from the numerous tracker readout channels to improve precision. 
 Each event that is kept receives a set of tags associated with the separate trigger paths that were
-fulfilled. These tags are later used to sort the data into so-called primary datasets. 
+fulfilled. These tags are later used to sort the data into so-called primary datasets, grouping
+together tags featuring similar objects. 
 
 
 \subsubsection{Data acquisition \label{sec:cms_daq}}
@@ -434,9 +440,9 @@ the reception of an accept signal from the L1 Trigger. The data are then read by
 and stored until they are sent to the HLT for further processing. 
 The builder network provides the interconnections between the readout and the HLT systems, running
 with a bandwidth of 100\unit{GB/s}. It takes care of building the full events out of the different
-data fragments from the separate parts of the detector. The builder networks consists of 500 builder
+data fragments from the separate parts of the detector. The builder network consists of 500 builder
 units, each of which will assemble the data for one event. 
-Once the event is assembled it is passed to one of the HLT processors associated to that particular
+Once the event is assembled, it is passed to one of the HLT processors associated to that particular
 builder unit. As soon as the HLT decision is made, that decision is transferred back to the builder
 unit which then either discards the event, freeing up memory, or sends it to the storage
 manager to be written to disk.

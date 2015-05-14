@@ -180,18 +180,19 @@ conjugates of the right-handed quarks and leptons appear in the table.
     \toprule
     \multicolumn{2}{l}{Names} & Spin 0 & Spin 1/2 & $SU(3)_c \times SU(2)_L \times U(1)_Y$ \\ 
     \midrule
-    \multirow{3}{3cm}{squarks, quarks (3 families)} & $\widehat{Q}$ & ($\widetilde{\cPqu}_L \
+    \multirow{3}{2cm}{squarks, quarks \\(3 families)} & $\widehat{Q}$ & ($\widetilde{\cPqu}_L \
 \widetilde{\cPqd}_L$) & ($\cPqu_L \ \cPqd_L$) & ($\mathbf{3}, \mathbf{2}, \frac{1}{6}$)  \\[1ex] 
     & $\widehat{U}^c$ & $\widetilde{\cPqu}_R^*$ & $\cPqu_R^\dagger$ & ($\mathbf{\overline{3}},
 \mathbf{1}, -\frac{2}{3}$)  \\[1ex]
     & $\widehat{D}^c$ & $\widetilde{\cPqd}_R^*$ & $\cPqd_R^\dagger$ & ($\mathbf{\overline{3}},
 \mathbf{1}, \frac{1}{3}$)  \\ 
     \midrule
-    \multirow{2}{3cm}{sleptons, leptons (3 families)} & $\widehat{L}$ & ($\widetilde{\nu} \
+    \multirow{2}{2cm}{sleptons, leptons \\(3 families)} & $\widehat{L}$ & ($\widetilde{\nu} \
 \widetilde{e}_L$) & ($\nu \ e_L$) & ($\mathbf{1}, \mathbf{2}, -\frac{1}{2}$) \\[1ex] 
-    & $\widehat{E}^c$ & $\widetilde{e}_R^*$ & $e_R^\dagger$ & ($\mathbf{1}, \mathbf{1}, 1$)  \\ 
+    & $\widehat{E}^c$ & $\widetilde{e}_R^*$ & $e_R^\dagger$ & ($\mathbf{1}, \mathbf{1}, 1$) 
+\\[1.2ex] 
     \midrule
-    \multirow{2}{3cm}{Higgs, higgsinos} & $\widehat{H}_u$ & ($H_u^+ \ H_u^0)$ &
+    \multirow{2}{2cm}{Higgs, higgsinos} & $\widehat{H}_u$ & ($H_u^+ \ H_u^0)$ &
 ($\widetilde{H}_u^+ \ \widetilde{H}_u^0$) & ($\mathbf{1}, \mathbf{2}, +\frac{1}{2}$) \\[1ex] 
     & $\widehat{H}_d$ & ($H_d^0 \ H_d^-$) & ($\widetilde{H}_d^0 \ \widetilde{H}_d^-$)  &
 ($\mathbf{1}, \mathbf{2}, -\frac{1}{2}$) \\
@@ -286,7 +287,7 @@ These terms are the supersymmetric counterparts of the ordinary fermion-gauge bo
 
 
 
-\subsection{R-parity}
+\subsection{R-parity \label{sec:susy_rparity}}
 
 Apart from the interaction terms listed in the previous section, the most general MSSM Lagrangian
 could also include lepton and baryon number violating interactions such as, 
@@ -308,7 +309,7 @@ with $B$, $L$ and $s$ the baryon number, lepton number and spin quantum number, 
 Regular Standard Model particles have $R=1$, their supersymmetric partners have $R=-1$. Only
 terms conserving R-parity are allowed in the supersymmetric Lagrangian. 
 
-The introduction of R-parity has important consequences for the phenomenology of the MSSM.
+The introduction of R-parity has important consequences for the phenome\-nology of the MSSM.
 At particle colliders which collide Standard Model particles, supersymmetric particles can only be
 produced in pairs. Once produced, a SUSY particle will always decay into an odd number of other SUSY
 particles. The lightest supersymmetric particle (LSP) will therefore necessarily be stable, and can
@@ -384,10 +385,10 @@ H_u^{i*}\tau_{ij}^aH_u^j \right) \right]^2 \textrm{ ,}
 with $\tau^a = 2 T^a$ and $\tau_{ij}^a \tau_{kl}^a = 2\delta_{il}\delta_{jk} -
 \delta_{ij}\delta_{kl}$. 
 Upon adding these two contributions, we find,
-\begin{equation}
+\begin{multline}
   V_D = \frac{g^2_2}{8} \left[ 4|H_d^\dagger \cdot H_u|^2 - 2|H_d|^2|H_u|^2 + (|H_d|^2)^2 +
-(|H_u|^2)^2 \right] + \frac{g^2_1}{8} \left[ |H_u|^2 - |H_d|^2 \right]^2 .
-\end{equation}
+(|H_u|^2)^2 \right] \\ + \frac{g^2_1}{8} \left[ |H_u|^2 - |H_d|^2 \right]^2 .
+\end{multline}
 
 \item Contributions arising from derivatives of the superpotential, cf. Eqs.~\ref{eq:L_int} and
 \ref{eq:superpotential},
@@ -423,13 +424,11 @@ One can check that a minimum satisfying $\frac{\partial V_H}{\partial H_d^-} = 0
 $\braket{0|H_u^+|0} = 0$. At the minimum, electromagnetism is thus necessarily unbroken, as the
 charged directions cannot attain a vacuum expectation value.
 Simplifying the scalar potential by setting $H_u^+ = H_d^- = 0$, we find,
-\begin{equation}
-  \begin{aligned}
-  V_H = & \left( |\mu|^2 + m_{H_u}^2 \right) |H_u^0|^2  + \left( |\mu|^2 + m_{H_d}^2 \right)
+\begin{multline}
+  V_H = \left( |\mu|^2 + m_{H_u}^2 \right) |H_u^0|^2  + \left( |\mu|^2 + m_{H_d}^2 \right)
 |H_d^0|^2 - b\left( H_u^0 H_u^0 + h.c.\right)  \\
-     & + \frac{1}{8} \left( g_1^2 + g_2^2 \right) \left( |H_u^0|^2  - |H_d^0|^2 \right)^2 .
-\end{aligned}
-\end{equation}
+      + \frac{1}{8} \left( g_1^2 + g_2^2 \right) \left( |H_u^0|^2  - |H_d^0|^2 \right)^2 .
+\end{multline}
 Only the $b$ term depends on the phases of the fields. This means that a possible phase in $b$ can
 always be absorbed by a redefinition of the phases of $H_u$ or $H_d$. Hence, we can take $b$ to be
 real and positive. A consequence of this is that $CP$ cannot be spontaneously broken by the Higgs
@@ -523,7 +522,7 @@ The charged electroweak gauginos, $\widetilde{\W}_1$ and $\widetilde{\W}_2$ (the
 charged higgsinos, $\widetilde{H}_u^+$ and$\widetilde{H}_d^-$, mix to form the so-called
 \textit{charginos}, denoted by $\widetilde{\chi}_1^\pm$ and $\widetilde{\chi}_2^\pm$. 
 The same happens for their neutral counterparts. The neutral wino $\widetilde{\W}_3$, the bino
-$\widetilde{B}$, and the higgsinos, $\widetilde{H}_u^0$ and$\widetilde{H}_d^0$,  mix to form
+$\widetilde{B}$, and the higgsinos, $\widetilde{H}_u^0$ and $\widetilde{H}_d^0$,  mix to form
 \textit{neutralinos}, denoted by $\widetilde{\chi}_{1,2,3,4}^0$. 
 Neutralinos are very interesting for cosmology. If the lightest supersymmetric particle is a
 neutralino, this is an ideal candidate for dark matter: it is heavy, only weakly interacting and
@@ -738,10 +737,10 @@ parameters that would need to be scanned.
 
 \item Derive limits on more general models. Complex models can be decomposed into experimental
 final state topologies. Ideally, each of those topologies would correspond to a SMS. The exclusion
-limits on the simplified models can then be translated back into a limit on the full model. There
-exist several efforts in this respect within the phenomenology community, such as
-SModelS~\cite{Kraml:2013mwa,Kraml:2014sna}, checkMATE~\cite{Kim:2015wza}, and
-Fastlim/ATOM~\cite{Papucci:2014rja}.
+limits on the simplified models can then be translated back into a limit on the full model. 
+Several efforts in this respect exist within the phenomenology community, such as
+SModelS~\cite{Kraml:2013mwa,Kraml:2014sna}, Fastlim/ATOM~\cite{Papucci:2014rja}, and
+checkMATE~\cite{Kim:2015wza}.
 \end{itemize}
 
 

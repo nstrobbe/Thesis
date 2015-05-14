@@ -19,7 +19,7 @@ Section~\ref{sec:SM_success}.
 \section{Particles and interactions \label{sec:SM_particles}}
 
 The Standard Model contains three families (or generations) of fermionic matter, each consisting of
-a charged lepton, a corresponding neutrino, and an up- and down-type quark.
+a charged lepton, a corresponding neutrino, and an up- and down-type quark pair.
 The three charged leptons are the electron ($e$), muon ($\mu$) and tau ($\tau$). Their corresponding
 neutrinos are called the electron, muon, and tau neutrino ($\nu_e, \nu_\mu, \nu_\tau$). 
 The three quark families comprise the up ($\cPqu$) and down ($\cPqd$) quark, the charm
@@ -50,7 +50,7 @@ The remaining three interactions are the ones that are described by the Standard
 particle physics. They can be formulated together, as a single, unified, quantum field theory,
 governed by the gauge group $SU(3)_c \times SU(2)_L \times U(1)_Y$. The interactions are mediated by
 the gauge bosons, which are vector (spin-1) particles. Particles can be charged under each part of
-this gauge group, meaning that they feel the corresponding interaction. An overview of the
+this gauge group, meaning that they feel the corresponding interaction. An overview of the matter 
 particles and their charges, the quantum numbers, is given in Table~\ref{tab:SM_particles}. 
 
 The gauge group $SU(3)_c$ describes quantumchromodynamics (QCD). This is commonly referred to as the
@@ -81,6 +81,7 @@ bosons form a weak isospin triplet, and the $B^0$ is a weak isospin singlet.
 \multirow{2}{*}{$Q$} & \multirow{2}{*}{$T_3$} & \multirow{2}{*}{$Y$} & \multirow{2}{*}{Colour} \\ 
     & 1 & 2 & 3                      & & & & &  \\ 
     \midrule
+    \addlinespace[1ex]
     \multirow{4}{*}{Quarks} & \multirow{2}{*}{$\begin{pmatrix} \cPqu \\ \cPqd \end{pmatrix}_L$} 
                             & \multirow{2}{*}{$\begin{pmatrix} \cPqc \\ \cPqs \end{pmatrix}_L$}
                             & \multirow{2}{*}{$\begin{pmatrix} \cPqt \\ \cPqb \end{pmatrix}_L$} 
@@ -93,6 +94,7 @@ r,g,b \\[1ex]
     & $\cPqd_R$ & $\cPqs_R$ & $\cPqb_R$ & $\frac{1}{2}$ & $-\frac{1}{3}$ & $0$ & $-\frac{1}{3}$ &
 r,g,b \\    
     \midrule
+    \addlinespace[1ex]
     \multirow{3}{*}{Leptons} & \multirow{2}{*}{$\begin{pmatrix} \nu_e \\ e \end{pmatrix}_L$} 
                              & \multirow{2}{*}{$\begin{pmatrix} \nu_\mu \\ \mu \end{pmatrix}_L$} 
                              & \multirow{2}{*}{$\begin{pmatrix} \nu_\tau \\ \tau \end{pmatrix}_L$} 
@@ -141,8 +143,8 @@ the weak force, which governs radioactive decay, has only a short range.
 
 \section{QCD and asymptotic freedom \label{sec:SM_QCD}}
 
-The key difference between QCD and QED is that the gluons interact with themselves because they
-carry colour charge, unlike the photons, which have no electric charge. The results of this
+The key difference between QCD and QED is that the gluons interact with each other because they
+carry colour charge, unlike the photons, which carry no electric charge. The consequences of this
 difference become clear when we consider a given charge at different distance scales. For QED, a
 given charge appears smaller the further away the observer is. This property is called
 \textit{screening}, and results from the polarization of the vacuum around the charge. 
@@ -185,7 +187,7 @@ and the running of the coupling is shown in Fig.~\ref{fig:running_coupling}.
   \includegraphics[width=0.8\textwidth]{figures/standardmodel/asq-2013}
   \caption{Latest summary of measurements of $\alpha_S$ as a function of the energy scale $Q$.
 The respective degree of QCD perturbation theory used in the extraction of $\alpha_S$ is
-indicated in brackets. Figure and caption taken from Ref.~\cite{Agashe:2014kda}.
+indicated in parentheses. Figure and caption taken from Ref.~\cite{Agashe:2014kda}.
   \label{fig:running_coupling}}
 \end{figure}
 
@@ -207,7 +209,8 @@ presented in Section~\ref{sec:event_hadronization}.
 
 Introducing masses into a chiral theory is not a trivial issue, but is required to come to a viable
 description of the elementary particles. 
-The Brout-Englert-Higgs mechanism accomplishes this by introducing one or more scalar fields, the
+The Brout-Englert-Higgs mechanism~\cite{Englert:1964et,Higgs:1964pj} accomplishes this by
+introducing one or more scalar fields, the
 Higgs fields, into the theory. These fields acquire a vacuum expectation value that spontaneously
 breaks a symmetry in the Lagrangian. 
 According to the Goldstone theorem, every spontaneously broken continuous symmetry
@@ -429,24 +432,27 @@ boson, and a global test of the validity of the Standard Model via electroweak p
 The existence of the Higgs boson was first proposed in 1964 by Robert Brout and Fran\c{c}ois
 Englert~\cite{Englert:1964et}, and independently also by Peter Higgs~\cite{Higgs:1964pj}. Nearly
 half a century later, on the fourth of July, 2012, its discovery was finally announced by the CMS
-and ATLAS collaboration at the LHC.
+and ATLAS Collaborations at the LHC.
 
 The allowed mass range for the Higgs boson had already been narrowed down by the experiments at LEP
 and Tevatron, and by the dataset delivered by the LHC in 2011 at a centre-of-mass energy of 7\TeV. 
-In that latter dataset, some evidence for a particle with a mass of around 125\GeV was already
+In that latter dataset, some evidence for a particle with a mass around 125\GeV was already
 observed~\cite{Chatrchyan:2012tx}, although not strong enough to claim a discovery. 
-The energy increase to 8\TeV centre-of-mass energy in 2012 provided just the boost needed to claim
+The energy increase to 8\TeV in 2012 provided just the boost needed to claim
 discovery with $5\sigma$ significance~\cite{Chatrchyan:2012ufa}. The evidence was strongest in the
 decay channels $H\rightarrow\gamma\gamma$ and $H\rightarrow\cPZ\cPZ^*\rightarrow 4\ell$.
-Figure~\ref{fig:higgs_discovery} shows the invariant mass distribution of the diphoton and
-four-lepton system obtained by the CMS experiment. There is an excess visible around 125\GeV. 
-The Higgs boson mass measurement at CMS, combining all decay channels, and combining the 7\TeV and
-8\TeV datasets, found the following value for the Higgs mass,
+Figure~\ref{fig:higgs_discovery} shows the invariant mass distributions of the diphoton and
+four-lepton systems obtained by the CMS experiment. There is an excess visible around 125\GeV. 
+The final Higgs boson mass measurement for Run 1 at CMS, combining all decay channels, and combining
+the 7\TeV and 8\TeV datasets, which correspond to an integrated luminosity of 5.1\fbinv and
+19.7\fbinv, respectively, 
+found the following value for the Higgs boson mass,
 \begin{equation}
   m_H = 125.02 {\,}^{+0.26}_{-0.27} \, (\text{stat}) {\,}^{+0.14}_{-0.15} \, (\text{syst}) \GeV.
 \end{equation}
 The measured cross section $\sigma$ also agrees very well with the expectation from the Standard
-Model. The signal strength at the measured mass was measured to be
+Model. The signal strength at the measured mass was measured from the combination of all decay
+channels, and found to be
 \begin{equation}
  \frac{\sigma}{\sigma_{\text{SM}}} = 1.00 \pm 0.09 \, (\text{stat})
 {\,}^{+0.08}_{-0.07} \, (\text{theory}) \pm 0.07 \, (\text{syst}) .
@@ -454,9 +460,17 @@ Model. The signal strength at the measured mass was measured to be
 Many more tests of the properties of the observed particle have been
 made~\cite{Khachatryan:2014jba}. Examples are the spin and parity of the particle, the ratios of
 production rates for different production modes, the ratios of couplings to fermions and vector
-bosons, and the possible branching fraction to non-SM particles. 
-A subset of these measurements are shown in Fig.~\ref{fig:higgs_sm_test}. Excellent agreement with
-the Standard Model expectation is found.
+bosons, and the possible branching fraction to non-SM particles, $\text{BR}_{\text{BSM}}$. 
+A subset of these measurements is shown in Fig.~\ref{fig:higgs_sm_test}. The $\kappa$ variables
+are the (effective) coupling strength modifiers \wrt the SM Higgs boson couplings. The couplings to
+massive vector bosons, fermions, gluons and photons are denoted by $\kappa_{\text{V}}$,
+$\kappa_{\text{f}}$, $\kappa_{\text{g}}$ and $\kappa_\gamma$, respectively.
+The ratios of separate coupling strength modifiers are denoted by $\lambda_{\text{XY}} =
+\kappa_{\text{X}}/\kappa_{\text{Y}}$. Figure~\ref{fig:higgs_sm_test} includes the ratio of
+couplings to $\W$ and $\cPZ$ bosons, $\lambda_{\text{WZ}}$, the ratio between down- and up-type
+quarks, $\lambda_{\text{du}}$, and the ratio of couplings between leptons and quarks,
+$\lambda_{\text{lq}}$. 
+Excellent agreement with the Standard Model expectation is found.
 
 \begin{figure}[p]
   \centering
@@ -466,9 +480,9 @@ the Standard Model expectation is found.
   \caption{The Higgs discovery in the two high-resolution channels. Figures taken from
 Ref.~\cite{Chatrchyan:2012ufa}.
   [left] The diphoton invariant mass distribution with each event weighted by the
-$\frac{S}{S+B}$ value of its category. The lines represent the fitted background and signal, and
-the coloured bands represent the ±1 and ±2 standard deviation uncertainties in the background
-estimate. 
+$\frac{S}{S+B}$ value of its selection category. The lines represent the fitted background and
+signal, and the coloured bands represent the $\pm$1 and $\pm$2 standard deviation uncertainties in
+the background estimate. 
   [right] Distribution of the four-lepton invariant mass for the $\cPZ\cPZ^* \rightarrow 4\ell$
 analysis. The points represent the data, the filled histograms represent the background, and the
 open histogram shows the signal expectation for a Higgs boson of mass $m_H = 125\GeV$, added to the
@@ -478,9 +492,11 @@ background expectation.
 
 \begin{figure}[p]
   \centering
-  \includegraphics[width=0.7\textwidth]{figures/standardmodel/sqr_summary_lhcxswg}
+  \vspace{1ex}
+  \includegraphics[width=0.65\textwidth]{figures/standardmodel/sqr_summary_lhcxswg}
   \caption{ Summary of tests of the compatibility of the CMS data with the SM Higgs boson
-couplings. The observed boson is fully compatible with the Standard Model expectation. Figure taken
+couplings as discussed in the text.
+The observed boson is fully compatible with the Standard Model expectation. Figure taken
 from Ref.~\cite{Khachatryan:2014jba}.
   \label{fig:higgs_sm_test}}
 \end{figure}
@@ -503,14 +519,14 @@ There are several groups performing these global
 fits~\cite{CKMFitter,GFitter,ZFitter,LEPEWWG}. I will take the latest results from the GFitter
 group~\cite{Baak:2014ora,Flacher:2008zq} as illustration here.
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-\includegraphics[width=0.5\textwidth]
-{figures/standardmodel/2014_07_16_PullPlotTwoBarsTwoTheos_logo}
-\caption{ Comparison of the GFitter fit results with the direct measurements in units of the
-experimental uncertainty. 
-Figure from Ref.~\cite{Baak:2014ora}.
-\label{fig:global_fit1}}
-\end{wrapfigure}
+% \begin{wrapfigure}{r}{0.5\textwidth}
+% \includegraphics[width=0.5\textwidth]
+% {figures/standardmodel/2014_07_16_PullPlotTwoBarsTwoTheos_logo}
+% \caption{ Comparison of the GFitter fit results with the direct measurements in units of the
+% experimental uncertainty. 
+% Figure from Ref.~\cite{Baak:2014ora}.
+% \label{fig:global_fit1}}
+% \end{wrapfigure}
 The measurements that are used in the fit include, among others, the mass of the Higgs boson, the
 mass and width of the $\W$ and $\cPZ$ bosons, the mass of the top, bottom and charm quarks, the
 strong coupling constant, the forward-backward asymmetry and asymmetry parameters for leptons,
@@ -518,6 +534,16 @@ $\cPqc$ and $\cPqb$ quarks, and the weak mixing angle.
 Several of the theoretical predictions that are used in the fit procedure are now known up to two
 or more loop orders. Examples are the effective weak mixing angle, the mass of the $\W$ boson, and
 the partial widths and branching ratios of the $\cPZ$ boson. 
+
+\begin{figure}[p]
+\centering
+\includegraphics[height=0.8\textheight]
+{figures/standardmodel/2014_07_16_PullPlotTwoBarsTwoTheos_logo}
+\caption{ Comparison of the GFitter fit results with the direct measurements in units of the
+experimental uncertainty. 
+Figure from Ref.~\cite{Baak:2014ora}.
+\label{fig:global_fit1}}
+\end{figure}
 
 Figure~\ref{fig:global_fit1} shows the comparison of the fit results with the direct measurements.
 The agreement is within three standard deviations for all observables. 
@@ -528,7 +554,7 @@ measurement is included in the fit (blue) or not (grey). Both contours agree wit
 measurements shown in the green bands and ellipses. The corresponding plot for the effective weak
 mixing angle and the $\W$ boson mass is shown on the bottom of Fig.~\ref{fig:global_fit}. 
 The agreement between the indirect determination via the fit procedure and the direct measurement,
-is very good, showing the consistency of the Standard Model. 
+is very good, showing the consistency of the Standard Model with experiment. 
 
 
 \begin{figure}[p]
