@@ -79,8 +79,8 @@ where $y, \phi$ are the rapidity (defined in Eq.~\ref{eq:rapidity}) and azimutha
 %  y = \frac{1}{2} \ln{\frac{ E + p_z }{ E - p_z }} .
 %\end{equation}
 The distance between constituent $i$ and the beam is given by $d_{iB} = 1$.
-As is clear from the above, these distance measures only use angular information, unlike for the
-$k_\mathrm{T}$ and anti-$k_\mathrm{T}$ algorithms, which use a $\pt$-weighted distance. 
+As is clear from the above, these distance measures only use angular information, unlike the case
+for the $k_\mathrm{T}$ and anti-$k_\mathrm{T}$ algorithms, which use a $\pt$-weighted distance. 
 
 The jet algorithm starts by computing the minimum distance $d_{ij}$, across all $i,j$. If $\min
 d_{ij} < d_{iB}$, then we combine constituents $i$ and $j$ into a new constituent whose
@@ -125,20 +125,21 @@ respectively~\cite{Chatrchyan:2013vbb}.
 The resulting pruned jet is used as further input to our $\W$ boson tagger. For the $\W$ decay
 products to be collimated, we need a large transverse momentum. We will therefore require that the
 pruned jets have $\pt > 200\GeV$. 
-Because of the reduction of the effect of UE and PU, the jet mass variable as computed from the
+Because of the reduction of the effect of the underlying event and pileup, the jet mass variable as
+computed from the
 constituents of the jet after jet pruning has a much better behaviour than if it was computed from
 the unpruned jets, as seen on Fig.~\ref{fig:wtag_jet_pruning}. Jet pruning shifts the jet mass of
 QCD jets
 to smaller values, while maintaining the jet mass for $\W$ jets close to the $\W$ boson mass.
 
-We will make the requirement that the pruned jet mass is consistent with the $\W$ boson mass,
+We shall require that the pruned jet mass be consistent with the $\W$ boson mass,
 \begin{equation}
   70 < m_{\textrm{pruned jet}} < 100 \GeV .
 \end{equation}
 Here, we have deviated from the standard interval used in CMS, starting at 60\GeV, as we found that
 for our
 kinematical region and signal topology we achieve better signal to background discrimination when
-increasing the lower cut value to 70\GeV. 
+the lower cut value is increased to 70\GeV. 
 %This provides good boosted $\W$ jet to quark/gluon jet discrimination. 
 
 \begin{figure}
@@ -189,11 +190,11 @@ As we are interested in discriminating boosted $\W$ bosons, with two subjets, fr
 jets, which have a single subjet, we will use the variables $\tau_2$ and $\tau_1$, as obtained
 from the unpruned CA8 jets.   
 It has been shown that the ratio of the $\tau_N$ variables are better discriminators than the
-separate variables~\cite{Thaler:2010tr}. We will thus require that the ratio $\tau_2 / \tau_1$ is
+separate variables~\cite{Thaler:2010tr}. We will thus require that the ratio $\tau_2 / \tau_1$ be
 small. 
 To ensure that the N-subjettiness ratio as computed from the unpruned
 jet collection is assigned to the correct pruned jet, we find the highest \pt unpruned jet that is
-within $\Delta R = 0.7$ of the considered pruned jet.
+within $\Delta R = 0.7$ of the given pruned jet.
 The $\tau_2 / \tau_1$ distribution for highly boosted and longitudinally polarized $\W$
 bosons and for inclusive QCD jets is shown in Fig.~\ref{fig:boost_wtag_tau2tau1}. 
 
@@ -216,16 +217,16 @@ pileup corresponding to an average number of 12 and 22 interactions~\cite{Khacha
 
 \subsection{\texorpdfstring{$\W$}{W} boson tagging definitions}
 
-In the razor boost analysis we will employ a boosted $\W$ boson tagger, utilizing the techniques
+In the razor boost analysis we will employ a boosted $\W$ boson tagger, using the techniques
 outlined in the previous sections, to identify events that are consistent with the presence of a
 high \pt, hadronically decaying $\W$ boson. 
 A given pruned CA8 jet is $\W$ tagged if it has $\pt > 200\GeV$, $|\eta|<2.4$, $70 < m_\textrm{jet}
 < 100\GeV$, and the corresponding unpruned jet satisfies $\tau_2 / \tau_1 < 0.5$.
-This definition is the same as was used previously in a search for massive resonances in dijet
+This definition is the same as that used previously in a search for massive resonances in dijet
 systems containing jets tagged as a W or Z boson~\cite{EXO-12-024,EXO-13-009}. 
 The precise definition of this $\W$ boson tagger is summarized in Table~\ref{tab:Wtag_definition}.
 
-As explained in Section~\ref{sec:boost_strategy}, we will use three control regions to select data
+As explained in Section~\ref{sec:boost_strategy}, we use three control regions to select data
 samples enriched in QCD multijet, $t\bar{t}$, and $\W(\rightarrow l \nu)+$jets, in order to help
 model the SM backgrounds. QCD multijet and leptonically decaying $\W$+jets events are not expected
 to have jets with a two-prong substructure. Therefore, our $\W$ boson tagging definition will not be
@@ -272,7 +273,7 @@ bosons, such as $t\bar{t}$ or the signal, compared to processes which do not hav
 their final state, such as QCD multijet production. For processes without real hadronically
 decaying $\W$ bosons, any tagged jet is necessarily a misidentified, or \textit{fake}, $\W$ boson
 tag. For those processes we will speak of the $\W$ boson tagging fake rate scale factors, where the
-fake rate is defined as the probability to tag, with one of the used $\W$ tagging definitions, a jet
+fake rate is defined as the probability to tag, with one of the $\W$ tagging definitions, a jet
 not coming from a hadronically decaying $\W$ boson. 
 One last consideration concerns the signal simulation. As the signal is simulated with FastSim, we
 need an additional scale factor to correct for differences in the modelling of the $\W$ tagger
@@ -302,7 +303,7 @@ scale factor is of course also used for the signal processes.
 
 The $\W$ boson tag efficiency scale factor is only applied to the simulation in the $S$ and $T$
 region, see Sections~\ref{sec:boost_signal_selection} and \ref{sec:boost_T_region}, as those are the
-regions that utilize the $\W$ tagging definition in their selection criteria. It is also only
+regions that use the $\W$ tagging definition in their selection criteria. It is also only
 applied to events for which the $\W$ boson tagged jet is matched (within a cone of $\Delta R = 0.8$)
 to a generator level hadronically decaying $\W$ boson. In case no match was found, we apply the $\W$
 boson tag fake rate scale factor. 
@@ -381,7 +382,7 @@ $\tau_1$ value. For jets that result from the decay of a $\W$ boson, $\tau_1$ ta
 value. 
 This effect is not seen for the $\tau_2$ distributions (Fig.~\ref{fig:FastFull_tau2}), which is
 expected because $\tau_2$ quantifies the compatibility with having two or fewer subjets. 
-The ratio $\tau_2/\tau_1$, shown on Fig.~\ref{fig:FastFull_tau21}, also displays the
+The ratio $\tau_2/\tau_1$, shown in Fig.~\ref{fig:FastFull_tau21}, also displays the
 expected behaviour: the part of the distribution at high values is removed when requiring the jet
 mass to be within the $\W$ mass window, and thus when selecting more jets with two-prong decays. 
 

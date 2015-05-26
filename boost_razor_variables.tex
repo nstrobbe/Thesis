@@ -9,8 +9,8 @@ Many extensions of the Standard Model (see Chapter~\ref{chap:beyond_standard_mod
 existence of new particles which can be pair-produced in the proton-proton collisions at the LHC. 
 Some of those theories introduce an extra symmetry, such as the R-parity in supersymmetry. A
 consequence of this symmetry is that the lightest BSM particle must be stable, as it cannot decay
-to SM particles only. This lightest BSM particle, called LSP in supersymmetric theories, is weakly
-interacting, and escapes the detector unseen. 
+to SM particles only. This lightest BSM particle, called the LSP in supersymmetric theories, is
+weakly interacting, and escapes the detector unseen. 
 
 This general property leads to a generic class of new physics signatures in which a heavy
 particle is pair-produced, and decays into visible, \ie interacting with detector material, SM
@@ -33,8 +33,8 @@ angular distributions, etcetera. All of this can be used to distinguish the soug
 from the known background processes. 
 Unfortunately, the ultimate goal of reconstructing the masses of the new particles cannot be
 attained. Because of the escaping LSPs, there is simply not enough information available to fully
-constrain the problem. What we can do, however, is approximate the mass scale of the involved
-particles in a collision, which can then be used to check for evidence of new particles. 
+constrain the problem. What we can do, however, is approximate the mass scale of the particles
+involved in a collision, which can then be used to check for evidence of new particles. 
 The variables that approximate this mass scale often exhibit a kinematic edge. 
 The \textit{razor variables} \cite{rogan,Rogan:1557072,Chatrchyan:2011ek,Chatrchyan:2014goa} are no
 exception in this regard. One advantage the razor variables have over many other variables, is that
@@ -156,7 +156,7 @@ and thus
 
 
 \paragraph{Centre-of-mass frame}
-In the centre-of-mass (CM) frame of the considered $\Pp\Pp$ collision events the particles $S_1$
+In the centre-of-mass (CM) frame of the $\Pp\Pp$ collision events the particles $S_1$
 and $S_2$, which have equal mass (Eq.~\ref{eq:equal_S_masses}), are produced with equal and opposite
 velocities $\betaCM$, as illustrated in Fig.~\ref{fig:razor_CM_frame}. The boost $\betaCM$ is an
 indication of how far above threshold the $S_i$ particles are produced, but unfortunately this is
@@ -192,7 +192,7 @@ with $\sqrt{\hat{s}}$ the centre-of-mass energy of the collision.
 \paragraph{Lab frame}
 The lab frame is the frame where we make our measurements, and is related to the CM frame by a
 boost $\vec{\beta}^{\,\textrm{lab}}$. We can decompose this boost into a transverse and longitudinal
-part as $\vec{\beta}^{\,\textrm{lab}} = (\vec{\beta}_T,\vec{\beta}_z)$. 
+part as $\vec{\beta}^{\,\textrm{lab}} = (\vec{\beta}_T,\beta_z)$. 
 The four-momenta of the $S_i$, $Q_i$ and $\chi_i$ particles are denoted by $s^{\textrm{lab}}_i$,
 $q^{\textrm{lab}}_i$, and $\nu^{\textrm{lab}}_i$ respectively. 
 
@@ -236,29 +236,28 @@ cf. Eq.~\ref{eq:razor_equal_momenta}. Using this constraint, we can compute the 
 that will take us from the lab frame to the R-frame. We start from the basic Lorentz
 transformations for energy and momentum, 
 \begin{align}
-  E_{Q_i}^R      &= \gamma^R \left( E_{Q_i}^{\textrm{lab}} - \beta^R \vec{q}_{iz}^{\,\textrm{lab}}
+  E_{Q_i}^R      &= \gamma^R \left( E_{Q_i}^{\textrm{lab}} - \beta^R q_{iz}^{\,\textrm{lab}}
 \right) , \\
-  \vec{q}_{iz}^R &= \gamma^R \left( \vec{q}_{iz}^{\,\textrm{lab}} - \beta^R E_{Q_i}^{\textrm{lab}}
+  q_{iz}^R &= \gamma^R \left( q_{iz}^{\,\textrm{lab}} - \beta^R E_{Q_i}^{\textrm{lab}}
 \right) .
 \end{align}
 Using Eq.~\ref{eq:razor_equal_energy_R_frame} we find
 \begin{equation}
-  E_{Q_1}^{\textrm{lab}} - \beta^R \vec{q}_{1z}^{\,\textrm{lab}} = E_{Q_2}^{\textrm{lab}} - \beta^R
-\vec{q}_{2z}^{\,\textrm{lab}} ,
+  E_{Q_1}^{\textrm{lab}} - \beta^R q_{1z}^{\,\textrm{lab}} = E_{Q_2}^{\textrm{lab}} - \beta^R
+q_{2z}^{\,\textrm{lab}} ,
 \end{equation}
 and thus for the boost $\beta^R$
 \begin{equation}
-  \beta^R = \frac{E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\,\textrm{lab}} -
-\vec{q}_{2z}^{\,\textrm{lab}}} . \label{eq:razor_beta_R}
+  \beta^R = \frac{E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}}{q_{1z}^{\,\textrm{lab}} -
+q_{2z}^{\,\textrm{lab}}} . \label{eq:razor_beta_R}
 \end{equation}
 The Lorentz factor $\gamma^R$ can be expressed as
 \begin{align}
   \gamma^R &= \frac{1}{\sqrt{1 - (\beta^R)^2}} \\
 	   &= \frac{1}{\sqrt{1 - \left( \frac{E_{Q_1}^{\textrm{lab}} -
-E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\,\textrm{lab}} -
-\vec{q}_{2z}^{\,\textrm{lab}}} \right)^2}} \\
-           &= \frac{ \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}} }{\sqrt{ \left(
- \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}} \right)^2 - \left(
+E_{Q_2}^{\textrm{lab}}}{q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}}} \right)^2}} \\
+           &= \frac{ q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} }{\sqrt{ \left(
+ q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} \right)^2 - \left(
  E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} \label{eq:razor_gamma_R}
 \end{align}
 
@@ -273,34 +272,30 @@ quantities only.
 \begin{align}
   \mr &= E_{Q_1}^R + E_{Q_2}^R \\
       &= \gamma^R \left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}} - \beta^R (
-\vec{q}_{1z}^{\,\textrm{lab}} + \vec{q}_{2z}^{\,\textrm{lab}}) \right) \\
-      &= \frac{\left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}\right) 
+q_{1z}^{\,\textrm{lab}} + q_{2z}^{\,\textrm{lab}}) \right) \\
+      &= \frac{\left( q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}}\right) 
                \left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}} - \frac{E_{Q_1}^{\textrm{lab}}
-- E_{Q_2}^{\textrm{lab}}}{\vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}}
-(\vec{q}_{1z}^{\,\textrm{lab}} + \vec{q}_{2z}^{\,\textrm{lab}}) \right)}
-              { \sqrt{ \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
-\right)^2 
+- E_{Q_2}^{\textrm{lab}}}{q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}}}
+(q_{1z}^{\,\textrm{lab}} + q_{2z}^{\,\textrm{lab}}) \right)}
+              { \sqrt{ \left( q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} \right)^2 
                       -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} \\
-      &= \frac{\left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}} \right) 
+      &= \frac{\left( q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} \right) 
                \left( E_{Q_1}^{\textrm{lab}} + E_{Q_2}^{\textrm{lab}} \right) 
                - 
                \left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}} \right)
-               \left( \vec{q}_{1z}^{\,\textrm{lab}} + \vec{q}_{2z}^{\,\textrm{lab}} \right) }
-              { \sqrt{ \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
-\right)^2 
+               \left( q_{1z}^{\,\textrm{lab}} + q_{2z}^{\,\textrm{lab}} \right) }
+              { \sqrt{ \left( q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} \right)^2 
                       -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} \\
-      &= \frac{2 \left( \vec{q}_{1z}^{\,\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
-                       - \vec{q}_{2z}^{\,\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right)}
-              { \sqrt{ \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
-\right)^2 
+      &= \frac{2 \left( q_{1z}^{\,\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
+                       - q_{2z}^{\,\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right)}
+              { \sqrt{ \left( q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} \right)^2 
                       -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }}
 \end{align}
 Our final expression for \mr in lab frame quantities becomes
 \begin{equation}
-  \mr = 2 \sqrt { \frac{ \left( \vec{q}_{1z}^{\,\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
-                       - \vec{q}_{2z}^{\,\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right) ^2}
-                       { \left( \vec{q}_{1z}^{\,\textrm{lab}} - \vec{q}_{2z}^{\,\textrm{lab}}
-\right)^2 
+  \mr = 2 \sqrt { \frac{ \left( q_{1z}^{\,\textrm{lab}} E_{Q_2}^{\textrm{lab}} 
+                       - q_{2z}^{\,\textrm{lab}} E_{Q_1}^{\textrm{lab}} \right) ^2}
+                       { \left( q_{1z}^{\,\textrm{lab}} - q_{2z}^{\,\textrm{lab}} \right)^2 
                         -\left( E_{Q_1}^{\textrm{lab}} - E_{Q_2}^{\textrm{lab}}\right)^2 }} . 
 \end{equation}
 As the R-frame is only an approximation of the $S_i$ rest frames, \mr will be distributed around
@@ -326,7 +321,8 @@ explained in the next section.
 
 We will now create a second way to estimate $M_\Delta$, utilizing the transverse information in the
 event, as encoded in the missing transverse momentum. We start by defining the variable $M_{2S}$
-using the four-vectors $q_i^{\textrm{lab}}$ and $\nu_i^{\textrm{lab}}$
+using the four-vectors $q_i^{\textrm{lab}}$ and $\nu_i^{\textrm{lab}}$ of the $Q_i$ and $\chi_i$
+particles, respectively.
 \begin{equation}
   M_{2S} = \sqrt{\frac{1}{2} \left[  (q_1^{\textrm{lab}} + \nu_1^{\textrm{lab}})^2 +
 (q_2^{\textrm{lab}} + \nu_2^{\textrm{lab}})^2 \right] } . \label{eq:razor_M2S}
@@ -350,14 +346,15 @@ $S_i$, we immediately see that $M_{2S} = M_S$. Expanding Eq.~\ref{eq:razor_M2S} 
 \cdot \vec{\nu}^{\,\textrm{lab}}_{2T} - \vec{q}^{\,\textrm{lab}}_{2z} \cdot
 \vec{\nu}^{\,\textrm{lab}}_{2z} + M_\chi^2 \end{multlined}}  .
 \end{align}
-Unfortunately we do not a priori know the mass of the $\chi_i$ particles. We will choose $M_\chi =
+Unfortunately we do not know, a priori, the mass of the $\chi_i$ particles. We will choose
+$M_\chi =
 0$. As a result $M_{2S}$ will now give us a distribution, with endpoint at $M_S$. For the
 particular case $M_\chi = 0$, we actually have $M_S = \frac{M_S^2-M_\chi^2}{M_S} = M_\Delta$.
 Consequently, the endpoint of $M_{2S}$ gives us a second way to access the characteristic scale
 $M_\Delta$.
 
 The $\chi_i$ particles are assumed to be only weakly interacting. They pass through the detector
-unseen. When we make the balance of momentum for each event, we can thus infer the existence of
+unseen. From the imbalance of momenta for each event, we can thus infer the existence of
 these particles. At a hadron collider we can only make this balance in the transverse plane. The
 transverse component of $M_{2S}$ is given by
 \begin{equation}
@@ -367,7 +364,7 @@ transverse component of $M_{2S}$ is given by
 \vec{q}^{\,\textrm{lab}}_{2T} \cdot \vec{\nu}^{\,\textrm{lab}}_{2T}} ,
 \end{equation}
 where we have used the assumptions that both $Q_i$ and $\chi_i$ are massless. 
-In the considered signal topology we have two unseen particles, $\chi_1$ and $\chi_2$.
+In the signal topology considered we have two unseen particles, $\chi_1$ and $\chi_2$.
 Experimentally we can only access the sum of their transverse momenta, which in absence of detector
 effects is given by the missing transverse momentum \VEtmiss. Making the assumption that the
 \VEtmiss is divided equally among both $\chi_i$ particles, we find
@@ -384,18 +381,18 @@ We now define the dimensionless variable $\mathrm{R}$ as
 This variable peaks at around 0.5 for signal events, since it is the ratio of two variables that
 estimate the same scale, with an additional geometric factor to take into account that
 $\mathrm{M_T^R}$ only contains transverse information. For QCD dijet events $\mathrm{R}$ equals 0
-for an ideal detector. Placing a minimum requirement on this variable can thus
-be effectively used to suppress background events.
+for an ideal detector. Placing a minimum requirement on this variable can thus be effective in
+suppressing background events.
 
 
 \subsection{Improved \texorpdfstring{\mr and \rsq}{MR and R2} definitions
 \label{sec:razor_mr_r2_improved}}
 
-The razor frame as defined in the previous section has a number of useful features, such as \mr
+The R-frame as defined in the previous section has a number of useful features, such as \mr
 being invariant under longitudinal boosts. It also has one important issue which can occur if the
-approximation $\gamma^{\textrm{CM}} = 1$ breaks down. The issue is visible from the expression of
+approximation $\gamma^{\textrm{CM}} = 1$ breaks down. The issue is visible from the expression for
 $\beta^R$ in Eq.~\ref{eq:razor_beta_R}. Looking at that equation, we see that it is possible to get
-a situation where $|\beta^R| \geq 1$. The boost is then unphysical, and the razor frame ill-defined.
+a situation where $|\beta^R| \geq 1$. The boost is then unphysical, and the R-frame ill-defined.
 We can remedy this issue by not neglecting $\vec{\beta}_T$, the transverse component of
 $\betaCM$. 
 
@@ -446,7 +443,7 @@ q_{2z}^{\textrm{lab}}\vec{q}_{1T}^{\,\textrm{lab}}) \right]}
 E_{Q_2}^{\textrm{lab}} - \beta^{L^*} (q_{1z}^{\textrm{lab}} - q_{2z}^{\textrm{lab}}) \right]^2}}
 \end{align}
 
-To fully compute $\mathrm{M_{R^*}}$ we need to pick a value for $\beta_T^{\mathrm{R}^*}$ and
+To compute $\mathrm{M_{R^*}}$ we need to pick a value for $\beta_T^{\mathrm{R}^*}$ and
 $\beta^{L^*}$. The configurations that led to unphysical \mr values have the property that the
 momenta of $Q_1$ and $Q_2$ point in the same direction in the transverse plane, with $\betaCM$
 pointing in the same or the opposite direction. Based on this observation, we choose a direction

@@ -4,7 +4,7 @@
 
 
 The razor boost analysis defines one signal region and three control regions, all of which are
-divided into 25 bins on the ($\mr$,$\rsq$) space. The control regions are used to constrain the
+divided into 25 bins in the ($\mr$,$\rsq$) space. The control regions are used to constrain the
 backgrounds in the signal region.
 The structure of the probability model, which comprises a likelihood for the signal
 region and an evidence based prior for the background components, is illustrated in
@@ -22,24 +22,27 @@ processes, and is constrained using MC simulated data.
 The control regions are shown in the green, red, and magenta circles in
 Fig.~\ref{fig:boost_flowchart}. The connections between the different circles indicate the
 relations between the signal and control regions. These relations are encapsulated in the global
-translation factors $\kappa^{A/B}_{\rm process}$, where $A$ and $B$ represent any two regions. 
-Consider the $W$ region as example, where we see a link between the $W$ and $S$ regions. This link
-exists because we use the $W$ region to constrain the $\W(\rightarrow \ell\nu)+$jets background in
-the signal region, $b^S_{\W\ell\nu}$. The way this is done is by relating the $\W(\rightarrow
-\ell\nu)+$jets contribution in both regions via the scale factor $\kappa^{W/S}_{\W\ell\nu}$, 
+transfer factors $\kappa^{A/B}_{\rm process}$, where $A$ and $B$ represent any two regions. 
+Consider the $W$ region as an example, where we see a link between the $W$ and $S$ regions. This
+link exists because we use the $W$ region to constrain the $\W(\rightarrow \ell\nu)+$jets background
+in the signal region, $b^S_{\W\ell\nu}$. The way this is done is by relating the $\W(\rightarrow
+\ell\nu)+$jets contribution in both regions via the transfer factor $\kappa^{W/S}_{\W\ell\nu}$, 
 \begin{equation}
   b^W_{\W\ell\nu} = \kappa^{W/S}_{\W\ell\nu} b^S_{\W\ell\nu}  .
 \end{equation}
+The transfer factor is defined in this way so that the likelihood in the $S$ region is as simple
+as possible; in particular, the likelihood is then independent of the transfer factor. 
 The total expected count in the $W$ region is just a sum over the components listed within the
 coloured circle, 
 \begin{equation}
   b^W_{\rm total} = \kappa^{W/S}_{\W\ell\nu} b^S_{\W\ell\nu}  + b_{\rm oth}^W .
 \end{equation}
-The count for the small other components, $b_{\rm oth}^W$, is again constrained using simulation.
+The count for the other (small) components, $b_{\rm oth}^W$, is again constrained using
+simulation.
 The observed data count in the $W$ region will be denoted by $N^W$. 
 As mentioned several times before, the scale factors $\kappa$ are global scale factors, meaning that
 they are not computed separately for each ($\mr$,$\rsq$) bin, but rather integrated across all 25
-bins. For the example of the $W$ region this becomes,
+bins. For example, in the $W$ region this becomes,
 \begin{equation}
   \kappa^{W/S}_{\W\ell\nu} = \frac{ \sum_{i=1}^{25} b^W_{\W\ell\nu, {\rm MC}, i}} {
 \sum_{i=1}^{25} b^S_{\W\ell\nu, {\rm MC}, i}} ,
@@ -47,7 +50,7 @@ bins. For the example of the $W$ region this becomes,
 \end{equation}
 where we have added the subscript MC to indicate that MC simulation is used to determine these
 counts. 
-The total expected counts in the $T$ and $Q$ regions can be computed in a similar fashion, as a sum
+The total expected counts in the $T$ and $Q$ regions are computed in a similar fashion, as a sum
 of the contributions listed in the respective coloured circles in the figure. For the $T$ region
 there is a small complication because we also use the $Q$ region to constrain the multijet
 background in the $T$ region. 
@@ -79,7 +82,7 @@ on a likelihood function, $L(\sigma)$, given by
 \label{eq:marginal}
 \end{align}
 where $\sigma$ is the total signal cross section, and our parameter of interest.
-The number of bins on the ($\mr$,$\rsq$) space is $M = 25$, $N^S_i$ is the observed count
+The number of bins in the ($\mr$,$\rsq$) space is $M = 25$, $N^S_i$ is the observed count
 in bin $i$, and the bin-by-bin parameters  $\epsilon$,  $b^S_{\rm QCD}, b^S_{t\bar{t}+t},
 b^S_{\W\ell\nu}$, and $b^S_{\rm oth}$ are denoted collectively by $\theta$. 
 The parameter $\epsilon$ represents the $M$ signal efficiencies (including acceptance) for a given
@@ -97,7 +100,7 @@ The likelihood per ($\mr$,$\rsq$) bin is taken to be
  p(N^S | \sigma, {\cal L}, \theta) = \textrm{Poisson}(N^S,  \epsilon \sigma {\cal L} + b^S_{\rm QCD}
 + b^S_{t\bar{t}+t} + b^S_{\W\ell\nu} +  b^{S}_{\rm oth}) .
 \end{equation}
-The likelihood for all bins is then computed as a product of all per-bin likelihoods. 
+The likelihood for all bins is the product of all per-bin likelihoods. 
 It is clear from the left-hand side of Eq.~\ref{eq:marginal} that the final analysis likelihood only
 depends on the signal cross section. The dependence on all other (nuisance) parameters has been
 removed through marginalization. 
@@ -141,13 +144,14 @@ where $c$ is a simulated count or efficiency in an ($\mr$,$\rsq$) bin and $\phi$
 parameters that characterize the independent sources of systematic uncertainty. 
 The integral in Eq.~(\ref{eq:prior}) is evaluated via MC integration in the following way.
 
-First, $\phi$ values are sampled from $\pi(\phi)$, by drawing random numbers from a Gaussian
-variate.
+First, $\phi$ values are sampled from $\pi(\phi)$, by drawing random numbers from 
+Gaussians, one for each of the independent systematic uncertainties.
 Then, $c$ values are sampled from $\pi(c | \phi)$, followed by $\theta$ values from $\pi(\theta |
 c)$. 
 The sampling from $\pi(\theta|c)$ is straightforward because the functional form is known.
-For the simulated counts and efficiencies the afore-mentioned gamma densities are used, while the
-observed counts in the control regions are modelled with Poisson densities.
+For the simulated counts and efficiencies, and the integrated luminosity, the afore-mentioned gamma
+densities are used, while the observed counts in the control regions are modelled with Poisson
+densities.
 %
 However, $\pi(c | \phi)$ has an unknown shape, and the sampling of $c$ thus requires running the
 analysis (in particular the event selection) multiple times, once for each sampling of the
@@ -155,7 +159,7 @@ systematic uncertainties.
 The novel feature of the razor boost analysis is that the independent sources of systematic
 uncertainty are sampled simultaneously, and are then marginalized. This has the very
 nice consequence that any correlations between systematic uncertainties, processes and
-regions are properly taken into account. Practically, we produce an ensemble of sets of $(\mr,
+regions are properly taken into account. In practice, we produce an ensemble of sets of $(\mr,
 \rsq)$ histograms for the simulated backgrounds and efficiencies, for all
 signals under consideration, which automatically incorporate all statistical dependencies
 without the need to model them explicitly. 
@@ -164,7 +168,7 @@ Once the ensemble of sets of ($\mr$,$\rsq$) histograms is produced, the sampling
 as follows:
 \begin{enumerate}
 \item sample the integrated luminosity parameter;
-\item sample the efficiency parameters, $\epsilon$, for every considered signal model;
+\item sample the efficiency parameters, $\epsilon$, for every signal model;
 \item sample the parameters $b^{\rm region}_{\rm process, MC}$ of the simulated background densities
 and sum their values over the $M$ bins;
 \item compute the $\kappa$ parameters from the appropriate background sums, for example as in

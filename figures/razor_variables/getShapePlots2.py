@@ -120,8 +120,15 @@ if __name__ == '__main__':
                hdict_T1ttcc_800_125_100,
                hdict_T1ttcc_1000_425_400,
                hdict_T1ttcc_1200_225_200]
+    line = rt.TLine(800,0,800,0.2)
+    line.SetLineWidth(2)
+    line.SetLineColor(rt.kGray+2)
+    arrow = rt.TArrow(800,0.16,1200,0.16,0.03,"|>")
+    arrow.SetAngle(40)
+    arrow.SetLineWidth(2)
+    arrow.SetLineColor(rt.kGray+2)
     canvasname = "T1ttcc_MR_comparison"
-    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text])
+    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text,line,arrow])
 
 
     ########################################################
@@ -202,8 +209,15 @@ if __name__ == '__main__':
                hdict_T1ttcc_800_125_100,
                hdict_T1ttcc_1000_425_400,
                hdict_T1ttcc_1200_225_200]
+    line = rt.TLine(0.08,0,0.08,0.5)
+    line.SetLineWidth(2)
+    line.SetLineColor(rt.kGray+2)
+    arrow = rt.TArrow(0.08,0.03,0.18,0.03,0.03,"|>")
+    arrow.SetAngle(40)
+    arrow.SetLineWidth(2)
+    arrow.SetLineColor(rt.kGray+2)
     canvasname = "T1ttcc_R2_comparison"
-    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text],logscale=True,ymax=3)
+    plotTools.Plot1DPAS(hdictlist,outputdir,outfile,cname=canvasname,scale="Yes",legdict=legd5,extras=[text,line,arrow],logscale=True,ymax=3)
 
 
     outfile.Close()

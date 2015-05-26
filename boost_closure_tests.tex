@@ -16,6 +16,13 @@ The first cross check also illustrates the relations between signal and control 
 direct way compared to the full likelihood implementation, where these relations might be less
 obvious. 
 
+These cross checks are examples of so-called closure tests. In a closure test, we use our prediction
+methods to predict the distributions of some quantity, here the $S$ region backgrounds across the
+($\mr, \rsq$) space, in regions similar to the signal region. The predictions are compared with the
+observed distributions in these signal-like regions. Discrepancies between the predictions and the
+observations are typically the basis of estimates of the systematic uncertainty in the prediction
+methods.
+
 \subsubsection{First cross check}
 
 In the first cross check, we predict the background in a signal-like control region, denoted by
@@ -65,10 +72,10 @@ The total estimated background in the $S^\prime$ region is
 where $i$ runs over all background processes.  For the smaller backgrounds, $\hat{N}^{S^\prime}_i$
 is determined by simulation. 
 The estimation of backgrounds is done bin-by-bin in the $(\mr,\rsq)$ space. 
-However, the estimated scale factors are global because the statistical precision is not sufficient
-to yield reliable bin-by-bin estimates. The expected global scale factors, which we will denote by
-$\kappa$,  are defined in Section~\ref{sec:boost_likelihood}, which also describes how they are
-calculated from the simulated data.
+However, the estimated transfer factors are global because the statistical precision is not
+sufficient to yield reliable bin-by-bin estimates. The expected global transfer factors, which we
+will denote by $\kappa$,  are defined in Section~\ref{sec:boost_likelihood}, which also describes
+how they are calculated from the simulated data.
 
 Figure~\ref{fig:Shape_syst_1D_project_sideband} shows the projection on the $\mr$ and $\rsq$ axes of
 the predicted and observed distributions.  The prediction, which includes only statistical
@@ -109,7 +116,7 @@ its extrapolation from the $Q$ region, which has $\Delta\phi_{min} < 0.3$, to th
 $\Delta\phi_{min} > 0.5$, are reliable. The comparison between
 prediction and observation is shown in Fig.~\ref{fig:Shape_syst_1D_project_QCD}. 
 The level of discrepancy, ${\sim}\,40\%$, between the prediction and observation in this cross
-check is incorporated as a systematic uncertainty in the global scale factors. How this is done
+check is incorporated as a systematic uncertainty in the global transfer factors. How this is done
 technically is described in Section~\ref{sec:boost_likelihood}.
 
 \begin{figure}[htpb]

@@ -13,7 +13,7 @@ models. Likewise, the same randomly sampled parton distribution functions are us
 and for all signal and background models. 
 In this way, the statistical dependencies among all bins of the signal and background models are
 correctly, and automatically, modelled. The sampling of the systematic effects
-is repeated several hundred ($N$) times.  
+is repeated several hundred ($J$) times.  
 In all cases, except for the PDFs, the systematic uncertainties are in the scale factors 
 applied to the simulated samples to correct them for modelling deficiencies. 
 In the next subsections I will discuss each source of systematic uncertainty in more detail. 
@@ -28,7 +28,7 @@ different effect. Details on the various levels were given in Section~\ref{sec:o
 For our discussion here, the important thing to remember is that each level of correction is simply
 a scaling of the four-momentum of the jet by a scale factor that depends on the jet \pt and $\eta$.
 
-Uncertainties on JEC originate from various uncorrelated sources.   
+Uncertainties in JEC originate from various uncorrelated sources.   
 Given $M$ such sources, the full correction on the \pt of a jet, according to a random shift
 within the uncertainties, becomes 
 \begin{equation}
@@ -41,7 +41,7 @@ Here, the weights $\alpha_i$ are different for each source, but are universal fo
 event when considering a given systematic sampling.
 Dealing with the myriad of uncertainty sources is not so straightforward in practice, and also not
 necessary for a new physics search. As recommended by the POG providing the jet energy scale
-corrections and uncertainties, we will therefore take on a much simpler approach, using a total
+corrections and uncertainties, we will therefore take a much simpler approach, using a total
 uncertainty $S (\pt, \eta)$ and a random number $\alpha$ from a single Gaussian,
 \begin{equation}
 s(\pt, \eta, \alpha) = \alpha S (\pt, \eta) = \alpha \sqrt {\sum_i^M s_i^2 (\pt, \eta) }.
@@ -50,10 +50,10 @@ The jet $p_T$ for a given random variation becomes:
 \begin{equation}
 \pt^{\rm corr} = \left(1 + s(\pt, \eta, \alpha)\right) \pt^{\rm orig}.
 \end{equation}
-This calculation is repeated $N$ times, each time using a different number sampled from the
+This calculation is repeated $J$ times, each time using a different number sampled from the
 Gaussian.  
 The overall effect of the JEC uncertainty on a given yield is obtained from the distribution of
-resulting $N$ yields.  
+the resulting $J$ yields.  
 As was done for the jet energy scale corrections themselves, the associated uncertainties are also
 propagated to the \VEtmiss.
 
@@ -84,16 +84,16 @@ events are reweighted using the scale factors,
 \end{equation}
 where the weights $w$ are products of the event-by-event PDFs for both colliding partons.
 The PDF set $O$ was listed for each sample in Section~\ref{sec:boost_mc_samples}.
-The overall PDF uncertainty on the background counts or signal efficiencies is derived
+The overall PDF uncertainty in the background counts or signal efficiencies is derived
 from the distribution of ${\rm SF}_{K, i}$ obtained by a random selection of $K$ and $i$.  
 
 To study the effect of the different PDF sets on the simulated counts used in the background
 estimation, we compute the distribution of simulated counts corresponding to a random selection of
-PDF members from the three considered PDF sets. 
+PDF members from the three PDF sets. 
 A Gaussian distribution is then fitted to these distributions. Its width indicates the uncertainty
 induced by the given PDF set. 
 Figures~\ref{fig:PDF_effect_on_bg_QCD}-\ref{fig:PDF_effect_on_bg_oth2} show the result of this
-procedure for the simulated background counts that are used to compute the translation factors
+procedure for the simulated background counts that are used to compute the transfer factors
 $\kappa$. 
 There is a Gaussian distribution for each PDF set, and the arrow indicates the value for a given
 count as obtained using the PDF set that was used during the generation of the MC samples. 
@@ -102,9 +102,9 @@ distribution functions on the background counts is due to both the difference in
 of the PDF sets, and the spread within the separate PDF sets.
 
 Figure~\ref{fig:PDF_effect_on_sig} shows the equivalent for an example signal point. Here we see
-that the spread of the {\tt CT10} PDF dominates the total uncertainty on the signal efficiency. 
+that the spread of the {\tt CT10} PDF dominates the total uncertainty in the signal efficiency. 
 We also note that we have computed the signal efficiencies with respect to the nominal PDF set
-member of the considered PDF rather than the original PDF used for the generation of the samples.
+member of the given PDF rather than the original PDF used for the generation of the samples.
 This is done to make sure that only the PDF effects on the acceptance are included in the
 experimental uncertainties. The PDF effect on the expected signal cross section is taken into
 account separately.
@@ -242,7 +242,7 @@ w_{\rm btag} = \frac{P(\rm data)}{P(\rm sim)} .
 \end{equation}
 
 The $\cPqb$ tag scale factors have associated uncertainties, $\delta\mathrm{SF}$, which are the
-source of the $\cPqb$ tag systematic uncertainty on the background prediction. 
+source of the $\cPqb$ tag systematic uncertainty in the background prediction. 
 These uncertainties are taken into account in the following way.
 $N$ numbers $\sigma_n$ are sampled from a Gaussian with zero mean and unit variance
 (different $\sigma$'s are sampled for FullSim and FastSim, and also for different jet truth
@@ -276,7 +276,7 @@ Data/FullSim and FullSim/FastSim scale factors, whose uncertainties depend on th
 are applied to the simulated samples to correct for this mismodelling.
 Some of these scale factors were derived specifically for this analysis and were described in detail
 in Section~\ref{sec:boost_wtag}.
-The uncertainties on these scale factors are used in the same way as for the other sources of
+The uncertainties in these scale factors are used in the same way as for the other sources of
 systematic uncertainty. For each systematic sampling, the scale factors are varied according to the
 sampled uncertainty and propagated to the corresponding event weights in the following way
 \begin{equation}
@@ -288,8 +288,8 @@ w_{\rm Wtag} = {\rm SF_{Wtag}}(\pt) + \sigma_{\rm Wtag} \delta {\rm SF_{Wtag}}(\
 
 The razor boost analysis requires the presence of a single loose electron or muon in the definition
 of $T$ and $W$ regions. We therefore apply lepton scale factors to our simulated events to correct
-for mismodelling of the lepton identification. The uncertainties on these scale factors are
-incorporated as a systematic uncertainty on the background prediction.  
+for mismodelling of the lepton identification. The uncertainties in these scale factors are
+incorporated as a systematic uncertainty in the background prediction.  
 
 For electrons, we use $\pt$ and $\eta$-dependent scale factors and associated uncertainties, as
 derived by the CMS EGamma POG~\cite{ElectronSF}.
@@ -455,7 +455,7 @@ The signal values are obtained from averaging over all mass points in the T1ttcc
 The size of the systematic effects for each separate mass point is shown in the figures in 
 Appendix~\ref{app:signal_systematics}. 
 The PDF systematic uncertainties are obtained by running
-over 100 different PDF set members, sampled from all three considered PDF sets, fitting a Gaussian
+over 100 different PDF set members, sampled from all three PDF sets, fitting a Gaussian
 to the efficiency distribution and taking the
 width of that Gaussian.  
 The last line in the table corresponds to the full sampling of the systematic uncertainties, as

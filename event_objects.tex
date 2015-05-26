@@ -109,13 +109,13 @@ single component, as this usually indicates that the reconstruction is of poor q
 
 Unfortunately, the calorimeter response to incident particles is not uniform. It is, therefore, not
 straightforward to translate the measured jet energy to the true particle energy, which is what we
-want to use to do our analysis. A set of jet energy scale corrections -- scalings of the
+want to use in our analysis. A set of jet energy scale corrections -- scalings of the
 jet four-momentum depending on jet \pt and $\eta$ -- are applied to both data and
 simulation in order to achieve a proper mapping to the particle level. 
 Jet energy corrections within CMS are taken care of in a sequential way, each level of correction
 taking care of a different effect~\cite{JEC,Chatrchyan:2011ds}. 
 The uncertainties associated with the jet energy scale corrections need to be taken into account as
-systematic uncertainty on any analysis result. How this will be done in the razor boost analysis is
+systematic uncertainty in any analysis result. How this will be done in the razor boost analysis is
 explained in Section~\ref{sec:boost_JEC}.  
 
 First, the residual effect from pileup is removed using the \textit{L1 corrections}. 
@@ -127,7 +127,7 @@ stage using a slightly modified version of the \textit{jet area method}~\cite{Fa
 This method uses the effective area of the jets, $A$, multiplied by the average energy density
 in the event, $\rho$, to calculate the energy to be subtracted from the jets.
 Both real and simulated jets are first corrected with a $\pt$, $\eta$, and number of primary
-vertices dependent offset correction determined in simulation. For data events, an additional
+vertices dependent offset correction determined in simulation. For real data events, an additional
 data/simulation scale factor is derived from ZeroBias data to correct for remaining $\eta$ dependent
 discrepancies.
 Figure~\ref{fig:JEC_L1} shows the size of the energy offset for AK5 jets in the central region,
@@ -135,7 +135,7 @@ before and after the L1 corrections have been applied. A clear reduction of the 
 observed. The dependence on the number of pileup interaction has also been reduced, indicating that
 the L1 corrections behave properly.  
 
-\begin{figure}[tpb]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.4\textwidth]{figures/eventreco_objects/OffMeantnpuRef_BB_ak5pfchs}
   ~
@@ -151,7 +151,7 @@ Ref.~\cite{JEC_plots}.
 
 Since the simulation of the detector response is very detailed, see
 Section~\ref{sec:event_simulation}, the jet response in the absence of pileup is in fact very well
-modelled in simulation. The bulk of the jet energy corrections will thus be derived using
+modelled. The bulk of the jet energy corrections will thus be derived using
 simulation, and only the residual differences between data and simulation are derived directly
 from the data.
 
@@ -168,7 +168,7 @@ These are the final corrections applied to jets from simulated events. The size 
 corrections as a function of jet $\eta$, for three reference \pt values, is shown in
 Fig.~\ref{fig:JEC_L23} on the left-hand side. 
 
-\begin{figure}[tpb]
+\begin{figure}[p]
   \centering
 \includegraphics[height=0.22\textheight]
 {figures/eventreco_objects/CorrectionVsEta_Overview_TDR_ak5pfl1_L2L3}
@@ -185,7 +185,7 @@ Figures taken from Ref.~\cite{JEC_plots2}.
   \label{fig:JEC_L23}}
 \end{figure}
 
-Data events are further corrected by the \textit{L2L3 Residual} jet energy scale
+Real data events are further corrected by the \textit{L2L3 Residual} jet energy scale
 \textit{corrections} to take care of the small differences between data and simulation. These
 corrections are \pt and $\eta$ dependent, and only correct the relative energy scale. The absolute
 energy scale was found to be well modelled in the simulation. A dedicated, data-driven approach is
@@ -193,14 +193,16 @@ employed, using data samples of dijet, $\gamma+$jet, and $\cPZ+$jet events. The 
 correction derived from dijet events is shown on the right in Fig.~\ref{fig:JEC_L23}.
 
 After all corrections have been applied, jets to be used for analysis are required to have $\pt >
-30\GeV$ and $|\eta| < 2.4$.
+30\GeV$ and $|\eta| < 2.4$, and satisfy the identication criteria listed in
+Table~\ref{tab:object_jets}.
 The AK5 jets defined in this section will be used for most aspects of
 the razor boost analysis, except for the reconstruction of boosted hadronic $\W$-candidates. 
 Section~\ref{sec:boost_wtag} provides details on the dedicated jet treatment that is used for $\W$
 tagging.
 
 \begin{table}[htdp]
-\caption{Jet selection criteria. \label{tab:object_jets}}
+\caption{Jet selection criteria, denoted by the names of the functions in the CMS software that
+return the relevant jet variables. \label{tab:object_jets}}
 \begin{center}
 \begin{tabular}{l l}
 \toprule
@@ -227,10 +229,10 @@ initiated by gluons or light flavour quarks, due to the long lifetime, of the or
 1.5\ten{-12}\second, of the $B$ hadrons. 
 The non-prompt decay of the $B$ hadrons results in a secondary vertex, displaced by hundreds of
 micrometers with respect to the primary vertex of the hard interaction. This feature can be used to
-identify jets as originating from a $\cPqb$ quark. 
+identify jets originating from a $\cPqb$ quark. 
 
 The ability to distinguish $\cPqb$ jets is especially important for new physics searches. Many new
-physics models are associated with production of third generation quarks, whereas this is more rare
+physics models predict the copious production of third generation quarks, whereas this is more rare
 in the Standard Model. For many searches $\cPqb$ jet tagging is an essential tool in suppressing
 the background from multijet or vector boson production. 
 
@@ -251,24 +253,26 @@ primary vertex, the flight distance significance, the vertex invariant mass, and
 all associated tracks. The impact parameter of the tracks is also included. The shape of the CSV
 discriminant, and a data versus simulation comparison, is shown on Fig.~\ref{fig:CSV_discriminant}.
 
-In the razor boost analysis the CSV $\cPqb$ tagging algorithm will be applied on the PF jets at two
-working points~\cite{BTagWP}, which are shown on Table~\ref{tab:object_btag}. 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/eventreco_objects/CSV_Log_ttbar}
+  \caption{ Discriminator value for the CSV discriminant for a $t\bar{t}$-enriched data sample.
+  \label{fig:CSV_discriminant}}
+\end{figure}
+
+In the razor boost analysis the CSV $\cPqb$ tagging algorithm will be applied to the PF jets at two
+working points~\cite{BTagWP}, which are shown in Table~\ref{tab:object_btag}. 
 The Loose working point (CSVL), corresponding to a misidentification rate of $\sim$10\% and
 efficiency of $\sim$85\%, will be used to veto $\cPqb$ jets, whereas the Medium working point
 (CSVM), corresponding to a misidentification rate of $\sim$1\% and a typical efficiency of
 $\sim$70\% , is used to select $\cPqb$ jets.
-The small differences in the discriminant shape, as observed from Fig.~\ref{fig:CSV_discriminant}, 
+The small differences in the discriminant shape, as observed in Fig.~\ref{fig:CSV_discriminant}, 
 will result in a slightly different $\cPqb$ tagging efficiency in data versus simulation. Scale
 factors (SF) with associated uncertainties have been derived to correct for this effect, and are
 provided by the BTAG POG in CMS. Section~\ref{sec:boost_btag_sf} will cover how these
 uncertainties are propagated to the final systematic uncertainties for the razor boost analysis. 
 
-\begin{figure}[tpb]
-  \centering
-  \includegraphics[width=0.6\textwidth]{figures/eventreco_objects/CSV_Log_ttbar}
-  \caption{ Discriminator value for the CSV discriminant for a $t\bar{t}$-enriched data sample.
-  \label{fig:CSV_discriminant}}
-\end{figure}
+
 
 \begin{table}[htdp]
 \caption{Working points for the combined secondary vertex $\cPqb$ jet tagger.
@@ -332,7 +336,7 @@ Because of the weighting by $\delta_{i}^{2}$, the value for the directional isol
 larger for muons that are near the jet core, e.g. in case of leptonic $\cPqb$ decays, compared to
 the more conventional isolation definition which does not use this weighting. 
 
-\begin{figure}[htpb]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/eventreco_objects/directional_iso_cartoon}
   \caption{Illustration of ingredients used in the computation of directional isolation for a prompt
@@ -348,7 +352,7 @@ with large hadronic activity.
 Loose muons are reconstructed using either the global muon algorithm or the tracker-only
 algorithm. 
 Global muons are required to pass the {\tt GlobalMuonPromptTight} quality criteria,
-and to have at least two muon chambers containing segments uniquely matched to its inner track. 
+and to have at least two muon chambers containing segments uniquely matched to their inner track. 
 Tracker-only muons are required to pass the {\tt TMLastStationTight} criteria, which require the
 muon to have compatible hits in the last muon chamber. 
 All selected muons are then required to pass the selection listed in
@@ -402,31 +406,6 @@ $\overrightarrow{\mathrm{ISO}}(0.2)$ \\
 \label{tab:object_loosemuon_cuts}
 \end{table}
 
- 
-The \textbf{tight muon selection} follows the recommendation from the Muon POG~\cite{MuonID}.
-In addition to the identification criteria, we also require the tight muon to be isolated. 
-Here we do not use directional isolation, but rather the more standard particle-based relative
-isolation. 
-This isolation, denoted $I_\mu$, is calculated using the PF candidates in a cone of size $\Delta R =
-0.4$ around the muon. Charged-hadron candidates associated with pileup vertices are not taken into
-account in the calculation of the isolation. However, they are used to estimate the remaining
-contribution to the isolation coming from neutral hadrons associated with pileup. This contribution
-is then subtracted. 
-The isolation definition is given by:
-\begin{equation}
-I_\mu = \frac{I_{Charged} + \max\left(0, I_{Neutral} + I_{\gamma} - \Delta\beta\cdot
-I_{Charged}^{PU}\right)}
-             {\pt^\mu} , 
-\label{eqn:iso}
-\end{equation}
-where $I_{Charged}$, $I_{Neutral}$, and $I_{\gamma}$ are computed as the sum of the \pt of the
-charged hadrons, neutral hadrons and photons, respectively, in a cone of size $\Delta R = 0.4$
-around the muon. The parameter $\Delta\beta$ is set to 0.5, and $I_{Charged}^{PU}$ is the estimated
-contribution from pileup computed as the sum of the \pt of the charged hadrons associated with
-pileup vertices.
-The tight muon isolation requirement is $I_\mu < 0.15$.
-A summary of the tight muon selection can be found in Table~\ref{tab:object_tightmuon}. 
-
 \begin{table}[p]
 \caption{Tight muon definition. }
 \begin{center}
@@ -457,6 +436,32 @@ $I_\mu =$ [\texttt{\footnotesize pfIsolationR04().sumChargedHadronPt()}& \\
 \end{center}
 \label{tab:object_tightmuon}
 \end{table}
+ 
+The \textbf{tight muon selection} follows the recommendation from the Muon POG~\cite{MuonID}.
+In addition to the identification criteria, we also require the tight muon to be isolated. 
+Here we do not use directional isolation, but rather the more standard particle-based relative
+isolation. 
+This isolation, denoted $I_\mu$, is calculated using the PF candidates in a cone of size $\Delta R =
+0.4$ around the muon. Charged-hadron candidates associated with pileup vertices are not taken into
+account in the calculation of the isolation. However, they are used to estimate the remaining
+contribution to the isolation coming from neutral hadrons associated with pileup. This contribution
+is then subtracted. 
+The isolation definition is given by:
+\begin{equation}
+I_\mu = \frac{I_{Charged} + \max\left(0, I_{Neutral} + I_{\gamma} - \Delta\beta\cdot
+I_{Charged}^{PU}\right)}
+             {\pt^\mu} , 
+\label{eqn:iso}
+\end{equation}
+where $I_{Charged}$, $I_{Neutral}$, and $I_{\gamma}$ are computed as the sum of the \pt of the
+charged hadrons, neutral hadrons and photons, respectively, in a cone of size $\Delta R = 0.4$
+around the muon. The parameter $\Delta\beta$ is set to 0.5, and $I_{Charged}^{PU}$ is the estimated
+contribution from pileup computed as the sum of the \pt of the charged hadrons associated with
+pileup vertices.
+The tight muon isolation requirement is $I_\mu < 0.15$.
+A summary of the tight muon selection can be found in Table~\ref{tab:object_tightmuon}. 
+
+
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -531,7 +536,7 @@ We also require to electron to be isolated. The isolation $I_e$ is calculated us
 candidates in a cone of size $\Delta R = 0.3$ around the electron, and then corrected with an
 estimate of the median energy from pileup as calculated with the {\tt FastJet} algorithm in a
 similar way to the L1 jet corrections explained in Sec.~\ref{sec:object_jets}. 
-We require that this corrected isolation, relative to the $\pt$ of the electron is less than 0.15.
+We require that this corrected isolation, relative to the $\pt$ of the electron be less than 0.15.
 \begin{equation}
 I_e = \frac{ I_{Charged} + \max(0, I_{NeutralHad} + I_{\gamma} - A \rho ) }{\pt^e}, 
 \end{equation}

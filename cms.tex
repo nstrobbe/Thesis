@@ -3,9 +3,9 @@
 The Compact Muon Solenoid (CMS)~\cite{Chatrchyan:2008aa,Bayatian:922757,Ball:2007zza,CMS_website} is
 one of the two general purpose detectors
 at the LHC. It is
-located on the far-end of the LHC ring, at interaction point 5 (P5) in Cessy, France. 
+located at the far-end of the LHC ring, at interaction point 5 (P5) in Cessy, France. 
 Like most collider experiments, CMS has a cylindrical shape, consisting of a barrel region and two
-so-called endcaps at either end of the barrel. The various subdetector systems are layered around
+endcaps at either end of the barrel. The various subdetector systems are layered around
 the collision point. The central feature of the CMS detector is the superconducting solenoid with
 high magnetic field to achieve good momentum resolution. The muon systems are installed in between
 the return yoke layers. The silicon tracker, lead-tungstate crystal electromagnetic calorimeter
@@ -45,7 +45,7 @@ Figure taken from Ref.~\cite{CMS_slice}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Coordinate system and basic variables \label{sec:cms_coordinates}}
 
-The CMS coordinate system takes the nominal collision point as the origin, with the $y$-axis
+The origin of the CMS coordinate system is the centre of the CMS detector, with the $y$-axis
 pointing vertically upward, and the $x$-axis pointing radially inward towards the centre of the
 LHC. The coordinate system is right-handed, such that the $z$-axis points along the beam direction
 toward the Jura mountains as seen from P5. 
@@ -149,7 +149,7 @@ track out of the different hits.
 
 The tracker is the innermost layer of the CMS detector, perfectly placed to measure the particles
 coming directly from the collision point. Its closeness to the beam pipe also means that it will
-receive the largest amount of particles, and thus radiation, which translates into the need for
+receive the largest number of particles, and thus radiation, which translates into the need for
 radiation hard materials. 
 
 The CMS tracker is entirely built out of silicon, and consists of a pixel detector at the very
@@ -208,7 +208,7 @@ endcaps, and the preshower detectors. Figure taken from Ref.~\cite{Chatrchyan:20
 
 The electromagnetic calorimeter is made of about $75\,000$ highly transparent lead tungstate
 ($\text{PbWO}_\text{4}$)
-crystals whose lengths corresponds to about 25 radiation lengths. A photograph of the crystals
+crystals whose lengths correspond to about 25 radiation lengths. A photograph of the crystals
 during testing, and a schematic view of the ECAL structure are shown in
 Fig.~\ref{fig:cms_ecal_crystal}. The crystals are arranged side-by-side with their longitudinal axes
 slightly pointing away from the interaction point to avoid cracks.
@@ -358,8 +358,8 @@ with readout strips in between.
 As for the other muon detectors, passing muons knock electrons out of gas atoms. These electrons
 then initiate an avalanche which moves towards the anode. The avalanche is detected by the metallic
 readout strips. The pattern of the hit strips gives a measure of the muon momentum. Because RPCs
-have a time resolution of just one nanosecond, they are very well suited be part of the muon trigger
-system. 
+have a time resolution of just one nanosecond, they are very well suited to be part of the muon
+trigger system. 
 
 
 
@@ -395,7 +395,7 @@ A subset of the information is immediately passed along to the L1 trigger, which
 in a service cavern next to the detector. A total time of $3.2\mus$ is allocated for the transit to
 the L1 trigger boards, choosing whether to keep or reject the event, and the transit back to the
 front-end electronics to execute what was decided. During this time, the total amount of information
-on a given collision needs to be kept in the buffers.
+in a given collision needs to be kept in the buffers.
 Less than 1\mus is allocated to the L1 trigger to perform the calculations needed to make the
 decision. It is, therefore, built from custom hardware processors, fully optimized for the task at
 hand. 
@@ -442,8 +442,9 @@ The builder network provides the interconnections between the readout and the HL
 with a bandwidth of 100\unit{GB/s}. It takes care of building the full events out of the different
 data fragments from the separate parts of the detector. The builder network consists of 500 builder
 units, each of which will assemble the data for one event. 
-Once the event is assembled, it is passed to one of the HLT processors associated to that particular
-builder unit. As soon as the HLT decision is made, that decision is transferred back to the builder
+Once the event is assembled, it is passed to one of the HLT processors associated with that
+particular builder unit. 
+As soon as the HLT decision is made, that decision is transferred back to the builder
 unit which then either discards the event, freeing up memory, or sends it to the storage
 manager to be written to disk.
 Apart from building the events, the DAQ also provides detector control and monitoring services.

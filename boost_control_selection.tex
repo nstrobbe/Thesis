@@ -21,8 +21,8 @@ tagging and $\W$ tagging aspects of the signal selection when defining the $T$ r
 
 The main change we do make, is requiring the presence of exactly one loose electron or muon, while
 removing the requirement that there be no isolated track. This selection is already sufficient to
-obtain a region with a good purity of $t\bar{t}$ events. There is, however, a possibility of
-substantial signal contamination. To address this issue, we place an upper boundary on the value of
+obtain a region with good purity for $t\bar{t}$ events. There is, however, a possibility of
+substantial signal contamination. To address this issue, we place an upper bound on the value of
 the transverse mass, $\mT$, computed from the lepton transverse momentum and \VEtmiss, 
 \begin{equation}
  \mT = \sqrt{2\pt^\ell\ETm ( 1 - \cos\Delta\phi )},
@@ -72,11 +72,11 @@ is only a very minimal signal contamination that remains in this region.
 Tables~\ref{tab:cutflow} and \ref{tab:cutflow_summary}, in particular the line listing $T$ in the
 first column, show a breakdown of the contributions of the various background components,
 as determined directly from simulation, as well as the observed data counts, and expected counts for
-an example signal point. From Table~\ref{tab:BG_comp_percent} we see that the obtained purity in the
+an example signal point. From Table~\ref{tab:BG_comp_percent} we see that the purity obtained in the
 $T$ region is about 83\% for $t\bar{t}$ and single top processes combined. This is also
 illustrated in the $\mr$ and $\rsq$ distributions, as shown on Fig.~\ref{fig:boost_T_region_MR_Rsq}.
 There is good agreement between data and simulation in the $T$ region. Any discrepancies can
-be accommodated by the systematic uncertainties on the MC simulation. Given that we will only use
+be accommodated by the systematic uncertainties in the MC simulation. Given that we will only use
 the simulation in ratios between different regions, any small discrepancies will not affect the
 analysis.
 We also compare the shape of the $\mr$ and $\rsq$ distributions in the $T$ region versus the $S$
@@ -279,7 +279,7 @@ be small, the observed mismodelling will, fortunately, not affect our analysis g
 
 \begin{figure}[hbp]
 \centering
-\includegraphics[width=0.65\textwidth]
+\includegraphics[width=0.8\textwidth]
 {figures/razor_selection/DataMC_minDeltaPhi_0Lbg1uW0Ll_rebin_CMS}
 \caption{Comparison between data and simluation of the $\Delta\phi_{min}$ distribution in the $Q$
 region before any selection on $\Delta\phi_{min}$. 
@@ -365,9 +365,10 @@ corresponding to the baseline selection. \label{tab:boost_selection_summary}}
 Selection & $S$ & $S'$  & $Q$ & $Q'$ & $T$ & $W$ \\ 
 \midrule
 nr of $\cPqb$ jets & ${\geq}\, 1$ & ${\geq}\, 1$ & 0 & 0 & ${\geq}\, 1$  & 0 \\
-nr of mass-tagged $\W$'s & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ \\
-nr of tagged $\W$'s      & ${\geq}\, 1$   & ${\geq}\, 1$   & -   & -     & ${\geq}\, 1$ & - \\
-nr of anti-tagged $\W$'s & -          & -          & ${\geq}\, 1$ & ${\geq}\, 1$  & -   & - \\
+nr of mass-tagged $\W$s & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ & ${\geq}\,1$ &
+${\geq}\,1$ \\
+nr of tagged $\W$s      & ${\geq}\, 1$   & ${\geq}\, 1$   & -   & -     & ${\geq}\, 1$ & - \\
+nr of anti-tagged $\W$s & -          & -          & ${\geq}\, 1$ & ${\geq}\, 1$  & -   & - \\
 nr of loose leptons      & 0          & 0          & 0   & 0     & 1             & 1 \\
 nr of isolated tracks    & 0          & 0          & 0   & 0     & -             & - \\
 $m_T$                    & -          & -          & -   & -     & ${<}\,100$\GeV   & 30--100\GeV\\

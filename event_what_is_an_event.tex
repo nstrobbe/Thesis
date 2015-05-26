@@ -9,7 +9,7 @@ A proper description of what happens is impeded by the composite nature of the p
 strong coupling constant of QCD, the quantum field theory governing hadron
 interactions.
 Fortunately, it turns out that the full process can be factorized into independent subprocesses,
-each taking place at different energy scales~\cite{Skands:2011pf}. 
+each taking place at different energy scales and, therefore, distance~\cite{Skands:2011pf}. 
 
 
 \begin{figure}[p]
@@ -33,15 +33,15 @@ collisions, resulting in very soft scattering products that do not pass the dete
 general, any interaction producing some detectable particles is called a \textit{minimum bias
 interaction}~\cite{Field:2012jv}. 
 
-The initial momentum distribution of the partons involved in the hard interaction is contained
-within \textit{parton distribution functions} (PDFs) describing the structure of the proton. 
+The initial momentum distribution of the partons involved in the hard interaction is described by
+\textit{parton distribution functions} (PDF). 
 Apart from the hard interaction, the other constituents of the proton can also interact. This
 usually results in a spray of softer particles, the \textit{underlying event} (UE). 
-Any high momentum particle involved in the collision will emit additional hard QCD radiation.
+Any high momentum particle involved in the collision will emit QCD radiation.
 Radiation from particles before the hard interaction is called initial-state-radiation (ISR),
 whereas radiation off particles produced in the collision is called final-state-radiation (FSR).
 
-Quarks and gluons produced in the collision cannot stay free, they must hadronize in a time scale
+Quarks and gluons produced in the collision cannot stay free; they must hadronize in a time scale
 of $\mathcal{O}(\text{10}^{\text{-23}}\second)$. These hadrons, in addition to possible produced
 leptons, will then pass through the experiment where they can be detected, and used to find out
 what happened in the collision itself. 
@@ -70,19 +70,23 @@ $\cPqb$ quark. Figure from~\cite{SUS12024_event_display}.
 
 The basic problem addressed by factorization theorems~\cite{Collins:1989gx} is how to calculate
 cross sections for high energy processes. In general, these cross sections are a combination of
-short- and long-distance contributions, and are thus not computable directly in QCD perturbation
+short- and long-distance contributions, and are thus not computable directly using perturbation
 theory.
 Factorization theorems allow us to derive predictions for these cross sections,
 by separating (factorizing) long-distance from short-distance effects. 
-The non-perturbative long-range effects are encapsulated into the parton distribution functions
-describing the distribution of partons in a hadron. 
-These functions can be measured experimentally, see  Section~\ref{sec:event_pdfs}, and most
-importantly the same functions can be used for different processes. 
+The long-distance effects, which cannot be described using perturbation theory - and therefore
+referred to as “non-perturbative” effects, 
+are encapsulated in parton distribution functions
+describing the momentum distribution of partons in a hadron. 
+These functions cannot be computed from first principles. Therefore, their form must be extracted
+from data by comparing the predictions and measurements of suitable observables, see
+Section~\ref{sec:event_pdfs}. Most importantly, the same functions can be used for different
+processes for which the factorization theorem holds.
 The short-distance hard-scattering cross section can be calculated with perturbation theory
 because the QCD coupling strength is small at short distances. 
 
 The factorization theorem applied to the cross section $\sigma$ of a hard scattering initiated by
-two hadrons $A$ and $B$, illustrated on Fig.~\ref{fig:event_hard_scatter},
+two hadrons $A$ and $B$, illustrated in Fig.~\ref{fig:event_hard_scatter},
 can be expressed in terms of the parton distribution functions $f$, and partonic cross section
 $\hat{\sigma}$:
 \begin{multline}
@@ -100,17 +104,21 @@ $f$ and the partonic cross section $\hat{\sigma}$. Figure taken from Ref.~\cite{
   \label{fig:event_hard_scatter}}
 \end{wrapfigure}
 with $f_{a/A}(x_a, \alpha_S, \mu_F)$ the probability that a parton $a$ inside
-a hadron $A$ carries a momentum fraction $x_a$, $s$ the centre-of-mass energy of the collision,
-and $\hat{s} = s x_a x_b$ the partonic centre-of-mass energy.
+a hadron $A$ carries a momentum fraction $x_a$, where $s$ is the centre-of-mass energy of the
+collision, and $\hat{s} = s x_a x_b$ the partonic centre-of-mass energy.
 The strong coupling constant is denoted by $\alpha_S$, the factorization scale by $\mu_F$ and the
  renormalization scale by $\mu_R$.
-The factorization scale defines the (arbitrary) boundary between what is viewed as a short-range
-versus a long-range interaction. The renormalization scale is also an arbitrary scale, which is
+The factorization scale defines the (arbitrary) boundary between what is viewed as a short-distance
+versus a long-distance interaction. The renormalization scale is also an arbitrary scale, which is
 needed to regulate the divergencies that appear when computing the partonic cross section in a
 perturbative expansion. 
 Often, the choice $\mu_F = \mu_R$ is made for convenience.
-The left-hand side of the equation is in reality independent of the arbitrary choices for $\mu_F$
-and $\mu_R$. When making computations, a dependence can be introduced because we cannot
+Obviously, the physical cross section cannot possibly depend on these scales, which are artifacts of
+calculations. Therefore, we expect an accurate prediction of the cross section to be insensitive to
+these scales. However, when making computations,
+%The left-hand side of the equation is in reality independent of the arbitrary choices for $\mu_F$
+%and $\mu_R$. When making computations, 
+a dependence can be introduced because we cannot
 compute the partonic cross sections up to all orders in $\alpha_S$. 
 
 The validity of this factorization theorem can be proven mathematically for certain classes of
@@ -138,7 +146,7 @@ combining probabilities, rather than amplitudes, and factorization is reached.
 \subsection{Parton distribution functions \label{sec:event_pdfs}}
 
 A key ingredient to the computation of any cross section at the LHC, is the set of parton
-distribution functions describing the structure of the proton, as
+distribution functions describing the momentum distributions of partons within the proton, as
 is visible from Eq.~\ref{eq:factorization_theorem}. 
 Physically, PDFs express the fact that hadrons are composite objects, with a time-dependent
 structure. The PDFs themselves are not physical observables, but rather a more fundamental quantity
@@ -152,17 +160,21 @@ virtuality $Q^2$ will find a particle of flavour $p$ inside the proton, with a
 momentum fraction between $x$ and $x + dx$ of the full proton momentum. 
 At higher orders, the PDFs no longer have a clear probabilistic interpretation. 
 
-
 Parton distribution functions satisfy sum rules, governed by the valence content of the
 hadrons. For a proton we find for the PDFs of the $u$, $d$,
-and $s$ (anti-)quarks: 
+and $s$ (anti)quarks: 
 \begin{align}
   \int_0^1 dx \left( u(x,Q^2) - \bar{u}(x,Q^2)\right) &= 2, \\[-2pt]
-  \int_0^1 dx \left( d(x,Q^2) - \bar{d}(x,Q^2)\right) &= 1, \\[-2pt]
-  \int_0^1 dx \left( s(x,Q^2) - \bar{s}(x,Q^2)\right) &= 0, 
+  \int_0^1 dx \left( d(x,Q^2) - \bar{d}(x,Q^2)\right) &= 1, %\\[-2pt]
+%  \int_0^1 dx \left( s(x,Q^2) - \bar{s}(x,Q^2)\right) &= 0, 
 \end{align}
-while we also need to satisfy that the momentum weighted sum of the PDFs of all particle species is
-equal to unity, in order to satisfy momentum conservation, 
+\begin{equation}
+%  \int_0^1 dx \left( u(x,Q^2) - \bar{u}(x,Q^2)\right) &= 2, \\[-2pt]
+%  \int_0^1 dx \left( d(x,Q^2) - \bar{d}(x,Q^2)\right) &= 1, \\[-2pt]
+  \int_0^1 dx \left( s(x,Q^2) - \bar{s}(x,Q^2)\right) = 0, 
+\end{equation}
+while we also need the momentum weighted sum of the PDFs of all particle species to sum to unity, in
+order to satisfy momentum conservation, 
 \begin{equation}
   \int_0^1 dx \, x \left( g(x,Q^2) + \sum_i [u_i(x,Q^2) + \bar{u}_i(x,Q^2)]\right) = 1 ,
 \end{equation}
@@ -171,7 +183,7 @@ where $g(x,Q^2)$ is the gluon PDF, and $i$ runs over all quark flavours.
 Looking back to Eq.~\ref{eq:factorization_theorem}, we note that the parton distribution
 functions depend on the chosen factorization scale. The dependence of the PDFs on the scale $Q^2$
 is described by the DGLAP equations, which can be viewed as renormalization group equations in
-analogy with the running coupling constant. 
+analogy with those for the running coupling constant. 
 The DGLAP equations, and thus the PDF evolution, are governed by the so-called splitting functions,
 $P_{ab}$ , that model the rate for a particle of type $a$ to undergo a collinear splitting to
 produce a particle of type $b$. 
@@ -179,10 +191,10 @@ produce a particle of type $b$.
 Parton distribution functions are obtained from global fits to a wide variety of data from
 many experiments, among which are measurements of deep-inelastic scattering at HERA, and Drell-Yan
 or inclusive jet production at the Tevatron and the LHC. 
-Since there is only a partial kinematic overlap between this data and the region in $(x,Q^2)$ space
+Since there is only a partial kinematic overlap between these data and the region in $(x,Q^2)$ space
 where we want to use the PDFs, for example to model the production of supersymmetric particles,
 the DGLAP evolution is essential for the successful prediction of PDFs in the LHC domain. 
-The splitting functions are now known up to NNLO precision, which reduced the uncertainties on the
+The splitting functions are now known up to NNLO precision, which reduced the uncertainties in the
 evolution dramatically, from 30\% down to about 2\%.
 
 As illustration of the PDF scale dependence, we show in Fig.~\ref{fig:NNPDF} the full
@@ -213,7 +225,7 @@ distribution functions. The term $P(x; A_3, \ldots)$ is a smooth function, depen
 parameters, that is introduced to add more flexibility to the PDF parameterization. The various PDF
 collaborations usually make different choices for the form of $P(x)$. 
 The coefficients $A_i$ are then usually determined by comparing theoretical predictions with the
-data using the method of least-$\chi^2$ fits. 
+data using $\chi^2$ fits. 
 The \textsc{NNPDF} collaboration uses a different approach, and parameterizes $f(x,Q_0)$ by a
 neural network. 
 Once the PDFs are determined for the reference value $Q_0$, they are generated for the full

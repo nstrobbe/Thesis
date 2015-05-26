@@ -11,9 +11,9 @@ The search is performed using $\Pp\Pp$ collision data collected by CMS at a cent
 8\TeV, corresponding to an integrated luminosity of 19.7\fbinv.  
 Backgrounds from Standard Model processes are predicted using a data-driven method. 
 A data control region, binned in $\mr$ and $\rsq$, is defined for each of the main background
-components. These control regions are used together with global transfer factors, determined in
-simulation, to obtain the background estimate in the corresponding signal bins on the ($\mr$,$\rsq$)
-plane. The validation of the background estimation technique is done using closure tests. 
+components. These control regions are used together with global transfer factors, determined by
+simulation, to estimate the background in the corresponding signal bins on the ($\mr$,$\rsq$)
+plane. The background estimation technique is validated using closure tests. 
 Systematic uncertainties are handled using a novel approach, in which uncertainties from all
 considered sources are sampled simultaneously. 
 
@@ -78,13 +78,13 @@ and the definition of the different control regions.
 %background estimation was already shown in Fig.~\ref{fig:boost_flowchart}.
 Before we go ahead, it is useful to remind ourselves of the goal of the analysis and the basics
 of the background estimation method. 
-The aim of the analysis is to conduct a search for deviations from the SM in the high $\mr$-high
+The aim of the analysis is to search for deviations from the SM in the high $\mr$-high
 $\rsq$ region using hadronic events with at least one boosted $\W$ boson and one $\cPqb$ jet.
 Standard Model backgrounds in the signal region are estimated via a likelihood method, using
-observations in three control regions in data, labelled $Q$, $T$ and $W$, and transfer factors
+observations in three control regions, labelled $Q$, $T$ and $W$, and transfer factors
 $\kappa$, calculated from simulated data, between these control regions and the signal region,
 $S$. 
-The viability of the defined control regions to model the data in our signal region is tested by
+The viability of the control regions to model the data in our signal region is tested by
 two closure tests, which are presented at the end of this section.
 For all details on the full background estimation itself, I refer to
 Section~\ref{sec:boost_likelihood}. 
@@ -116,9 +116,9 @@ The two-dimensional (2D) distributions of \rsq versus \mr for both background an
 model are shown in Fig.~\ref{fig:razor_MR_Rsq_bg_signal}. A very loose selection is applied,
 requiring the presence of a good primary vertex and at least three jets, one of which should have
 $\pt > 200\GeV$. It is clear that the background, dominated by QCD multijet production, is located
-in the low \mr and low \rsq regions, and falls off steeply when \mr or \rsq is increased. The
-signal, on the other hand, shows a peaking behaviour in \mr and is located substantially higher in
-the (\mr,\rsq) space. 
+in the low \mr and low \rsq regions, and falls off steeply with increasing \mr or \rsq.
+The signal, on the other hand, shows a peaking behaviour in \mr and is located substantially higher
+in the (\mr,\rsq) space. 
 The $\mr$ distribution peaks at higher values for larger sparticle masses and higher mass
 differences between the gluino and the LSP. This is illustrated
 in Figs.~\ref{fig:razor_MR_R2_T1ttcc} and \ref{fig:razor_MR_R2_T1t1t}, which show the $\mr$ and
@@ -138,7 +138,7 @@ least three jets, one of which should have $\pt > 200\GeV$.
 \label{fig:razor_MR_Rsq_bg_signal}}
 \end{figure}
 
-\begin{figure}[htpb]
+\begin{figure}[tb]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/razor_variables/T1ttcc_MR_comparison} 
 ~
@@ -149,7 +149,7 @@ good primary vertex and at least three jets, one of which with $\pt > 200$\GeV.
 \label{fig:razor_MR_R2_T1ttcc}}
 \end{figure}
 
-\begin{figure}[htpb]
+\begin{figure}[htb]
 \centering
 \includegraphics[width=0.48\textwidth]{figures/razor_variables/T1t1t_MR_comparison} 
 ~
@@ -214,7 +214,7 @@ Fig.~\ref{fig:razor_MR_Rsq_bg_signal}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results \label{sec:boost_results}}
 
-We present the results of the background prediction for each of the 25 considered search bins in the
+We present the results of the background prediction for each of the 25 search bins in the
 $(\mr,\rsq)$ plane in Fig.~\ref{fig:results_prediction} and Table~\ref{tab:results_prediction}. The
 results are presented as the mean and standard deviation as determined from the sampled prior
 $\pi(\theta)$ described in Section~\ref{sec:boost_systematics}.  
@@ -274,10 +274,9 @@ We interpret our results in terms of the simplified models T1ttcc and T1t1t, who
 diagrams were shown in Fig.~\ref{fig:T1ttcc_T1t1t_diagrams}. The general characteristics of
 simplified models were discussed in Section~\ref{sec:susy_sms}. These particular models have three
 free mass parameters: the masses of the gluino, top squark and LSP. The gluino mass is varied
-between
-600 and 1300\GeV, and the LSP mass between 1 and 500\GeV. The mass difference between top squark and
-LSP, $\Delta m$, is kept fixed at 10, 25 or 80\GeV for the T1ttcc model, and at 175\GeV for the
-T1t1t model. 
+between 600 and 1300\GeV, and the LSP mass between 1 and 500\GeV. The mass difference between the
+top squark and the LSP, $\Delta m$, is kept fixed at 10, 25 or 80\GeV for the T1ttcc model, and at
+175\GeV for the T1t1t model. 
 
 To get a sense of the expected signal sensitivity, we show the signal efficiencies for the T1ttcc
 and T1t1t simplified models in Fig.~\ref{fig:eff_T1ttcc_T1t1t}, and the expected signal counts in
@@ -313,23 +312,23 @@ the \rsq variable. The arrow indicates the baseline selection requirement of $\r
 
 The efficiencies for mass points of the T1t1t model are lower than for the equivalent points of the
 T1ttcc models. There are two main reasons for this.
-Firstly, the top quark is heavier than the charm quark. The afore-mentioned effect will thus occur
+Firstly, the top quark is heavier than the charm quark. The aforementioned effect will thus occur
 not only for the lowest LSP mass, but for all masses smaller than the top quark mass. 
-In addition, the combination of the large top quark mass and the considered $\Delta m = 175\GeV$
+In addition, the combination of the large top quark mass and the choice $\Delta m = 175\GeV$
 results in a much smaller mass gap between gluino and top squark compared to the T1ttcc models.
-This in turn results in less boosted top quarks, as can be seen in Fig.~\ref{fig:boost_gen_toppt},
+This in turn results in fewer boosted top quarks, as can be seen in Fig.~\ref{fig:boost_gen_toppt},
 and thus fewer events passing the boosted $\W$ boson tagger. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-As no discrepancy from the SM prediction was observed, we compute upper limits on the allowed
+As no discrepancy from the SM prediction is observed, we compute upper limits on the allowed
 cross section across the parameter space of the T1ttcc and T1t1t models using the CLs method.
 %which is explained in more detail in Appendix~\ref{app:CLs}. 
 Figure~\ref{fig:boost_limits} shows the observed and expected limit for the T1ttcc model with
 $\Delta m=10,25,80$\GeV and for the T1t1t model. 
 The uncertainty band for the observed limit is computed by varying the signal cross section within
-the theoretical uncertainties, of which the PDFs are the main component. The uncertainty on the
+the theoretical uncertainties, of which the PDFs are the main component. The uncertainty in the
 expected limit incorporates all experimental uncertainties. 
 From these figures we observe that this analysis has made significant inroads into the parameter
 space of the T1ttcc model. 

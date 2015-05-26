@@ -65,11 +65,11 @@ this.
 The track finding algorithm starts by requiring very tight criteria for the track seeds and
 reconstruction quality, leading to a moderate tracking efficiency, but with a negligibly small fake
 rate. 
-The hits assigned to those tracks are then removed, and the tracking cycle is repeated two times
-more for the remaining hits with progressively looser track seeding criteria. The looser criteria
+The hits assigned to those tracks are then removed, and the tracking cycle is repeated two more
+times for the remaining hits with progressively looser track seeding criteria. The looser criteria
 increase the tracking efficiency, and the fake rate is kept low because of the reduced combinatorics
 resulting from the removal of hits in the previous iteration. 
-During three more iterations, the constraints on the origin vertex are also relaxed, allowing
+During three more iterations, the constraints on the original vertex are also relaxed, allowing
 the reconstruction of tracks associated with secondary vertices. 
 
 With the iterative tracking technique, charged particles with a \pt as low as 150\MeV, as little
@@ -138,8 +138,9 @@ tracker tracks, only the global muon that returns the smallest $\chi^2$ is retai
 \subsubsection{Particle reconstruction and identification}
 
 The blocks of linked elements are converted into a set of identified particles by the particle-flow
-algorithm. The order of the particle reconstruction follows how clean the signature is. Muons are
-reconstructed first, neutral hadrons last. The full particle reconstruction and identification
+algorithm. The order of the particle reconstruction follows the ``cleanliness'' of the signature.
+Muons are reconstructed first, neutral hadrons last. The full particle reconstruction and
+identification
 algorithm proceeds in this way for each block of linked tracks and clusters. 
 
 \begin{enumerate}
@@ -157,7 +158,7 @@ collection, and the associated electron track and ECAL clusters, including those
 bremsstrahlung, are removed from the block before further processing. 
 
   \item The remaining tracks are subject to tighter quality criteria, namely the relative
-uncertainty on the transverse momentum should be smaller than the relative calorimeter energy
+uncertainty in the transverse momentum should be smaller than the relative calorimeter energy
 resolution for charged hadrons. The presence of photons and neutral hadrons will be inferred from a
 detailed comparison of the track momenta and calorimeter energies. 
 

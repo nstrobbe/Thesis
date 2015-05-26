@@ -104,8 +104,9 @@ The calorimeter response is treated similarly to that of charged hadrons. In the
 only processes that are taken into account are multiple scattering and energy loss by ionization.
 
 The reconstruction of FastSim tracker hits into tracks is done in a different, faster, way compared
-to FullSim or data. The truth information is used to group hits together that come from the same
-particle. Consequently, FastSim does not have fake tracks. Two hits in the same place are also not
+to FullSim or data. Information on the particle trajectories from the generation and simulation is
+used during reconstruction to group together hits coming from the same particle.
+Consequently, FastSim does not have fake tracks. Two hits in the same place are also not
 merged to be one reconstructed hit, as would be the case for the real detector readout. 
 Despite these simplifications, good agreement between FastSim and FullSim track reconstruction is
 observed. 

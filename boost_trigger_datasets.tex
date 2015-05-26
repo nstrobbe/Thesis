@@ -5,7 +5,7 @@
 \subsection{Data and trigger \label{sec:boost_data_trigger}}
 
 The analysis presented in this thesis is based on 19.7\fbinv of 8\TeV proton-proton collision data
-collected by the CMS experiment in 2012.  The data is divided into four data taking periods
+collected by the CMS experiment in 2012.  The data are divided into four data taking periods
 (A, B, C, and D) to deal with changing conditions such as the average pileup or peak luminosity. 
 Events used in the razor boost analysis are selected using two triggers from the CMS high
 level trigger system (see Section~\ref{sec:cms_hlt}), requiring either the highest jet \pt or the
@@ -16,7 +16,7 @@ of 400\GeV for a short period.
 The $\HT$-based trigger, denoted by \texttt{PFHT*}, had an $\HT$ threshold of 650\GeV. 
 The two trigger algorithms were based on a fast implementation of the particle flow 
 reconstruction method, which was described in Section~\ref{sec:event_reco_pf}.  
-The exact names of the used trigger by run are given in Table~\ref{tab:boost_triggers}. The primary
+The exact names of the trigger used by run are given in Table~\ref{tab:boost_triggers}. The primary
 datasets which include the data collected by these triggers are listed in
 Table~\ref{tab:boost_primary_datasets}. 
 
@@ -108,17 +108,17 @@ In order to account for the lower efficiency of the region with $\HT  < 800\GeV$
 trigger efficiency over the ($\HT$, first jet \pt) plane is applied as an event-by-event weight
 to the simulated samples. The bottom plot of Fig.~\ref{fig:boost_trigger_efficiency} shows the
 effect of this trigger efficiency across the (\mr,\rsq) plane for the total simulated background. 
-The uncertainty on the trigger efficiency is computed as the maximum of the statistical 
+The uncertainty in the trigger efficiency is taken to be the maximum of the statistical 
 uncertainty, and the difference in trigger efficiency obtained using the baseline selection and no 
 selection at all. As the uncertainties are not symmetric, we show both the up and down uncertainties
 in Fig.~\ref{fig:boost_trigger_efficiency_unc}. They are generally below 5\%.   
 
 
-\begin{figure}[htpb]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.68\textwidth]{figures/razor_trigger/h_HT_j1pt_pre_eff_ph_l}
+\includegraphics[width=0.9\textwidth]{figures/razor_trigger/h_HT_j1pt_pre_eff_ph_l}
 
-\includegraphics[width=0.68\textwidth]{figures/razor_trigger/MR_R2_bg_trig_eff}
+\includegraphics[width=0.9\textwidth]{figures/razor_trigger/MR_R2_bg_trig_eff}
 \caption{[top] The trigger efficiency, obtained from data, as a function of $H_T$ and first jet
 $\pt$ after the preselection mentioned in Section~\ref{sec:boost_baseline_selection}.
 [bottom] The trigger efficiency as a function of $\mathrm{M_R}$ and $\mathrm{R^2}$ after the same
