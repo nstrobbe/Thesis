@@ -134,6 +134,13 @@ Another step in the hunt for new physics at CMS \\[0.5cm] \textcolor{red}{(Preli
 \newtheorem*{cajet}{Cambridge-Aachen jet algorithm}
 %\theoremstyle{definition}
 
+
+\let\origdoublepage\cleardoublepage
+\newcommand{\clearemptydoublepage}{%
+  \clearpage
+  {\pagestyle{empty}\origdoublepage}%
+}
+
 \begin{document}
 %\maketitle
 % 
@@ -181,6 +188,8 @@ Doctor in de Wetenschappen: Fysica }
   \vspace{1cm}
   
 \end{titlepage}
+
+\clearemptydoublepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter*{~}
@@ -194,6 +203,7 @@ existing.\\
 Albert Einstein }
 \end{flushright}
 
+\clearemptydoublepage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{acknowledgements.tex}
